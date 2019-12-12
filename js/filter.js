@@ -897,6 +897,8 @@ class Filter extends FilterBase {
 		const $btnDefault = $(`<button class="btn btn-default ${opts.isMulti ? "btn-xxs" : "btn-xs"}">Default</button>`).click(() => this._doSetPinsDefault());
 
 		const $wrpStateBtns = $$`<div class="btn-group">${$btnAll}${$btnClear}${$btnNone}${$btnDefault}</div>`;
+		const $wrpStateBtnsOuter = $$`<div class="flex-v-center">${$wrpStateBtns}</div>`;
+		this._$getHeaderControls_addExtraStateBtns(opts, $wrpStateBtnsOuter);
 
 		const $wrpSummary = $(`<div class="flex-v-center"/>`).hide();
 
@@ -943,7 +945,7 @@ class Filter extends FilterBase {
 
 		return $$`
 		<div class="flex-v-center">
-			${$wrpStateBtns}
+			${$wrpStateBtnsOuter}
 			${$wrpSummary}
 			<span class="btn-group ml-2">
 				${$btnCombineBlue}
@@ -951,6 +953,10 @@ class Filter extends FilterBase {
 			</span>
 			${$btnShowHide}
 		</div>`;
+	}
+
+	_$getHeaderControls_addExtraStateBtns () {
+		// To be optionally implemented by child classes
 	}
 
 	/**
@@ -1281,6 +1287,40 @@ Filter._DEFAULT_META = {
 	combineBlue: "or",
 	combineRed: "or"
 };
+
+class SourceFilter extends Filter {
+	_$getHeaderControls_addExtraStateBtns (opts, $wrpStateBtnsOuter) {
+		const $btnSupplements = $(`<button class="btn btn-default ${opts.isMulti ? "btn-xxs" : "btn-xs"}" title="SHIFT to include UA/etc.">Core/Supplements</button>`)
+			.click(evt => this._doSetPinsSupplements(evt.shiftKey));
+
+		const $btnAdventures = $(`<button class="btn btn-default ${opts.isMulti ? "btn-xxs" : "btn-xs"}" title="SHIFT to include UA/etc.">Adventures</button>`)
+			.click(evt => this._doSetPinsAdventures(evt.shiftKey));
+
+		$$`<div class="btn-group mr-2">${$btnSupplements}${$btnAdventures}</div>`.prependTo($wrpStateBtnsOuter);
+	}
+
+	_doSetPinsSupplements (isIncludeUnofficial) {
+		Object.keys(this._state)
+			.forEach(k => this._state[k] = SourceUtil.isCoreOrSupplement(k) && (isIncludeUnofficial || !SourceUtil.isNonstandardSource(k)) ? 1 : 0);
+	}
+
+	_doSetPinsAdventures (isIncludeUnofficial) {
+		Object.keys(this._state).forEach(k => this._state[k] = SourceUtil.isAdventure(k) && (isIncludeUnofficial || !SourceUtil.isNonstandardSource(k)) ? 1 : 0);
+	}
+
+	static getInstance (options) {
+		if (!options) options = {};
+
+		const baseOptions = {
+			header: FilterBox.SOURCE_HEADER,
+			displayFn: (item) => Parser.sourceJsonToFullCompactPrefix(item.item || item),
+			selFn: defaultSourceSelFn,
+			groupFn: SourceUtil.getFilterGroup
+		};
+		Object.assign(baseOptions, options);
+		return new SourceFilter(baseOptions);
+	}
+}
 
 class RangeFilter extends FilterBase {
 	/**

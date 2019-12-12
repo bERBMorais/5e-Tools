@@ -204,7 +204,7 @@ class PageFilterSpells {
 	constructor () {
 		this._brewSpellClasses = {PHB: {}};
 
-		const sourceFilter = getSourceFilter();
+		const sourceFilter = SourceFilter.getInstance();
 		const levelFilter = new Filter({
 			header: "Level",
 			items: [

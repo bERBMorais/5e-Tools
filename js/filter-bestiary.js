@@ -54,7 +54,7 @@ class PageFilterBestiary {
 		this._creatureMeta = {};
 		this._languages = {};
 
-		const sourceFilter = getSourceFilter();
+		const sourceFilter = SourceFilter.getInstance();
 		const crFilter = new RangeFilter({
 			header: "Challenge Rating",
 			isLabelled: true,

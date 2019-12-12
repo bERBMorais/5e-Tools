@@ -24413,7 +24413,6 @@
 			"dmg2": "{@dice 1d10}",
 			"dmgType": "B",
 			"property": [
-				"T",
 				"V"
 			],
 			"range": "20/60",

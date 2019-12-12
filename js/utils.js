@@ -4,7 +4,7 @@
 // ************************************************************************* //
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 IS_DEPLOYED = undefined;
-VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.91.1"/* 5ETOOLS_VERSION__CLOSE */;
+VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.91.3"/* 5ETOOLS_VERSION__CLOSE */;
 DEPLOYED_STATIC_ROOT = ""; // "https://static.5etools.com/"; // FIXME re-enable this when we have a CDN again
 // for the roll20 script to set
 IS_VTT = false;
@@ -2309,6 +2309,42 @@ Parser.SOURCE_JSON_TO_ABV[SRC_UAFRW] = "UAFRW";
 Parser.SOURCE_JSON_TO_ABV[SRC_STREAM] = "Stream";
 Parser.SOURCE_JSON_TO_ABV[SRC_TWITTER] = "Twitter";
 
+Parser.SOURCES_ADVENTURES = new Set([
+	SRC_LMoP,
+	SRC_HotDQ,
+	SRC_RoT,
+	SRC_PotA,
+	SRC_OotA,
+	SRC_CoS,
+	SRC_SKT,
+	SRC_TYP,
+	SRC_TYP_AtG,
+	SRC_TYP_DiT,
+	SRC_TYP_TFoF,
+	SRC_TYP_THSoT,
+	SRC_TYP_TSC,
+	SRC_TYP_ToH,
+	SRC_TYP_WPM,
+	SRC_ToA,
+	SRC_TTP,
+	SRC_WDH,
+	SRC_LLK,
+	SRC_WDMM,
+	SRC_KKW,
+	SRC_GoS,
+	SRC_HftT,
+	SRC_OoW,
+	SRC_DIP,
+	SRC_SLW,
+	SRC_SDW,
+	SRC_DC,
+	SRC_BGDIA,
+	SRC_LR,
+	SRC_EFR,
+	SRC_RMBRE
+]);
+Parser.SOURCES_CORE_SUPPLEMENTS = new Set(Object.keys(Parser.SOURCE_JSON_TO_FULL).filter(it => !Parser.SOURCES_ADVENTURES.has(it)));
+
 Parser.ITEM_TYPE_JSON_TO_ABV = {
 	"A": "Ammunition",
 	"AF": "Ammunition",
@@ -2456,6 +2492,16 @@ SourceUtil = {
 				|| (shortName === "Storm" && source === SRC_SCAG)
 				|| (shortName === "Deep Stalker Conclave" && source === SRC_UATRR)
 			);
+	},
+
+	isAdventure (source) {
+		if (source instanceof FilterItem) source = source.item;
+		return Parser.SOURCES_ADVENTURES.has(source);
+	},
+
+	isCoreOrSupplement (source) {
+		if (source instanceof FilterItem) source = source.item;
+		return Parser.SOURCES_CORE_SUPPLEMENTS.has(source);
 	},
 
 	isNonstandardSource (source) {
@@ -4067,23 +4113,6 @@ ListUtil = {
 		});
 	}
 };
-
-/**
- * Generic source filter
- * deselected. If there are more items to be deselected than selected, it is advisable to set this to "true"
- * @param options overrides for the default filter options
- * @returns {*} a `Filter`
- */
-function getSourceFilter (options = {}) {
-	const baseOptions = {
-		header: FilterBox.SOURCE_HEADER,
-		displayFn: (item) => Parser.sourceJsonToFullCompactPrefix(item.item || item),
-		selFn: defaultSourceSelFn,
-		groupFn: SourceUtil.getFilterGroup
-	};
-	Object.assign(baseOptions, options);
-	return new Filter(baseOptions);
-}
 
 function defaultSourceSelFn (val) {
 	return !SourceUtil.isNonstandardSource(val);
