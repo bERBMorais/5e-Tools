@@ -1,0 +1,740 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "My PCs",
+				"abbreviation": "My PCs",
+				"full": "My Player Chars",
+				"authors": [
+					"msanteler"
+				],
+				"version": "1.0",
+				"url": "https://github.com/TheGiddyLimit/homebrew",
+				"targetSchema": "1.3.4"
+			}
+		]
+	},
+	"dateAdded": 1575237582,
+	"monster": [
+		{
+			"name": "Rhaegal Dovahkiin",
+			"isNamedCreature": true,
+			"source": "My PCs",
+			"level": 1,
+			"size": "M",
+			"type": "humanoid",
+			"alignment": [
+				"C",
+				"G"
+			],
+			"ac": [
+				13,
+				{
+					"ac": 10,
+					"from": [
+						"{@item leather armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "1d8 + 1",
+				"average": 9
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 12,
+			"dex": 14,
+			"con": 12,
+			"int": 12,
+			"wis": 14,
+			"cha": 12,
+			"save": {
+				"dex": "+4",
+				"int": "+3"
+			},
+			"skill": {
+				"acrobatics": "+4",
+				"athletics": "+3",
+				"intimidation": "+3",
+				"perception": "+6",
+				"stealth": "+6",
+				"survival": "+4"
+			},
+			"passive": 0,
+			"resist": [
+				"fire"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"cr": "0",
+			"trait": [
+				{
+					"name": "* Race, Class, Background",
+					"entries": [
+						":",
+						"{@race Dragonborn|phb|Brass Dragonborn|}",
+						"{@class Rogue}",
+						"{@background Outlander}"
+					]
+				},
+				{
+					"name": "Equipment",
+					"entries": [
+						":",
+						"{@item Rapier|phb}",
+						"{@item Shortbow|phb}",
+						"{@item Burglar's Pack|phb}",
+						"2x {@item Dagger|phb}",
+						"2x {@item Thieves' Tools|phb}",
+						"{@item Staff|phb},",
+						"{@item Hunting Trap|phb},",
+						"Set of {@item traveler's clothes|phb}",
+						"A belt {@item pouch|phb} containing 10 gp",
+						"Trophy from an animal you killed"
+					]
+				},
+				{
+					"name": "* Armor/Weapon Proficiencies",
+					"entries": [
+						":",
+						"{@table Armor and Shields; Armor|phb|Armors}: Light Armor",
+						"{@table Weapons|phb|Weapons}: Simple weapons, {@item hand crossbow|phb|hand crossbows}, {@item longsword|phb|longswords}, {@item rapier|phb|rapiers}, {@item shortsword|phb|shortswords}",
+						"{@table Tools|phb|Tools}: {@item Thieves' Tools|phb}"
+					]
+				},
+				{
+					"name": "{@class rogue|phb|Thieves' Cant}",
+					"entries": [
+						":",
+						"During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.",
+						"In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run."
+					]
+				},
+				{
+					"name": "{@class Rogue|phb|Sneak Attack}",
+					"entries": [
+						"Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra {@dice 1d6} damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.",
+						"You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't {@condition incapacitated}, and you don't have disadvantage on the attack roll.",
+						"The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "{@item Rapier|phb}",
+					"entries": [
+						"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}5 ({@dice 1d8 + 1}) damage."
+					]
+				},
+				{
+					"name": "{@race Dragonborn|PHB|Fire Breath}",
+					"entries": [
+						"You can use your action to exhale destructive energy.",
+						"When you use your breath weapon, each creature in the area of the exhalation must make a dexterity saving throw. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus (11). A creature takes {@dice 2d6} damage on a failed save, and half as much damage on a successful one.",
+						"After you use your breath weapon, you can't use it again until you complete a short or long rest."
+					]
+				},
+				{
+					"name": "{@item Dagger|phb}",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}2 ({@dice 1d4 + 2}) damage."
+					]
+				},
+				{
+					"name": "{@item Shortbow|phb}",
+					"entries": [
+						"{@atk rw} {@hit 4} to hit, range 80/320 ft., one target. {@h}4 ({@dice 1d6 + 2}) damage."
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://vignette.wikia.nocookie.net/vsbattles/images/f/f9/TheDovahkiin.jpg/revision/latest?cb=20181210225705"
+						}
+					}
+				]
+			},
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"miscTags": [
+				"MW",
+				"RW",
+				"RNG"
+			]
+		},
+		{
+			"name": "Aku",
+			"isNamedCreature": true,
+			"source": "My PCs",
+			"level": 1,
+			"size": "M",
+			"type": "humanoid",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				12
+			],
+			"hp": {
+				"formula": "1d8 + 2",
+				"average": 10
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 8,
+			"dex": 14,
+			"con": 14,
+			"int": 11,
+			"wis": 12,
+			"cha": 17,
+			"save": {
+				"wis": "+3",
+				"cha": "+5"
+			},
+			"skill": {
+				"acrobatics": "+4",
+				"arcana": "+2",
+				"deception": "+5",
+				"intimidation": "+5",
+				"persuasion": "+5",
+				"stealth": "+4"
+			},
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"passive": 0,
+			"languages": [
+				"Common",
+				"Elvish",
+				"Infernal"
+			],
+			"cr": "0",
+			"spellcasting": [
+				{
+					"name": "{@book Spellcasting|PHB|10|Casting a spell}",
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell Chill Touch|PHB} ({@dice 1d8|1d8|Chill Touch})",
+								"{@spell eldritch blast|PHB} ({@dice 1d10|1d10|Eldritch Blast})"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell dissonant whispers|PHB}",
+								"{@spell unseen servant|PHB}"
+							],
+							"slots": 1,
+							"lower": 1
+						}
+					},
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "+ Race, Class, Background",
+					"entries": [
+						":",
+						"{@race Half-Elf|phb}",
+						"{@class Warlock}",
+						"{@background Criminal|phb|Hired Killer}"
+					]
+				},
+				{
+					"name": "Equipment",
+					"entries": [
+						":",
+						"{@item Sickle|phb}",
+						"2x {@item Dagger|phb}",
+						"{@item Thieves' Tools|phb}",
+						"Set of dark {@item common clothes|phb}",
+						"{@item Scholar's Pack|phb}",
+						"{@item Crowbar|phb}"
+					]
+				},
+				{
+					"name": "Armor/Weapon Proficiencies",
+					"entries": [
+						":",
+						"{@table Armor and Shields; Armor|phb|Armors}: Light Armor",
+						"{@table Weapons|phb|Weapons}: Simple weapons"
+					]
+				},
+				{
+					"name": "{@race Half-Elf|phb|Fey Ancestry}",
+					"entries": [
+						"You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
+					]
+				},
+				{
+					"name": "{@class Awakened Mind}",
+					"entries": [
+						"Starting at 1st level, your alien knowledge gives you the ability to touch the minds of other creatures. You can communicate telepathically with any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand your telepathic utterances, but the creature must be able to understand at least one language."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "{@item Dagger|phb}",
+					"entries": [
+						"{@atk mw} {@hit +4} to hit, reach 5 ft., one target. {@h}2 ({@dice 1d4}) damage."
+					]
+				},
+				{
+					"name": "{@item Sickle|phb}",
+					"entries": [
+						"{@atk mw} {@hit +1} to hit, reach 5 ft., one target. {@h}2 ({@dice 1d4}) damage."
+					]
+				}
+			],
+			"senseTags": [
+				"D"
+			],
+			"languageTags": [
+				"C",
+				"E",
+				"I"
+			],
+			"miscTags": [
+				"MW"
+			]
+		},
+		{
+			"name": "Midna Galadriel",
+			"source": "My PCs",
+			"level": 1,
+			"size": "M",
+			"type": "aberration",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"{@item leather armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "1d8 + 1",
+				"average": 9
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 13,
+			"dex": 15,
+			"con": 12,
+			"int": 12,
+			"wis": 12,
+			"cha": 14,
+			"save": {
+				"dex": "+4",
+				"int": "+3"
+			},
+			"skill": {
+				"persuasion": "+6",
+				"performance": "+4",
+				"sleight of hand": "+6",
+				"acrobatics": "+4",
+				"perception": "+3"
+			},
+			"senses": [
+				"darkvision 120 ft."
+			],
+			"passive": 0,
+			"languages": [
+				"Common",
+				"Elvish"
+			],
+			"cr": "0",
+			"spellcasting": [
+				{
+					"name": "*99* {@book Spellcasting|PHB|10|Casting a spell}",
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell dancing lights|PHB}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell faerie fire|PHB}"
+							],
+							"slots": 1
+						},
+						"2": {
+							"spells": [
+								"{@spell darkness|PHB}"
+							],
+							"slots": 1
+						}
+					},
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+        {
+          "name": "*1* Primary Traits",
+          "entries": [
+            ":",
+            "{@race Elf (Drow)|phb|Elf (Drow)}",
+            "{@class Rogue}",
+            "{@background TBD}",
+            "{@b Height}: 4 ft 11 in",
+            "{@b Weight} 130 lbs (Mostly Muscle)"
+          ]
+        },
+        {
+          "name": "*2* Armor/Weapon Proficiencies",
+          "entries": [
+            ":",
+            "{@table Armor and Shields; Armor|phb|Armors}: Light Armor",
+            "{@table Weapons|phb|Weapons}: Simple weapons, {@item hand crossbow|phb|hand crossbows}, {@item longsword|phb|longswords}, {@item rapier|phb|rapiers}, {@item shortsword|phb|shortswords}",
+            "{@table Tools|phb|Tools}: {@item Thieves' Tools|phb}"
+          ]
+        },
+        {
+          "name": "*3* Equipment",
+          "entries": [
+            ":",
+            "{@item Rapier|phb}",
+            "{@item ShortBow|phb}",
+            "{@item Burglar's Pack|phb}",
+            "{@item Leather Armor|phb}",
+            "{@item Thieves' Tools|phb}",
+            "x2 {@item Dagger|phb}"
+          ]
+        },
+        {
+          "name": "*4* {@race Elf (Drow)|phb|Fey Ancestry}",
+          "entries": [
+            "You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep"
+          ]
+        },
+				{
+					"name": "*4* {@race Elf (Drow)|phb|Sunlight Sensitivity}",
+					"entries": [
+						"You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
+					]
+				},
+				{
+					"name": "*4* {@class Rogue|phb|Sneak Attack}",
+					"entries": [
+						"Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra {@dice 1d6} damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.",
+						"You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't {@condition incapacitated}, and you don't have disadvantage on the attack roll.",
+						"The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table."
+					]
+				},
+				{
+					"name": "*4* {@class rogue|phb|Thieves' Cant}",
+					"entries": [
+						":",
+						"During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.",
+						"In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "{@item Dagger|phb}",
+					"entries": [
+						"{@atk mw,rw} {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@dice 1d4 + 2}) damage in melee, or 4 ({@dice 1d4 + 2}) damage at range."
+					]
+				},
+				{
+					"name": "{@item Shortbow|phb}",
+					"entries": [
+						"{@atk rw} {@hit 4} to hit, range 80/320 ft., one target. {@h}5 ({@dice 1d6 + 2}) damage."
+					]
+				},
+				{
+					"name": "{@item Rapier|phb}",
+					"entries": [
+						"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}5 ({@dice 1d8 + 1}) damage."
+					]
+				}
+			],
+			"senseTags": [
+				"SD"
+			],
+			"languageTags": [
+				"C",
+				"E"
+			],
+			"miscTags": [
+				"RW",
+				"MW",
+				"THW",
+				"RNG"
+			]
+		},
+    {
+			"name": "Template",
+			"source": "My PCs",
+			"level": 1,
+			"size": "M",
+			"type": "aberration",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				11
+			],
+			"hp": {
+				"formula": "1d8 + 1",
+				"average": 9
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 12,
+			"dex": 12,
+			"con": 12,
+			"int": 12,
+			"wis": 12,
+			"cha": 12,
+			"passive": 0,
+			"languages": [
+				"Common"
+			],
+			"cr": "0",
+			"spellcasting": [
+				{
+					"name": "*99* {@book Spellcasting|PHB|10|Casting a spell}",
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell Chill Touch|PHB} ({@dice 1d8|1d8|Chill Touch})"
+							]
+						}
+					},
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "*1* Primary Traits",
+					"entries": [
+						":",
+						"{@race Elf (Drow)|phb|Elf (Drow)}",
+						"{@class Rogue}",
+						"{@background TBD}",
+						"{@b Height}: 5ft",
+						"{@b Weight} 100lbs"
+					]
+				},
+				{
+					"name": "*2* Armor/Weapon Proficiencies",
+					"entries": [
+						":",
+						"{@table Armor and Shields; Armor|phb|Armors}: TBD",
+						"{@table Weapons|phb|Weapons}: TBD",
+						"{@table Tools|phb|Tools}: TBD"
+					]
+				},
+				{
+					"name": "*3* Equipment",
+					"entries": [
+						":",
+						"{@item Rapier|phb}",
+						"{@item ShortBow|phb}",
+						"x2 {@item Dagger|phb}"
+					]
+				},
+				{
+					"name": "*4* {@class Rogue|phb|Some Class Trait}",
+					"entries": [
+						"TBD"
+					]
+				},
+				{
+					"name": "*991* Notes",
+					"entries": [
+						":",
+						"{@b Armor Class}: 10 + CON, or worn armor rules"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "{@item Dagger|phb}",
+					"entries": [
+						"{@atk mw,rw} {@hit 1} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@dice 1d4 + 1}) damage in melee, or 3 ({@dice 1d4 + 1}) damage at range."
+					]
+				},
+				{
+					"name": "{@item Shortbow|phb}",
+					"entries": [
+						"{@atk rw} {@hit 1} to hit, range 80/320 ft., one target. {@h}4 ({@dice 1d6 + 1}) damage."
+					]
+				},
+				{
+					"name": "{@item Rapier|phb}",
+					"entries": [
+						"{@atk mw} {@hit 1} to hit, reach 5 ft., one target. {@h}5 ({@dice 1d8 + 1}) damage."
+					]
+				},
+				{
+					"name": "General Attack Notes",
+					"entries": [
+						":",
+						"Melee: Add STR modifier to both attack and dmg",
+						"Ranged: Add DEX Modifier to both attack and dmg",
+						"Finesse: Either STR or DEX to both attack and dmg",
+						"Also add proficiency bonus if proficient in weapon"
+					]
+				}
+			],
+			"languageTags": [
+				"C"
+			],
+			"miscTags": [
+				"RW",
+				"MW",
+				"THW",
+				"RNG"
+			]
+		},
+		{
+			"name": "Template",
+			"source": "My PCs",
+			"level": 1,
+			"size": "M",
+			"type": "aberration",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				11
+			],
+			"hp": {
+				"formula": "1d8 + 1",
+				"average": 9
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 12,
+			"dex": 12,
+			"con": 12,
+			"int": 12,
+			"wis": 12,
+			"cha": 12,
+			"passive": 0,
+			"languages": [
+				"Common"
+			],
+			"cr": "0",
+			"spellcasting": [
+				{
+					"name": "*99* {@book Spellcasting|PHB|10|Casting a spell}",
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell Chill Touch|PHB} ({@dice 1d8|1d8|Chill Touch})"
+							]
+						}
+					},
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "*1* Primary Traits",
+					"entries": [
+						":",
+						"{@race Elf (Drow)|phb|Elf (Drow)}",
+						"{@class Rogue}",
+						"{@background TBD}",
+						"{@b Height}: 5ft",
+						"{@b Weight} 100lbs"
+					]
+				},
+				{
+					"name": "*2* Armor/Weapon Proficiencies",
+					"entries": [
+						":",
+						"{@table Armor and Shields; Armor|phb|Armors}: TBD",
+						"{@table Weapons|phb|Weapons}: TBD",
+						"{@table Tools|phb|Tools}: TBD"
+					]
+				},
+				{
+					"name": "*3* Equipment",
+					"entries": [
+						":",
+						"{@item Rapier|phb}",
+						"{@item ShortBow|phb}",
+						"x2 {@item Dagger|phb}"
+					]
+				},
+				{
+					"name": "*4* {@class Rogue|phb|Some Class Trait}",
+					"entries": [
+						"TBD"
+					]
+				},
+				{
+					"name": "*991* Notes",
+					"entries": [
+						":",
+						"{@b Armor Class}: 10 + CON, or worn armor rules"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "{@item Dagger|phb}",
+					"entries": [
+						"{@atk mw,rw} {@hit 1} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@dice 1d4 + 1}) damage in melee, or 3 ({@dice 1d4 + 1}) damage at range."
+					]
+				},
+				{
+					"name": "{@item Shortbow|phb}",
+					"entries": [
+						"{@atk rw} {@hit 1} to hit, range 80/320 ft., one target. {@h}4 ({@dice 1d6 + 1}) damage."
+					]
+				},
+				{
+					"name": "{@item Rapier|phb}",
+					"entries": [
+						"{@atk mw} {@hit 1} to hit, reach 5 ft., one target. {@h}5 ({@dice 1d8 + 1}) damage."
+					]
+				},
+				{
+					"name": "General Attack Notes",
+					"entries": [
+						":",
+						"Melee: Add STR modifier to both attack and dmg",
+						"Ranged: Add DEX Modifier to both attack and dmg",
+						"Finesse: Either STR or DEX to both attack and dmg",
+						"Also add proficiency bonus if proficient in weapon"
+					]
+				}
+			],
+			"languageTags": [
+				"C"
+			],
+			"miscTags": [
+				"RW",
+				"MW",
+				"THW",
+				"RNG"
+			]
+		}
+	]
+}
