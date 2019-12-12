@@ -695,9 +695,12 @@ input[type=checkbox].sidemenu__row__label__cb {
 
 /* *** */
 
-.btn-name-pronounce {
+.btn-name-pronounce,
+.btn-stats-name {
 	margin-left: 5px;
 	vertical-align: top;
+	height: 24px;
+	width: 24px;
 }
 
 .name-pronounce-icon {
@@ -1279,6 +1282,10 @@ th.name {
 		color: #5c7c27;
 	}
 
+	&MFF {
+		color: #92817f;
+	}
+
 	&AL {
 		color: #ed1c24;
 	}
@@ -1384,6 +1391,10 @@ th.name {
 span.dc-roller[mode=dice] {
 	color: $rgb-link-blue;
 	cursor: pointer;
+}
+
+.night-mode span.dc-roller[mode=dice] {
+	color: $rgb-link-blue--night;
 }
 
 div#lootoutput {
@@ -3500,7 +3511,6 @@ ul.list.books > li > a > span.name:hover {
 
 /* Night Mode */
 .night-mode {
-	$link-color: #7db6e8;
 	$class-main-color-alt: #c2c2c2;
 	$rgb-class-sub-color: #609dd2;
 	$rgb-class-ua-color: #a2ce42;
@@ -3583,7 +3593,7 @@ ul.list.books > li > a > span.name:hover {
 
 	a,
 	.roller {
-		color: $link-color;
+		color: $rgb-link-blue--night;
 	}
 
 	.nav > li:not(.active) > a {
@@ -4175,7 +4185,7 @@ ul.list.books > li > a > span.name:hover {
 
 	.ui-slider-pips:not(.ui-slider-disabled) .ui-slider-pip:hover .ui-slider-label,
 	.ui-slider .ui-slider-label {
-		color: $link-color;
+		color: $rgb-link-blue--night;
 	}
 
 	.ui-slider-pips .ui-slider-line {

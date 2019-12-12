@@ -617,7 +617,7 @@ class MakeCards extends BaseComponent {
 
 			$iptStr.typeahead({
 				source: icon_names,
-				items: '16',
+				items: "16",
 				fnGetItemPrefix: (iconName) => {
 					return `<span class="cards__disp-typeahead-icon mr-2" style="background-image: url('${MakeCards._getIconPath(iconName)}')"/> `;
 				}

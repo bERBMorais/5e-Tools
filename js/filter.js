@@ -1362,6 +1362,8 @@ class RangeFilter extends FilterBase {
 		this._$slider = null;
 	}
 
+	set isUseDropdowns (val) { this._meta.isUseDropdowns = !!val; }
+
 	getSaveableState () {
 		return {
 			[this.header]: {
@@ -1482,7 +1484,6 @@ class RangeFilter extends FilterBase {
 
 		return $$`
 		<div class="flex-v-center">
-			${$btnForceMobile}
 			${$wrpBtns}
 			${$wrpSummary}
 			${$btnShowHide}
@@ -1770,6 +1771,7 @@ class MultiFilter extends FilterBase {
 	constructor (opts) {
 		super(opts);
 		this._filters = opts.filters;
+		this._isAddDropdownToggle = !!opts.isAddDropdownToggle;
 
 		Object.assign(
 			this.__state,
@@ -1857,15 +1859,36 @@ class MultiFilter extends FilterBase {
 
 		const $wrpSummary = $(`<div class="fltr__summary_item"/>`).hide();
 
+		const $btnForceMobile = this._isAddDropdownToggle ? ComponentUiUtil.$getBtnBool(
+			this,
+			"isUseDropdowns",
+			{
+				$ele: $(`<button class="btn btn-default btn-xs ml-2">Show as Dropdowns</button>`),
+				stateName: "meta",
+				stateProp: "_meta"
+			}
+		) : null;
+		// Propagate parent state to children
+		const hkChildrenDropdowns = () => {
+			this._filters
+				.filter(it => it instanceof RangeFilter)
+				.forEach(it => it.isUseDropdowns = this._meta.isUseDropdowns);
+		};
+		this._addHook("meta", "isUseDropdowns", hkChildrenDropdowns);
+		hkChildrenDropdowns();
+
 		const $btnResetAll = $(`<button class="btn btn-default btn-xs ml-2">Reset All</button>`)
 			.click(() => this._filters.forEach(it => it.reset()));
+		const $wrpBtns = $$`<div>${$btnForceMobile}${$btnResetAll}</div>`;
+
 		const $btnShowHide = $(`<button class="btn btn-default btn-xs ml-2 ${this._meta.isHidden ? "active" : ""}">Hide</button>`)
 			.click(() => this._meta.isHidden = !this._meta.isHidden);
 		const $wrpControls = $$`<div class="flex-v-center">
-			${$wrpSummary}${$btnResetAll}${$btnShowHide}
+			${$wrpSummary}${$wrpBtns}${$btnShowHide}
 		</div>`;
 
 		const hookShowHide = () => {
+			$wrpBtns.toggle(!this._meta.isHidden);
 			$btnShowHide.toggleClass("active", this._meta.isHidden);
 			$wrpChildren.toggle(!this._meta.isHidden);
 			$wrpSummary.toggle(this._meta.isHidden);
