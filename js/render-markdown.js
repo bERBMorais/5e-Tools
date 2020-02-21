@@ -378,7 +378,7 @@ class RendererMarkdown {
 
 		const monTypes = Parser.monTypeToFullObj(mon.type);
 		const savePart = mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
-		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(renderer, mon)}` : "";
+		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
 		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.monImmResToFull(mon.vulnerable)}` : "";
 		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.monImmResToFull(mon.resist)}` : "";
 		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.monImmResToFull(mon.immune)}` : "";
@@ -390,6 +390,8 @@ class RendererMarkdown {
 		const actionsPart = mon.action ? `\n>### Actions\n${RendererMarkdown.monster._getRenderedSection(mon.action, 1)}` : "";
 		const reactionsPart = mon.reaction ? `\n>### Reactions\n${RendererMarkdown.monster._getRenderedSection(mon.reaction, 1)}` : "";
 		const legendaryActionsPart = mon.legendary ? `\n>### Legendary Actions\n>${Renderer.monster.getLegendaryActionIntro(mon, RendererMarkdown.get())}\n${RendererMarkdown.monster._getRenderedSection(mon.legendary, 1)}` : "";
+
+		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSection(mon.footer, 0)}` : "";
 
 		const str = `---
 >## ${mon._displayName || mon.name}
@@ -406,7 +408,7 @@ class RendererMarkdown {
 >- **Senses** ${mon.senses ? `${Renderer.monster.getRenderedSenses(mon.senses, true)}, ` : ""}passive Perception ${mon.passive || "\u2014"}
 >- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages)}
 >- **Challenge** ${mon.cr ? Parser.monCrToFull(mon.cr) : "\u2014"}
->___${traitsPart}${actionsPart}${reactionsPart}${legendaryActionsPart}`;
+>___${traitsPart}${actionsPart}${reactionsPart}${legendaryActionsPart}${footerPart}`;
 
 		const monRender = str.trim().split("\n").map(it => it.trim() ? it : `>`).join("\n");
 		textStack[0] += `\n${monRender}\n\n`;
@@ -459,6 +461,30 @@ class RendererMarkdown {
 			const img = MiscUtil.copy(entry.images[i]);
 			this._recursiveRender(img, textStack, meta);
 		}
+	}
+	// endregion
+
+	// region flowchart
+	_renderFlowchart (entry, textStack, meta, options) {
+		const len = entry.blocks.length;
+		for (let i = 0; i < len; ++i) {
+			this._recursiveRender(entry.blocks[i], textStack, meta, options);
+		}
+	}
+
+	_renderFlowBlock (entry, textStack, meta, options) {
+		textStack[0] += "\n";
+		if (entry.name != null) textStack[0] += `> ##### ${entry.name}\n`;
+		if (entry.entries) {
+			const len = entry.entries.length;
+			for (let i = 0; i < len; ++i) {
+				const cacheDepth = meta.depth;
+				meta.depth = 2;
+				this._recursiveRender(entry.entries[i], textStack, meta, {prefix: ">", suffix: "\n>\n"});
+				meta.depth = cacheDepth;
+			}
+		}
+		textStack[0] += `\n`;
 	}
 	// endregion
 

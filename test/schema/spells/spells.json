@@ -1,12 +1,12 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"$id": "spells.json",
-	"version": "1.4.5",
+	"version": "1.5.2",
 	"title": "Spells",
 	"type": "object",
 
 	"definitions": {
-		"spell": {
+		"spellData": {
 			"properties": {
 				"name": {
 					"type": "string"
@@ -135,7 +135,8 @@
 											"type": "string"
 										},
 										"cost": {
-											"type": "integer"
+											"description": "In copper pieces.",
+											"type": "number"
 										},
 										"consume": {
 											"type": "boolean"
@@ -365,19 +366,58 @@
 				},
 				"srd": {
 					"$ref": "util.json#/definitions/srd"
+				},
+				"scalingLevelDice": {
+					"oneOf": [
+						{
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/scalingLevelDiceItem"
+							}
+						},
+						{
+							"$ref": "#/definitions/scalingLevelDiceItem"
+						}
+					]
 				}
 			},
-			"required": [
-				"name",
-				"level",
-				"school",
-				"time",
-				"range",
-				"duration",
-				"entries",
-				"source"
-			],
 			"additionalProperties": false
+		},
+
+		"spell": {
+			"anyOf": [
+				{
+					"type": "object",
+					"$$merge": [
+						{
+							"$ref": "#/definitions/spellData"
+						},
+						{
+							"required": [
+								"name",
+								"level",
+								"school",
+								"time",
+								"range",
+								"duration",
+								"entries",
+								"source"
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"$$merge": [
+						{
+							"$ref": "#/definitions/spellData"
+						},
+						{
+							"$ref": "util.json#/definitions/copyBlock"
+						}
+					]
+				}
+			]
 		},
 
 		"time": {
@@ -470,6 +510,25 @@
 				"source"
 			],
 			"additionalProperties": false
+		},
+
+		"scalingLevelDiceItem": {
+			"type": "object",
+			"properties": {
+				"label": {
+					"type": "string"
+				},
+				"scaling": {
+					"type": "object",
+					"patternProperties": {
+						"\\d+": {
+							"type": "string"
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
 		}
 	},
 
@@ -477,6 +536,13 @@
 		"spell": {
 			"type": "array",
 			"items": {"$ref": "#/definitions/spell"}
+		},
+		"_meta": {
+			"$ref": "util.json#/definitions/metaBlock"
 		}
-	}
+	},
+	"required": [
+		"spell"
+	],
+	"additionalProperties": false
 }

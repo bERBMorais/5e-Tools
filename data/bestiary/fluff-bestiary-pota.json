@@ -1,17 +1,8 @@
 {
-	"monster": [
+	"monsterFluff": [
 		{
 			"name": "Aerisi Kalinoth",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Aerisi Kalinoth.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -29,17 +20,13 @@
 						"When danger threatens the Temple of Howling Hatred, Aerisi retreats to the Howling Caves, the air node. Within this node, Aerisi gains one additional use of her Legendary Resistance trait."
 					]
 				}
-			]
-		},
-		{
-			"name": "Air Elemental Myrmidon",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Air Elemental Myrmidon.jpg"
+						"path": "bestiary/PotA/Aerisi Kalinoth.jpg"
 					}
 				}
 			]
@@ -60,15 +47,6 @@
 		{
 			"name": "Black Earth Guard",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Black Earth Guard.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -77,11 +55,28 @@
 						"These guards are fanatically loyal to the Black Earth priests and the leaders of the cult. They fight to the death if commanded to do so by their superiors. Those with more potential become burrowsharks."
 					]
 				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Black Earth Guard.jpg"
+					}
+				}
 			]
 		},
 		{
 			"name": "Black Earth Priest",
 			"source": "PotA",
+			"entries": [
+				{
+					"type": "entries",
+					"entries": [
+						"The priests of the Black Earth are the drivers and organizers of Ogremoch's cult. They are the true believers, seeing Ogremoch as a divine force, and they have developed a twisted dogma to explain how the evil of elemental earth is destined to remake the world and rule over all. The Black Earth priests form a cabal of leaders whose fanaticism and magical power serve as the backbone of the cult. Individuals of unusual power hold higher rank in the cult, but the priests provide the cult leader with his or her authority over the rest of Ogremoch's followers."
+					]
+				}
+			],
 			"images": [
 				{
 					"type": "image",
@@ -90,28 +85,11 @@
 						"path": "bestiary/PotA/Black Earth Priest.jpg"
 					}
 				}
-			],
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"The priests of the Black Earth are the drivers and organizers of Ogremoch's cult. They are the true believers, seeing Ogremoch as a divine force, and they have developed a twisted dogma to explain how the evil of elemental earth is destined to remake the world and rule over all. The Black Earth priests form a cabal of leaders whose fanaticism and magical power serve as the backbone of the cult. Individuals of unusual power hold higher rank in the cult, but the priests provide the cult leader with his or her authority over the rest of Ogremoch's followers."
-					]
-				}
 			]
 		},
 		{
 			"name": "Burrowshark",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Burrowshark.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -120,11 +98,28 @@
 						"Burrowsharks are much like Black Earth guards, since both have uncanny footing and special armor. For burrowsharks, an additional gift of Ogremoch's might establishes a magical bond between the burrowshark and a bulette, allowing the rider to burrow with its mount and sense what its mount senses."
 					]
 				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Burrowshark.jpg"
+					}
+				}
 			]
 		},
 		{
 			"name": "Crushing Wave Priest",
 			"source": "PotA",
+			"entries": [
+				{
+					"type": "entries",
+					"entries": [
+						"Crushing Wave priests are the fanatical core of the cult. Gathering in secretive cabals, they perform dark rituals to glorify Olhydra as the embodiment of water's destructiveness. They believe that using water to kill their enemies, such as through ritual drowning, earns them Olhydra's favor."
+					]
+				}
+			],
 			"images": [
 				{
 					"type": "image",
@@ -133,28 +128,11 @@
 						"path": "bestiary/PotA/Crushing Wave Priest.jpg"
 					}
 				}
-			],
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Crushing Wave priests are the fanatical core of the cult. Gathering in secretive cabals, they perform dark rituals to glorify Olhydra as the embodiment of water's destructiveness. They believe that using water to kill their enemies, such as through ritual drowning, earns them Olhydra's favor."
-					]
-				}
 			]
 		},
 		{
 			"name": "Crushing Wave Reaver",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Crushing Wave Cultists.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -163,20 +141,20 @@
 						"Reavers carry shields made of giant crab shells, and the blades of their swords are lined with shark's teeth."
 					]
 				}
-			]
-		},
-		{
-			"name": "Dark Tide Knight",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Dark Tide Knight.jpg"
+						"path": "bestiary/PotA/Crushing Wave Cultists.jpg"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "Dark Tide Knight",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -184,6 +162,15 @@
 						"Dark Tide knights are the elite warriors of the Crushing Wave cult. By drawing upon Olhydra's dark power, they gain the ability to ride sea-creatures that normally wouldn't be suitable as mounts, and can even breathe underwater and share their mount's senses. The knights prefer to fight from or in the water, since they don't like to leave their mounts behind, but they can be fierce opponents on foot at need.",
 						"Unlike most other knights, Dark Tide knights disdain heavy armor, relying on the speed and ferocity of their attacks to carry them to victory."
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Dark Tide Knight.jpg"
+					}
 				}
 			]
 		},
@@ -197,19 +184,6 @@
 						"Drannin is a self-serving dwarf who has always felt that, due to his heritage, he was owed better than he received. When he didn't receive the accolades, he began to see everyone in his way as the problem, trying to keep him down, and he vowed to do whatever it took to turn the tables. He is currently intent on claiming the legendary axe Orcsplitter, the weapon buried with King Torhild Flametongue of Besilmer many centuries ago. The secret doors and puzzles of the Halls of the Hunting Axe have frustrated Drannin for a long time, but he now has a plan to dupe his cousin Gargosh into finding the axe for him (see the \"Halls of the Hunting Axe\" side trek in chapter 6). Drannin believes that with Orcsplitter in his possession he can establish himself as a powerful lord among his clan, and finally win the respect he thinks he deserves.",
 						"Drannin's most prized possession is his shield guardian. He stole the amulet that controls the shield guardian from a sorcerer some years back."
 					]
-				}
-			]
-		},
-		{
-			"name": "Earth Elemental Myrmidon",
-			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Earth Elemental Myrmidon.jpg"
-					}
 				}
 			]
 		},
@@ -240,6 +214,14 @@
 		{
 			"name": "Eternal Flame Priest",
 			"source": "PotA",
+			"entries": [
+				{
+					"type": "entries",
+					"entries": [
+						"Eternal Flame priests see the world around them as impure and unworthy, and believe that only cleansing by fire can set it right. As a result, all fire is deemed holy, from the smallest candle flame to the greatest conflagrations. When traveling in the open, Eternal Flame priests are clever enough to hide their true beliefs, passing themselves off as druids or wizards with a knack for fire magic."
+					]
+				}
+			],
 			"images": [
 				{
 					"type": "image",
@@ -248,28 +230,11 @@
 						"path": "bestiary/PotA/Eternal Flame Priest.jpg"
 					}
 				}
-			],
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Eternal Flame priests see the world around them as impure and unworthy, and believe that only cleansing by fire can set it right. As a result, all fire is deemed holy, from the smallest candle flame to the greatest conflagrations. When traveling in the open, Eternal Flame priests are clever enough to hide their true beliefs, passing themselves off as druids or wizards with a knack for fire magic."
-					]
-				}
 			]
 		},
 		{
 			"name": "Fathomer",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Crushing Wave Cultists.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -278,20 +243,20 @@
 						"Fathomers often serve as spies, infiltrators, and assassins for the water cult, since they can slip under locked doors or pass through bars and similar obstacles with ease."
 					]
 				}
-			]
-		},
-		{
-			"name": "Feathergale Knight",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Feathergale Knight.jpg"
+						"path": "bestiary/PotA/Crushing Wave Cultists.jpg"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "Feathergale Knight",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -301,17 +266,13 @@
 						"The knights have access to wingwear, as described in the \"Elemental Magic Items\" section. They are often wearing it when encountered."
 					]
 				}
-			]
-		},
-		{
-			"name": "Fire Elemental Myrmidon",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Fire Elemental Myrmidon.jpg"
+						"path": "bestiary/PotA/Feathergale Knight.jpg"
 					}
 				}
 			]
@@ -319,6 +280,14 @@
 		{
 			"name": "Flamewrath",
 			"source": "PotA",
+			"entries": [
+				{
+					"type": "entries",
+					"entries": [
+						"A flamewrath is a spellcaster that has earned the favor of Imix, the Prince of Elemental Fire, through a series of painful rites. A flamewrath's skin is burned and scarred. Inured to pain, the flamewrath revels in battle, using an array of fire spells to incinerate enemies who would try to douse the power of elemental fire. Melee combatants who draw too close face fires that can dance across the flamewrath's skin and burn attackers."
+					]
+				}
+			],
 			"images": [
 				{
 					"type": "image",
@@ -327,28 +296,11 @@
 						"path": "bestiary/PotA/Flamewrath.jpg"
 					}
 				}
-			],
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"A flamewrath is a spellcaster that has earned the favor of Imix, the Prince of Elemental Fire, through a series of painful rites. A flamewrath's skin is burned and scarred. Inured to pain, the flamewrath revels in battle, using an array of fire spells to incinerate enemies who would try to douse the power of elemental fire. Melee combatants who draw too close face fires that can dance across the flamewrath's skin and burn attackers."
-					]
-				}
 			]
 		},
 		{
 			"name": "Gar Shatterkeel",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Gar Shatterkeel.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -364,20 +316,20 @@
 						"When it becomes clear that the Temple of the Crushing Wave is no longer secure, Gar retreats to the Plunging Torrents, the water node. Within this node, Gar gains one additional use of his Legendary Resistance trait."
 					]
 				}
-			]
-		},
-		{
-			"name": "Ghald",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Ghald.png"
+						"path": "bestiary/PotA/Gar Shatterkeel.jpg"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "Ghald",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -385,6 +337,15 @@
 						"Ghald is an 8-foot-tall, four-armed sahuagin who works with a partner, Unferth, for the Kraken Society in Yartar. He's careful not to emerge from his hiding place beneath the docks unless it's dark and rainy, and even then he hides under a bulky cloak. He and Unferth serve as the Kraken Society's top operatives in this part of the North, and specialize in advancing the agenda of the society through theft, intimidation, and assassination.",
 						"When the thieves' guild known as the Hand of Yartar comes into possession of a powerful elemental weapon (see the \"Dark Dealings in Yartar\" side trek in chapter 6), Ghald and Unferth make sure the Kraken Society comes in with the top bid. They then make sure that no one else interferes."
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Ghald.png"
+					}
 				}
 			]
 		},
@@ -417,15 +378,6 @@
 		{
 			"name": "Howling Hatred Priest",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Howling Hatred Priest.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -434,6 +386,15 @@
 						"Howling Hatred priests see themselves as living extensions of Yan-C-Bin, and they help new recruits cast off the shackles of their old lives and embrace a \"higher purpose.\" Once the new recruits are thus purified, the priests decide whether they are worthy for indoctrination as initiates or would better serve the Howling Hatred cult as sacrifices. The priests also uphold the doctrine of their prophet, inoth, and harshly punish any initiate who strays from the path.",
 						"Most other air cultists hate the priests, though none dares to speak out against them. Those that challenge the priests often end up the subjects of rigorous new attempts at purification."
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Howling Hatred Priest.jpg"
+					}
 				}
 			]
 		},
@@ -453,15 +414,6 @@
 		{
 			"name": "Imix",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Imix.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -477,20 +429,20 @@
 						"Imix's home is a fiery inverted pyramid within a volcano on the Elemental Plane of Fire. This fortress-palace is known as the Temple of Ultimate Consumption. Imix is quick to answer calls from the Material Plane, since he hungers eternally for new forests, plains, and kingdoms to burn."
 					]
 				}
-			]
-		},
-		{
-			"name": "Marlos Urnrayle",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Marlos Urnrayle.jpg"
+						"path": "bestiary/PotA/Imix.jpg"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "Marlos Urnrayle",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -505,6 +457,15 @@
 					"entries": [
 						"When the Temple of Black Earth is threatened, Marlos Urnrayle retreats to the Black Geode, the earth node. Within this node, Marlos gains one additional use of his Legendary Resistance trait."
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Marlos Urnrayle.jpg"
+					}
 				}
 			]
 		},
@@ -524,15 +485,6 @@
 		{
 			"name": "Ogrémoch",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Ogrémoch.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -549,20 +501,20 @@
 						"Ogremoch is normally found in the depths of elemental earth, choosing caverns with black crystals and jagged rock spikes to serve as his throne room. He can enter the Material Plane through large and well-established nodes of elemental earth, with a little help from the proper rituals. Within such a node, Ogremoch wields great power."
 					]
 				}
-			]
-		},
-		{
-			"name": "Olhydra",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Olhydra.jpg"
+						"path": "bestiary/PotA/Ogrémoch.jpg"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "Olhydra",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -579,20 +531,20 @@
 						"The Princess of Evil Water is native to the Elemental Plane of Water, where she can be found in the black depths of vast seas or enthroned among jagged reefs. Olhydra waits for the chance to enter the Material Plane through elemental water nodes or when called by the proper rituals. Whether she is in her elemental domain or temporarily occupying a water node, Olhydra commands the waters around her and can shape them to her will."
 					]
 				}
-			]
-		},
-		{
-			"name": "One-eyed Shiver",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Crushing Wave Cultists.jpg"
+						"path": "bestiary/PotA/Olhydra.jpg"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "One-eyed Shiver",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -601,20 +553,20 @@
 						"One-eyed shivers inspire dread and fear in all who meet them, including their fellow cultists. Only the leaders of the Crushing Wave cult dare to give commands to these masters of icy magic."
 					]
 				}
-			]
-		},
-		{
-			"name": "Oreioth",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Oreioth.png"
+						"path": "bestiary/PotA/Crushing Wave Cultists.jpg"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "Oreioth",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -624,20 +576,20 @@
 						"What few social graces Oreioth once possessed are fading rapidly. He has become a megalomaniac, styling himself the Lord of Lance Rock and surrounding himself with zombies and skeletons compelled to heed his every whim. Oreioth barely recognizes his own name anymore, and he harbors dreams of founding a kingdom of undead servitors with himself on the throne."
 					]
 				}
-			]
-		},
-		{
-			"name": "Razerblast",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Razerblast.jpg"
+						"path": "bestiary/PotA/Oreioth.png"
 					}
 				}
-			],
+			]
+		},
+		{
+			"name": "Razerblast",
+			"source": "PotA",
 			"entries": [
 				{
 					"type": "entries",
@@ -645,6 +597,15 @@
 						"A razerblast seethes with hate for the enemies of the fire cult. The razerblast's elemental overlords have replaced its heart with a flaming orb that detonates if the razerblast dies.",
 						"Razerblasts remember little of their life before they the power of elemental fire transformed them. Now they follow the orders of the flamewraths and the cult leaders without question. Razerblasts fight confidently because they know that even if they lose, they go out in a blaze of glory."
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Razerblast.jpg"
+					}
 				}
 			]
 		},
@@ -714,15 +675,6 @@
 		{
 			"name": "Vanifer",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Vanifer.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -733,17 +685,13 @@
 						"When enemies threaten the Temple of Eternal Flame, Vanifer withdraws to the Weeping Colossus, the fire node. Within this node, Vanifer gains one additional use of her Legendary Resistance trait."
 					]
 				}
-			]
-		},
-		{
-			"name": "Water Elemental Myrmidon",
-			"source": "PotA",
+			],
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/PotA/Water Elemental Myrmidon.jpg"
+						"path": "bestiary/PotA/Vanifer.jpg"
 					}
 				}
 			]
@@ -751,15 +699,6 @@
 		{
 			"name": "Wiggan Nettlebee",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Wiggan Nettlebee.png"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -767,6 +706,15 @@
 						"Wiggan Nettlebee is the patriarch of the Nettlebee clan, a wealthy family of halflings that raise livestock and farm their land. He presents the outward appearance of a modest rancher, and he forbids extravagance on his farm. Thinking he had found a cult dedicated to the dominating nature and utilizing its darker aspects, Wiggan joined the Cult of the Black Earth. He still doesn't know the full extent of the cult's plans.",
 						"Wiggan dislikes and distrusts outsiders. He believes they are all evildoers who would steal from him if they could. He sees the earth cult as a powerful and necessary ally toward securing his finances and sustaining his position. A greedy miser, Wiggan becomes visibly upset at the thought of parting with even a few spare coins from his hoard."
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Wiggan Nettlebee.png"
+					}
 				}
 			]
 		},
@@ -787,15 +735,6 @@
 		{
 			"name": "Yan-C-Bin",
 			"source": "PotA",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/PotA/Yan-C-Bin.jpg"
-					}
-				}
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -811,6 +750,15 @@
 					"entries": [
 						"Yan-C-Bin dwells in a palace of air on the Elemental Plane of Air. In his palace and in air nodes on the Material Plane (including the Howling Caves, described in chapter 5), Yan-C-Bin is master. He can use the following actions in his lair."
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/PotA/Yan-C-Bin.jpg"
+					}
 				}
 			]
 		}

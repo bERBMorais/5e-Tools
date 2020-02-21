@@ -1,19 +1,16 @@
 "use strict";
 
 class ManageBrew {
-	static initialise () {
-		BrewUtil.pAddBrewData()
-			.then(() => BrewUtil.pAddLocalBrewData())
-			.then(() => {
-				ManageBrew.pRender();
-			})
+	static async pInitialise () {
+		await BrewUtil.pAddBrewData();
+		await BrewUtil.pAddLocalBrewData();
+		return ManageBrew.pRender();
 	}
 
 	static async pRender () {
 		// standard brew manager
 		const $brew = $(`#brewmanager`).empty();
-		const $window = $(`<div style="position: relative;"/>`);
-		await BrewUtil._pRenderBrewScreen($brew, $(`<div/>`), $window, false, async () => ManageBrew.pRender());
+		await BrewUtil._pRenderBrewScreen($brew, false, async () => ManageBrew.pRender());
 
 		// brew meta manager
 		if (BrewUtil.homebrewMeta) {
@@ -77,8 +74,8 @@ class ManageBrew {
 						case "spellSchools":
 							populateGenericSection("Spell Schools", (brew, metaType, k) => brew[metaType][k].full || k);
 							break;
-						case "itemValueConversions":
-							populateGenericSection("Item Value Conversion Tables", (brew, metaType, k) => `${k}: ${brew[metaType][k].map(it => `${it.coin}=${it.mult}`).join(", ")}`);
+						case "currencyConversions":
+							populateGenericSection("Currency Conversion Tables", (brew, metaType, k) => `${k}: ${brew[metaType][k].map(it => `${it.coin}=${it.mult}`).join(", ")}`);
 							break;
 					}
 					handleSecChange(i);
@@ -88,7 +85,9 @@ class ManageBrew {
 	}
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
 	ExcludeUtil.pInitialise(); // don't await, as this is only used for search
-	ManageBrew.initialise();
+	await ManageBrew.pInitialise();
+
+	window.dispatchEvent(new Event("toolsLoaded"));
 });

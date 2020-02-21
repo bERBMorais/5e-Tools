@@ -5475,6 +5475,42 @@
 					"overwrite": {
 						"traitTags": true
 					}
+				},
+				{
+					"name": "Dankwood",
+					"source": "AWM",
+					"page": 35,
+					"ability": [
+						{
+							"dex": 2,
+							"wis": 1
+						}
+					],
+					"entries": [
+						{
+							"type": "entries",
+							"name": "Alignment",
+							"entries": [
+								"Dankwood goblins are typically neutral or neutral good, though some mischievous dankwood goblins are chaotic neutral."
+							],
+							"data": {
+								"overwrite": "Alignment"
+							}
+						},
+						{
+							"type": "entries",
+							"name": "Speak with Small Beasts",
+							"entries": [
+								"Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets."
+							],
+							"data": {
+								"overwrite": "Fury of the Small"
+							}
+						}
+					],
+					"overwrite": {
+						"ability": true
+					}
 				}
 			]
 		},
@@ -5808,7 +5844,7 @@
 				{
 					"name": "Cunning Artisan",
 					"entries": [
-						"As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size small or larger to create one of the following items: a {@item shield|phb}, a {@item club|phb}, a {@item javelin|phb}, or {@dice 1d4} {@item dart|phb|darts} or {@item blowgun needle|phb|blowgun needles}. To use this trait, you need a blade, such as a {@item dagger|phb}, or appropriate {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan tool}, such as {@item leatherworker's tools|phb}."
+						"As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size small or larger to create one of the following items: a {@item shield|phb}, a {@item club|phb}, a {@item javelin|phb}, or {@dice 1d4} {@item dart|phb|darts} or {@item blowgun needle|phb|blowgun needles}. To use this trait, you need a blade, such as a {@item dagger|phb}, or appropriate {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, such as {@item leatherworker's tools|phb}."
 					],
 					"type": "entries"
 				},
@@ -7217,7 +7253,7 @@
 				{
 					"name": "Artisan's Expertise",
 					"entries": [
-						"You gain proficiency with two kinds of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan tool} of your choice. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. In addition, whenever you make an Intelligence ({@skill History}) check related to the origin of any architectural construction (including buildings, public works such as canals and aqueducts, and the massive cogwork that underlies much of the construction of Ghirapur), you are considered proficient in the {@skill History} skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
+						"You gain proficiency with two kinds of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} of your choice. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. In addition, whenever you make an Intelligence ({@skill History}) check related to the origin of any architectural construction (including buildings, public works such as canals and aqueducts, and the massive cogwork that underlies much of the construction of Ghirapur), you are considered proficient in the {@skill History} skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
 					],
 					"type": "entries"
 				},

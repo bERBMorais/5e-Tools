@@ -7,6 +7,7 @@ class RenderSpells {
 
 		renderStack.push(`
 			${Renderer.utils.getBorderTr()}
+			${Renderer.utils.getExcludedTr(sp, "spell")}
 			${Renderer.utils.getNameTr(sp, {page: UrlUtil.PG_SPELLS})}
 			<tr><td class="rd-spell__level-school-ritual" colspan="6"><span>${Parser.spLevelSchoolMetaToFull(sp.level, sp.school, sp.meta, sp.subschools)}</span></td></tr>
 			<tr><td colspan="6"><span class="bold">Casting Time: </span>${Parser.spTimeListToFull(sp.time)}</td></tr>
@@ -44,16 +45,18 @@ class RenderSpells {
 		}
 
 		if (sp.races) {
-			renderStack.push(`<tr class="text"><td colspan="6"><span class="bold">Races: </span>${sp.races.map(r => renderer.render(`{@race ${r.name}|${r.source}}`)).join(", ")}</td></tr>`);
+			sp.races.sort((a, b) => SortUtil.ascSortLower(a.name, b.name) || SortUtil.ascSortLower(a.source, b.source));
+			renderStack.push(`<tr class="text"><td colspan="6"><span class="bold">Races: </span>${sp.races.map(r => `${SourceUtil.isNonstandardSource(r.source) ? `<span class="text-muted">` : ``}${renderer.render(`{@race ${r.name}|${r.source}}`)}${SourceUtil.isNonstandardSource(r.source) ? `</span>` : ``}`).join(", ")}</td></tr>`);
 		}
 
 		if (sp.backgrounds) {
-			renderStack.push(`<tr class="text"><td colspan="6"><span class="bold">Backgrounds: </span>${sp.backgrounds.sort((a, b) => SortUtil.ascSortLower(a.name, b.name)).map(r => renderer.render(`{@background ${r.name}|${r.source}}`)).join(", ")}</td></tr>`);
+			sp.backgrounds.sort((a, b) => SortUtil.ascSortLower(a.name, b.name) || SortUtil.ascSortLower(a.source, b.source));
+			renderStack.push(`<tr class="text"><td colspan="6"><span class="bold">Backgrounds: </span>${sp.backgrounds.map(r => `${SourceUtil.isNonstandardSource(r.source) ? `<span class="text-muted">` : ``}${renderer.render(`{@background ${r.name}|${r.source}}`)}${SourceUtil.isNonstandardSource(r.source) ? `</span>` : ``}`).join(", ")}</td></tr>`);
 		}
 
 		if (sp._scrollNote) {
 			renderStack.push(`<tr class="text"><td colspan="6"><section class="text-muted">`);
-			renderer.recursiveRender(`{@italic Note: Both the {@class ${Renderer.spell.STR_FIGHTER} (${Renderer.spell.STR_ELD_KNIGHT})} and the {@class ${Renderer.spell.STR_ROGUE} (${Renderer.spell.STR_ARC_TCKER})} spell lists include all {@class ${Renderer.spell.STR_WIZARD}} spells. Spells of 5th level or higher may be cast with the aid of a spell scroll or similar.}`, renderStack, {depth: 2});
+			renderer.recursiveRender(`{@italic Note: Both the {@class fighter||${Renderer.spell.STR_FIGHTER} (${Renderer.spell.STR_ELD_KNIGHT})|eldritch knight} and the {@class rogue||${Renderer.spell.STR_ROGUE} (${Renderer.spell.STR_ARC_TCKER})|arcane trickster} spell lists include all {@class ${Renderer.spell.STR_WIZARD}} spells. Spells of 5th level or higher may be cast with the aid of a spell scroll or similar.}`, renderStack, {depth: 2});
 			renderStack.push(`</section></td></tr>`);
 		}
 
@@ -82,9 +85,11 @@ class RenderSpells {
 
 				const target = subclassLookup[c.source][c.name];
 				c.subclasses.forEach(sc => {
+					sc.source = sc.source || c.source;
+					sc.shortName = sc.shortName || sc.name;
 					(target[sc.source] =
-						target[sc.source] || {})[sc.shortName || sc.name] =
-						target[sc.source][sc.shortName || sc.name] || sc.name
+						target[sc.source] || {})[sc.shortName] =
+						target[sc.source][sc.shortName] || {name: sc.name}
 				});
 			})
 		}
@@ -92,14 +97,16 @@ class RenderSpells {
 		if (homebrew.subclass) {
 			homebrew.subclass.forEach(sc => {
 				const clSrc = sc.classSource || SRC_PHB;
+				sc.shortName = sc.shortName || sc.name;
+
 				(subclassLookup[clSrc] =
 					subclassLookup[clSrc] || {})[sc.class] =
 					subclassLookup[clSrc][sc.class] || {};
 
 				const target = subclassLookup[clSrc][sc.class];
 				(target[sc.source] =
-					target[sc.source] || {})[sc.shortName || sc.name] =
-					target[sc.source][sc.shortName || sc.name] || sc.name
+					target[sc.source] || {})[sc.shortName] =
+					target[sc.source][sc.shortName] || {name: sc.name}
 			})
 		}
 	}

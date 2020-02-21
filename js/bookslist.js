@@ -59,12 +59,14 @@ class BooksList {
 		await BrewUtil.pAddLocalBrewData();
 		BrewUtil.makeBrewButton("manage-brew");
 		this.list.init();
+
+		window.dispatchEvent(new Event("toolsLoaded"));
 	}
 
 	addData (data) {
 		if (!data[this.dataProp] || !data[this.dataProp].length) return;
 
-		this.dataList = this.dataList.concat(data[this.dataProp]);
+		this.dataList.push(...data[this.dataProp]);
 
 		for (; this.dataIx < this.dataList.length; this.dataIx++) {
 			const it = this.dataList[this.dataIx];
@@ -82,10 +84,8 @@ class BooksList {
 				this.dataIx,
 				eleLi,
 				it.name,
-				{
-					source: it.id,
-					uniqueId: it.uniqueId
-				}
+				{source: it.id},
+				{uniqueId: it.uniqueId}
 			);
 
 			this.list.addItem(listItem);

@@ -18,24 +18,11 @@ function getHiddenModeList (psionic) {
 
 class PsionicsPage extends ListPage {
 	constructor () {
-		const sourceFilter = SourceFilter.getInstance({
-			deselFn: () => false
-		});
-		const typeFilter = new Filter({header: "Type", items: [Parser.PSI_ABV_TYPE_TALENT, Parser.PSI_ABV_TYPE_DISCIPLINE], displayFn: Parser.psiTypeToFull});
-		const orderFilter = new Filter({
-			header: "Order",
-			items: ["Avatar", "Awakened", "Immortal", "Nomad", "Wu Jen", Parser.PSI_ORDER_NONE]
-		});
-
+		const pageFilter = new PageFilterPsionics();
 		super({
 			dataSource: "data/psionics.json",
 
-			filters: [
-				sourceFilter,
-				typeFilter,
-				orderFilter
-			],
-			filterSource: sourceFilter,
+			pageFilter,
 
 			listClass: "psionics",
 
@@ -87,32 +74,27 @@ class PsionicsPage extends ListPage {
 				colTransforms: {
 					name: {name: "Name", transform: true},
 					source: {name: "Source", transform: (it) => `<span class="${Parser.sourceJsonToColor(it)}" title="${Parser.sourceJsonToFull(it)}" ${BrewUtil.sourceJsonToStyle(it.source)}>${Parser.sourceJsonToAbv(it)}</span>`},
-					_text: {name: "Text", transform: (it) => it.type === "T" ? Renderer.psionic.getTalentText(it, Renderer.get()) : Renderer.psionic.getDisciplineText(it, Renderer.get()), flex: 3}
+					_text: {name: "Text", transform: (it) => Renderer.psionic.getBodyText(it, Renderer.get()), flex: 3}
 				},
 				filter: {generator: ListUtil.basicFilterGenerator},
 				sorter: (a, b) => SortUtil.ascSort(a.name, b.name) || SortUtil.ascSort(a.source, b.source)
 			}
 		});
-
-		this._sourceFilter = sourceFilter;
 	}
 
-	getListItem (p, psI) {
-		p._fOrder = Parser.psiOrderToFull(p.order);
-
-		// populate filters
-		this._sourceFilter.addItem(p.source);
+	getListItem (p, psI, isExcluded) {
+		this._pageFilter.mutateAndAddToFilters(p, isExcluded);
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(p.source);
 		const hash = UrlUtil.autoEncodeHash(p);
-		const type = Parser.psiTypeToFull(p.type);
+		const typeMeta = Parser.psiTypeToMeta(p.type);
 
 		eleLi.innerHTML = `<a href="#${hash}" class="lst--border">
 			<span class="bold col-6 pl-0">${p.name}</span>
-			<span class="col-2">${type}</span>
+			<span class="col-2">${typeMeta.short}</span>
 			<span class="col-2 ${p._fOrder === STR_NONE ? "list-entry-none" : ""}">${p._fOrder}</span>
 			<span class="col-2 text-center pr-0" title="${Parser.sourceJsonToFull(p.source)}" ${BrewUtil.sourceJsonToStyle(p.source)}>${source}</span>
 		</a>`;
@@ -124,10 +106,13 @@ class PsionicsPage extends ListPage {
 			{
 				hash,
 				source,
-				type,
+				type: typeMeta.full,
 				order: p._fOrder,
-				uniqueId: p.uniqueId ? p.uniqueId : psI,
 				searchModeList: getHiddenModeList(p)
+			},
+			{
+				uniqueId: p.uniqueId ? p.uniqueId : psI,
+				isExcluded
 			}
 		);
 
@@ -139,26 +124,18 @@ class PsionicsPage extends ListPage {
 
 	handleFilterChange () {
 		const f = this._filterBox.getValues();
-		this._list.filter(item => {
-			const p = this._dataList[item.ix];
-			return this._filterBox.toDisplay(
-				f,
-				p.source,
-				p.type,
-				p._fOrder
-			);
-		});
+		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
 		FilterBox.selectFirstVisible(this._dataList);
 	}
 
 	getSublistItem (p, pinId) {
 		const hash = UrlUtil.autoEncodeHash(p);
-		const type = Parser.psiTypeToFull(p.type);
+		const typeMeta = Parser.psiTypeToMeta(p.type);
 
 		const $ele = $(`<li class="row">
 			<a href="#${hash}" class="lst--border">
 				<span class="bold col-6 pl-0">${p.name}</span>
-				<span class="col-3">${type}</span>
+				<span class="col-3">${typeMeta.short}</span>
 				<span class="col-3 ${p._fOrder === STR_NONE ? "list-entry-none" : ""} pr-0">${p._fOrder}</span>
 			</a>
 		</li>`)
@@ -170,7 +147,7 @@ class PsionicsPage extends ListPage {
 			p.name,
 			{
 				hash,
-				type,
+				type: typeMeta.full,
 				order: p._fOrder
 			}
 		);
@@ -182,14 +159,12 @@ class PsionicsPage extends ListPage {
 
 		$(`#pagecontent`).empty().append(RenderPsionics.$getRenderedPsionic(psi));
 
-		loadSubHash([]);
-
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 
 		this._bookView.handleSub(sub);
 	}

@@ -392,7 +392,7 @@
 				"blindsight 30 ft. (blind beyond this radius)"
 			],
 			"immune": "poison, psychic",
-			"page": 255,
+			"page": 21,
 			"actionEntries": [
 				{
 					"type": "actions",

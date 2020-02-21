@@ -35,8 +35,8 @@
 			"baseItem": "battleaxe|phb",
 			"rarity": "Unknown (Magic)",
 			"weight": 2,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -680,8 +680,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "battleaxe|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"T",
@@ -839,11 +839,11 @@
 						],
 						[
 							"41-50",
-							"{@dice 1d6+6} {@creature shrieker||shriekers} sprout."
+							"{@dice 1d6 + 6} {@creature shrieker||shriekers} sprout."
 						],
 						[
 							"51-60",
-							"{@dice 1d4+8} bright pink toads crawl forth. Whenever a toad is touched, it transforms into a Large or smaller monster of the DM's choice. The monster remains for 1 minute, then disappears in a puff of bright pink smoke."
+							"{@dice 1d4 + 8} bright pink toads crawl forth. Whenever a toad is touched, it transforms into a Large or smaller monster of the DM's choice. The monster remains for 1 minute, then disappears in a puff of bright pink smoke."
 						],
 						[
 							"61-70",
@@ -851,11 +851,11 @@
 						],
 						[
 							"71-80",
-							"A fruit tree grows. It has {@dice 1d10+20} fruit, {@dice 1d8} of which act as randomly determined magic potions, while one acts as an ingested poison of the DM's choice. The tree vanishes after 1 hour. Picked fruit remains, retaining any magic for 30 days."
+							"A fruit tree grows. It has {@dice 1d10 + 20} fruit, {@dice 1d8} of which act as randomly determined magic potions, while one acts as an ingested poison of the DM's choice. The tree vanishes after 1 hour. Picked fruit remains, retaining any magic for 30 days."
 						],
 						[
 							"81-90",
-							"A nest of {@dice 1d4+3} eggs springs up. Any creature that eats an egg must make a DC 20 Constitution saving throw. On a successful save, a creature permanently increases its lowest ability score by 1, randomly choosing among equally low scores. On a failed save, the creature takes {@dice 10d6} force damage from an internal magical explosion."
+							"A nest of {@dice 1d4 + 3} eggs springs up. Any creature that eats an egg must make a DC 20 Constitution saving throw. On a successful save, a creature permanently increases its lowest ability score by 1, randomly choosing among equally low scores. On a failed save, the creature takes {@dice 10d6} force damage from an internal magical explosion."
 						],
 						[
 							"91-99",
@@ -1154,7 +1154,8 @@
 			"value": 3000,
 			"weight": 6,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Balance of Harmony",
@@ -1284,7 +1285,8 @@
 				"Barding is armor designed to protect an animal's head, neck, chest, and body. Any type of armor shown on the Armor table in this chapter can be purchased as barding. The cost is four times the equivalent armor made for humanoids, and it weighs twice as much."
 			],
 			"weightMult": 2,
-			"valueMult": 4
+			"valueMult": 4,
+			"srd": true
 		},
 		{
 			"name": "Barrel",
@@ -1571,7 +1573,8 @@
 			"value": 200,
 			"weight": 1,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Black Dragon Mask",
@@ -1698,7 +1701,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greatsword|phb",
 			"weight": 6,
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "S",
 			"property": [
 				"H",
@@ -1793,8 +1796,8 @@
 			"type": "M",
 			"weaponCategory": "Simple",
 			"baseItem": "spear|phb",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "P",
 			"weight": 3,
 			"property": [
@@ -2125,7 +2128,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "dagger|phb",
 			"weight": 1,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -2487,7 +2490,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Bronze crown",
@@ -2692,7 +2696,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Caltrop",
@@ -2728,7 +2733,8 @@
 			"speed": 50,
 			"value": 5000,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Candle",
@@ -2985,7 +2991,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Carpet of Flying, 3 ft. × 5 ft.",
@@ -3046,7 +3053,8 @@
 			"value": 10000,
 			"weight": 600,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Carrion Crawler Mucus (Contact)",
@@ -3069,7 +3077,8 @@
 			"value": 1500,
 			"weight": 200,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Cartographer's Tools",
@@ -3152,7 +3161,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Carved bone statuette",
@@ -3402,6 +3412,12 @@
 				"These heavy gauntlets of brown iron are forged in the shape of an {@creature umber hulk||umber hulk's} claws, and they fit the wearer's hands and forearms all the way up to the elbow. While wearing both claws, you gain a burrowing speed of 20 feet, and you can tunnel through solid rock at a rate of 1 foot per round.",
 				"You can use a claw as a melee weapon while wearing it. You have proficiency with it, and it deals {@dice 1d8} slashing damage on a hit (your Strength modifier applies to the attack and damage rolls, as normal).",
 				"While wearing the claws, you can't manipulate objects or cast spells with somatic components."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 94
+				}
 			]
 		},
 		{
@@ -3680,7 +3696,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Common Clothes",
@@ -3801,7 +3818,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Copper",
@@ -4146,7 +4164,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "dagger|phb",
 			"weight": 1,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -4208,8 +4226,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "R",
 			"property": [
 				"F",
@@ -4280,7 +4298,7 @@
 			"source": "DMG",
 			"page": 161,
 			"entries": [
-				"This box contains a set of parchment cards. A full deck has 34 cards. A deck found as treasure is usually missing {@dice 1d20-1} cards.",
+				"This box contains a set of parchment cards. A full deck has 34 cards. A deck found as treasure is usually missing {@dice 1d20 - 1} cards.",
 				"The magic of the deck functions only if cards are drawn at random (you can use an altered deck of playing cards to simulate the deck). You can use an action to draw a card at random from the deck and throw it to the ground at a point within 30 feet of you.",
 				"An illusion of one or more creatures forms over the thrown card and remains until dispelled. An illusory creature appears real, of the appropriate size, and behaves as if it were a real creature, except that it can do no harm. While you are within 120 feet of the illusory creature and can see it, you can use an action to move it magically anywhere within 30 feet of its card. Any physical interaction with the illusory creature reveals it to be an illusion, because objects pass through it. Someone who uses an action to visually inspect the creature identifies it as illusory with a successful DC 15 Intelligence ({@skill Investigation}) check. The creature then appears translucent.",
 				"The illusion lasts until its card is moved or the illusion is dispelled. When the illusion ends, the image on its card disappears, and that card can't be used again.",
@@ -4433,7 +4451,7 @@
 									"entry": "Nine of diamonds"
 								}
 							},
-							"{@creature Ogre} {@creature mage}"
+							"{@creature oni||Ogre mage}"
 						],
 						[
 							{
@@ -4840,7 +4858,7 @@
 								}
 							},
 							"Idiot*",
-							"Permanently reduce your Intelligence by {@dice 1d4+1} (to a minimum score of 1). You can draw one additional card beyond your declared draws."
+							"Permanently reduce your Intelligence by {@dice 1d4 + 1} (to a minimum score of 1). You can draw one additional card beyond your declared draws."
 						],
 						[
 							{
@@ -5057,7 +5075,8 @@
 			"rarity": "None",
 			"value": 10,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Dimensional Shackles",
@@ -5191,7 +5210,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Donkey",
@@ -5201,7 +5221,8 @@
 			"speed": 40,
 			"value": 800,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Draakhorn",
@@ -5226,7 +5247,8 @@
 			"speed": 40,
 			"value": 5000,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Dragonchess Set",
@@ -5257,7 +5279,7 @@
 			"baseItem": "dagger|phb",
 			"weight": 1,
 			"rarity": "Rare",
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -5331,8 +5353,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "trident|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "P",
 			"property": [
 				"T",
@@ -5388,7 +5410,8 @@
 			"value": 600,
 			"weight": 3,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Dulcimer",
@@ -5397,7 +5420,8 @@
 			"value": 2500,
 			"weight": 10,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Dungeoneer's Pack",
@@ -5448,7 +5472,7 @@
 			"source": "DMG",
 			"page": 166,
 			"entries": [
-				"This small packet contains {@dice 1d6+4} pinches of dust. You can use an action to sprinkle a pinch of it over water. The dust turns a cube of water 15 feet on a side into one marble-sized pellet, which floats or rests near where the dust was sprinkled. The pellet's weight is negligible.",
+				"This small packet contains {@dice 1d6 + 4} pinches of dust. You can use an action to sprinkle a pinch of it over water. The dust turns a cube of water 15 feet on a side into one marble-sized pellet, which floats or rests near where the dust was sprinkled. The pellet's weight is negligible.",
 				"Someone can use an action to smash the pellet against a hard surface, causing the pellet to shatter and release the water the dust absorbed. Doing so ends that pellet's magic.",
 				"An elemental composed mostly of water that is exposed to a pinch of the dust must make a DC 13 Constitution saving throw, taking {@dice 10d6} necrotic damage on a failed save, or half as much damage on a successful one."
 			],
@@ -5499,8 +5523,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "warhammer|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "B",
 			"property": [
 				"T",
@@ -5707,7 +5731,8 @@
 			"speed": 40,
 			"value": 20000,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Elixir of Health",
@@ -5874,7 +5899,8 @@
 			"page": 157,
 			"entries": [
 				"An exotic saddle is required for riding any aquatic or flying mount."
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Explorer's Pack",
@@ -5953,7 +5979,7 @@
 					"items": [
 						"You have truesight.",
 						"You can use an action to see as if you were wearing a {@item ring of X-ray vision}. You can end this effect as a bonus action.",
-						"The eye has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: {@spell clairvoyance} (2 charges), {@spell crown of madness} (1 charge), {@spell disintegrate} (4 charges), {@spell dominate monster} (5 charges), or {@spell eyebite} (4 charges). The eye regains {@dice 1d4+4} expended charges daily at dawn. Each time you cast a spell from the eye, there is a {@chance 5} chance that Vecna tears your soul from your body, devours it, and then takes control of the body like a puppet. If that happens, you become an NPC under the DM's control."
+						"The eye has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: {@spell clairvoyance} (2 charges), {@spell crown of madness} (1 charge), {@spell disintegrate} (4 charges), {@spell dominate monster} (5 charges), or {@spell eyebite} (4 charges). The eye regains {@dice 1d4 + 4} expended charges daily at dawn. Each time you cast a spell from the eye, there is a {@chance 5} chance that Vecna tears your soul from your body, devours it, and then takes control of the body like a puppet. If that happens, you become an NPC under the DM's control."
 					]
 				},
 				{
@@ -6060,7 +6086,8 @@
 			"value": 5,
 			"weight": 10,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Figurine of Wondrous Power, Bronze Griffon",
@@ -6317,7 +6344,8 @@
 			"value": 200,
 			"weight": 1,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Folding Boat",
@@ -6429,7 +6457,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Fragmentation Grenade",
@@ -6694,7 +6723,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Glaur",
@@ -6899,7 +6929,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greatsword|phb",
 			"weight": 6,
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "S",
 			"property": [
 				"H",
@@ -7017,8 +7047,8 @@
 		{
 			"name": "Gulthias Staff",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -7029,7 +7059,7 @@
 			"page": 221,
 			"reqAttune": true,
 			"entries": [
-				"Made from the branch of a Gulthias tree (see the {@creature twig blight||blights} entry of the Monster Manual), a Gulthias staff is a spongy, black length of wood. Its evil makes beasts visibly uncomfortable while within 30 feet of it. The staff has 10 charges and regains {@dice 1d6+4} of its expended charges daily at dusk.",
+				"Made from the branch of a Gulthias tree (see the {@creature twig blight||blights} entry of the Monster Manual), a Gulthias staff is a spongy, black length of wood. Its evil makes beasts visibly uncomfortable while within 30 feet of it. The staff has 10 charges and regains {@dice 1d6 + 4} of its expended charges daily at dusk.",
 				"If the staff is broken or burned to ashes, its wood releases a terrible, inhuman scream that can be heard out to a range of 300 feet. All blights that can hear the scream immediately wither and die.",
 				{
 					"name": "Vampiric Strike",
@@ -7084,7 +7114,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greataxe|phb",
 			"weight": 325,
-			"dmg1": "{@dice 3d12}",
+			"dmg1": "3d12",
 			"rarity": "Legendary",
 			"dmgType": "S",
 			"property": [
@@ -7132,7 +7162,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "maul|phb",
 			"weight": 10,
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "B",
 			"property": [
 				"H",
@@ -7154,7 +7184,7 @@
 						"You must be wearing a {@italic belt of giant strength} (any variety) and {@item gauntlets of ogre power} to attune to this weapon. The attunement ends if you take off either of those items. While you are attuned to this weapon and holding it, your Strength score increases by 4 and can exceed 20, but not 30. When you roll a 20 on an attack roll made with this weapon against a giant, the giant must succeed on a DC 17 Constitution saving throw or die."
 					]
 				},
-				"The hammer also has 5 charges. While attuned to it, you can expend 1 charge and make a ranged weapon attack with the hammer, hurling it as if it had the thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the hammer unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it must succeed on a DC 17 Constitution saving throw or be {@condition stunned} until the end of your next turn. The hammer regains {@dice 1d4+1} expended charges daily at dawn."
+				"The hammer also has 5 charges. While attuned to it, you can expend 1 charge and make a ranged weapon attack with the hammer, hurling it as if it had the thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the hammer unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it must succeed on a DC 17 Constitution saving throw or be {@condition stunned} until the end of your next turn. The hammer regains {@dice 1d4 + 1} expended charges daily at dawn."
 			],
 			"charges": 5,
 			"lootTables": [
@@ -7220,7 +7250,7 @@
 					"items": [
 						"Your Strength score becomes 20, unless it is already 20 or higher.",
 						"Any melee spell attack you make with the hand, and any melee weapon attack made with a weapon held by it, deals an extra {@dice 2d8} cold damage on a hit.",
-						"The hand has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: {@spell finger of death} (5 charges), {@spell sleep} (1 charge), {@spell slow} (2 charges), or {@spell teleport} (3 charges). The hand regains {@dice 1d4+4} expended charges daily at dawn. Each time you cast a spell from the hand, it casts the {@spell suggestion} spell on you (save DC 18), demanding that you commit an evil act. The hand might have a specific act in mind or leave it up to you."
+						"The hand has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: {@spell finger of death} (5 charges), {@spell sleep} (1 charge), {@spell slow} (2 charges), or {@spell teleport} (3 charges). The hand regains {@dice 1d4 + 4} expended charges daily at dawn. Each time you cast a spell from the hand, it casts the {@spell suggestion} spell on you (save DC 18), demanding that you commit an evil act. The hand might have a specific act in mind or leave it up to you."
 					]
 				},
 				{
@@ -7319,7 +7349,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greatsword|phb",
 			"weight": 6,
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "S",
 			"property": [
 				"H",
@@ -7621,7 +7651,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Heward's Handy Haversack",
@@ -7649,8 +7680,8 @@
 			"baseItem": "battleaxe|phb",
 			"rarity": "Unknown (Magic)",
 			"weight": 4,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -7670,7 +7701,7 @@
 			"source": "XGE",
 			"page": 137,
 			"entries": [
-				"This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains {@dice 1d6+4} expended charges daily at dawn."
+				"This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains {@dice 1d6 + 4} expended charges daily at dawn."
 			],
 			"charges": 10,
 			"recharge": "dawn"
@@ -7685,7 +7716,7 @@
 			"entries": [
 				"The Holy Symbol of Ravenkind is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.",
 				"The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.",
-				"The holy symbol has 10 charges for the following properties. It regains {@dice 1d6+4} charges daily at dawn.",
+				"The holy symbol has 10 charges for the following properties. It regains {@dice 1d6 + 4} charges daily at dawn.",
 				{
 					"name": "Hold Vampires",
 					"type": "entries",
@@ -7745,7 +7776,8 @@
 			"value": 300,
 			"weight": 2,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Horn of Blasting",
@@ -7787,7 +7819,7 @@
 			"page": 175,
 			"entries": [
 				"You can use an action to blow this horn. In response, warrior spirits from the plane of Ysgard appear within 60 feet of you. These spirits use the {@creature berserker} statistics. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.",
-				"A brass horn summons {@dice 3d4+3} {@creature berserker||berserkers}. To use the brass horn, you must be proficient with all simple weapons.",
+				"A brass horn summons {@dice 3d4 + 3} {@creature berserker||berserkers}. To use the brass horn, you must be proficient with all simple weapons.",
 				"If you blow the horn without meeting its requirement, the summoned {@creature berserker||berserkers} attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands."
 			],
 			"lootTables": [
@@ -7805,7 +7837,7 @@
 			"page": 175,
 			"entries": [
 				"You can use an action to blow this horn. In response, warrior spirits from the plane of Ysgard appear within 60 feet of you. These spirits use the {@creature berserker} statistics. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.",
-				"A bronze horn summons {@dice 4d4+4} {@creature berserker||berserkers}. To use the bronze horn, you must be proficient with medium armor.",
+				"A bronze horn summons {@dice 4d4 + 4} {@creature berserker||berserkers}. To use the bronze horn, you must be proficient with medium armor.",
 				"If you blow the horn without meeting its requirement, the summoned {@creature berserker||berserkers} attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands."
 			],
 			"lootTables": [
@@ -7823,7 +7855,7 @@
 			"page": 175,
 			"entries": [
 				"You can use an action to blow this horn. In response, warrior spirits from the plane of Ysgard appear within 60 feet of you. These spirits use the {@creature berserker} statistics. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.",
-				"The iron horn summons {@dice 5d4+5} {@creature berserker||berserkers}. To use the iron horn, you must be proficient with all martial weapons.",
+				"The iron horn summons {@dice 5d4 + 5} {@creature berserker||berserkers}. To use the iron horn, you must be proficient with all martial weapons.",
 				"If you blow the horn without meeting its requirement, the summoned {@creature berserker||berserkers} attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands."
 			],
 			"lootTables": [
@@ -7841,7 +7873,7 @@
 			"page": 175,
 			"entries": [
 				"You can use an action to blow this horn. In response, warrior spirits from the plane of Ysgard appear within 60 feet of you. These spirits use the {@creature berserker} statistics. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.",
-				"The silver horn summons {@dice 2d4+2} {@creature berserker||berserkers}.",
+				"The silver horn summons {@dice 2d4 + 2} {@creature berserker||berserkers}.",
 				"The {@creature berserker||berserkers} are friendly to you and your companions and follow your commands."
 			],
 			"lootTables": [
@@ -7932,7 +7964,7 @@
 					"name": "Cure Wounds",
 					"type": "entries",
 					"entries": [
-						"While holding the icon, you can take an action to heal one creature that you can see within 30 feet of you. The target regains {@dice 3d8+3} hit points, unless it is an undead, a construct, or a fiend. Once used, this property can't be used again until the next dawn."
+						"While holding the icon, you can take an action to heal one creature that you can see within 30 feet of you. The target regains {@dice 3d8 + 3} hit points, unless it is an undead, a construct, or a fiend. Once used, this property can't be used again until the next dawn."
 					]
 				}
 			],
@@ -7950,7 +7982,7 @@
 			"source": "DMG",
 			"page": 175,
 			"entries": [
-				"This flat iron rod has a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success"
+				"This flat iron rod has a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success."
 			],
 			"lootTables": [
 				"Magic Item Table B"
@@ -8559,7 +8591,7 @@
 				"An {@italic Ioun stone} is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of {@italic Ioun stone} exist, each type a distinct combination of shape and color.",
 				"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of {@dice 1d3} feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity ({@skill Acrobatics}) check. You can use an action to seize and stow the stone, ending its effect.",
 				"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
-				"This vibrant purple prism stores spells cast into it, holding them until you use them. The stone can store up to 3 levels worth of spells at a time. When found, it contains {@dice 1d4-1} levels of stored spells chosen by the DM.",
+				"This vibrant purple prism stores spells cast into it, holding them until you use them. The stone can store up to 3 levels worth of spells at a time. When found, it contains {@dice 1d4 - 1} levels of stored spells chosen by the DM.",
 				"Any creature can cast a spell of 1st through 3rd level into the stone by touching it as the spell is cast. The spell has no effect, other than to be stored in the stone. If the stone can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.",
 				"While this stone orbits your head, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The spell cast from the stone is no longer stored in it, freeing up space."
 			],
@@ -8827,7 +8859,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "war pick|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d8}",
+			"dmg1": "1d8",
 			"dmgType": "P",
 			"rarity": "Legendary",
 			"source": "PotA",
@@ -8929,7 +8961,7 @@
 			"type": "M",
 			"weaponCategory": "Simple",
 			"baseItem": "javelin|phb",
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "P",
 			"weight": 2,
 			"property": [
@@ -8942,7 +8974,7 @@
 			"reqAttune": true,
 			"curse": true,
 			"entries": [
-				"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
+				"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet, and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
 				{
 					"type": "entries",
 					"name": "Curse",
@@ -8960,7 +8992,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "javelin|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "P",
 			"property": [
 				"T"
@@ -9080,7 +9112,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Jug",
@@ -9121,8 +9154,8 @@
 			"source": "DMG",
 			"page": 179,
 			"entries": [
-				"This glass jar, 3 inches in diameter, contains {@dice 1d4+1} doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh ½ pound.",
-				"As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains {@dice 2d8+2} hit points, ceases to be {@condition poisoned}, and is cured of any disease."
+				"This glass jar, 3 inches in diameter, contains {@dice 1d4 + 1} doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh ½ pound.",
+				"As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains {@dice 2d8 + 2} hit points, ceases to be {@condition poisoned}, and is cured of any disease."
 			],
 			"lootTables": [
 				"Magic Item Table B"
@@ -9135,7 +9168,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "club|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "B",
 			"property": [
 				"L"
@@ -9148,7 +9181,7 @@
 				"The Korolnor Scepter is one of ten Ruling Scepters of Shanatar, forged by the dwarven gods and given to the ruling houses of the ancient dwarven empire. The Korolnor Scepter's location was unknown for the longest time until a {@creature storm giant} queen, Neri, found it in a barnacle-covered shipwreck at the bottom of the Trackless Sea. The Ruling Scepters are all roughly the same size and shape, but their materials and properties vary.",
 				"The Korolnor Scepter is a tapered mithral rod as thick and long as a dwarf's forearm, with a small platinum knob at the bottom and a rounded disk adorned with a ring of seven tiny blue gems at the top.",
 				"You gain a +3 bonus to attack and damage rolls made with this scepter, which can be wielded as a magic club.",
-				"You can use the properties of the {@item Wyrmskull Throne|SKT}, as well as the properties of the scepter itself. The scepter has 10 charges, and it regains {@dice 1d6+4} expanded charges at dawn. Its properties are as follows:",
+				"You can use the properties of the {@item Wyrmskull Throne|SKT}, as well as the properties of the scepter itself. The scepter has 10 charges, and it regains {@dice 1d6 + 4} expanded charges at dawn. Its properties are as follows:",
 				{
 					"type": "list",
 					"items": [
@@ -9301,14 +9334,15 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Lightbringer",
 			"type": "M",
 			"rarity": "Uncommon",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "B",
 			"source": "LMoP",
 			"page": 48,
@@ -9421,7 +9455,7 @@
 			"type": "M",
 			"weaponCategory": "Martial",
 			"baseItem": "shortsword|phb",
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "P",
 			"weight": 2,
 			"property": [
@@ -9457,7 +9491,8 @@
 			"value": 3500,
 			"weight": 2,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Lyre",
@@ -9466,7 +9501,8 @@
 			"value": 3000,
 			"weight": 2,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Mace of Disruption",
@@ -9474,7 +9510,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "mace|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "B",
 			"tier": "Major",
 			"rarity": "Rare",
@@ -9496,7 +9532,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "mace|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "B",
 			"tier": "Major",
 			"rarity": "Rare",
@@ -9518,7 +9554,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "mace|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "B",
 			"tier": "Major",
 			"rarity": "Rare",
@@ -9828,7 +9864,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Mastiff",
@@ -9838,7 +9875,8 @@
 			"speed": 40,
 			"value": 2500,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Medallion of Thoughts",
@@ -9924,7 +9962,8 @@
 			"page": 157,
 			"entries": [
 				"A military saddle braces the rider, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted."
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Mind Lash",
@@ -9934,7 +9973,7 @@
 			"source": "VGM",
 			"page": 81,
 			"reqAttune": "by a Mind Flayer",
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "S",
 			"property": [
 				"F",
@@ -10021,8 +10060,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -10037,7 +10076,7 @@
 				"A moonblade passes down from parent to child. The sword chooses its bearer and remains bonded to that person for life. If the bearer dies, another heir can claim the blade. If no worthy heir exists, the sword lies dormant. It functions like a normal longsword until a worthy soul finds it and lays claim to its power.",
 				"A moonblade serves only one master at a time. The attunement process requires a special ritual in the throne room of an elven regent or in a temple dedicated to the elven gods.",
 				"A moonblade won't serve anyone it regards as craven, erratic, corrupt, or at odds with preserving and protecting elvenkind. If the blade rejects you, you make ability checks, attack rolls, and saving throws with disadvantage for 24 hours. If the blade accepts you, you become attuned to it and a new rune appears on the blade. You remain attuned to the weapon until you die or the weapon is destroyed.",
-				"A moonblade has one rune on its blade for each master it has served (typically {@dice 1d6+1}). The first rune always grants a +1 bonus to attack and damage rolls made with this magic weapon. Each rune beyond the first grants the moon blade an additional property. The DM chooses each property or determines it randomly on the Moon Blade Properties table.",
+				"A moonblade has one rune on its blade for each master it has served (typically {@dice 1d6 + 1}). The first rune always grants a +1 bonus to attack and damage rolls made with this magic weapon. Each rune beyond the first grants the moon blade an additional property. The DM chooses each property or determines it randomly on the Moon Blade Properties table.",
 				{
 					"type": "table",
 					"caption": "Moonblade Properties",
@@ -10150,7 +10189,8 @@
 			"speed": 40,
 			"value": 800,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Mystery Key",
@@ -10241,7 +10281,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Necklace of Adaptation",
@@ -10269,7 +10310,7 @@
 			"source": "DMG",
 			"page": 182,
 			"entries": [
-				"This necklace has {@dice 1d6+3} beads hanging from it. You can use an action to detach a bead and throw it up to 60 feet away. When it reaches the end of its trajectory, the bead detonates as a 3rd-level {@spell fireball} spell (save DC 15).",
+				"This necklace has {@dice 1d6 + 3} beads hanging from it. You can use an action to detach a bead and throw it up to 60 feet away. When it reaches the end of its trajectory, the bead detonates as a 3rd-level {@spell fireball} spell (save DC 15).",
 				"You can hurl multiple beads, or even the whole necklace, as one action. When you do so, increase the level of the {@spell fireball} by 1 for each bead beyond the first."
 			],
 			"attachedSpells": [
@@ -10290,7 +10331,7 @@
 			"page": 182,
 			"reqAttune": "by a Cleric, Druid, or Paladin",
 			"entries": [
-				"This necklace has {@dice 1d4+2} magic beads made from aquamarine, black pearl, or topaz. It also has many nonmagical beads made from stones such as amber, bloodstone, citrine, coral, jade, pearl, or quartz. If a magic bead is removed from the necklace, that bead loses its magic.",
+				"This necklace has {@dice 1d4 + 2} magic beads made from aquamarine, black pearl, or topaz. It also has many nonmagical beads made from stones such as amber, bloodstone, citrine, coral, jade, pearl, or quartz. If a magic bead is removed from the necklace, that bead loses its magic.",
 				"Six types of magic beads exist. The DM decides the type of each bead on the necklace or determines it randomly. A necklace can have more than one bead of the same type. To use one, you must be wearing the necklace. Each bead contains a spell that you can cast from it as a bonus action (using your spell save DC if a save is necessary). Once a magic bead's spell is cast, that bead can't be used again until the next dawn.",
 				{
 					"type": "table",
@@ -10402,7 +10443,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longbow|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d8}",
+			"dmg1": "1d8",
 			"dmgType": "P",
 			"property": [
 				"A",
@@ -10654,7 +10695,7 @@
 					"type": "entries",
 					"name": "Spells",
 					"entries": [
-						"The orb has 7 charges and regains {@dice 1d4+3} expended charges daily at dawn. If you control the orb, you can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: {@spell cure wounds} (5th-level version, 3 charges), {@spell daylight} (1 charge), {@spell death ward} (2 charges), or {@spell scrying} (3 charges). You can also use an action to cast the {@spell detect magic} spell from the orb without using any charges."
+						"The orb has 7 charges and regains {@dice 1d4 + 3} expended charges daily at dawn. If you control the orb, you can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: {@spell cure wounds} (5th-level version, 3 charges), {@spell daylight} (1 charge), {@spell death ward} (2 charges), or {@spell scrying} (3 charges). You can also use an action to cast the {@spell detect magic} spell from the orb without using any charges."
 					]
 				},
 				{
@@ -10758,7 +10799,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greataxe|phb",
 			"weight": 7,
-			"dmg1": "{@dice 1d12}",
+			"dmg1": "1d12",
 			"dmgType": "S",
 			"property": [
 				"H",
@@ -10813,7 +10854,8 @@
 			"value": 500,
 			"weight": 15,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Painted gold child's sarcophagus",
@@ -10897,7 +10939,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Pair of engraved bone dice",
@@ -10927,7 +10970,8 @@
 			"value": 1200,
 			"weight": 2,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Paper (one sheet)",
@@ -11322,7 +11366,8 @@
 			"rarity": "None",
 			"value": 50,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Poisoner's Kit",
@@ -11408,7 +11453,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Pole (10-foot)",
@@ -11450,7 +11496,8 @@
 			"speed": 40,
 			"value": 3000,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Portable Hole",
@@ -11494,6 +11541,12 @@
 			"entries": [
 				"If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an {@creature awakened shrub} at the end of that time. When the shrub awakens, its roots break the pot, destroying it.",
 				"The awakened shrub is friendly toward you. Absent commands from you, it does nothing."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -11750,7 +11803,7 @@
 			"source": "DMG",
 			"page": 187,
 			"entries": [
-				"You regain {@dice 4d4+4} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
+				"You regain {@dice 4d4 + 4} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
 			],
 			"lootTables": [
 				"Magic Item Table A",
@@ -11786,7 +11839,7 @@
 			"source": "DMG",
 			"page": 187,
 			"entries": [
-				"You regain {@dice 2d4+2} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
+				"You regain {@dice 2d4 + 2} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
 			],
 			"value": 5000,
 			"lootTables": [
@@ -11886,7 +11939,7 @@
 			"source": "DMG",
 			"page": 188,
 			"entries": [
-				"When you drink this potion, your physical age is reduced by {@dice 1d6+6} years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by {@dice 1d6+6} years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened."
+				"When you drink this potion, your physical age is reduced by {@dice 1d6 + 6} years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by {@dice 1d6 + 6} years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened."
 			],
 			"lootTables": [
 				"Magic Item Table D"
@@ -12089,7 +12142,7 @@
 			"source": "DMG",
 			"page": 187,
 			"entries": [
-				"You regain {@dice 8d4+8} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
+				"You regain {@dice 8d4 + 8} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
 			],
 			"lootTables": [
 				"Magic Item Table C"
@@ -12105,7 +12158,7 @@
 			"source": "DMG",
 			"page": 187,
 			"entries": [
-				"You regain {@dice 10d4+20} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
+				"You regain {@dice 10d4 + 20} hit points when you drink this potion. The potion's red liquid glimmers when agitated."
 			],
 			"lootTables": [
 				"Magic Item Table D",
@@ -12225,7 +12278,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Pouch",
@@ -12388,7 +12442,7 @@
 					"name": "Whip",
 					"type": "entries",
 					"entries": [
-						"You can use an action to throw the token to a point within 10 feet of you. The token disappears, and a floating whip takes its place. You can then use a bonus action to make a melee spell attack against a creature within 10 feet of the whip, with an attack bonus of {@hit 9}. On a hit, the target takes {@dice 1d6+5} force damage.",
+						"You can use an action to throw the token to a point within 10 feet of you. The token disappears, and a floating whip takes its place. You can then use a bonus action to make a melee spell attack against a creature within 10 feet of the whip, with an attack bonus of {@hit 9}. On a hit, the target takes {@dice 1d6 + 5} force damage.",
 						"As a bonus action on your turn, you can direct the whip to fly up to 20 feet and repeat the attack against a creature within 10 feet of it. The whip disappears after 1 hour, when you use an action to dismiss it, or when you are {@condition incapacitated} or die."
 					]
 				}
@@ -12558,7 +12612,7 @@
 			"rarity": "Uncommon",
 			"value": 200,
 			"weight": 1,
-			"dmg1": "{@dice 1d4+1}",
+			"dmg1": "1d4+1",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -12593,7 +12647,8 @@
 			"speed": 60,
 			"value": 7500,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Riding Saddle",
@@ -12602,7 +12657,8 @@
 			"value": 1000,
 			"weight": 25,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Ring of Acid Resistance",
@@ -12625,7 +12681,7 @@
 			"reqAttune": true,
 			"entries": [
 				"While wearing this ring, you have advantage on attack rolls against elementals from the Elemental Plane of Air, and they have disadvantage on attack rolls against you. In addition, you have access to properties based on the Elemental Plane of Air.",
-				"The ring has 5 charges. It regains {@dice 1d4+1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
+				"The ring has 5 charges. It regains {@dice 1d4 + 1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
 				"You can expend 2 of the ring's charges to cast {@spell dominate monster} on an {@creature air elemental}. In addition, when you fall, you descend 60 feet per round and take no damage from falling. You can also speak and understand Auran.",
 				"If you help slay an {@creature air elemental} while attuned to the ring, you gain access to the following additional properties:",
 				{
@@ -12719,7 +12775,7 @@
 			"reqAttune": true,
 			"entries": [
 				"While wearing this ring, you have advantage on attack rolls against elementals from the Elemental Plane of Earth and they have disadvantage on attack rolls against you. In addition, you have access to properties based on the Elemental Plane of Earth.",
-				"The ring has 5 charges. It regains {@dice 1d4+1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
+				"The ring has 5 charges. It regains {@dice 1d4 + 1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
 				"You can expend 2 of the ring's charges to cast {@spell dominate monster} on an {@creature earth elemental}. In addition, you can move in difficult terrain that is composed of rubble, rocks, or dirt as if it were normal terrain. You can also speak and understand Terran.",
 				"If you help slay an {@creature earth elemental} while attuned to the ring, you gain access to the following additional properties:",
 				{
@@ -12788,7 +12844,7 @@
 			"reqAttune": true,
 			"entries": [
 				"While wearing this ring, you have advantage on attack rolls against elementals from the Elemental Plane of Fire and they have disadvantage on attack rolls against you. In addition, you have access to properties based on the Elemental Plane of Fire.",
-				"The ring has 5 charges. It regains {@dice 1d4+1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
+				"The ring has 5 charges. It regains {@dice 1d4 + 1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
 				"You can expend 2 of the ring's charges to cast {@spell dominate monster} on a {@creature fire elemental}. In addition, you have resistance to fire damage. You can also speak and understand Ignan.",
 				"If you help slay a {@creature fire elemental} while attuned to the ring, you gain access to the following additional properties:",
 				{
@@ -12983,7 +13039,7 @@
 			"page": 191,
 			"reqAttune": true,
 			"entries": [
-				"While wearing this ring, you regain {@dice 1d6} hit points every 10 minutes, provided that you have at least 1 hit point. If you lose a body part, the ring causes the missing part to regrow and return to full functionality after {@dice 1d6+1} days if you have at least 1 hit point the whole time."
+				"While wearing this ring, you regain {@dice 1d6} hit points every 10 minutes, provided that you have at least 1 hit point. If you lose a body part, the ring causes the missing part to regrow and return to full functionality after {@dice 1d6 + 1} days if you have at least 1 hit point the whole time."
 			],
 			"lootTables": [
 				"Magic Item Table H"
@@ -13047,7 +13103,7 @@
 			"page": 192,
 			"reqAttune": true,
 			"entries": [
-				"This ring stores spells cast into it, holding them until the attuned wearer uses them. The ring can store up to 5 levels worth of spells at a time. When found, it contains {@dice 1d6-1} levels of stored spells chosen by the DM.",
+				"This ring stores spells cast into it, holding them until the attuned wearer uses them. The ring can store up to 5 levels worth of spells at a time. When found, it contains {@dice 1d6 - 1} levels of stored spells chosen by the DM.",
 				"Any creature can cast a spell of 1st through 5th level into the ring by touching the ring as the spell is cast. The spell has no effect, other than to be stored in the ring. If the ring can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.",
 				"While wearing this ring, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The spell cast from the ring is no longer stored in it, freeing up space."
 			],
@@ -13180,7 +13236,7 @@
 			"reqAttune": true,
 			"entries": [
 				"While wearing this ring, you have advantage on attack rolls against elementals from the Elemental Plane of Water and they have disadvantage on attack rolls against you. In addition, you have access to properties based on the Elemental Plane of Water.",
-				"The ring has 5 charges. It regains {@dice 1d4+1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
+				"The ring has 5 charges. It regains {@dice 1d4 + 1} expended charges daily at dawn. Spells cast from the ring have a save DC of 17.",
 				"You can expend 2 of the ring's charges to cast {@spell dominate monster} on a {@creature water elemental}. In addition, you can stand on and walk across liquid surfaces as if they were solid ground. You can also speak and understand Aquan.",
 				"If you help slay a {@creature water elemental} while attuned to the ring, you gain access to the following additional properties:",
 				{
@@ -13383,7 +13439,7 @@
 			"rarity": "Uncommon",
 			"reqAttune": true,
 			"entries": [
-				"A robe of serpents is a stylish silk garment that is popular among wealthy nobles and retired assassins. The robe is emblazoned with {@dice 1d4+3} stylized serpents, all brightly colored.",
+				"A robe of serpents is a stylish silk garment that is popular among wealthy nobles and retired assassins. The robe is emblazoned with {@dice 1d4 + 3} stylized serpents, all brightly colored.",
 				"As a bonus action on your turn, you can transform one of the robe's serpents into a {@creature giant poisonous snake}. The snake instantly falls from the robe, slithers into an unoccupied space next to you, and acts on your initiative count. The snake can tell friendly creatures from hostile ones and attacks the latter. The snake disappears in a harmless puff of smoke after 1 hour, when it drops to 0 hit points, or when you dismiss it (no action required). Once detached, a snake can't return to the robe. When all of the robe's snakes have detached, the robe becomes a nonmagical garment."
 			]
 		},
@@ -13782,7 +13838,7 @@
 			"reqAttune": true,
 			"entries": [
 				"The {@creature fire giant} Duke Zalto hired a wizard to craft several of these adamantine rods. Each measures 4 feet long, weighs 100 pounds, and is sized to fit comfortably in a {@creature fire giant||fire giant's} hand. The rod has two prongs at one end and a molded handle grip on the opposite end.",
-				"The rod has 10 charges and regains {@dice 1d6+4} of its expended charges daily at dawn. As an action, you can grasp it by the handle and expend 1 charge to cast the {@spell locate object} spell from it. When the rod is used to detect objects made of adamantine, such as fragments of the Vonindod construct, its range increases to 10 miles."
+				"The rod has 10 charges and regains {@dice 1d6 + 4} of its expended charges daily at dawn. As an action, you can grasp it by the handle and expend 1 charge to cast the {@spell locate object} spell from it. When the rod is used to detect objects made of adamantine, such as fragments of the Vonindod construct, its range increases to 10 miles."
 			],
 			"charges": 10,
 			"attachedSpells": [
@@ -13924,7 +13980,8 @@
 			"value": 400,
 			"weight": 8,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Saffron",
@@ -13953,7 +14010,7 @@
 		{
 			"name": "Saint Markovia's Thighbone",
 			"type": "M",
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "B",
 			"weight": 4,
 			"rarity": "Rare",
@@ -14044,7 +14101,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "scimitar|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "S",
 			"property": [
 				"F",
@@ -14089,7 +14146,7 @@
 					"type": "entries",
 					"name": "Curse",
 					"entries": [
-						"This armor is cursed. Whenever you don or doff it, you must make a DC 15 Constitution saving throw, taking 100 ({@dice 10d10+45}) poison damage on a failed save, or half as much damage on a successful one. Only a {@spell wish} spell can remove the armor's curse."
+						"This armor is cursed. Whenever you don or doff it, you must make a DC 15 Constitution saving throw, taking 100 ({@dice 10d10 + 45}) poison damage on a failed save, or half as much damage on a successful one. Only a {@spell wish} spell can remove the armor's curse."
 					]
 				}
 			]
@@ -14197,7 +14254,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "dart|phb",
 			"weight": 0.25,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -14331,8 +14388,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -14353,7 +14410,8 @@
 			"value": 200,
 			"weight": 1,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Shawm",
@@ -14602,7 +14660,8 @@
 			"value": 2000,
 			"weight": 300,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Sledgehammer",
@@ -14732,7 +14791,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Smoke Grenade",
@@ -14774,7 +14834,7 @@
 			"source": "DMG",
 			"page": 200,
 			"entries": [
-				"This viscous, milky-white substance can form a permanent adhesive bond between any two objects. It must be stored in a jar or flask that has been coated inside with {@item oil of slipperiness}. When found, a container contains {@dice 1d6+1} ounces.",
+				"This viscous, milky-white substance can form a permanent adhesive bond between any two objects. It must be stored in a jar or flask that has been coated inside with {@item oil of slipperiness}. When found, a container contains {@dice 1d6 + 1} ounces.",
 				"One ounce of the glue can cover a 1-foot square surface. The glue takes 1 minute to set. Once it has done so, the bond it creates can be broken only by the application of {@item universal solvent} or {@item oil of etherealness}, or with a {@spell wish} spell."
 			],
 			"lootTables": [
@@ -14787,8 +14847,8 @@
 			"type": "M",
 			"weaponCategory": "Simple",
 			"baseItem": "spear|phb",
-			"dmg1": "{@dice 2d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "2d6",
+			"dmg2": "1d8",
 			"dmgType": "P",
 			"weight": 3,
 			"property": [
@@ -14802,7 +14862,7 @@
 			"reqAttune": true,
 			"curse": true,
 			"entries": [
-				"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
+				"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet, and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
 				{
 					"type": "entries",
 					"name": "Curse",
@@ -14827,6 +14887,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. If the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14842,6 +14908,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14857,6 +14929,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14872,6 +14950,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14887,6 +14971,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14902,6 +14992,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14917,6 +15013,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14932,6 +15034,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14947,6 +15055,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -14962,6 +15076,12 @@
 				"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. IF the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 				"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
 				"Deep gnomes created these magic gemstones and keep the creation process a secret."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{
@@ -15233,8 +15353,8 @@
 		{
 			"name": "Spider Staff",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15247,7 +15367,7 @@
 			"entries": [
 				"The top of this black, adamantine staff is shaped like a spider. The staff weighs 6 pounds. You must be attuned to the staff to gain its benefits and cast its spells. The staff can be wielded as a quarterstaff. It deals {@dice 1d6} extra poison damage on a hit when used to make a weapon attack.",
 				"The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: {@spell spider climb} (1 charge) or {@spell web} (2 charges, spell save DC 15). No components are required.",
-				"The staff regains {@dice 1d6+4} expended charges each day at dusk. If you expend the staff's last charge, roll a {@dice d20}. On a 1, the staff crumbles to dust and is destroyed."
+				"The staff regains {@dice 1d6 + 4} expended charges each day at dusk. If you expend the staff's last charge, roll a {@dice d20}. On a 1, the staff crumbles to dust and is destroyed."
 			],
 			"charges": 10,
 			"attachedSpells": [
@@ -15297,13 +15417,14 @@
 			"rarity": "None",
 			"value": 50,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Staff of Adornment",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15321,8 +15442,8 @@
 		{
 			"name": "Staff of Birdcalls",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15334,7 +15455,7 @@
 			"page": 139,
 			"entries": [
 				"This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's book, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.",
-				"The staff regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever."
+				"The staff regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever."
 			],
 			"charges": 10,
 			"staff": true,
@@ -15343,8 +15464,8 @@
 		{
 			"name": "Staff of Charming",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15358,7 +15479,7 @@
 			"entries": [
 				"While holding this staff, you can use an action to expend 1 of its 10 charges to cast {@spell charm person}, {@spell command}, or {@spell comprehend languages} from it using your spell save DC. The staff can also be used as a magic quarterstaff.",
 				"If you are holding the staff and fail a saving throw against an enchantment spell that targets only you, you can turn your failed save into a successful one. You can't use this property of the staff again until the next dawn. If you succeed on a save against an enchantment spell that targets only you, with or without the staff's intervention, you can use your reaction to expend 1 charge from the staff and turn the spell back on its caster as if you had cast the spell.",
-				"The staff regains {@dice 1d8+2} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff becomes a nonmagical quarterstaff."
+				"The staff regains {@dice 1d8 + 2} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff becomes a nonmagical quarterstaff."
 			],
 			"attachedSpells": [
 				"charm person",
@@ -15374,8 +15495,8 @@
 		{
 			"name": "Staff of Defense",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15389,7 +15510,7 @@
 				"This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. You must be attuned to the staff to gain its benefits and cast its spells.",
 				"While holding the staff, you have a +1 bonus to your Armor Class.",
 				"The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: {@spell mage armor} (1 charge) or {@spell shield} (2 charges). No components are required.",
-				"The staff regains {@dice 1d6+4} expended charges each day at dawn. If you expend the staff's last charge, roll a {@dice d20}. On a 1, the staff shatters and is destroyed."
+				"The staff regains {@dice 1d6 + 4} expended charges each day at dawn. If you expend the staff's last charge, roll a {@dice d20}. On a 1, the staff shatters and is destroyed."
 			],
 			"charges": 10,
 			"attachedSpells": [
@@ -15402,8 +15523,8 @@
 		{
 			"name": "Staff of Fire",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15417,7 +15538,7 @@
 			"entries": [
 				"You have resistance to fire damage while you hold this staff.",
 				"The staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: {@spell burning hands} (1 charge), {@spell fireball} (3 charges), or {@spell wall of fire} (4 charges).",
-				"The staff regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff blackens, crumbles into cinders, and is destroyed."
+				"The staff regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff blackens, crumbles into cinders, and is destroyed."
 			],
 			"charges": 10,
 			"attachedSpells": [
@@ -15435,8 +15556,8 @@
 		{
 			"name": "Staff of Flowers",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15447,7 +15568,7 @@
 			"source": "XGE",
 			"page": 139,
 			"entries": [
-				"This wooden staff has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of you, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mildscented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would. The staff regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff turns into flower petals and is lost forever."
+				"This wooden staff has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of you, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mildscented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would. The staff regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff turns into flower petals and is lost forever."
 			],
 			"charges": 10,
 			"staff": true,
@@ -15456,8 +15577,8 @@
 		{
 			"name": "Staff of Frost",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15471,7 +15592,7 @@
 			"entries": [
 				"You have resistance to cold damage while you hold this staff.",
 				"The staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: {@spell cone of cold} (5 charges), {@spell fog cloud} (1 charge), {@spell ice storm} (4 charges), or {@spell wall of ice} (4 charges).",
-				"The staff regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1. the staff turns to water and is destroyed."
+				"The staff regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1. the staff turns to water and is destroyed."
 			],
 			"charges": 10,
 			"attachedSpells": [
@@ -15490,8 +15611,8 @@
 		{
 			"name": "Staff of Healing",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15504,7 +15625,7 @@
 			"reqAttune": "by a Bard, Cleric, or Druid",
 			"entries": [
 				"This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: {@spell cure wounds} (1 charge per spell level, up to 4th), {@spell lesser restoration} (2 charges). or {@spell mass cure wounds} (5 charges).",
-				"The staff regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1. the staff vanishes in a flash of light, lost forever."
+				"The staff regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1. the staff vanishes in a flash of light, lost forever."
 			],
 			"charges": 10,
 			"attachedSpells": [
@@ -15522,8 +15643,8 @@
 		{
 			"name": "Staff of Power",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15536,7 +15657,7 @@
 			"reqAttune": "by a Sorcerer, Warlock, or Wizard",
 			"entries": [
 				"This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.",
-				"The staff has 20 charges for the following properties. The staff regains {@dice 2d8+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain {@dice 1d8+2} charges.",
+				"The staff has 20 charges for the following properties. The staff regains {@dice 2d8 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain {@dice 1d8 + 2} charges.",
 				{
 					"name": "Power Strike",
 					"type": "entries",
@@ -15608,8 +15729,8 @@
 		{
 			"name": "Staff of Striking",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15622,7 +15743,7 @@
 			"reqAttune": true,
 			"entries": [
 				"This staff can be wielded as a magic quarterstaff that grants a +3 bonus to attack and damage rolls made with it.",
-				"The staff has 10 charges. When you hit with a melee attack using it, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra {@dice 1d6} force damage. The staff regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff becomes a nonmagical quarterstaff."
+				"The staff has 10 charges. When you hit with a melee attack using it, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra {@dice 1d6} force damage. The staff regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff becomes a nonmagical quarterstaff."
 			],
 			"charges": 10,
 			"lootTables": [
@@ -15636,8 +15757,8 @@
 		{
 			"name": "Staff of Swarming Insects",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15649,7 +15770,7 @@
 			"page": 203,
 			"reqAttune": "by a Bard, Cleric, Druid, Sorcerer, Warlock, or Wizard",
 			"entries": [
-				"This staff has 10 charges and regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, a {@creature swarm of insects} consumes and destroys the staff, then disperses.",
+				"This staff has 10 charges and regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, a {@creature swarm of insects} consumes and destroys the staff, then disperses.",
 				{
 					"name": "Spells",
 					"type": "entries",
@@ -15680,8 +15801,8 @@
 		{
 			"name": "Staff of the Adder",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15705,8 +15826,8 @@
 		{
 			"name": "Staff of the Forgotten One",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15738,7 +15859,7 @@
 					"type": "entries",
 					"name": "Invoke Curse",
 					"entries": [
-						"The Staff of the Forgotten One has 7 charges and regains {@dice 1d4+3} expended charges daily at dawn. While holding the staff, you can use an action to expend 1 charge and target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw (using your spell save DC) or be cursed. While cursed in this way, the target can't regain hit points and has vulnerability to necrotic damage. A {@spell greater restoration}, {@spell remove curse}, or similar spell ends the curse on the target."
+						"The Staff of the Forgotten One has 7 charges and regains {@dice 1d4 + 3} expended charges daily at dawn. While holding the staff, you can use an action to expend 1 charge and target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw (using your spell save DC) or be cursed. While cursed in this way, the target can't regain hit points and has vulnerability to necrotic damage. A {@spell greater restoration}, {@spell remove curse}, or similar spell ends the curse on the target."
 					]
 				},
 				{
@@ -15764,8 +15885,8 @@
 		{
 			"name": "Staff of the Magi",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15778,7 +15899,7 @@
 			"reqAttune": "by a Sorcerer, Warlock, or Wizard",
 			"entries": [
 				"This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While you hold it, you gain a +2 bonus to spell attack rolls.",
-				"The staff has 50 charges for the following properties. It regains {@dice 4d6+2} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 20, the staff regains {@dice 1d12+1} charges.",
+				"The staff has 50 charges for the following properties. It regains {@dice 4d6 + 2} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 20, the staff regains {@dice 1d12 + 1} charges.",
 				{
 					"name": "Spell Absorption",
 					"type": "entries",
@@ -15861,8 +15982,8 @@
 		{
 			"name": "Staff of the Python",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15887,8 +16008,8 @@
 		{
 			"name": "Staff of the Woodlands",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -15901,7 +16022,7 @@
 			"reqAttune": "by a Druid",
 			"entries": [
 				"This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.",
-				"The staff has 10 charges for the following properties. It regains {@dice 1d6+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.",
+				"The staff has 10 charges for the following properties. It regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.",
 				{
 					"type": "entries",
 					"name": "Spells",
@@ -15940,8 +16061,8 @@
 		{
 			"name": "Staff of Thunder and Lightning",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -16000,8 +16121,8 @@
 		{
 			"name": "Staff of Withering",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -16144,7 +16265,7 @@
 				"Created by the stone giant librarians of Gravenhollow, this nineteen-inch-long shard of quartz grants you advantage on Intelligence ({@skill Investigation}) checks while it is on your person.",
 				"The crystal has 10 charges. While holding it, you can use an action to expend some of its charges to cast one of the following spells from it: {@spell speak with animals} (2 charges), {@spell speak with dead} (4 charges), or {@spell speak with plants} (3 charges).",
 				"When you cast a {@filter divination|spells|school=D} spell, you can use the crystal in place of one material component that would normally be consumed by the spell, at a cost of 1 charge per level of the spell. The crystal is not consumed when used in this way.",
-				"The crystal regains {@dice 1d6+4} expended charges daily at dawn. If you expend the crystal's last charge, roll a {@dice d20}. On a 1, the crystal vanishes, lost forever."
+				"The crystal regains {@dice 1d6 + 4} expended charges daily at dawn. If you expend the crystal's last charge, roll a {@dice d20}. On a 1, the crystal vanishes, lost forever."
 			],
 			"charges": 10,
 			"attachedSpells": [
@@ -16158,7 +16279,7 @@
 			"name": "Storm Boomerang",
 			"type": "R",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "B",
 			"range": "60/120",
 			"rarity": "Uncommon",
@@ -16175,8 +16296,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "R",
 			"property": [
 				"F",
@@ -16203,8 +16324,8 @@
 			"type": "M",
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "R",
 			"weight": 3,
 			"property": [
@@ -16260,8 +16381,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16284,8 +16405,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16308,8 +16429,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16332,8 +16453,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16356,8 +16477,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16380,8 +16501,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16404,8 +16525,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16428,8 +16549,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16452,8 +16573,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16476,8 +16597,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -16762,7 +16883,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Three-Dragon Ante Set",
@@ -16802,7 +16924,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "dagger|phb",
 			"weight": 1,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -16922,7 +17044,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Tocken",
@@ -17098,8 +17221,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "trident|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "P",
 			"property": [
 				"T",
@@ -18994,7 +19117,8 @@
 			"value": 3000,
 			"weight": 1,
 			"source": "PHB",
-			"page": 154
+			"page": 154,
+			"srd": true
 		},
 		{
 			"name": "Wagon",
@@ -19003,7 +19127,8 @@
 			"value": 3500,
 			"weight": 400,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Wand of Binding",
@@ -19015,7 +19140,7 @@
 			"page": 209,
 			"reqAttune": "by a Spellcaster",
 			"entries": [
-				"This wand has 7 charges for the following properties. It regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed.",
+				"This wand has 7 charges for the following properties. It regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed.",
 				{
 					"name": "Spells",
 					"type": "entries",
@@ -19067,7 +19192,7 @@
 			"reqAttune": true,
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action and expend 1 charge to speak its command word. For the next minute, you know the direction of the nearest creature hostile to you within 60 feet, but not its distance from you. The wand can sense the presence of hostile creatures that are ethereal, {@condition invisible}, disguised, or hidden, as well as those in plain sight. The effect ends if you stop holding the wand.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"lootTables": [
@@ -19086,7 +19211,7 @@
 			"reqAttune": "by a Spellcaster",
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the {@spell entangle} spell (save DC 13) from it.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"attachedSpells": [
@@ -19104,7 +19229,7 @@
 			"page": 210,
 			"reqAttune": true,
 			"entries": [
-				"This wand has 7 charges for the following properties. It regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed.",
+				"This wand has 7 charges for the following properties. It regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed.",
 				{
 					"name": "Command",
 					"type": "entries",
@@ -19141,7 +19266,7 @@
 			"reqAttune": "by a Spellcaster",
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the {@spell fireball} spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"attachedSpells": [
@@ -19164,7 +19289,7 @@
 			"reqAttune": "by a Spellcaster",
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the {@spell lightning bolt} spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"attachedSpells": [
@@ -19207,7 +19332,7 @@
 			"page": 211,
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the {@spell magic missile} spell from it. For 1 charge, you cast the 1st-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"attachedSpells": [
@@ -19264,7 +19389,7 @@
 					"name": "Spells",
 					"type": "entries",
 					"entries": [
-						"The wand has 7 charges. While holding it, you can use an action and expend 1 or more of its charges to cast one of the following spells (save DC 18) from it: {@spell animate dead} (1 charge), {@spell blight} (2 charges), {@spell circle of death} (3 charges), {@spell finger of death} (3 charges), {@spell power word kill} (4 charges), or {@spell speak with dead} (1 charge). The wand regains {@dice 1d4+3} expended charges daily at dawn.",
+						"The wand has 7 charges. While holding it, you can use an action and expend 1 or more of its charges to cast one of the following spells (save DC 18) from it: {@spell animate dead} (1 charge), {@spell blight} (2 charges), {@spell circle of death} (3 charges), {@spell finger of death} (3 charges), {@spell power word kill} (4 charges), or {@spell speak with dead} (1 charge). The wand regains {@dice 1d4 + 3} expended charges daily at dawn.",
 						"While attuned to the wand, {@creature Orcus|MTF} or a follower blessed by him can cast each of the wand's spells using 2 fewer charges (minimum of 0)."
 					]
 				},
@@ -19322,7 +19447,7 @@
 			"reqAttune": "by a Spellcaster",
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a thin blue ray to streak from the tip toward a creature you can see within 60 feet of you. The target must succeed on a DC 15 Constitution saving throw or be {@condition paralyzed} for 1 minute. At the end of each of the target's turns, it can repeat the saving throw, ending the effect on itself on a success.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"lootTables": [
@@ -19342,7 +19467,7 @@
 			"reqAttune": "by a Spellcaster",
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the {@spell polymorph} spell (save DC 15) from it.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"attachedSpells": [
@@ -19363,7 +19488,7 @@
 			"page": 140,
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed."
 			],
 			"charges": 7,
 			"recharge": "dawn"
@@ -19475,7 +19600,7 @@
 			"entries": [
 				"Crafted by the {@creature drow}, this slim black wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a small glob of viscous material to launch from the tip at one creature within 60 feet of you. Make a ranged attack roll against the target, with a bonus equal to your spellcasting modifier (or your Intelligence modifier, if you don't have a spellcasting modifier) plus your proficiency bonus. On a hit, the glob expands and dries on the target, which is {@condition restrained} for 1 hour. After that time, the viscous material cracks and falls away.",
 				"Applying a pint or more of alcohol to the {@condition restrained} creature dissolves the glob instantly, as does the application of {@item oil of etherealness} or {@item universal solvent}. The glob also dissolves instantly if exposed to sunlight. No other nonmagical process can remove the viscous material until it deteriorates on its own.",
-				"The wand regains {@dice 1d6+1} expended charges daily at midnight. If you expend the wands last charge, roll a {@dice d20}. On a 1, the wand melts into harmless slime and is destroyed.",
+				"The wand regains {@dice 1d6 + 1} expended charges daily at midnight. If you expend the wands last charge, roll a {@dice d20}. On a 1, the wand melts into harmless slime and is destroyed.",
 				"A wand of viscous globs is destroyed if exposed to sunlight for 1 hour without interruption."
 			],
 			"charges": 7,
@@ -19492,7 +19617,7 @@
 			"reqAttune": "by a Spellcaster",
 			"entries": [
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the {@spell web} spell (save DC 15) from it.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into ashes and is destroyed."
 			],
 			"charges": 7,
 			"attachedSpells": [
@@ -19513,7 +19638,7 @@
 			"reqAttune": true,
 			"entries": [
 				"This wand looks and feels like an icicle. You must be attuned to the wand to use it.",
-				"The wand has 7 charges, which are used to fuel the spells within it. With the wand in hand, you can use your action to cast one of the following spells from the wand, even if you are incapable of casting spells: {@spell ray of frost} (no charges, or 1 charge to cast at 5th level; +5 to hit with ranged spell attack), {@spell sleet storm} (3 charges; spell save DC 15), or {@spell ice storm} (4 charges; spell save DC 15). No components are required. The wand regains {@dice 1d6+1} expended charges each day at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 20, the wand melts away, forever destroyed."
+				"The wand has 7 charges, which are used to fuel the spells within it. With the wand in hand, you can use your action to cast one of the following spells from the wand, even if you are incapable of casting spells: {@spell ray of frost} (no charges, or 1 charge to cast at 5th level; +5 to hit with ranged spell attack), {@spell sleet storm} (3 charges; spell save DC 15), or {@spell ice storm} (4 charges; spell save DC 15). No components are required. The wand regains {@dice 1d6 + 1} expended charges each day at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 20, the wand melts away, forever destroyed."
 			],
 			"charges": 7,
 			"attachedSpells": [
@@ -19536,7 +19661,7 @@
 				"This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and choose a target within 120 feet of you. The target can be a creature, an object, or a point in space. Roll {@dice d100} and consult the following table to discover what happens.",
 				"If the effect causes you to cast a spell from the wand, the spell's save DC is 15. If the spell normally has a range expressed in feet, its range becomes 120 feet if it isn't already.",
 				"If an effect covers an area, you must center the spell on and include the target. If an effect has multiple possible subjects, the DM randomly determines which ones are affected.",
-				"The wand regains {@dice 1d6+1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into dust and is destroyed.",
+				"The wand regains {@dice 1d6 + 1} expended charges daily at dawn. If you expend the wand's last charge, roll a {@dice d20}. On a 1, the wand crumbles into dust and is destroyed.",
 				{
 					"type": "table",
 					"colLabels": [
@@ -19676,7 +19801,8 @@
 			"speed": 60,
 			"value": 40000,
 			"source": "PHB",
-			"page": 157
+			"page": 157,
+			"srd": true
 		},
 		{
 			"name": "Warship",
@@ -19713,8 +19839,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "trident|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "P",
 			"property": [
 				"T",
@@ -19759,7 +19885,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greatsword|phb",
 			"weight": 6,
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "S",
 			"property": [
 				"H",
@@ -19869,7 +19995,8 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Weird Tank",
@@ -19916,8 +20043,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "warhammer|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "B",
 			"property": [
 				"T",
@@ -20099,8 +20226,8 @@
 			"weaponCategory": "Simple",
 			"baseItem": "spear|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "P",
 			"property": [
 				"T",
@@ -20269,13 +20396,14 @@
 						]
 					]
 				}
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Wooden Staff",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -20437,8 +20565,8 @@
 			"baseItem": "battleaxe|phb",
 			"rarity": "Legendary",
 			"weight": 4,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -20507,8 +20635,8 @@
 		{
 			"name": "Blackstaff",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -20521,7 +20649,7 @@
 			"entries": [
 				"The Blackstaff is a sentient, rune-carved staff set with thin silver veins. It is the symbol of office for the Blackstaff, the highest-ranking wizard in Waterdeep. As the rightful owner of the Blackstaff, Vajra Safahr is the only one who can become attuned to it. The staff can, however, choose a new owner (see \"Personality\" below).",
 				"This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.",
-				"The staff has 20 charges for the following properties. The staff regains {@dice 2d8+4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain {@dice 1d8+2} charges.",
+				"The staff has 20 charges for the following properties. The staff regains {@dice 2d8 + 4} expended charges daily at dawn. If you expend the last charge, roll a {@dice d20}. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain {@dice 1d8 + 2} charges.",
 				{
 					"name": "Power Strike",
 					"type": "entries",
@@ -20653,8 +20781,8 @@
 		{
 			"name": "Dragonstaff of Ahghairon",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -20751,6 +20879,12 @@
 				"The bird is an object that has 1 hit point, an Armor Class of 13, a flying speed of 60 feet, a Dexterity of 16 (+3), and a score of 1 (\u22125) in all other abilities, and it is immune to poison and psychic damage.",
 				"It travels to within 5 feet of its intended recipient by the most direct route, whereupon it turns into a nonmagical and inanimate sheet of parchment that can be unfolded only by the intended recipient. If the bird's hit points or speed is reduced to 0 or if it is otherwise immobilized, it turns into ash.",
 				"Paper birds usually come in small, flat boxes containing {@dice 1d6 + 3} sheets of the parchment."
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 94
+				}
 			]
 		},
 		{
@@ -20860,7 +20994,7 @@
 			"weaponCategory": "Martial",
 			"rarity": "Unknown",
 			"weight": 2,
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "P",
 			"property": [
 				"A",
@@ -21355,7 +21489,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "dagger|phb",
 			"weight": 1,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -22196,7 +22330,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "dagger|phb",
 			"weight": 1,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -22232,8 +22366,8 @@
 		{
 			"name": "Skyblinder Staff",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -22267,8 +22401,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "warhammer|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -22290,8 +22424,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -22316,8 +22450,8 @@
 		{
 			"name": "Voyager Staff",
 			"weaponCategory": "Simple",
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -22386,8 +22520,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -23287,7 +23421,13 @@
 			"entries": [
 				"While wearing this brass helmet, you can breathe underwater, you gain {@sense darkvision} with a range of 60 feet, and you gain a swimming speed of 30 feet."
 			],
-			"page": 229
+			"page": 229,
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 94
+				}
+			]
 		},
 		{
 			"name": "Pipe of Remembrance",
@@ -23993,7 +24133,7 @@
 			"type": "M",
 			"weaponCategory": "Martial",
 			"baseItem": "shortsword|phb",
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "P",
 			"weight": 2,
 			"property": [
@@ -24238,7 +24378,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greatsword|phb",
 			"weight": 6,
-			"dmg1": "{@dice 2d6}",
+			"dmg1": "2d6",
 			"dmgType": "S",
 			"property": [
 				"H",
@@ -24246,6 +24386,7 @@
 			],
 			"rarity": "Uncommon",
 			"source": "HftT",
+			"page": 4,
 			"entries": [
 				"You have a +1 bonus to attack and damage rolls made with this magic weapon.",
 				"This greatsword is made of an unknown black metal. In most cases, it works as a {@item +1 greatsword}. But when used against a {@creature thessalhydra|hftt}, it works as a {@item +3 greatsword}. While in the Upside Down, it works as a +4 greatsword."
@@ -24289,7 +24430,7 @@
 			"weaponCategory": "Simple",
 			"baseItem": "mace|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "B",
 			"rarity": "Rare",
 			"source": "SDW",
@@ -24305,8 +24446,8 @@
 			"baseItem": "battleaxe|phb",
 			"rarity": "Unknown (Magic)",
 			"weight": 4,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -24361,8 +24502,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "battleaxe|phb",
 			"weight": 4,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -24409,8 +24550,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "warhammer|phb",
 			"weight": 2,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "B",
 			"property": [
 				"V"
@@ -24558,8 +24699,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -24869,8 +25010,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -24889,7 +25030,7 @@
 			"weaponCategory": "Martial",
 			"baseItem": "greataxe|phb",
 			"weight": 7,
-			"dmg1": "{@dice 1d12}",
+			"dmg1": "1d12",
 			"dmgType": "S",
 			"property": [
 				"H",
@@ -24919,7 +25060,7 @@
 						"Magical Effect"
 					],
 					"colStyles": [
-						"col-2 text-align-center",
+						"col-2 text-center",
 						"col-10"
 					],
 					"rows": [
@@ -24961,7 +25102,7 @@
 			"rarity": "Unknown (Magic)",
 			"baseItem": "greatclub|phb",
 			"weight": 250,
-			"dmg1": "{@dice 1d8}",
+			"dmg1": "1d8",
 			"dmgType": "B",
 			"property": [
 				"2H"
@@ -24981,8 +25122,8 @@
 			"weaponCategory": "Martial",
 			"baseItem": "longsword|phb",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -25066,7 +25207,7 @@
 			"baseItem": "dagger|phb",
 			"value": 75000,
 			"weight": 1,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -25095,7 +25236,7 @@
 			},
 			"entries": [
 				"You can use an action to blow this horn. In response, warrior spirits from the Abyss appear within 60 feet of you. These spirits look like minotaurs, and use the {@creature berserker} statistics. They return to Abyss after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.",
-				"The horn summons {@dice 3d4+3} {@creature berserker||berserkers}. To use the horn, you must be proficient with all simple weapons.",
+				"The horn summons {@dice 3d4 + 3} {@creature berserker||berserkers}. To use the horn, you must be proficient with all simple weapons.",
 				"If you blow the horn without meeting its requirement, the summoned {@creature berserker||berserkers} attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands."
 			]
 		},
@@ -25217,8 +25358,8 @@
 			"sword": true,
 			"weaponCategory": "Martial",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -25280,7 +25421,7 @@
 			"sword": true,
 			"weaponCategory": "Martial",
 			"weight": 2,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -25300,7 +25441,7 @@
 			"weapon": true,
 			"weaponCategory": "Simple",
 			"weight": 1,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "P",
 			"property": [
 				"F",
@@ -25324,8 +25465,8 @@
 			"sword": true,
 			"weaponCategory": "Martial",
 			"weight": 3,
-			"dmg1": "{@dice 1d8}",
-			"dmg2": "{@dice 1d10}",
+			"dmg1": "1d8",
+			"dmg2": "1d10",
 			"dmgType": "S",
 			"property": [
 				"V"
@@ -25345,8 +25486,8 @@
 			"weapon": true,
 			"weaponCategory": "Simple",
 			"weight": 3,
-			"dmg1": "{@dice 1d6}",
-			"dmg2": "{@dice 1d8}",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
 			"dmgType": "P",
 			"property": [
 				"T",
@@ -25381,7 +25522,7 @@
 			"weapon": true,
 			"weaponCategory": "Simple",
 			"weight": 4,
-			"dmg1": "{@dice 1d6}",
+			"dmg1": "1d6",
 			"dmgType": "B"
 		},
 		{
@@ -25392,7 +25533,7 @@
 			"wondrous": true,
 			"reqAttune": "by a creature missing a hand or an arm",
 			"weapon": true,
-			"dmg1": "{@dice 1d8}",
+			"dmg1": "1d8",
 			"dmgType": "O",
 			"property": [
 				"T"
@@ -25533,7 +25674,7 @@
 			"weapon": true,
 			"weaponCategory": "Martial",
 			"weight": 3,
-			"dmg1": "{@dice 1d4}",
+			"dmg1": "1d4",
 			"dmgType": "S",
 			"property": [
 				"F",
@@ -25908,6 +26049,834 @@
 				"In addition to knocking out a killer polka, a creature playing the concertina can use an action to cause an area of mist or water up to 30 feet in diameter and 6 inches deep to freeze solid.",
 				"Once used, this feature of the concertina can't be used again until the next dawn.",
 				"Any creatures touching the floor must succeed on a DC 20 Dexterity saving throw or be restrained by the ice. As an action, a {@condition restrained} creature can attempt to free itself or another creature within its reach from the ice, doing so with a successful DC 20 Strength ({@skill Athletics}) check. A character freed from the ice is no longer restrained by it. The ice melts in an hour."
+			]
+		},
+		{
+			"name": "Blood of the Lycanthrope Antidote",
+			"type": "P",
+			"rarity": "Uncommon",
+			"source": "IMR",
+			"page": 94,
+			"entries": [
+				"This clear potion has dark red flecks within, resembling clotted blood. When you drink this potion, it removes the curse of lycanthropy from you if that curse was imposed by a lycanthrope's bite or similar effect."
+			]
+		},
+		{
+			"name": "Bridle of Capturing",
+			"wondrous": true,
+			"rarity": "Rare",
+			"source": "IMR",
+			"page": 94,
+			"entries": [
+				"This fine leather bridle tugs at the hand when first held, as though it longs to reach out for a beast nearby. When you hold one end of the bridle, you can use an action to speak its command word, causing the other end to lash out at a beast you can see within 20 feet of you. The target must succeed on a DC 17 Charisma saving throw or have the bridle tie itself around its neck, then fall under your command as if subjected to the {@spell dominate beast} spell. Once the targeted is affected, you do not need to hold the other end of the bridle to command it. With a successful saving throw, the target becomes immune to the bridle's power until the next dawn.",
+				"A creature controlled by the bridle can be released by the creature that bound it as a bonus action. A creature controlled by the bridle can make a DC 17 Charisma check each day at dawn. On a success, the creature is no longer affected by the bridle."
+			],
+			"attachedSpells": [
+				"dominate beast"
+			]
+		},
+		{
+			"name": "Crown of the Forest",
+			"wondrous": true,
+			"rarity": "Uncommon",
+			"source": "IMR",
+			"page": 7,
+			"entries": [
+				"While wearing this crown, a character automatically fails any Intelligence ({@skill Investigation}) check made to see through an illusion. An illusion that is touched still has its true nature revealed. However, a character wearing a crown has such a strong sense that the illusion is real that they might not know which of their senses to believe.",
+				"If this crown is closely examined by a character who succeeds on a DC 20 Intelligence ({@skill Nature}) or Wisdom ({@skill Perception}) check, or with a {@spell detect magic} spell cast using a 3rd-level or higher spell slot, the nature of its magic is discovered."
+			]
+		},
+		{
+			"name": "Ioun Stone of Vitality",
+			"wondrous": true,
+			"rarity": "Very Rare",
+			"source": "IMR",
+			"page": 94,
+			"reqAttune": true,
+			"entries": [
+				"An {@italic Ioun stone} is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of {@italic Ioun stone} exist, each type a distinct combination of shape and color.",
+				"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of {@dice 1d3} feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity ({@skill Acrobatics}) check. You can use an action to seize and stow the stone, ending its effect.",
+				"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
+				"You gain a +1 bonus to death saving throws while this luminous green-and-blue marbled sphere orbits your head."
+			]
+		},
+		{
+			"name": "Mummy Rot Antidote",
+			"type": "P",
+			"rarity": "Uncommon",
+			"source": "IMR",
+			"page": 94,
+			"entries": [
+				"White dust swirls constantly within this pale gray potion. When you drink the potion, it cures you of mummy rot."
+			]
+		},
+		{
+			"name": "Ruinblade",
+			"type": "M",
+			"weaponCategory": "Martial",
+			"baseItem": "greatsword|phb",
+			"weight": 6,
+			"dmg1": "2d6",
+			"dmgType": "S",
+			"property": [
+				"H",
+				"2H"
+			],
+			"rarity": "Legendary",
+			"source": "IMR",
+			"page": 95,
+			"reqAttune": true,
+			"sentient": true,
+			"curse": true,
+			"entries": [
+				"Ruinblade is a unique weapon possessed by {@creature Moghadam|IMR}, the architect of the Tomb of Horrors. A symbol of his authority, Moghadam carries the weapon during the time frame of the adventure to intimidate the tomb's workers. (In later years, after {@creature Acererak|ToA} trapped Moghadam in the completed tomb as an undead archwraith, Moghadam was able to use the weapon as his own phylactery.)",
+				"A small jade version of the green devil face of the Tomb of Horrors is fashioned into the hilt of the weapon, with the blade extending from its open mouth. The blade always appears ruined and rusting, and causes its surroundings to appear reflected in the blade as if in a state of decay.",
+				"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you hit an undead creature with it, the attack deals an extra {@dice 1d8} force damage.",
+				"In addition, the weapon has the following properties:",
+				{
+					"type": "entries",
+					"name": "Blighted Ruin",
+					"entries": [
+						"You can cast the {@spell blight} spell from the weapon (DC 15). Once used, this property of the weapon can't be used until the next dawn."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Destructive Ruin",
+					"entries": [
+						"You can cast the {@spell disintegrate} spell from the weapon, but can target only a nonmagical object or a creation of magical force. Once used, this property of the weapon can't be used until dawn seven days later."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Curse",
+					"entries": [
+						"This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the weapon.",
+						"The weapon must take direct part in the destruction of 1,000 gp worth of materials and objects every seven days, or a conflict arises between you and the weapon at the end of the seventh day."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Sentience",
+					"entries": [
+						"Ruinblade is a sentient lawful evil weapon with an Intelligence of 15, a Wisdom of 8, and a Charisma of 16. It has hearing and {@sense darkvision} out to a range of 120 feet.",
+						"The weapon can speak, read, and understand Common, and can communicate with its wielder telepathically. Its voice is a rough, ruined echo. While you are attuned to it, Ruinblade also understands every language you know."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Personality",
+					"entries": [
+						"Ruinblade speaks either with a dolorous or frenetic tone, depending on its mood. That mood improves when the sword is actively engaged in acts of destruction, but worsens if the blade is left inactive too long.",
+						"The weapon's purpose is to ruin and unmake existing objects, so that its owner can rebuild the world from a blank slate. It thus encourages its wielder to engage in constant destruction, claiming that this will allow the creation of a more superior vision from the ruin of what came before."
+					]
+				}
+			],
+			"bonus": "+2",
+			"attachedSpells": [
+				"blight",
+				"disintegrate"
+			]
+		},
+		{
+			"name": "The Infernal Machine of Lum the Mad",
+			"source": "IMR",
+			"rarity": "Artifact",
+			"reqAttune": true,
+			"wondrous": true,
+			"page": 96,
+			"entries": [
+				"This strange device was once thought to have been built by gods long forgotten and to have survived the eons since their passing, for it is incredibly ancient and crafted by means unlike anything known today. However, its true origins derive from a planar craft that crashed in the Barrier Peaks, for the Infernal Machine once functioned as this craft's central command console.",
+				"Explorers who discovered the crash site removed the command console and brought it back to civilization, not understanding its true purpose or powers. In later years, the console came into the possession of Baron Lum. By experimenting with its many controls, he was able to achieve astounding and destructive magical effects in the building of his empire, and so the artifact came to be known as the Infernal Machine of Lum the Mad. Yet with Lum's eventual defeat, his great machine was destroyed.",
+				"The Infernal Machine is a delicate, intricate, bulky, and heavy device, weighing some 5,500 pounds. It can be operated using a control panel containing sixty levers, forty dials, twenty switches, and a number of jeweled components. These controls generate all kinds of powers and effects, as noted below.",
+				{
+					"type": "entries",
+					"name": "Silver Wire",
+					"entries": [
+						"The Infernal Machine's great size makes it largely immobile. To make ongoing use of the machine (such as while adventuring), it can be connected to its attuned user by a silver wire, a supply of which can always be produced from the machine's inner workings. This silver wire shares the same general nature as the silvery cord of an {@spell astral projection} spell, connecting to the body of the user and trailing behind them. When so attached, the wire becomes {@condition invisible}, astral, and extends to virtually infinite length.",
+						"As long as the wire remains intact, the attuned user can make full use of the Infernal Machine's powers, with their effects centered around the user. If the wire is cut\u2014something that can happen only when an effect specifically states that it can cut an {@spell astral projection}'s silvery cord\u2014the user suffers a sudden burst of feedback from the machine that kills them instantly.",
+						"Any effect of the Infernal Machine that requires concentration can be concentrated on by a remote user. The Infernal Machine's effects have a spell save DC of 14 or the attuned user's spell save DC, whichever is higher."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Summon Monster",
+					"entries": [
+						"When first used by Baron Lum, the Infernal Machine was known for its ability to unleash terrible monsters within the world. Specific combinations of its controls can still recreate the effects of various spells of the conjuration school, as follows:",
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								"1/day: {@spell conjure animals}, {@spell summon lesser demons|XGE}",
+								"1/7 days: {@spell conjure minor elementals}, {@spell conjure woodland beings}, {@spell summon greater demon|XGE}",
+								"1/month: {@spell conjure elemental}, {@spell conjure fey}"
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Wish",
+					"entries": [
+						"The Infernal Machine has the ability to bend the nature of reality, with the proper combination of controls recreating the effect of a {@spell wish} spell (including all side effects). Due to the complex nature of its programming, this feature can be used only once per month. Each time this effect is used, there is a cumulative 10 percent chance of the Infernal Machine malfunctioning, necessitating seven days' worth of repairs and reprogramming, as well as the expenditure of 500 gp in parts, before it can be used again. When these repairs are done, the cumulative chance of malfunction returns to 10 percent."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Random Properties",
+					"entries": [
+						"There are far more possible combinations for the Infernal Machine's controls than can ever be known or matrixed\u2014especially as the controls shift position and reset themselves over time. At the end of each long rest of the user attuned to it, the Infernal Machine generates {@dice 1d4 + 1} random beneficial properties and {@dice 1d4 + 1} detrimental properties. Roll for each of these properties on the Infernal Machine Properties table. To keep things interesting, the DM might roll secretly for detrimental properties, revealing those properties only during the course of play.",
+						"Once set, these properties last until the end of the attuned user's next long rest.",
+						"(Our thanks to the D&D community for their suggestions for the properties of the Infernal Machine of Lum the Mad!)"
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Destroying the Machine",
+					"entries": [
+						"The Infernal Machine of Lum the Mad is self-repairing of anything short of catastrophic damage, and how it was disabled in Lum's time remains a mystery. It is rumored that if one specific combination of controls is set, the Infernal Machine will enter a repair mode, allowing unfettered access to its inner workings\u2014and preventing it from restoring itself if it is attacked. Alternatively, other combinations of controls might cause the Infernal Machine to teleport its most critical components to some hiding place deep in space and time, rendering it inoperable until those components are found again."
+					]
+				},
+				{
+					"type": "table",
+					"caption": "Infernal Machine Properties",
+					"colLabels": [
+						"d100",
+						"Beneficial Property",
+						"Detrimental Property"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-5",
+						"col-5"
+					],
+					"rows": [
+						[
+							"01",
+							"You have a flying speed of 150 feet but lose all other movement.",
+							"You are {@condition blinded}."
+						],
+						[
+							"02",
+							"You can cast the {@spell speak with animals} spell at will, but can use it to speak with only one animal of your choice.",
+							"All animals despise you. You have disadvantage on Wisdom ({@skill Animal Handling}) checks."
+						],
+						[
+							"03",
+							"One weapon or item you carry of your choice gains a walking speed of 30 feet and goes where you tell it.",
+							"Your armor and clothing feels unnaturally tight. Unless you go naked, roll a {@dice d4} each time you are attacked and subtract the number rolled from your AC."
+						],
+						[
+							"04",
+							"You can cast the {@spell legend lore} spell three times.",
+							"Whenever you make an Intelligence check or use divination magic to learn something about a creature, that knowledge comes with added trivia of the DM's devising."
+						],
+						[
+							"05",
+							"You emanate a weak magnetic aura. The first time during a combat that a creature attacks you with a metal weapon, that creature has disadvantage on the attack roll.",
+							"Metal rusts in response to your touch\u2014including metal armor you wear and metal weapons you hold\u2014reproducing the effect of the rust monster's Rust Metal trait."
+						],
+						[
+							"06",
+							"Your fingers sprout tiny clockwork picks, granting you advantage on ability checks made using thieves' tools or tinker's tools.",
+							"Any metal object you wield or wear is covered in a thin layer of oil that drips occasionally and leaves your fingerprints everywhere."
+						],
+						[
+							"07",
+							"You can cast the {@spell speak with animals} spell at will, but can use it to communicate only with insects.",
+							"Disturbing whispers on the edge of hearing haunt all creatures within 30 feet of you, causing those creatures to recall their saddest memories."
+						],
+						[
+							"08",
+							"You have a +1 bonus to Wisdom ({@skill Insight} checks) involving creatures you can see.",
+							"Your body is ghostly and translucent except for your bones. You have vulnerability to radiant damage, and you have disadvantage on attack rolls while in direct sunlight."
+						],
+						[
+							"09",
+							"You summon a {@creature unicorn} that obeys your commands. If you give a command that violates the unicorn's allignment, the unicorn immediately vanishes.",
+							"You grow a unicorn horn."
+						],
+						[
+							"10",
+							"A specialized clockwork compass floats in front of you. You can name one character, place, or object on the same plane as you and have the compass point constantly in the direction of the named target. You gain no knowledge of the distance to the target.",
+							"A specialized clockwork compass floats in front of you, and points toward you. The DM determines whether a creature currently looking for you is drawn to your location. Additionally, when a creature attacks you for the first time during an encounter, it has advantage on the attack roll."
+						],
+						[
+							"11",
+							"Your clothes are wrapped in illusion that makes them appear to be the very latest style, drawing praise and attention. You have a +1 bonus to Charisma checks.",
+							"Any food and drink you eat spoils as you swallow it. Each time you eat or drink, you are {@condition poisoned} for 1 hour."
+						],
+						[
+							"12",
+							"You have a +1 bonus to attack rolls with weapons or spells (your choice).",
+							"The cure wounds spell restores no hit points for you."
+						],
+						[
+							"13",
+							"You have an innate sense of direction. You automatically succeed on ability checks made to avoid becoming lost.",
+							"Whenever you move, a magical voice calls out your direction and how far you've gone. The voice cannot be silenced or stopped."
+						],
+						[
+							"14",
+							"You constantly see afterimages of all events that occurred within 30 feet of you over the previous hour.",
+							"You are distracted by voices and visions, forcing you to succeed on a Wisdom saving throw every 4 hours or gain one level of {@condition exhaustion}."
+						],
+						[
+							"15",
+							"You understand all languages, as if under the effect of a comprehend languages spell.",
+							"Whenever you speak, you speak in a random language (possibly including languages you don't normally know)."
+						],
+						[
+							"16",
+							"You have +1 bonus to initiative rolls.",
+							"You are unable to hear any speech louder than a whisper."
+						],
+						[
+							"17",
+							"An exact duplicate of you appears next to you, dressed as you but lacking any gear. The duplicate functions as a familiar and has the statistics of a {@creature cat}.",
+							"An exact duplicate of you appears next to you, dressed as you but lacking any gear. It loudly tries to convince all other creatures that it is you, and you are its familiar. If destroyed, it reappears in {@dice 1d4} hours."
+						],
+						[
+							"18",
+							"While you are afflicted by a disease or suffering the {@condition poisoned} or {@condition frightened} condition, whenever you hit a humanoid with a melee attack, the target must succeed on a DC 15 Constitution saving throw. On a failed save, you transfer the disease or the condition to the target, and the disease or condition ends for you.",
+							"Water becomes intensely acidic to you. If you are submerged in water, you take {@dice 1d6} acid damage at the start of each of your turns, and drinking pure water causes you to be {@condition poisoned} for 1 hour."
+						],
+						[
+							"19",
+							"A random Huge beast appears next to you (chosen by the DM) as if with the {@spell conjure animals} spell. You have a telepathic link to this beast, such that you can give it commands even if it can't hear you.",
+							"A random Huge beast appears next to you (chosen by the DM) and attacks at once."
+						],
+						[
+							"20",
+							"You have 1 luck point, which you can use as if you had taken the Lucky feat. If you have taken that feat, you have 1 extra luck point.",
+							"Those around you perceive you as dishonest, even when you are completely truthful. You automatically fail Charisma checks."
+						],
+						[
+							"21",
+							"If you drop to 0 hit points, a phantom guardian appears next to you, functioning as if you had cast the {@spell Mordenkainen's faithful hound} spell. The guardian disappears if you die, regain hit points, or regain consciousness.",
+							"No one takes you seriously, imposing disadvantage on Charisma ({@skill Deception} and {@skill Persuasion}) checks, and causing you to automatically fail Charisma ({@skill Intimidation}) checks."
+						],
+						[
+							"22",
+							"You can cast the {@spell gaseous form} spell on yourself three times. When you do, instead of appearing as mist, you appear as a swirling puff of feathers.",
+							"Your body is covered in feathers."
+						],
+						[
+							"23",
+							"You have advantage on death saving throws.",
+							"You have disadvantage on all saving throws except death saving throws."
+						],
+						[
+							"24",
+							"You can cast {@spell speak with animals} at will, but can use it to communicate only with dogs.",
+							"All cats are automatically hostile toward you."
+						],
+						[
+							"25",
+							"You can cast the {@spell raise dead} spell once, requiring no material components.",
+							"If you drop to 0 hit points, you automatically suffer 1 failed death saving throw."
+						],
+						[
+							"26",
+							"Each time you finish a short rest, up to 100 silver pieces already in your possession become gold pieces, and up to 100 copper pieces become silver pieces.",
+							"All coins you touch become worthless tin."
+						],
+						[
+							"27",
+							"Anything poisonous within 50 feet of you is automatically detected and marked by the image of a small frog that is visible only to you.",
+							"A dozen small frogs constantly follow you around, chirping loudly."
+						],
+						[
+							"28",
+							"You gain the benefit of a {@spell nondetection} spell.",
+							"Your appearance changes randomly as determined by the DM, as if you were under the effect of a disguise self spell."
+						],
+						[
+							"29",
+							"You can cast the {@spell mage hand} cantrip at will.",
+							"A disembodied spirit follows you around, stealing and scattering coins from you, crumbling your food, and playing with your weapons and gear."
+						],
+						[
+							"30",
+							"You are able to decipher any text.",
+							"You lose the ability to speak any language. This has no effect on casting spells with verbal components."
+						],
+						[
+							"31",
+							"You can cast the {@spell speak with plants} spell three times.",
+							"Your skin turns green, and you must drink a half gallon of fresh water every 4 hours or take {@dice 1d4} necrotic damage."
+						],
+						[
+							"32",
+							"You know whether creatures within 15 feet of you are lying, as if you were the center of a zone of truth spell.",
+							"Whenever you would speak falsely, you cannot speak at all."
+						],
+						[
+							"33",
+							"You gain a sense of destiny that directs you toward an important goal, as determined by the DM.",
+							"Your head is filled with an unpleasant buzzing that imposes disadvantage on Intelligence checks and saving throws."
+						],
+						[
+							"34",
+							"All creatures you speak with automatically believe your words, as if you have succeeded on a Charisma ({@skill Deception} or {@skill Persuasion}) check against them. Any sign of threatening or duplicitous action on your part negates this automatic success.",
+							"Your personal tastes reverse, such that your favorite foods, hobbies, music, and so forth become unbearable to you."
+						],
+						[
+							"35",
+							"Your shadow becomes an undead {@creature shadow} that shares your alignment and is under your control.",
+							"Your shadow behaves disapprovingly whenever you're not looking\u2014stealing things, mocking you behind your back, taunting opponents or friends, and so on."
+						],
+						[
+							"36",
+							"Your skin is covered by slime. You automatically succeed on ability checks and saving throws made to escape a grapple.",
+							"Your skin is covered by slime. You must succeed on a DC 10 Dexterity saving throw to sit down, open doors, and perform other mundane tasks of the DM's determination."
+						],
+						[
+							"37",
+							"Flowers turn to face you as you pass them.",
+							"Mundane animals can't look at you."
+						],
+						[
+							"38",
+							"Each time you finish a short rest, you suddenly sprout a covering of fragrant leaves. The leaves fall off after {@dice 1d10} minutes, revealing {@dice 1d6} magic fruits that can be plucked from your head. Each fruit functions as a berry created with the {@spell goodberry} spell.",
+							"Whenever you stop moving for 10 minutes or more, you discover that your boots or shoes have set down roots that must be pulled free with a successful DC 20 Strength check."
+						],
+						[
+							"39",
+							"Choose a creature you can see. That creature must succeed on a DC 15 Dexterity saving throw or drop one item they are holding (DM's choice). You can use this property three times.",
+							"Each time you roll a 1 on a Dexterity check, you drop one object you are holding (DM's choice)."
+						],
+						[
+							"40",
+							"A group of small forest animals appears and follows you everywhere, singing and dancing. These magical creatures can perform any task you desire that could be performed by a {@spell prestidigitation} spell.",
+							"You break out into song whenever you roll a 1 on any die."
+						],
+						[
+							"41",
+							"Your possessions change their state or appearance at the DM's determination, giving you hints of potential future events. For example, your sword might become suddenly bloodstained to warn of an upcoming combat encounter, your clothes might become damp to warn of a water-filled pit trap ahead, and so on.",
+							"You take a \u22125 penalty to initiative rolls."
+						],
+						[
+							"42",
+							"Whenever you roll a 1 on a {@dice d20}, you have advantage on your next {@dice d20} roll.",
+							"Whenever you roll a 1 on a {@dice d20}, you have disadvantage on your next {@dice d20} roll."
+						],
+						[
+							"43",
+							"Grass, moss, and flowers instantly grow in your footsteps. You are also unaffected by difficult terrain created by plants.",
+							"Any harm that befalls a plant you can see (a woodcutter sawing down a tree, a gardener pulling weeds, and so forth) fills you with a sadness that imposes disadvantage on ability checks for 1 minute."
+						],
+						[
+							"44",
+							"You automatically know the direction to the greatest danger within 500 feet of you.",
+							"You leave a trail of black footprints that allow anyone to automatically follow you."
+						],
+						[
+							"45",
+							"You can cast the {@spell detect thoughts} spell three times.",
+							"All creatures within 30 feet of you automatically know your surface thoughts, as if having cast {@spell detect thoughts} against you."
+						],
+						[
+							"46",
+							"You can cast the {@spell misty step} spell three times. When you do, you must begin and end your teleportation in an area of shadow.",
+							"While in direct sunlight, you have disadvantage on attack rolls as well as on Wisdom ({@skill Perception}) checks that rely on sight."
+						],
+						[
+							"47",
+							"Creatures cannot gain advantage on attacks made against you as a result of another creature using the {@action Help} action.",
+							"You have disadvantage on Dexterity ({@skill Acrobatics}) checks."
+						],
+						[
+							"48",
+							"You have increased lung capacity, increasing your walking speed by 10 feet and letting you hold your breath for twice as long as normal.",
+							"Whenever you exert yourself by fighting, running, and so forth, you breathe out intermittent gouts of flame that deal {@dice 1d4} fire damage to you."
+						],
+						[
+							"49",
+							"You can cast the {@spell daylight} spell three times.",
+							"An evil undead creature that comes within 30 feet of you for the first time is {@condition charmed} by you until the end of your next turn."
+						],
+						[
+							"50",
+							"When you touch a copper piece, it transmutes to become two copper pieces. You can duplicate a maximum of 1,000 coins this way.",
+							"Food doesn't satiate you, and you must eat double the amount of food you normally eat to avoid feeling hungry."
+						],
+						[
+							"51",
+							"You shed light like a torch, as if you were the target of a {@spell light} cantrip.",
+							"No one else can take a short rest within 40 feet of you, as everything you say or do seems distracting to them."
+						],
+						[
+							"52",
+							"You can cast the {@spell divination} spell once.",
+							"Whenever you make an Intelligence check or saving throw, you receive a grim vision of the DM's determination, imposing disadvantage on your next attack roll, ability check, or saving throw."
+						],
+						[
+							"53",
+							"As an action, you can become incorporeal for 10 minutes, allowing you to move through other creatures and objects as if they were difficult terrain. You take 5 ({@dice 1d10}) force damage if you end your turn inside an object. You can use this property once.",
+							"Your senses diminish as if the world were faded around you, imposing disadvantage on Wisdom ({@skill Perception}) checks."
+						],
+						[
+							"54",
+							"While you take a short rest, the area within 50 feet of you takes on the illusory appearance of a beautiful forest glade.",
+							"The first time an ally you can see takes damage as a result of failing a saving throw, you take the damage instead of them."
+						],
+						[
+							"55",
+							"As a bonus action, you can choose one creature within 10 feet of you and know one secret about it, as determined by the DM.",
+							"The {@spell remove curse}, {@spell lesser restoration}, and {@spell greater restoration} spells have no effect on you."
+						],
+						[
+							"56",
+							"You can predict the weather conditions for the next 24 hours with perfect accuracy.",
+							"A rain cloud follows you around, drizzling on you constantly even while indoors."
+						],
+						[
+							"57",
+							"You have telepathy out to a range of 120 feet.",
+							"You hear the voices of creatures you can see in your head from time to time (as detailed by the DM), but you have no idea whether what you're hearing is the truth or not."
+						],
+						[
+							"58",
+							"You can cast {@spell speak with animals} at will, but you can use it to communicate only with goats. Any goat you speak with becomes {@condition charmed} by you for 1 hour.",
+							"You become distraught unless your clothing is all the same color, imposing disadvantage on Intelligence, Wisdom, and Charisma checks and saving throws."
+						],
+						[
+							"59",
+							"You have resistance to fire damage.",
+							"You gain no benefit from any potion."
+						],
+						[
+							"60",
+							"You have immunity to the {@condition charmed} and {@condition frightened} conditions.",
+							"You can speak only in a monotone voice, imposing disadvantage on Charisma checks."
+						],
+						[
+							"61",
+							"You and each creature within 10 feet of you have resistance to necrotic damage.",
+							"Any Wisdom ({@skill Medicine}) check you make or that is made to help you is made with disadvantage."
+						],
+						[
+							"62",
+							"The first creature you hit with a weapon attack on each of your turns takes {@dice 1d4} fire damage at the start of its next turn.",
+							"You are {@condition blinded} while in bright light, and your shadow takes on a monstrous appearance."
+						],
+						[
+							"63",
+							"No creature can learn your alignment by magical means, and you have advantage on Charisma checks involving creatures that also share your alignment.",
+							"You have disadvantage on Charisma checks involving creatures that do not share your alignment."
+						],
+						[
+							"64",
+							"As a bonus action, you cause yourself and a willing ally you can see to swap positions by teleportation.",
+							"Whenever you roll a 1 on a {@dice d20} roll, you and an ally you can see swap positions by teleportation."
+						],
+						[
+							"65",
+							"As an action, you cause difficult terrain within 50 feet of you to become normal terrain. You can use this property three times.",
+							"Each time you move through difficult terrain, your speed is reduced by 10 feet until the end of your next turn."
+						],
+						[
+							"66",
+							"You increase one ability score of your choice by 2. You can increase an ability score above 20 using this property, but the increase is lost when this property ends.",
+							"Whenever you roll a 1 on an attack roll, ability check, or saving throw using your highest ability score, you take {@dice 1d4} psychic damage."
+						],
+						[
+							"67",
+							"As an action, you learn the direction and distance to the nearest magic item not in the possession of you or any of your allies.",
+							"Each creature within 30 feet of you automatically knows which magic items you carry."
+						],
+						[
+							"68",
+							"As an action while you are in dim light or darkness, you can become {@condition invisible}, as if targeted by the {@spell invisibility} spell. In addition to becoming visible if you attack or cast a spell, you become visible if you move into bright light. You can use this property three times.",
+							"While in bright light, you have disadvantage on initiative rolls."
+						],
+						[
+							"69",
+							"You can read and understand all the languages commonly spoken within 1 mile of you, as determined by the DM.",
+							"While speaking, you occasionally use nonsense words, imposing disadvantage on Charisma checks."
+						],
+						[
+							"70",
+							"You know one cantrip of the DM's choice, and can cast one 1st-level spell of the DM's choice at will.",
+							"Whenever you cast a spell or use a magic item property that requires an action or a bonus action to activate, roll on the Wild Magic Surge table (see the sorcerer section in chapter 3 of the Player's Handbook) to see what happens."
+						],
+						[
+							"71",
+							"Whenever you roll a 20 on a {@dice d20}, you can immediately end one effect on you.",
+							"Whenever you roll a 1 on a {@dice d20}, you are {@condition blinded} until the end of your next turn."
+						],
+						[
+							"72",
+							"Any clothing you wear is covered with a magical map image that shows all the local area you are aware of. This map doesn't reveal anything you don't know, but grants advantage on ability checks to find secret doors and to navigate back to where you've been.",
+							"Any rope you touch transforms into a {@creature poisonous snake} that attacks you."
+						],
+						[
+							"73",
+							"You summon a {@creature slithering tracker|VGM} that obeys your commands.",
+							"You take on the appearance of having translucent skin, with your bones and organs slightly visible within."
+						],
+						[
+							"74",
+							"You have a fresh-scrubbed appearance, and a sweet perfume surrounds you. You have advantage on Charisma ({@skill Persuasion}) checks.",
+							"Whenever you fail a Charisma ({@skill Persuasion}) check, the subject of the check becomes irrationally resentful of you, seeking to undermine you in ways determined by the DM."
+						],
+						[
+							"75",
+							"You can cast the control weather spell.",
+							"Each time you deal or take cold damage or fire damage, you must succeed on a DC 10 Charisma saving throw or accidentally summon a hostile {@creature air elemental} or {@creature fire elemental} (depending on the damage dealt)."
+						],
+						[
+							"76",
+							"A tiny construct resembling a {@creature gynosphinx} follows you around. It can truthfully answer up to ten yes-or-no questions regarding the campaign, at the DM's discretion.",
+							"A tiny construct resembling a {@creature gynosphinx} follows you around. It constantly asks unsolvable riddles of other creatures, and insults those creatures when they fail to answer correctly."
+						],
+						[
+							"77",
+							"A creature appears next to you that is a hybrid of any two nonmagical beasts (akin to the {@creature owlbear}). The creature serves you as if created by a {@spell conjure animals} spell. The DM determines the creature's statistics.",
+							"A creature appears next to you that is a hybrid of any two nonmagical beasts (akin to the {@creature owlbear}). Unless you succeed on a DC 12 Wisdom ({@skill Animal Handling}) check, the creature attacks you before wandering off. The DM determines the creature's statistics."
+						],
+						[
+							"78",
+							"You can cast the {@spell teleport} spell, always arriving on target when you do. You can use this property once.",
+							"Each time you walk through a doorway or similar portal, you must succeed on a DC 10 Intelligence check or step into a skewed timeline. On a failure, you and all allies within 10 feet of you skip ahead {@dice 1d4} minutes. To other creatures, it appears that you and other affected creatures disappear for that length of time, then appear again in the doorway."
+						],
+						[
+							"79",
+							"You can cast the {@spell haste} spell on yourself. You can use this property three times.",
+							"Each time you are reduced to 0 hit points then stabilized, you suffer the effect of a {@spell slow} spell."
+						],
+						[
+							"80",
+							"You do not need to breathe and cease to do so, making you immune to inhaled poisons and suffocation.",
+							"Whenever you speak (including casting a spell with a verbal component), you must first use a bonus action to breathe."
+						],
+						[
+							"81",
+							"Your blood is venomous, granting you immunity to poison and to the {@condition poisoned} condition. You can cast the {@spell speak with animals} spell at will, but you can use it to communicate only with snakes.",
+							"Your tongue is long and forked, causing you to speak in a hiss. You have disadvantage on Charisma checks involving speech, and you must succeed on a DC 15 Constitution check to cast a spell with a verbal component."
+						],
+						[
+							"82",
+							"You grow gills and have the ability to breathe air and water. You also sprout a pair of tentacles from your shoulders that have a reach of 10 feet and can be used to perform any action you could perform with your hands. The tentacles cannot attack or grapple.",
+							"You are constantly followed by {@dice 1d4} {@creature octopus||octopuses} that can breathe air and water, and which have a walking speed of 30 feet. Each time combat breaks out, you must succeed on a DC 13 Wisdom ({@skill Animal Handling}) check or have the octopuses panic and attack you."
+						],
+						[
+							"83",
+							"You can cast the {@spell misty step} spell three times. When you do, you must begin and end your teleportation in an area of fire. Any fire damage you take during the same turn in which you use {@spell misty step} is restored automatically at the end of your turn.",
+							"Whenever you start your turn within 30 feet of an ongoing fire effect, you must succeed on a DC 13 Wisdom saving throw or move toward the fire and into it if possible."
+						],
+						[
+							"84",
+							"When you look at the sky, you see it overlaid with navigational symbols. You have advantage on ability checks made to avoid becoming lost while outdoors.",
+							"You have disadvantage on Wisdom ({@skill Perception}) checks while indoors."
+						],
+						[
+							"85",
+							"You can cast the {@spell healing word} spell three times.",
+							"Undead are drawn to you, making it impossible for you to hide from them. Each undead creature you face in combat has advantage on its first attack roll against you."
+						],
+						[
+							"86",
+							"Any food you touch is transformed into a culinary delight. You have advantage on Charisma checks while interacting with any creatures that have eaten of this food.",
+							"You constantly hear distracting music that throws off your timing, imposing disadvantage on initiative rolls and Dexterity checks."
+						],
+						[
+							"87",
+							"Your mind is filled with lost facts and lore, granting advantage on Intelligence checks.",
+							"You forget your name, and must be constantly reminded of it by your allies."
+						],
+						[
+							"88",
+							"Your touch can change small nonmagical objects into chocolate.",
+							"Anything you eat or drink makes you feel overly sated and full, imposing disadvantage on Strength checks for 1 hour."
+						],
+						[
+							"89",
+							"Each time you finish a short rest, you regain {@dice 1d8} hit points. Each creature that took a short rest with you and remained within 30 feet of you for the duration also gains this benefit.",
+							"Each time you finish a short rest, you take {@dice 3d8} psychic damage. At your determination, you can transfer some or all of this damage to any creatures that took a short rest with you and remained within 30 feet of you for the duration."
+						],
+						[
+							"90",
+							"Each time you finish a short rest, you find {@dice 1d10} small gems worth 10 gp each in your possession.",
+							"Whenever you spend coins or gems, any character you give them to becomes convinced that the wealth was stolen from them."
+						],
+						[
+							"91",
+							"When you hit a creature for the first time during an encounter, its Armor Class is reduced by 1.",
+							"Whenever you roll a 1 on a weapon attack roll, the weapon shatters like glass. The weapon magically reforms in {@dice 1d4} rounds."
+						],
+						[
+							"92",
+							"Each time you enter a settlement, you are treated as though you are known there and a friend, even if you are neither.",
+							"Each time you roll a 1 on an attack roll, ability check, or saving throw, you grow one inch taller. Your clothing and armor does not grow with you."
+						],
+						[
+							"93",
+							"While standing in a doorway, you can cast the {@spell teleport} spell. Your destination must be another doorway you know. You can use this property once.",
+							"Each time you finish a short rest, you forget one of your allies (of the DM's choice) and no longer trust that character. You lose this distrust at the end of your next short rest."
+						],
+						[
+							"94",
+							"As an action, you cause a swirling storm of rocks and dust to surround you in a 10-foot radius for 1 minute. Each creature hostile to you that enters the area must succeed on a DC 12 Constitution saving throw or take {@dice 1d6} bludgeoning damage and be {@condition blinded} for 1 round. You can use this property three times.",
+							"{@creature fire elemental||Fire elementals}, {@creature water elemental||water elementals}, and other creatures of fire and water (as determined by the DM) regard you as their enemy, and focus their attacks against you to the exclusion of all else."
+						],
+						[
+							"95",
+							"As an action, you learn the names of every humanoid creature within 30 feet of you.",
+							"Whenever you roll a 1 on a Strength or Dexterity check that incorporates touching an object, you stick to that object for 1 minute. It takes a successful DC 20 Strength check to free yourself."
+						],
+						[
+							"96",
+							"You can cast the {@spell modify memory} spell once.",
+							"Whenever you make an Intelligence check or saving throw, you must succeed on a DC 13 Charisma saving throw or lose all your memories of the past hour."
+						],
+						[
+							"97",
+							"You can ignore the verbal component of any spell you cast.",
+							"You must shout the verbal component of any spell you cast."
+						],
+						[
+							"98",
+							"As an action, you conjure a mindless, shapeless force that is your exact duplicate. You control this force as if it were the product of an {@spell unseen servant} spell, except that it is visible.",
+							"Each time you see your own reflection, you must succeed on a DC 12 Charisma saving throw. On a failure, you treat your allies as enemies and vice versa for 1 minute, attacking the wrong targets, betraying your companions in social situations, and so forth. You can repeat the saving throw at the end of each of your turns, ending the effect on a success."
+						],
+						[
+							"99",
+							"As an action, you can replace one of your hands with any nonmagical weapon, tool, or piece of adventuring equipment of reasonable size (as determined by the DM).",
+							"Your hands feel unnaturally large, imposing disadvantage on Dexterity ({@skill Sleight of Hand}) checks and Dexterity checks using thieves' tools or artisan's tools. The first weapon attack roll you make in any encounter is made with disadvantage."
+						],
+						[
+							"00",
+							"All creatures of a particular type other than humanoid (as chosen by the DM) are incapable of acting hostile toward you as long as you do not attack, threaten, or provoke them.",
+							"Whenever you meet a creature of a particular type other than humanoid (as chosen by the DM), there is a 1 percent cumulative chance that the {@creature tarrasque} is magically summoned within 1 mile of you. The tarrasque has no knowledge of your existence. It runs amok for {@dice 1d6 × 10} minutes, then magically returns to its previous location."
+						]
+					]
+				}
+			],
+			"attachedSpells": [
+				"conjure animals",
+				"summon lesser demons|XGE",
+				"conjure minor elementals",
+				"conjure woodland beings",
+				"summon greater demon|XGE",
+				"conjure elemental",
+				"conjure fey",
+				"wish",
+				"speak with animals",
+				"legend lore",
+				"Mordenkainen's faithful hound",
+				"gaseous form",
+				"raise dead",
+				"nondetection",
+				"mage hand",
+				"speak with plants",
+				"goodberry",
+				"prestidigitation",
+				"detect thoughts",
+				"misty step",
+				"daylight",
+				"light",
+				"divination",
+				"remove curse",
+				"lesser restoration",
+				"greater restoration",
+				"invisibility",
+				"teleport",
+				"haste",
+				"slow",
+				"healing word",
+				"modify memory",
+				"unseen servant"
+			]
+		},
+		{
+			"name": "Thessaltoxin Antidote",
+			"type": "P",
+			"rarity": "Uncommon",
+			"source": "IMR",
+			"page": 95,
+			"entries": [
+				"This potion appears to change color and texture each time you look at it. When you drink the potion, it ends the {@spell polymorph} effect imposed by thessaltoxin."
+			]
+		},
+		{
+			"name": "Blood of the Lycanthrope (Injury)",
+			"rarity": "None",
+			"source": "IMR",
+			"page": 93,
+			"entries": [
+				"This poison is created from blood harvested from a dead or {@condition incapacitated} lycanthrope in its animal or hybrid form. A creature subjected to this poison must succeed on a DC 12 Constitution saving throw or be cursed with lycanthropy (see the Monster Manual). The curse lasts until removed by the {@spell remove curse} spell or similar magic.",
+				"The type of lycanthropy depends on the lycanthrope used to create the poison. To determine the type of lycanthropy randomly, roll a d6:",
+				{
+					"type": "table",
+					"colLabels": [
+						"d6",
+						"Lycanthropy"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-10"
+					],
+					"rows": [
+						[
+							"1-3",
+							"{@creature Wererat}"
+						],
+						[
+							"4-5",
+							"{@creature Werewolf}"
+						],
+						[
+							"6",
+							"{@creature Wereboar}"
+						]
+					]
+				}
+			],
+			"poison": true
+		},
+		{
+			"name": "Dust of the Mummy (Inhaled)",
+			"rarity": "None",
+			"source": "IMR",
+			"page": 93,
+			"entries": [
+				"This poison is created during a mummy's embalming process, distilled from the dead creature's removed organs. A creature subjected to this poison must succeed on a DC 12 Constitution saving throw or be cursed with mummy rot. The cursed creature can't regain hit points, and its hit point maximum decreases by 10 (3d6) for every 24 hours that elapse. If the curse reduces the creature's hit point maximum to 0, the creature dies, and its body turns to dust. The curse lasts until removed by the {@spell remove curse} spell or similar magic."
+			],
+			"poison": true
+		},
+		{
+			"name": "Thessaltoxin (Ingested or Injury)",
+			"rarity": "None",
+			"source": "IMR",
+			"page": 93,
+			"entries": [
+				"This poison was first created using blood harvested from the artificer Thessalar. A creature subjected to the poison must succeed on a DC 15 Constitution saving throw or take on a new form as if affected by the {@spell polymorph} spell. The creature's new form is a random beast or a creature it has seen within the last 24 hours (as chosen by the DM). This transformation lasts until the end of the target's next long rest. This effect is not subject to {@spell dispel magic} or {@spell remove curse}, but a {@spell greater restoration} spell restores the creature to its original form."
+			],
+			"poison": true,
+			"attachedSpells": [
+				"polymorph"
+			]
+		},
+		{
+			"name": "Potion of Comprehension",
+			"type": "P",
+			"rarity": "Common",
+			"source": "WDMM",
+			"page": 62,
+			"entries": [
+				"When you drink this potion, you gain the effect of a {@spell comprehend languages} spell for 1 hour. This liquid is a clear concoction with bits of salt and soot swirling in it."
+			]
+		},
+		{
+			"name": "Potion of Watchful Rest",
+			"type": "P",
+			"rarity": "Common",
+			"source": "WDMM",
+			"page": 62,
+			"entries": [
+				"When you drink this potion, you gain the following benefits for the next 8 hours: magic can't put you to sleep, and you can remain awake during a long rest and still gain its benefits. This sweet, amber-colored brew has no effect on creatures that don't require sleep, such as elves."
 			]
 		}
 	],
@@ -26445,7 +27414,8 @@
 				"Pan Flute|PHB",
 				"Shawm|PHB",
 				"Viol|PHB"
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Gaming Set",
@@ -26458,7 +27428,8 @@
 				"Dragonchess Set|PHB",
 				"Playing Card Set|PHB",
 				"Three-Dragon Ante Set|PHB"
-			]
+			],
+			"srd": true
 		},
 		{
 			"name": "Glamerweave",
@@ -26529,6 +27500,12 @@
 				"Spell Gem (Ruby)|OotA",
 				"Spell Gem (Star ruby)|OotA",
 				"Spell Gem (Topaz)|OotA"
+			],
+			"otherSources": [
+				{
+					"source": "IMR",
+					"page": 95
+				}
 			]
 		},
 		{

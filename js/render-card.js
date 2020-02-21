@@ -252,7 +252,7 @@ class RendererCard {
 
 	_renderAbilityGeneric (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		textStack[0] += `${entry.name ? `<b>${entry.name}</b>  = ` : ""}${entry.text}${entry.attributes ? ` ${Parser.attrChooseToFull(entry.attributes)}` : ""}`;
+		textStack[0] += `${entry.name ? `<b>${entry.name}</b> = ` : ""}${entry.text}${entry.attributes ? ` ${Parser.attrChooseToFull(entry.attributes)}` : ""}`;
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 	// endregion
@@ -282,7 +282,7 @@ class RendererCard {
 
 	_renderLink (entry, textStack, meta, options) {
 		const href = this._renderLink_getHref(entry);
-		textStack[0] += `<a href="${href}" rel="noopener">${this.render(entry.text)}</a>`;
+		textStack[0] += `<a href="${href}" rel="noopener noreferrer">${this.render(entry.text)}</a>`;
 	}
 
 	/*
@@ -346,6 +346,28 @@ class RendererCard {
 
 	_renderGallery (entry, textStack, meta, options) {
 		textStack[0] += `text | (Image gallery rendering within cards is not supported.)\n`
+	}
+	// endregion
+
+	// region flowchart
+	_renderFlowchart (entry, textStack, meta, options) {
+		const len = entry.blocks.length;
+		for (let i = 0; i < len; ++i) this._recursiveRender(entry.blocks[i], textStack, meta, options);
+	}
+
+	_renderFlowBlock (entry, textStack, meta, options) {
+		textStack[0] += "\n";
+		if (entry.name != null) textStack[0] += `section | ${entry.name}\n`;
+		if (entry.entries) {
+			const len = entry.entries.length;
+			for (let i = 0; i < len; ++i) {
+				const cacheDepth = meta.depth;
+				meta.depth = 2;
+				this._recursiveRender(entry.entries[i], textStack, meta, {prefix: "text | ", suffix: "\n"});
+				meta.depth = cacheDepth;
+			}
+		}
+		textStack[0] += `\n`;
 	}
 	// endregion
 

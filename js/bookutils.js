@@ -176,6 +176,7 @@ const BookUtil = {
 		headerMap: {}
 	},
 	_lastClickedLink: null,
+	_isNarrow: null,
 	showBookContent (data, fromIndex, bookId, hashParts) {
 		function handleQuickReferenceShowAll () {
 			$(`.${Renderer.HEAD_NEG_1}`).show();
@@ -232,6 +233,8 @@ const BookUtil = {
 		BookUtil.curRender.data = data;
 		BookUtil.curRender.fromIndex = fromIndex;
 		BookUtil.curRender.headerMap = BookUtil.getEntryIdLookup(data);
+
+		// If it's a new chapter or a new book
 		if (BookUtil.curRender.chapter !== chapter || UrlUtil.encodeForHash(BookUtil.curRender.curBookId.toLowerCase()) !== UrlUtil.encodeForHash(bookId)) {
 			BookUtil.thisContents.children(`ul`).children(`ul, li`).removeClass("active");
 			if (~chapter) {
@@ -310,8 +313,27 @@ const BookUtil = {
 
 				if (isTop) {
 					const href = (~BookUtil.curRender.chapter ? BookUtil.thisContents.find(`.bk__contents_show_all`) : BookUtil.thisContents.find(`.bk__contents_header_link`)).attr("href");
-					$(`<a href="${href}" class="btn btn-xs btn-default no-print ${~BookUtil.curRender.chapter ? "" : "active"}" title="Warning: Slow">View Entire ${BookUtil.contentType.uppercaseFirst()}</a>`)
-						.appendTo($wrpControls);
+					const $btnEntireBook = $(`<a href="${href}" class="btn btn-xs btn-default no-print ${~BookUtil.curRender.chapter ? "" : "active"}" title="Warning: Slow">View Entire ${BookUtil.contentType.uppercaseFirst()}</a>`);
+
+					if (BookUtil._isNarrow == null) {
+						const saved = StorageUtil.syncGetForPage("narrowMode");
+						if (saved != null) BookUtil._isNarrow = saved;
+						else BookUtil._isNarrow = false;
+					}
+
+					const hdlNarrowUpdate = () => {
+						$btnToggleNarrow.toggleClass("active", BookUtil._isNarrow);
+						$(`#pagecontent`).toggleClass(`bk__stats--narrow`, BookUtil._isNarrow);
+					};
+					const $btnToggleNarrow = $(`<button class="btn btn-xs btn-default" title="Toggle Narrow Reading Width"><span class="glyphicon glyphicon-resize-small"/></button>`)
+						.click(() => {
+							BookUtil._isNarrow = !BookUtil._isNarrow;
+							hdlNarrowUpdate();
+							StorageUtil.syncSetForPage("narrowMode", BookUtil._isNarrow);
+						});
+					hdlNarrowUpdate();
+
+					$$`<div class="no-print flex-v-center btn-group">${$btnEntireBook}${$btnToggleNarrow}</div>`.appendTo($wrpControls);
 				} else $(`<button class="btn btn-xs btn-default no-print">Back to Top</button>`).click(() => MiscUtil.scrollPageTop()).appendTo($wrpControls);
 
 				const showNxt = ~chapter && chapter < data.length - 1;
@@ -348,7 +370,7 @@ const BookUtil = {
 					$btnPrev
 						.toggle(showPrev)
 						.appendTo(BookUtil.$wrpFloatControls)
-						.attr("title", "Previous Chapter");
+						.title("Previous Chapter");
 					BookUtil.curRender.controls.$btnsPrv.push($btnPrev);
 
 					let $btnNext;
@@ -362,7 +384,7 @@ const BookUtil = {
 					$btnNext
 						.toggle(showNxt)
 						.appendTo(BookUtil.$wrpFloatControls)
-						.attr("title", "Next Chapter");
+						.title("Next Chapter");
 					BookUtil.curRender.controls.$btnsNxt.push($btnNext);
 
 					BookUtil.$wrpFloatControls.toggleClass("btn-group", showPrev && showNxt);
@@ -397,6 +419,7 @@ const BookUtil = {
 				}
 			}
 		} else {
+			// It's the same chapter/same book
 			if (hashParts.length <= 1) {
 				if (~chapter) {
 					if (BookUtil.referenceId) MiscUtil.scrollPageTop();
@@ -419,6 +442,11 @@ const BookUtil = {
 				setTimeout(() => {
 					BookUtil.scrollClick(scrollTo, scrollIndex);
 				}, BookUtil.isHashReload ? 15 : 75);
+			} else if (scrollTo) {
+				setTimeout(() => {
+					BookUtil.scrollClick(scrollTo, scrollIndex);
+				}, BookUtil.isHashReload ? 15 : 75);
+				BookUtil.isHashReload = false;
 			}
 		}
 
@@ -551,6 +579,8 @@ const BookUtil = {
 					pHandleFound(fromIndex, bookData);
 				})
 		} else handleNotFound();
+
+		$(`.bk__overlay-loading`).remove();
 	},
 
 	_renderer: new Renderer().setEnumerateTitlesRel(true),
@@ -574,7 +604,7 @@ const BookUtil = {
 
 	handleReNav (ele) {
 		const hash = window.location.hash.slice(1).toLowerCase();
-		const linkHash = $(ele).attr("href").slice(1).toLowerCase();
+		const linkHash = ($(ele).attr("href").split("#")[1] || "").toLowerCase();
 		if (hash === linkHash) {
 			BookUtil.isHashReload = true;
 			BookUtil.booksHashChange();
@@ -648,9 +678,7 @@ const BookUtil = {
 								$row.append($ptLink);
 
 								if (!isPageMode && f.previews) {
-									const $ptPreviews = $(`<a href="#${getHash(f)}"/>`).click(function () {
-										BookUtil.handleReNav(this);
-									});
+									const $ptPreviews = $(`<a href="#${getHash(f)}"/>`);
 									const re = new RegExp(f.term.escapeRegexp(), "gi");
 
 									$ptPreviews.on("click", () => {
@@ -679,10 +707,6 @@ const BookUtil = {
 										const $ptPage = $(`<span>Page ${f.page}</span>`);
 										$row.append($ptPage);
 									}
-
-									$link.click(function () {
-										BookUtil.handleReNav(this);
-									});
 								}
 
 								$results.append($row);
@@ -849,8 +873,11 @@ if (typeof module !== "undefined") {
 	module.exports.BookUtil = BookUtil;
 } else {
 	window.addEventListener("load", () => $("body").on("click", "a", (evt) => {
-		let $a = $(evt.target);
-		while ($a.length && !$a.is("a")) $a = $a.parent();
-		BookUtil._lastClickedLink = $a[0];
+		const lnk = evt.target;
+		let $lnk = $(lnk);
+		while ($lnk.length && !$lnk.is("a")) $lnk = $lnk.parent();
+		BookUtil._lastClickedLink = $lnk[0];
+
+		if (`#${$lnk.attr("href").split("#")[1] || ""}` === window.location.hash) BookUtil.handleReNav(lnk);
 	}));
 }

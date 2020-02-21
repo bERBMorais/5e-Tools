@@ -5,8 +5,12 @@ class ListPage {
 	 * @param opts Options object.
 	 * @param opts.dataSource Main JSON data url or function to fetch main data.
 	 * @param [opts.dataSourceFluff] Fluff JSON data url or function to fetch fluff data.
-	 * @param opts.filters Array of filters to use in the filter box.
-	 * @param opts.filterSource Source filter.
+	 * @param [opts.filters] Array of filters to use in the filter box. (Either `filters` and `filterSource` or
+	 * `pageFilter` must be specified.)
+	 * @param [opts.filterSource] Source filter. (Either `filters` and `filterSource` or
+	 * `pageFilter` must be specified.)
+	 * @param [opts.pageFilter] PageFilter implementation for this page. (Either `filters` and `filterSource` or
+	 * `pageFilter` must be specified.)
 	 * @param opts.listClass List class.
 	 * @param opts.listOptions Other list options.
 	 * @param opts.sublistClass Sublist class.
@@ -21,6 +25,7 @@ class ListPage {
 		this._dataSourcefluff = opts.dataSourceFluff;
 		this._filters = opts.filters;
 		this._filterSource = opts.filterSource;
+		this._pageFilter = opts.pageFilter;
 		this._listClass = opts.listClass;
 		this._listOptions = opts.listOptions || {};
 		this._sublistClass = opts.sublistClass;
@@ -50,9 +55,13 @@ class ListPage {
 		ListUtil.setOptions({primaryLists: [this._list]});
 		SortUtil.initBtnSortHandlers($("#filtertools"), this._list);
 
-		this._filterBox = await pInitFilterBox({
-			filters: this._filters
-		});
+		this._filterBox = this._pageFilter
+			? await this._pageFilter.pInitFilterBox({
+				$iptSearch: $(`#lst__search`),
+				$wrpFormTop: $(`#filter-search-input-group`).title("Hotkey: f"),
+				$btnReset: $(`#reset`)
+			})
+			: await pInitFilterBox({filters: this._filters});
 
 		const $outVisibleResults = $(`.lst__wrp-search-visible`);
 		this._list.on("updated", () => $outVisibleResults.html(`${this._list.visibleItems.length}/${this._list.items.length}`));
@@ -71,7 +80,7 @@ class ListPage {
 
 		BrewUtil.bind({
 			filterBox: this._filterBox,
-			sourceFilter: this._filterSource,
+			sourceFilter: this._pageFilter ? this._pageFilter.sourceFilter : this._filterSource,
 			list: this._list,
 			pHandleBrew: async homebrew => this._addData(homebrew)
 		});
@@ -87,25 +96,26 @@ class ListPage {
 		if (this._hasAudio) Renderer.utils.bindPronounceButtons();
 
 		if (this._bookViewOptions) {
-			this._bookView = new BookModeView(
-				"bookview",
-				this._bookViewOptions.$btnOpen,
-				this._bookViewOptions.noneVisibleMsg,
-				this._bookViewOptions.pageTitle || "Book View",
-				this._bookViewOptions.popTblGetNumShown,
-				true
-			);
+			this._bookView = new BookModeView({
+				hashKey: "bookview",
+				$openBtn: this._bookViewOptions.$btnOpen,
+				noneVisibleMsg: this._bookViewOptions.noneVisibleMsg,
+				pageTitle: this._bookViewOptions.pageTitle || "Book View",
+				popTblGetNumShown: this._bookViewOptions.popTblGetNumShown,
+				hasPrintColumns: true
+			});
 		}
 
 		// bind hash-change functions for hist.js to use
 		window.loadHash = this.doLoadHash.bind(this);
-		window.loadSubHash = this.doLoadSubHash.bind(this);
+		window.loadSubHash = this.pDoLoadSubHash.bind(this);
 
 		this._list.init();
 		this._listSub.init();
 
 		Hist.init(true);
 		ExcludeUtil.checkShowAllExcluded(this._dataList, $(`#pagecontent`));
+		window.dispatchEvent(new Event("toolsLoaded"));
 	}
 
 	async _pHandleBrew (homebrew) {
@@ -121,14 +131,14 @@ class ListPage {
 
 		this._dataProps.forEach(prop => {
 			data[prop].forEach(it => it.__prop = prop);
-			this._dataList = this._dataList.concat(data[prop]);
+			this._dataList.push(...data[prop]);
 		});
 
 		const len = this._dataList.length;
 		for (; this._ixData < len; this._ixData++) {
 			const it = this._dataList[this._ixData];
-			if (ExcludeUtil.isExcluded(it.name, it.__prop, it.source)) continue;
-			this._list.addItem(this.getListItem(it, this._ixData));
+			const isExcluded = ExcludeUtil.isExcluded(it.name, it.__prop, it.source);
+			this._list.addItem(this.getListItem(it, this._ixData, isExcluded));
 		}
 
 		this._list.update();
@@ -161,5 +171,5 @@ class ListPage {
 	handleFilterChange () { throw new Error(`Unimplemented!`); }
 	getSublistItem () { throw new Error(`Unimplemented!`); }
 	doLoadHash () { throw new Error(`Unimplemented!`); }
-	doLoadSubHash () { throw new Error(`Unimplemented!`); }
+	pDoLoadSubHash () { throw new Error(`Unimplemented!`); }
 }

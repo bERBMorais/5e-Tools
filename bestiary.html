@@ -53,6 +53,10 @@
 			font-variant: small-caps;
 		}
 
+		.night-mode .ecgen__players_head_advanced {
+			border-color: #555;
+		}
+
 		.ecgen__group_lhs--advanced {
 			overflow-x: auto;
 		}
@@ -142,8 +146,8 @@
 			<div class="view-col" id="listcontainer">
 				<div class="lst__form-top" id="filter-search-input-group">
 					<div class="w-100 relative">
-						<input type="search" id="search" autocomplete="off" autocapitalize="off" spellcheck="false" class="search form-control lst__search lst__search--no-border-h">
-						<div class="lst__wrp-search-glass no-events flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>
+						<input type="search" id="lst__search" autocomplete="off" autocapitalize="off" spellcheck="false" class="search form-control lst__search lst__search--no-border-h">
+						<div id="lst__search-glass" class="lst__wrp-search-glass no-events flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>
 						<div class="lst__wrp-search-visible no-events flex-vh-center"></div>
 					</div>
 					<button class="btn btn-default" id="reset">Reset</button>
@@ -228,14 +232,14 @@
 				</div>
 
 				<div class="text-center wrp-footer-buttons ecgen__hidden">
-					<button class="btn btn-default btn-success btn-xs" id="btn-encounterbuild">Encounter Builder</button>
+					<button class="btn btn-success btn-xs" id="btn-encounterbuild">Encounter Builder</button>
 					<div id="wrp-profbonusdice" class=>
 						<button class="btn btn-default btn-xs" id="profbonusdice"
 								title="WARNING: Very experimental &mdash; use with caution">Use Proficiency Dice
 						</button>
 					</div>
 					<button class="btn btn-default btn-xs" id="btn-printbook">Printer View</button>
-					<button class="btn btn-default btn-xs btn-file btn-info" id="manage-brew">Manage Homebrew</button>
+					<button class="btn btn-xs btn-file btn-info" id="manage-brew">Manage Homebrew</button>
 				</div>
 
 				<div class="ecgen__visible">

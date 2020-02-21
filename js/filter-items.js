@@ -1,8 +1,40 @@
 "use strict";
 
-class PageFilterItems {
+class PageFilterItems extends PageFilter {
+	// region static
+	static _rarityValue (rarity) {
+		switch (rarity) {
+			case "None": return 0;
+			case "Common": return 1;
+			case "Uncommon": return 2;
+			case "Rare": return 3;
+			case "Very Rare": return 4;
+			case "Legendary": return 5;
+			case "Artifact": return 6;
+			case "Other": return 7;
+			case "Varies": return 8;
+			case "Unknown (Magic)": return 9;
+			case "Unknown": return 10;
+			default: return 11;
+		}
+	}
+
+	static sortItems (a, b, o) {
+		if (o.sortBy === "name") return SortUtil.compareListNames(a, b);
+		else if (o.sortBy === "type") return SortUtil.ascSortLower(a.values.type, b.values.type) || SortUtil.compareListNames(a, b);
+		else if (o.sortBy === "source") return SortUtil.ascSortLower(a.values.source, b.values.source) || SortUtil.compareListNames(a, b);
+		else if (o.sortBy === "rarity") return SortUtil.ascSort(PageFilterItems._rarityValue(a.values.rarity), PageFilterItems._rarityValue(b.values.rarity)) || SortUtil.compareListNames(a, b);
+		else if (o.sortBy === "attunement") return SortUtil.ascSort(a.values.attunement, b.values.attunement) || SortUtil.compareListNames(a, b);
+		else if (o.sortBy === "count") return SortUtil.ascSort(a.values.count, b.values.count) || SortUtil.compareListNames(a, b);
+		else if (o.sortBy === "weight") return SortUtil.ascSort(a.values.weight, b.values.weight) || SortUtil.compareListNames(a, b);
+		else if (o.sortBy === "cost") return SortUtil.ascSort(a.values.cost, b.values.cost) || SortUtil.compareListNames(a, b);
+		else return 0;
+	}
+	// endregion
+
 	constructor () {
-		const sourceFilter = SourceFilter.getInstance();
+		super();
+
 		const typeFilter = new Filter({header: "Type", deselFn: (it) => PageFilterItems._DEFAULT_HIDDEN_TYPES.has(it)});
 		const tierFilter = new Filter({header: "Tier", items: ["None", "Minor", "Major"], itemSortFn: null});
 		const propertyFilter = new Filter({header: "Property", displayFn: StrUtil.uppercaseFirst});
@@ -23,11 +55,8 @@ class PageFilterItems {
 			itemSortFn: null
 		});
 		const damageTypeFilter = new Filter({header: "Damage Type", displayFn: it => Parser.dmgTypeToFull(it).uppercaseFirst(), itemSortFn: (a, b) => SortUtil.ascSortLower(Parser.dmgTypeToFull(a), Parser.dmgTypeToFull(b))});
-		const miscFilter = new Filter({header: "Miscellaneous", items: ["Ability Score Adjustment", "Charges", "Cursed", "Magic", "Mundane", "Sentient", "SRD"]});
+		const miscFilter = new Filter({header: "Miscellaneous", items: ["Ability Score Adjustment", "Charges", "Cursed", "Item Group", "Magic", "Mundane", "Sentient", "SRD"]});
 
-		this._filterBox = null;
-
-		this._sourceFilter = sourceFilter;
 		this._typeFilter = typeFilter;
 		this._tierFilter = tierFilter;
 		this._propertyFilter = propertyFilter;
@@ -42,9 +71,7 @@ class PageFilterItems {
 		this._miscFilter = miscFilter;
 	}
 
-	get filterBox () { return this._filterBox; }
-
-	addToFilters (item) {
+	mutateForFilters (item) {
 		const tierTags = [];
 		tierTags.push(item.tier ? item.tier : "None");
 
@@ -59,6 +86,7 @@ class PageFilterItems {
 		if (item.ability) item._fMisc.push("Ability Score Adjustment");
 		if (item.charges) item._fMisc.push("Charges");
 		if (item.srd) item._fMisc.push("SRD");
+		if (item._isItemGroup) item._fMisc.push("Item Group");
 		if (item.focus || item.type === "INS" || item.type === "SCF") {
 			item._fFocus = item.focus ? item.focus === true ? ["Bard", "Cleric", "Druid", "Paladin", "Sorcerer", "Warlock", "Wizard"] : [...item.focus] : [];
 			if (item.type === "INS" && !item._fFocus.includes("Bard")) item._fFocus.push("Bard");
@@ -81,19 +109,21 @@ class PageFilterItems {
 				}
 			}
 		}
+	}
 
-		// region populate filters
+	addToFilters (item, isExcluded) {
+		if (isExcluded) return;
+
 		this._sourceFilter.addItem(item.source);
 		this._typeFilter.addItem(item._typeListText);
-		item._fTier.forEach(tt => this._tierFilter.addItem(tt));
+		this._tierFilter.addItem(item._fTier)
 		this._propertyFilter.addItem(item._fProperties);
 		this._attachedSpellsFilter.addItem(item.attachedSpells);
 		this._lootTableFilter.addItem(item.lootTables);
 		this._damageTypeFilter.addItem(item.dmgType);
-		// endregion
 	}
 
-	async pInitFilterBox (opts) {
+	async _pPopulateBoxOptions (opts) {
 		opts.filters = [
 			this._sourceFilter,
 			this._typeFilter,
@@ -109,9 +139,6 @@ class PageFilterItems {
 			this._lootTableFilter,
 			this._attachedSpellsFilter
 		];
-
-		this._filterBox = new FilterBox(opts);
-		await this._filterBox.pDoLoadState();
 	}
 
 	toDisplay (values, it) {
@@ -124,7 +151,7 @@ class PageFilterItems {
 			it._fProperties,
 			it._attunementCategory,
 			it._category,
-			it.value || 0,
+			(it.value || 0) / 100,
 			it._fFocus,
 			it.dmgType,
 			it._fMisc,
@@ -134,3 +161,66 @@ class PageFilterItems {
 	}
 }
 PageFilterItems._DEFAULT_HIDDEN_TYPES = new Set(["Treasure", "Futuristic", "Modern", "Renaissance"]);
+
+class ModalFilterItems extends ModalFilter {
+	constructor (namespace) {
+		super({
+			modalTitle: "Items",
+			pageFilter: new PageFilterItems(),
+			namespace: namespace
+		})
+	}
+
+	_$getColumnHeaders () {
+		const btnMeta = [
+			{sort: "name", text: "Name", width: "5"},
+			{sort: "type", text: "Type", width: "5"},
+			{sort: "source", text: "Source", width: "1"}
+		];
+		return ModalFilter._$getFilterColumnHeaders(btnMeta);
+	}
+
+	async _pLoadAllData () {
+		const brew = await BrewUtil.pAddBrewData();
+		const fromData = await Renderer.item.pBuildList({isAddGroups: true, isBlacklistVariants: true});
+		const fromBrew = await Renderer.item.getItemsFromHomebrew(brew);
+		return [...fromData, ...fromBrew];
+	}
+
+	_getListItem (pageFilter, item, itI) {
+		if (item.noDisplay) return null;
+		Renderer.item.enhanceItem(item);
+		pageFilter.mutateAndAddToFilters(item);
+
+		const eleLi = document.createElement("li");
+		eleLi.className = "row px-0";
+
+		const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ITEMS](item);
+		const source = Parser.sourceJsonToAbv(item.source);
+		const type = item._typeListText.join(", ");
+
+		eleLi.innerHTML = `<label class="lst--border unselectable">
+			<div class="lst__wrp-cells">
+				<div class="col-1 pl-0 flex-vh-center"><input type="checkbox" class="no-events"></div>
+				<span class="col-5 bold">${item.name}</span>
+				<span class="col-5">${type}</span>
+				<span class="col-1 text-center ${Parser.sourceJsonToColor(item.source)} pr-0" title="${Parser.sourceJsonToFull(item.source)}" ${BrewUtil.sourceJsonToStyle(item.source)}>${source}</span>
+			</div>
+		</label>`;
+
+		return new ListItem(
+			itI,
+			eleLi,
+			item.name,
+			{
+				hash,
+				source,
+				sourceJson: item.source,
+				type
+			},
+			{
+				cbSel: eleLi.firstElementChild.firstElementChild.firstElementChild.firstElementChild
+			}
+		);
+	}
+}

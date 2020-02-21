@@ -4,61 +4,109 @@ Shared UI components
 
 @import 'vars';
 
-/* Proficiency */
-.night-mode {
-	.ui-prof__ {
-		&btn-cycle {
-			&:active {
-				@include shadow-active--night();
-			}
+/* region Source overlay */
+.night-mode .ui-source__ {
+	&divider {
+		background: $rgb-border-grey--night;
+	}
+}
+/* endregion */
 
-			&[data-state='0'] {
-				background: $rgb-night-bg-color;
-			}
+/* region Modals */
+.night-mode .ui-modal__ {
+	&row-sep {
+		border-color: $rgb-border-grey--night;
+	}
+}
+/* endregion */
 
-			&[data-state='1'] {
-				background: $rgb-border-grey;
-				border-color: #aaa;
-			}
+/* region Search */
+.night-mode .ui-search__ {
+	&row {
+		border-color: $rgb-border-grey--night;
 
-			&[data-state='2'] {
-				background: $rgb-border-grey;
-				border-color: #aaa;
+		&:hover {
+			background: $rgb-off-black;
+		}
+	}
 
-				&::after {
-					color: $rgb-night-bg-color;
-					font-weight: bold;
-				}
-			}
+	&ipt-search-sub-wrp {
+		border-color: $rgb-border-grey--night;
+	}
+}
+/* endregion */
 
-			&[data-state='3'] {
-				background: repeating-linear-gradient(135deg, $rgb-night-bg-color, $rgb-night-bg-color 10px, $rgb-border-grey 10px, $rgb-border-grey 20px);
-				border-color: $rgb-border-grey;
+/* region Tabs */
+.night-mode .ui-tab__ {
+	&wrp-tab-heads--border {
+		border-color: $rgb-border-grey--night;
+		border-width: 2px;
+	}
+}
+/* endregion */
+
+/* region Proficiency */
+.night-mode .ui-prof__ {
+	&btn-cycle {
+		border-color: $rgb-border-grey--night;
+
+		&:active {
+			@include shadow-active--night();
+		}
+
+		&[data-state='0'] {
+			background: $rgb-bg--night;
+		}
+
+		&[data-state='1'] {
+			background: $rgb-border-grey--night;
+		}
+
+		&[data-state='2'] {
+			background: $rgb-border-grey--night;
+
+			&::before {
+				color: $rgb-bg--night;
 			}
+		}
+
+		&[data-state='3'] {
+			background: repeating-linear-gradient(135deg, $rgb-bg--night, $rgb-bg--night 10px, $rgb-border-grey--night 10px, $rgb-border-grey--night 20px);
+			border-color: $rgb-border-grey--night;
 		}
 	}
 }
+/* endregion */
 
-/* Direction picker */
-.night-mode {
-	.ui-dir__ {
-		&face {
-			background: $rgb-night-bg-color;
-		}
+/* region Direction picker */
+.night-mode .ui-dir__ {
+	&face {
+		background: $rgb-bg--night;
+		border-color: $rgb-border-grey--night;
+	}
 
-		&arm {
-			background: $rgb-night-font-color;
-			box-shadow: none;
+	&arm {
+		background: $rgb-font--night;
+		box-shadow: none;
+	}
+}
+/* endregion */
+
+/* region Hover tips */
+.night-mode .ui-tip__ {
+	&child {
+		border-color: $rgb-border-grey--night;
+		background: $rgb-bg--night;
+	}
+}
+/* endregion */
+
+/* region Picker */
+.night-mode .ui-pick {
+	&__ {
+		&disp-text {
+			border-color: $rgb-border-grey--night;
 		}
 	}
 }
-
-/* Hover tips */
-.night-mode {
-	.ui-tip__ {
-		&child {
-			background: $rgb-night-bg-color;
-		}
-	}
-}
-
+/* endregion */

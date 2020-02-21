@@ -1,3 +1,5 @@
+"use strict";
+
 class Prx {
 	static addHook (prop, hook) {
 		this.px._hooks[prop] = this.px._hooks[prop] || [];
@@ -132,21 +134,36 @@ class ProxyBase {
 	_saveHookAllCopiesTo (obj) { this.__hooksAllTmp = obj; }
 
 	/**
-	 * Overwrite the current proxied object with some new values, then trigger all the appropriate event handlers.
-	 * @param hookProp Hook property.
+	 * Object.assign equivalent, overwrites values on the current proxied object with some new values,
+	 *   then trigger all the appropriate event handlers.
+	 * @param hookProp Hook property, e.g. "state".
 	 * @param proxyProp Proxied object property, e.g. "_state".
 	 * @param underProp Underlying object property, e.g. "__state".
 	 * @param toObj
+	 * @param isOverwrite If the overwrite should clean/delete all data from the object beforehand.
 	 */
-	_proxyAssign (hookProp, proxyProp, underProp, toObj) {
+	_proxyAssign (hookProp, proxyProp, underProp, toObj, isOverwrite) {
 		const oldKeys = Object.keys(this[proxyProp]);
-		const nuKeys = Object.keys(toObj);
-		const allKeys = new Set([...oldKeys, ...nuKeys]);
+		const nuKeys = new Set(Object.keys(toObj));
+		const dirtyKeys = new Set();
 
-		oldKeys.forEach(k => delete this[underProp][k]);
-		nuKeys.forEach(k => this[underProp][k] = toObj[k]);
+		if (isOverwrite) {
+			oldKeys.forEach(k => {
+				if (!nuKeys.has(k) && this[underProp] !== undefined) {
+					delete this[underProp][k];
+					dirtyKeys.add(k);
+				}
+			});
+		}
 
-		allKeys.forEach(k => {
+		nuKeys.forEach(k => {
+			if (!CollectionUtil.deepEquals(this[underProp][k], toObj[k])) {
+				this[underProp][k] = toObj[k];
+				dirtyKeys.add(k);
+			}
+		});
+
+		dirtyKeys.forEach(k => {
 			if (this.__hooksAll[hookProp]) this.__hooksAll[hookProp].forEach(hk => hk(k, this[underProp][k]));
 			if (this.__hooks[hookProp] && this.__hooks[hookProp][k]) this.__hooks[hookProp][k].forEach(hk => hk(k, this[underProp][k]));
 		});
@@ -161,19 +178,27 @@ class UiUtil {
 	 * @param [opts.max] Max allowed return value.
 	 * @param [opts.min] Min allowed return value.
 	 * @param [opts.fallbackOnNaN] Return value if not a number.
-	 * @return {int}
 	 */
-	static strToInt (string, fallbackEmpty = 0, opts) {
+	static strToInt (string, fallbackEmpty = 0, opts) { return UiUtil._strToNumber(string, fallbackEmpty, opts, true) }
+
+	/**
+	 * @param string String to parse.
+	 * @param [fallbackEmpty] Fallback number if string is empty.
+	 * @param [opts] Options Object.
+	 * @param [opts.max] Max allowed return value.
+	 * @param [opts.min] Min allowed return value.
+	 * @param [opts.fallbackOnNaN] Return value if not a number.
+	 */
+	static strToNumber (string, fallbackEmpty = 0, opts) { return UiUtil._strToNumber(string, fallbackEmpty, opts, false) }
+
+	static _strToNumber (string, fallbackEmpty = 0, opts, isInt) {
 		opts = opts || {};
 		let out;
 		string = string.trim();
 		if (!string) out = fallbackEmpty;
 		else {
-			const preDot = string.split(".")[0].trim();
-			const unary = preDot.replace(/^([-+]*).*$/, (...m) => m[1]);
-			const numPart = preDot.replace(/[^0-9]/g, "");
-			const num = Number(`${unary}${numPart}` || 0);
-			out = isNaN(num)
+			const num = UiUtil._parseStrAsNumber(string, isInt);
+			out = isNaN(num) || !isFinite(num)
 				? opts.fallbackOnNaN !== undefined ? opts.fallbackOnNaN : 0
 				: num;
 		}
@@ -184,28 +209,16 @@ class UiUtil {
 
 	/**
 	 * @param string String to parse.
-	 * @param [fallbackEmpty] Fallback number if string is empty.
+	 * @param [fallbackEmpty] Fallback value if string is empty.
 	 * @param [opts] Options Object.
-	 * @param [opts.max] Max allowed return value.
-	 * @param [opts.min] Min allowed return value.
-	 * @param [opts.fallbackOnNaN] Return value if not a number.
-	 * @return {number}
+	 * @param [opts.fallbackOnNaB] Return value if not a boolean.
 	 */
-	static strToNumber (string, fallbackEmpty = 0, opts) {
+	static strToBool (string, fallbackEmpty = null, opts) {
 		opts = opts || {};
-		let out;
-		string = string.trim();
-		if (!string) out = fallbackEmpty;
-		else {
-			string = string.replace(/[^0-9,.]/gi, "").replace(Parser._numberCleanRegexp, "");
-			const num = Number(string);
-			out = isNaN(num)
-				? opts.fallbackOnNaN !== undefined ? opts.fallbackOnNaN : 0
-				: num;
-		}
-		if (opts.max != null) out = Math.min(out, opts.max);
-		if (opts.min != null) out = Math.max(out, opts.min);
-		return out;
+		if (!string) return fallbackEmpty;
+		string = string.trim().toLowerCase();
+		if (!string) return fallbackEmpty;
+		return string === "true" ? true : string === "false" ? false : opts.fallbackOnNaB;
 	}
 
 	static intToBonus (int) { return `${int >= 0 ? "+" : ""}${int}`; }
@@ -245,71 +258,6 @@ class UiUtil {
 		}
 	}
 
-	static getSearchNoResults () {
-		return `<div class="ui-search__message"><i>No results.</i></div>`;
-	}
-
-	static getSearchLoading () {
-		return `<div class="ui-search__message"><i>\u2022\u2022\u2022</i></div>`;
-	}
-
-	static getSearchEnter () {
-		return `<div class="ui-search__message"><i>Enter a search.</i></div>`;
-	}
-
-	/**
-	 * @param $srch input element
-	 * @param opt should contain:
-	 *  `search` -- function which runs search
-	 *  `flags` -- object which contains:
-	 *    `isWait` -- flag tracking "waiting for user to stop typing"
-	 *    `doClickFirst` -- flag tracking "should first result get clicked"
-	 *  `showWait` -- function which displays loading dots
-	 */
-	static bindAutoSearch ($srch, opt) {
-		UiUtil.bindTypingEnd(
-			$srch,
-			() => {
-				opt.search();
-			},
-			(e) => {
-				if (e.which === 13) {
-					opt.flags.doClickFirst = true;
-					opt.search();
-				}
-			},
-			() => {
-				if (opt.flags.isWait) {
-					opt.flags.isWait = false;
-					opt.showWait();
-				}
-			},
-			() => {
-				if ($srch.val() && $srch.val().trim().length) opt.search();
-			}
-		);
-	}
-
-	static bindTypingEnd ($ipt, fnKeyup, fnKeypress, fnKeydown, fnClick) {
-		let typeTimer;
-		$ipt.on("keyup search", (e) => {
-			clearTimeout(typeTimer);
-			typeTimer = setTimeout(() => {
-				fnKeyup(e);
-			}, UiUtil.TYPE_TIMEOUT_MS);
-		});
-		$ipt.on("keypress", (e) => {
-			if (fnKeypress) fnKeypress(e);
-		});
-		$ipt.on("keydown", (e) => {
-			if (fnKeydown) fnKeydown(e);
-			clearTimeout(typeTimer);
-		});
-		$ipt.on("click", () => {
-			if (fnClick) fnClick();
-		});
-	}
-
 	/**
 	 * @param {Object} [opts] Options object.
 	 * @param {string} [opts.title] Modal title.
@@ -326,17 +274,28 @@ class UiUtil {
 	static getShowModal (opts) {
 		opts = opts || {};
 
+		UiUtil._initModalEscapeHandler();
+		$(document.activeElement).blur(); // blur any active element as it will be behind the modal
+
 		// if the user closed the modal by clicking the "cancel" background, isDataEntered is false
 		const handleCloseClick = async (isDataEntered, ...args) => {
 			if (opts.cbClose) await opts.cbClose(isDataEntered, ...args);
 			$modal.remove();
+
+			const ixStack = UiUtil._MODAL_STACK.indexOf(modalStackMeta);
+			if (~ixStack) UiUtil._MODAL_STACK.splice(ixStack, 1);
 		};
 
 		const $modal = $(`<div class="ui-modal__overlay">`);
 		if (opts.zIndex != null) $modal.css({zIndex: opts.zIndex});
 		if (opts.overlayColor != null) $modal.css({backgroundColor: opts.overlayColor});
-		const $scroller = $(`<div class="ui-modal__scroller"/>`);
-		const $modalInner = $$`<div class="ui-modal__inner ui-modal__inner--modal dropdown-menu ${opts.isLarge ? `ui-modal__inner--large ` : ""}${opts.fullHeight ? "h-100" : ""}"><div class="split flex-v-center no-shrink">${opts.title ? `<h4>${opts.title.escapeQuotes()}</h4>` : ""}${opts.titleSplit || ""}</div>${$scroller}</div>`
+		const $scroller = $(`<div class="ui-modal__scroller flex-col"/>`);
+		const $modalInner = $$`<div class="ui-modal__inner flex-col dropdown-menu ${opts.isLarge ? `ui-modal__inner--large ` : ""}${opts.fullHeight ? "h-100" : ""}">
+			<div class="split-v-center no-shrink">
+				${opts.title ? `<h4>${opts.title.escapeQuotes()}</h4>` : ""}${opts.titleSplit || ""}
+			</div>
+			${$scroller}
+		</div>`
 			.appendTo($modal);
 		if (opts.noMinHeight) $modalInner.css("height", "initial");
 
@@ -347,11 +306,30 @@ class UiUtil {
 			}
 		});
 
-		$(`body`).append($modal);
+		$(document.body).append($modal);
+
+		const modalStackMeta = {
+			isPermanent: opts.isPermanent,
+			handleCloseClick
+		};
+		UiUtil._MODAL_STACK.push(modalStackMeta);
+
 		return {
 			$modalInner: $scroller,
 			doClose: handleCloseClick
 		};
+	}
+
+	static _initModalEscapeHandler () {
+		if (UiUtil._MODAL_STACK) return;
+		UiUtil._MODAL_STACK = [];
+
+		$(document.body).keydown(evt => {
+			if (UiUtil._MODAL_STACK.length && evt.target === document.body && evt.which === 27) {
+				const outerModalMeta = UiUtil._MODAL_STACK.last();
+				if (!outerModalMeta.isPermanent) outerModalMeta.handleCloseClick(false);
+			}
+		});
 	}
 
 	static addModalSep ($modalInner) {
@@ -374,13 +352,13 @@ class UiUtil {
 		const $row = UiUtil.$getAddModalRow($modalInner, "h5").addClass("bold");
 		if (opts.$eleRhs) $$`<div class="split flex-v-center w-100 pr-1"><span>${headerText}</span>${opts.$eleRhs}</div>`.appendTo($row);
 		else $row.text(headerText);
-		if (opts.helpText) $row.attr("title", opts.helpText);
+		if (opts.helpText) $row.title(opts.helpText);
 		return $row;
 	}
 
 	static $getAddModalRowCb ($modalInner, labelText, objectWithProp, propName, helpText) {
 		const $row = UiUtil.$getAddModalRow($modalInner, "label").addClass(`ui-modal__row--cb`);
-		if (helpText) $row.attr("title", helpText);
+		if (helpText) $row.title(helpText);
 		$row.append(`<span>${labelText}</span>`);
 		const $cb = $(`<input type="checkbox">`).appendTo($row)
 			.prop("checked", objectWithProp[propName])
@@ -402,7 +380,7 @@ class UiUtil {
 	static $getAddModalRowSel ($modalInner, labelText, objectWithProp, propName, values, opts) {
 		opts = opts || {};
 		const $row = UiUtil.$getAddModalRow($modalInner, "label").addClass(`ui-modal__row--sel`);
-		if (opts.helpText) $row.attr("title", opts.helpText);
+		if (opts.helpText) $row.title(opts.helpText);
 		$row.append(`<span>${labelText}</span>`);
 		const $sel = $(`<select class="form-control input-xs w-30">`).appendTo($row);
 		values.forEach((val, i) => $(`<option value="${i}"/>`).text(opts.fnDisplay ? opts.fnDisplay(val) : val).appendTo($sel));
@@ -412,9 +390,18 @@ class UiUtil {
 			.change(() => objectWithProp[propName] = values[$sel.val()]);
 		return $sel;
 	}
+
+	static _parseStrAsNumber (str, isInt) {
+		const tree = Renderer.dice.lang.getTree3(str);
+		if (!tree) return NaN;
+		const out = tree.evl({});
+		if (!isNaN(out) && isInt) return Math.round(out);
+		return out;
+	}
 }
 UiUtil.SEARCH_RESULTS_CAP = 75;
 UiUtil.TYPE_TIMEOUT_MS = 100; // auto-search after 100ms
+UiUtil._MODAL_STACK = null;
 
 class ProfUiUtil {
 	/**
@@ -438,21 +425,21 @@ class ProfUiUtil {
 			.click(() => {
 				$btnCycle
 					.attr("data-state", ++state >= NUM_STATES ? state = 0 : state)
-					.attr("title", ProfUiUtil.PROF_TO_FULL[state].name)
+					.title(ProfUiUtil.PROF_TO_FULL[state].name)
 					.trigger("change");
 			})
 			.contextmenu(evt => {
 				evt.preventDefault();
 				$btnCycle
 					.attr("data-state", --state < 0 ? state = NUM_STATES - 1 : state)
-					.attr("title", ProfUiUtil.PROF_TO_FULL[state].name)
+					.title(ProfUiUtil.PROF_TO_FULL[state].name)
 					.trigger("change");
 			});
 		const setState = (nuState) => {
 			state = nuState;
 			if (state > NUM_STATES) state = 0;
 			else if (state < 0) state = NUM_STATES - 1;
-			$btnCycle.attr("data-state", state);
+			$btnCycle.attr("data-state", state).title(ProfUiUtil.PROF_TO_FULL[state].name);
 		};
 		return {
 			$ele: $btnCycle,
@@ -508,15 +495,15 @@ class TabUiUtil {
 				.click(() => {
 					const prevTab = tabMeta[opts.stateObj[activeProp]];
 					prevTab.$btnTab.removeClass("stat-tab-sel");
-					prevTab.$wrpTab.hide();
+					prevTab.$wrpTab.toggleClass("hidden", true);
 
 					opts.stateObj[activeProp] = ix;
 					$btnTab.addClass("stat-tab-sel");
-					$wrpTab.show();
+					$wrpTab.toggleClass("hidden", false);
 					if (opts.cbTabChange) opts.cbTabChange();
 				});
 
-			const $wrpTab = $(`<div class="ui-tab__wrp-tab-body ${opts.hasBorder ? "ui-tab__wrp-tab-body--border" : ""}" ${isActive ? `style="display: block;"` : ""}/>`);
+			const $wrpTab = $(`<div class="ui-tab__wrp-tab-body ${isActive ? "" : "hidden"} ${opts.hasBorder ? "ui-tab__wrp-tab-body--border" : ""}"/>`);
 
 			const out = {ix, $btnTab, $wrpTab};
 			tabMeta[ix] = out;
@@ -580,18 +567,22 @@ class SearchUiUtil {
 		// Add main site index
 		let ixMax = 0;
 
-		const handleDataItem = (d, isAlternate) => {
-			if (SearchUiUtil._isNoHoverCat(d.c) || fromDeepIndex(d)) return;
-			d.cf = d.c === Parser.CAT_ID_CREATURE ? "Creature" : Parser.pageCategoryToFull(d.c);
-			if (isAlternate) d.cf = `alt_${d.cf}`;
-			if (!availContent[d.cf]) {
-				availContent[d.cf] = elasticlunr(function () {
+		const initIndexForFullCat = (doc) => {
+			if (!availContent[doc.cf]) {
+				availContent[doc.cf] = elasticlunr(function () {
 					this.addField("n");
 					this.addField("s");
 					this.setRef("id");
 				});
-				SearchUtil.removeStemmer(availContent[d.cf]);
+				SearchUtil.removeStemmer(availContent[doc.cf]);
 			}
+		};
+
+		const handleDataItem = (d, isAlternate) => {
+			if (SearchUiUtil._isNoHoverCat(d.c) || fromDeepIndex(d)) return;
+			d.cf = d.c === Parser.CAT_ID_CREATURE ? "Creature" : Parser.pageCategoryToFull(d.c);
+			if (isAlternate) d.cf = `alt_${d.cf}`;
+			initIndexForFullCat(d);
 			if (!isAlternate) availContent.ALL.addDoc(d);
 			availContent[d.cf].addDoc(d);
 			ixMax = Math.max(ixMax, d.id);
@@ -610,6 +601,7 @@ class SearchUiUtil {
 			if (SearchUiUtil._isNoHoverCat(d.c) || fromDeepIndex(d)) return;
 			d.cf = Parser.pageCategoryToFull(d.c);
 			d.cf = d.c === Parser.CAT_ID_CREATURE ? "Creature" : Parser.pageCategoryToFull(d.c);
+			initIndexForFullCat(d);
 			availContent.ALL.addDoc(d);
 			availContent[d.cf].addDoc(d);
 		});
@@ -619,12 +611,113 @@ class SearchUiUtil {
 }
 SearchUiUtil.NO_HOVER_CATEGORIES = new Set([
 	Parser.CAT_ID_ADVENTURE,
-	Parser.CAT_ID_CLASS,
 	Parser.CAT_ID_QUICKREF
 ]);
 
 // based on DM screen's AddMenuSearchTab
 class SearchWidget {
+	static getSearchNoResults () {
+		return `<div class="ui-search__message"><i>No results.</i></div>`;
+	}
+
+	static getSearchLoading () {
+		return `<div class="ui-search__message"><i>\u2022\u2022\u2022</i></div>`;
+	}
+
+	static getSearchEnter () {
+		return `<div class="ui-search__message"><i>Enter a search.</i></div>`;
+	}
+
+	/**
+	 * @param $iptSearch input element
+	 * @param opts Options object.
+	 * @param opts.fnSearch Function which runs the search.
+	 * @param opts.fnShowWait Function which displays loading dots
+	 * @param opts.flags Flags object; modified during user interaction.
+	 * @param opts.flags.isWait Flag tracking "waiting for user to stop typing"
+	 * @param opts.flags.doClickFirst Flag tracking "should first result get clicked"
+	 * @param opts.flags.doClickFirst Flag tracking "should first result get clicked"
+	 * @param opts.$ptrRows Pointer to array of rows.
+	 */
+	static bindAutoSearch ($iptSearch, opts) {
+		SearchWidget.bindTypingEnd({
+			$iptSearch,
+			fnKeyup: () => {
+				opts.fnSearch();
+			},
+			fnKeypress: evt => {
+				if (evt.which === 13) {
+					opts.flags.doClickFirst = true;
+					opts.fnSearch();
+				}
+			},
+			fnKeydown: evt => {
+				if (opts.flags.isWait) {
+					opts.flags.isWait = false;
+					opts.fnShowWait();
+				} else {
+					switch (evt.which) {
+						case 40: { // down
+							if (opts.$ptrRows && opts.$ptrRows._[0]) {
+								evt.preventDefault();
+								opts.$ptrRows._[0].focus();
+							}
+						}
+					}
+				}
+			},
+			fnClick: () => {
+				if ($iptSearch.val() && $iptSearch.val().trim().length) opts.fnSearch();
+			}
+		});
+	}
+
+	static bindTypingEnd ({$iptSearch, fnKeyup, fnKeypress, fnKeydown, fnClick} = {}) {
+		let timerTyping;
+		$iptSearch
+			.on("keyup search", evt => {
+				clearTimeout(timerTyping);
+				timerTyping = setTimeout(() => { fnKeyup(evt); }, UiUtil.TYPE_TIMEOUT_MS);
+			})
+			.on("keypress", (e) => {
+				if (fnKeypress) fnKeypress(e);
+			})
+			.on("keydown", evt => {
+				if (fnKeydown) fnKeydown(evt);
+				clearTimeout(timerTyping);
+			})
+			.on("click", () => {
+				if (fnClick) fnClick();
+			});
+	}
+
+	static bindRowHandlers ({result, $row, $ptrRows, fnHandleClick}) {
+		return $row
+			.keydown(evt => {
+				switch (evt.which) {
+					case 13: { // enter
+						return fnHandleClick(result);
+					}
+					case 38: { // up
+						evt.preventDefault();
+						const ixRow = $ptrRows._.indexOf($row);
+						const $prev = $ptrRows._[ixRow - 1];
+						if ($prev) $prev.focus();
+						else $ptrRows.focus();
+						break;
+					}
+					case 40: { // down
+						evt.preventDefault();
+						const ixRow = $ptrRows._.indexOf($row);
+						const $nxt = $ptrRows._[ixRow + 1];
+						if ($nxt) $nxt.focus();
+						break;
+					}
+				}
+			})
+			.click(() => fnHandleClick(result));
+	}
+
 	/**
 	 * @param indexes An object with index names (categories) as the keys, and indexes as the values.
 	 * @param cbSearch Callback to run on user clicking a search result.
@@ -648,6 +741,7 @@ class SearchWidget {
 			doClickFirst: false,
 			isWait: false
 		};
+		this._$ptrRows = {_: []};
 
 		this._$selCat = null;
 		this._$iptSearch = null;
@@ -676,8 +770,8 @@ class SearchWidget {
 		};
 	}
 
-	static __get$Row (r) {
-		return $(`<div class="ui-search__row">
+	__$getRow (r) {
+		return $(`<div class="ui-search__row" tabindex="0">
 			<span>${r.doc.n}</span>
 			<span>${r.doc.s ? `<i title="${Parser.sourceJsonToFull(r.doc.s)}">${Parser.sourceJsonToAbv(r.doc.s)}${r.doc.p ? ` p${r.doc.p}` : ""}</i>` : ""}</span>
 		</div>`);
@@ -698,16 +792,16 @@ class SearchWidget {
 
 	__showMsgInputRequired () {
 		this._flags.isWait = true;
-		this._$wrpResults.empty().append(UiUtil.getSearchEnter());
+		this._$wrpResults.empty().append(SearchWidget.getSearchEnter());
 	}
 
 	__showMsgWait () {
-		this._$wrpResults.empty().append(UiUtil.getSearchLoading())
+		this._$wrpResults.empty().append(SearchWidget.getSearchLoading())
 	}
 
 	__showMsgNoResults () {
 		this._flags.isWait = true;
-		this._$wrpResults.empty().append(UiUtil.getSearchEnter());
+		this._$wrpResults.empty().append(SearchWidget.getSearchEnter());
 	}
 
 	__doSearch () {
@@ -747,6 +841,8 @@ class SearchWidget {
 		})();
 
 		this._$wrpResults.empty();
+		this._$ptrRows._ = [];
+
 		if (toProcess.length) {
 			const handleClick = (r) => {
 				if (this._fnTransform) this._cbSearch(this._fnTransform(r.doc));
@@ -767,7 +863,11 @@ class SearchWidget {
 
 			const res = toProcess.slice(0, UiUtil.SEARCH_RESULTS_CAP);
 
-			res.forEach(r => SearchWidget.__get$Row(r).on("click", () => handleClick(r)).appendTo(this._$wrpResults));
+			res.forEach(r => {
+				const $row = this.__$getRow(r).appendTo(this._$wrpResults);
+				SearchWidget.bindRowHandlers({result: r, $row, $ptrRows: this._$ptrRows, fnHandleClick: handleClick});
+				this._$ptrRows._.push($row);
+			});
 
 			if (resultCount > UiUtil.SEARCH_RESULTS_CAP) {
 				const diff = resultCount - UiUtil.SEARCH_RESULTS_CAP;
@@ -797,10 +897,11 @@ class SearchWidget {
 			this._$iptSearch = $(`<input class="ui-search__ipt-search search form-control" autocomplete="off" placeholder="Search...">`).appendTo($wrpControls);
 			this._$wrpResults = $(`<div class="ui-search__wrp-results"/>`).appendTo(this._$rendered);
 
-			UiUtil.bindAutoSearch(this._$iptSearch, {
+			SearchWidget.bindAutoSearch(this._$iptSearch, {
 				flags: this._flags,
-				search: this.__doSearch.bind(this),
-				showWait: this.__showMsgWait.bind(this)
+				fnSearch: this.__doSearch.bind(this),
+				fnShowWait: this.__showMsgWait.bind(this),
+				$ptrRows: this._$ptrRows
 			});
 
 			this.__doSearch();
@@ -1023,12 +1124,15 @@ class InputUiUtil {
 	 * @param opts.int If the value returned should be an integer.
 	 * @param opts.title Prompt title.
 	 * @param opts.default Default value.
+	 * @param [opts.$elePre] Element to add before the number input.
+	 * @param [opts.$elePost] Element to add after the number input.
+	 * @param [opts.isPermanent] If the prompt can only be closed by entering a number.
 	 * @return {Promise<number>} A promise which resolves to the number if the user entered one, or null otherwise.
 	 */
 	static pGetUserNumber (opts) {
 		opts = opts || {};
 		return new Promise(resolve => {
-			const $iptNumber = $(`<input class="form-control mb-2 text-right" type="number" ${opts.min ? `min="${opts.min}"` : ""} ${opts.max ? `max="${opts.max}"` : ""} ${opts.default != null ? `value="${opts.default}"` : ""}>`)
+			const $iptNumber = $(`<input class="form-control mb-2 text-right" ${opts.min ? `min="${opts.min}"` : ""} ${opts.max ? `max="${opts.max}"` : ""} ${opts.default != null ? `value="${opts.default}"` : ""}>`)
 				.keydown(evt => {
 					// return key
 					if (evt.which === 13) doClose(true);
@@ -1043,17 +1147,52 @@ class InputUiUtil {
 					if (!isDataEntered) return resolve(null);
 					const raw = $iptNumber.val();
 					if (!raw.trim()) return resolve(null);
-					let num = Number(raw) || 0;
+					let num = UiUtil.strToInt(raw);
 					if (opts.min) num = Math.max(opts.min, num);
 					if (opts.max) num = Math.min(opts.max, num);
 					if (opts.int) return resolve(Math.round(num));
 					else resolve(num);
 				}
 			});
+
+			if (opts.$elePre) opts.$elePre.appendTo($modalInner);
 			$iptNumber.appendTo($modalInner);
+			if (opts.$elePost) opts.$elePost.appendTo($modalInner);
 			$$`<div class="flex-vh-center">${$btnOk}</div>`.appendTo($modalInner);
 			$iptNumber.focus();
 			$iptNumber.select();
+		});
+	}
+
+	/**
+	 * @param [opts] Options.
+	 * @param [opts.title] Prompt title.
+	 * @param [opts.textYes] Text for "yes" button.
+	 * @param [opts.textNo] Text for "no" button.
+	 * @return {Promise} A promise which resolves to true/false if the user chose, or null otherwise.
+	 */
+	static pGetUserBoolean (opts) {
+		opts = opts || {};
+		return new Promise(resolve => {
+			const $btnTrue = $(`<button class="btn btn-primary flex-v-center mr-2"><span class="glyphicon glyphicon-ok mr-2"/><span>${opts.textYes || "Yes"}</span></button>`)
+				.click(() => doClose(true, true));
+
+			const $btnFalse = $(`<button class="btn btn-default flex-v-center"><span class="glyphicon glyphicon-remove mr-2"/><span>${opts.textNo || "No"}</span></button>`)
+				.click(() => doClose(true, false));
+
+			const {$modalInner, doClose} = UiUtil.getShowModal({
+				title: opts.title || "Choose",
+				noMinHeight: true,
+				cbClose: (isDataEntered, value) => {
+					if (!isDataEntered) return resolve(null);
+					if (value == null) throw new Error(`Callback must receive a value!`); // sanity check
+					resolve(value);
+				}
+			});
+
+			$$`<div class="flex-vh-center py-1">${$btnTrue}${$btnFalse}</div>`.appendTo($modalInner);
+			$btnTrue.focus();
+			$btnTrue.select();
 		});
 	}
 
@@ -1191,7 +1330,6 @@ class InputUiUtil {
 					resolve(opts.isResolveItems ? ixs.map(ix => opts.values[ix]) : ixs);
 				}
 			});
-			$modalInner.addClass("flex-col");
 			$wrpList.appendTo($modalInner);
 			$$`<div class="flex-vh-center no-shrink">${$btnOk}</div>`.appendTo($modalInner);
 			$wrpList.focus();
@@ -1202,7 +1340,7 @@ class InputUiUtil {
 	 * NOTE: designed to work with FontAwesome.
 	 *
 	 * @param opts Options.
-	 * @param opts.values Array of icon metadata. Items should be of the form: `{name: "<n>", iconClass: "<c>", buttonClass: "<cs>"}`
+	 * @param opts.values Array of icon metadata. Items should be of the form: `{name: "<n>", iconClass: "<c>", buttonClass: "<cs>", buttonClassActive: "<cs>"}`
 	 * @param opts.title Prompt title.
 	 * @param opts.default Default selected index.
 	 * @return {Promise<number>} A promise which resolves to the index of the item the user selected, or null otherwise.
@@ -1223,7 +1361,7 @@ class InputUiUtil {
 			});
 
 			$$`<div class="flex flex-wrap flex-h-center mb-2">${opts.values.map((v, i) => {
-				const $btn = $$`<div class="m-2 btn ${v.buttonClass || "btn-default"} ui-icn__btn flex-col flex-h-center">
+				const $btn = $$`<div class="m-2 btn ${v.buttonClass || "btn-default"} ui__btn-xxl-square flex-col flex-h-center">
 					${v.iconClass ? `<div class="ui-icn__wrp-icon ${v.iconClass} mb-1"></div>` : ""}
 					${v.iconContent ? v.iconContent : ""}
 					<div class="whitespace-normal w-100">${v.name}</div>
@@ -1232,8 +1370,15 @@ class InputUiUtil {
 						lastIx = i;
 						onclicks.forEach(it => it());
 					})
-					.toggleClass("active", opts.default === i);
-				onclicks.push(() => $btn.toggleClass("active", lastIx === i));
+					.toggleClass(v.buttonClassActive || "active", opts.default === i);
+				if (v.buttonClassActive && opts.default === i) {
+					$btn.removeClass("btn-default").addClass(v.buttonClassActive);
+				}
+
+				onclicks.push(() => {
+					$btn.toggleClass(v.buttonClassActive || "active", lastIx === i);
+					if (v.buttonClassActive) $btn.toggleClass("btn-default", lastIx !== i);
+				});
 				return $btn;
 			})}</div>`.appendTo($modalInner);
 
@@ -1245,16 +1390,18 @@ class InputUiUtil {
 	}
 
 	/**
-	 * @param opts Options.
-	 * @param opts.title Prompt title.
-	 * @param opts.default Default value.
-	 * @param opts.autocomplete Array of autocomplete strings. REQUIRES INCLUSION OF THE TYPEAHEAD LIBRARY.
+	 * @param [opts] Options.
+	 * @param [opts.title] Prompt title.
+	 * @param [opts.default] Default value.
+	 * @param [opts.autocomplete] Array of autocomplete strings. REQUIRES INCLUSION OF THE TYPEAHEAD LIBRARY.
+	 * @param [opts.isCode] If the text is code.
 	 * @return {Promise<String>} A promise which resolves to the string if the user entered one, or null otherwise.
 	 */
 	static pGetUserString (opts) {
 		opts = opts || {};
 		return new Promise(resolve => {
-			const $iptStr = $(`<input class="form-control mb-2" ${opts.default != null ? `value="${opts.default}"` : ""}>`)
+			const $iptStr = $(`<input class="form-control mb-2">`)
+				.val(opts.default)
 				.keydown(async evt => {
 					if (opts.autocomplete) {
 						// prevent double-binding the return key if we have autocomplete enabled
@@ -1265,8 +1412,43 @@ class InputUiUtil {
 					if (evt.which === 13) doClose(true);
 					evt.stopPropagation();
 				});
+			if (opts.isCode) $iptStr.addClass("code");
 			if (opts.autocomplete && opts.autocomplete.length) $iptStr.typeahead({source: opts.autocomplete});
 			const $btnOk = $(`<button class="btn btn-default">Enter</button>`)
+				.click(() => doClose(true));
+			const {$modalInner, doClose} = UiUtil.getShowModal({
+				title: opts.title || "Enter Text",
+				noMinHeight: true,
+				cbClose: (isDataEntered) => {
+					if (!isDataEntered) return resolve(null);
+					const raw = $iptStr.val();
+					if (!raw.trim()) return resolve(null);
+					else return resolve(raw);
+				}
+			});
+			$iptStr.appendTo($modalInner);
+			$$`<div class="flex-vh-center">${$btnOk}</div>`.appendTo($modalInner);
+			$iptStr.focus();
+			$iptStr.select();
+		});
+	}
+
+	/**
+	 * @param [opts] Options.
+	 * @param [opts.title] Prompt title.
+	 * @param [opts.buttonText] Prompt title.
+	 * @param [opts.default] Default value.
+	 * @param [opts.disabled] If the text area is disabled.
+	 * @param [opts.isCode] If the text is code.
+	 * @return {Promise<String>} A promise which resolves to the string if the user entered one, or null otherwise.
+	 */
+	static pGetUserText (opts) {
+		opts = opts || {};
+		return new Promise(resolve => {
+			const $iptStr = $(`<textarea class="form-control mb-2 resize-vertical w-100" ${opts.disabled ? "disabled" : ""}/>`)
+				.val(opts.default);
+			if (opts.isCode) $iptStr.addClass("code");
+			const $btnOk = $(`<button class="btn btn-default">${opts.buttonText || "Enter"}</button>`)
 				.click(() => doClose(true));
 			const {$modalInner, doClose} = UiUtil.getShowModal({
 				title: opts.title || "Enter Text",
@@ -1475,7 +1657,7 @@ class InputUiUtil {
 			};
 
 			comp.getAsString = function () {
-				return `{@dice ${this._state.num}d${this._state.faces}${this._state.bonus ? UiUtil.intToBonus(this._state.bonus) : ""}}`;
+				return `${this._state.num}d${this._state.faces}${this._state.bonus ? UiUtil.intToBonus(this._state.bonus) : ""}`;
 			};
 
 			const $btnOk = $(`<button class="btn btn-default">Enter</button>`)
@@ -1560,15 +1742,15 @@ class DragReorderUiUtil {
 	}
 
 	/**
-	 * @param comp Row component.
+	 * @param $fnGetRow Function which returns a $row element. Is a function instead of a value so it can be lazy-loaded later.
 	 * @param opts Options object.
 	 * @param opts.$parent
 	 * @param opts.swapRowPositions
-	 * @param [opts.childComponents]
-	 * @param [opts.getChildComponents]
+	 * @param [opts.$children] An array of row elements.
+	 * @param [opts.$getChildren] Should return an array as described in the "$children" option.
 	 */
-	static $getDragPadOpts (comp, opts) {
-		if (!opts.$parent || !opts.swapRowPositions || (!opts.childComponents && !opts.getChildComponents)) throw new Error("Missing required option(s)!");
+	static $getDragPadOpts ($fnGetRow, opts) {
+		if (!opts.$parent || !opts.swapRowPositions || (!opts.$children && !opts.$getChildren)) throw new Error("Missing required option(s)!");
 
 		const dragMeta = {};
 		const doDragCleanup = () => {
@@ -1584,11 +1766,11 @@ class DragReorderUiUtil {
 			dragMeta.$wrap = $(`<div class="flex-col ui-drag__wrp-drag-block"/>`).appendTo(opts.$parent);
 			dragMeta.$dummies = [];
 
-			let childComponentsCur = opts.getChildComponents ? opts.getChildComponents() : opts.childComponents;
-			const ixRow = childComponentsCur.indexOf(comp);
+			const $children = opts.$getChildren ? opts.$getChildren() : opts.$children;
+			const ixRow = $children.indexOf($fnGetRow());
 
-			childComponentsCur.forEach((row, i) => {
-				const dimensions = {w: row.$row.outerWidth(true), h: row.$row.outerHeight(true)};
+			$children.forEach(($child, i) => {
+				const dimensions = {w: $child.outerWidth(true), h: $child.outerHeight(true)};
 				const $dummy = $(`<div class="${i === ixRow ? "ui-drag__wrp-drag-dummy--highlight" : "ui-drag__wrp-drag-dummy--lowlight"}"/>`)
 					.width(dimensions.w).height(dimensions.h)
 					.mouseup(() => {
@@ -1613,15 +1795,15 @@ class DragReorderUiUtil {
 	}
 
 	/**
-	 * @param comp The component which will contain the drag pad. Must expose a ".$row" property (getter).
+	 * @param $fnGetRow Function which returns a $row element. Is a function instead of a value so it can be lazy-loaded later.
 	 * @param $parent Parent elements to attach row elements to. Should have (e.g.) "relative" CSS positioning.
 	 * @param parent Parent component which has a pod decomposable as {swapRowPositions, <childComponents|getChildComponents>}.
 	 * @return jQuery
 	 */
-	static $getDragPad2 (comp, $parent, parent) {
-		const {swapRowPositions, childComponents, getChildComponents} = parent;
-		const nxtOpts = {$parent, swapRowPositions, childComponents, getChildComponents};
-		return this.$getDragPadOpts(comp, nxtOpts)
+	static $getDragPad2 ($fnGetRow, $parent, parent) {
+		const {swapRowPositions, $children, $getChildren} = parent;
+		const nxtOpts = {$parent, swapRowPositions, $children, $getChildren};
+		return this.$getDragPadOpts($fnGetRow, nxtOpts)
 	}
 }
 
@@ -1654,18 +1836,18 @@ class SourceUiUtil {
 		const $iptName = $(`<input class="form-control ui-source__ipt-named">`)
 			.change(() => {
 				if (!jsonDirty && !isEditMode) $iptJson.val($iptName.val().replace(/[^-_a-zA-Z]/g, ""));
-				$iptName.removeClass("error-background");
+				$iptName.removeClass("form-control--error");
 			});
 		if (options.source) $iptName.val(options.source.full);
 		const $iptAbv = $(`<input class="form-control ui-source__ipt-named">`)
 			.change(() => {
-				$iptAbv.removeClass("error-background");
+				$iptAbv.removeClass("form-control--error");
 			});
 		if (options.source) $iptAbv.val(options.source.abbreviation);
 		const $iptJson = $(`<input class="form-control ui-source__ipt-named" ${isEditMode ? "disabled" : ""}>`)
 			.change(() => {
 				jsonDirty = true;
-				$iptJson.removeClass("error-background");
+				$iptJson.removeClass("form-control--error");
 			});
 		if (options.source) $iptJson.val(options.source.json);
 		const $iptUrl = $(`<input class="form-control ui-source__ipt-named">`);
@@ -1680,13 +1862,13 @@ class SourceUiUtil {
 				let incomplete = false;
 				[$iptName, $iptAbv, $iptJson].forEach($ipt => {
 					const val = $ipt.val();
-					if (!val || !val.trim()) (incomplete = true) && $ipt.addClass("error-background");
+					if (!val || !val.trim()) (incomplete = true) && $ipt.addClass("form-control--error");
 				});
 				if (incomplete) return;
 
 				const jsonVal = $iptJson.val().trim();
 				if (!isEditMode && BrewUtil.hasSourceJson(jsonVal)) {
-					$iptJson.addClass("error-background");
+					$iptJson.addClass("form-control--error");
 					JqueryUtil.doToast({content: `The JSON identifier "${jsonVal}" already exists!`, type: "danger"});
 					return;
 				}
@@ -1713,7 +1895,7 @@ class SourceUiUtil {
 				$stageExisting.show();
 
 				// cleanup
-				[$iptName, $iptAbv, $iptJson].forEach($ipt => $ipt.removeClass("error-background"));
+				[$iptName, $iptAbv, $iptJson].forEach($ipt => $ipt.removeClass("form-control--error"));
 			});
 
 		const $stageInitial = $$`<div class="h-100 w-100 flex-vh-center"><div>
@@ -1743,7 +1925,7 @@ class SourceUiUtil {
 				${$iptConverters}
 			</div></div>
 			<div class="text-center mb-2">${$btnCancel}${$btnConfirm}</div>
-			
+
 			${!isEditMode && BrewUtil.homebrewMeta.sources && BrewUtil.homebrewMeta.sources.length ? $$`<div class="flex-vh-center mb-3 mt-3"><span class="ui-source__divider"/>or<span class="ui-source__divider"/></div>
 			<div class="flex-vh-center">${$btnUseExisting}</div>` : ""}
 		</div></div>`.appendTo(options.$parent);
@@ -1751,21 +1933,21 @@ class SourceUiUtil {
 		const $selExisting = $$`<select class="form-control input-sm">
 			<option disabled>Select</option>
 			${(BrewUtil.homebrewMeta.sources || []).sort((a, b) => SortUtil.ascSortLower(a.full, b.full)).map(s => `<option value="${s.json.escapeQuotes()}">${s.full.escapeQuotes()}</option>`)}
-		</select>`.change(() => $selExisting.removeClass("error-background"));
+		</select>`.change(() => $selExisting.removeClass("form-control--error"));
 		$selExisting[0].selectedIndex = 0;
 
 		const $btnConfirmExisting = $(`<button class="btn btn-default btn-sm">Confirm</button>`)
 			.click(() => {
 				if ($selExisting[0].selectedIndex !== 0) {
-					const jsonSource = $selExisting.val();
-					const source = BrewUtil.sourceJsonToSource(jsonSource);
+					const sourceJson = $selExisting.val();
+					const source = BrewUtil.sourceJsonToSource(sourceJson);
 					options.cbConfirmExisting(source);
 
 					// cleanup
 					$selExisting[0].selectedIndex = 0;
 					$stageExisting.hide();
 					$stageInitial.show();
-				} else $selExisting.addClass("error-background");
+				} else $selExisting.addClass("form-control--error");
 			});
 
 		const $btnBackExisting = $(`<button class="btn btn-default btn-sm mr-2">Back</button>`)
@@ -1804,13 +1986,13 @@ class BaseComponent extends ProxyBase {
 	}
 
 	_setState (toState) {
-		this._proxyAssign("state", "_state", "__state", toState);
+		this._proxyAssign("state", "_state", "__state", toState, true);
 	}
 
 	_getState () { return MiscUtil.copy(this.__state) }
 
 	getPod () {
-		return {
+		this.__pod = this.__pod || {
 			get: (prop) => this._state[prop],
 			set: (prop, val) => this._state[prop] = val,
 			delete: (prop) => delete this._state[prop],
@@ -1821,7 +2003,8 @@ class BaseComponent extends ProxyBase {
 			setState: (state) => this._setState(state),
 			getState: () => this._getState(),
 			component: this
-		}
+		};
+		return this.__pod;
 	}
 
 	// to be overridden as required
@@ -1839,19 +2022,22 @@ class BaseComponent extends ProxyBase {
 
 	/**
 	 * Asynchronous version available below.
-	 * @param prop The state property.
-	 * @param cbExists Function to run on existing render meta. Arguments are `rendered, item, i`.
-	 * @param cbNotExists Function to run which generates existing render meta. Arguments are `item, i`.
-	 * @param [opts] Options object.
+	 * @param opts Options object.
+	 * @param opts.prop The state property.
+	 * @param opts.fnUpdateExisting Function to run on existing render meta. Arguments are `rendered, item`.
+	 * @param opts.fnGetNew Function to run which generates existing render meta. Arguments are `item`.
 	 * @param [opts.isDiffMode] If a diff of the state should be taken/checked before updating renders.
+	 * @param [opts.namespace] A namespace to store these renders under. Useful if multiple renders are being made from
+	 *        the same collection.
 	 */
-	_renderCollection (prop, cbExists, cbNotExists, opts) {
+	_renderCollection (opts) {
 		opts = opts || {};
 
-		const rendered = (this.__rendered[prop] = this.__rendered[prop] || {});
+		const renderedLookupProp = opts.namespace ? `${opts.namespace}.${opts.prop}` : opts.prop;
+		const rendered = (this.__rendered[renderedLookupProp] = this.__rendered[renderedLookupProp] || {});
 		const toDelete = new Set(Object.keys(rendered));
 
-		(this._state[prop] || []).forEach((it, i) => {
+		(this._state[opts.prop] || []).forEach((it, i) => {
 			if (it.id == null) throw new Error(`Collection item did not have an ID!`);
 			const meta = rendered[it.id];
 
@@ -1866,9 +2052,9 @@ class BaseComponent extends ProxyBase {
 				}
 
 				meta.data = it; // update any existing pointers
-				cbExists(meta, it, i);
+				opts.fnUpdateExisting(meta, it, i);
 			} else {
-				const meta = cbNotExists(it, i);
+				const meta = opts.fnGetNew(it, i);
 				meta.data = it;
 				if (!meta.$wrpRow) throw new Error(`A "$wrpRow" property is required in order for deletes!`);
 
@@ -1882,25 +2068,28 @@ class BaseComponent extends ProxyBase {
 	}
 
 	/**
-	 * Synchronous version available below.
-	 * @param prop The state property.
-	 * @param cbExists Function to run on existing render meta. Arguments are `rendered, item, i`.
-	 * @param cbNotExists Function to run which generates existing render meta. Arguments are `item, i`.
+	 * Synchronous version available above.
 	 * @param [opts] Options object.
+	 * @param opts.prop The state property.
+	 * @param opts.pFnUpdateExisting Function to run on existing render meta. Arguments are `rendered, item`.
+	 * @param opts.pFnGetNew Function to run which generates existing render meta. Arguments are `item`.
 	 * @param [opts.isDiffMode] If updates should be run in "diff" mode (i.e. no update is run if nothing has changed).
 	 * @param [opts.isMultiRender] If multiple renders will be produced.
 	 * @param [opts.additionalCaches] Additional cache objects to be cleared on entity delete. Should be objects with
 	 *        entity IDs as keys.
+	 * @param [opts.namespace] A namespace to store these renders under. Useful if multiple renders are being made from
+	 *        the same collection.
 	 */
-	async _pRenderCollection (prop, cbExists, cbNotExists, opts) {
+	async _pRenderCollection (opts) {
 		opts = opts || {};
 
-		const rendered = (this.__rendered[prop] = this.__rendered[prop] || {});
-		const entities = this._state[prop];
-		return this._pRenderCollection_doRender(rendered, entities, cbExists, cbNotExists, opts);
+		const renderedLookupProp = opts.namespace ? `${opts.namespace}.${opts.prop}` : opts.prop;
+		const rendered = (this.__rendered[renderedLookupProp] = this.__rendered[renderedLookupProp] || {});
+		const entities = this._state[opts.prop];
+		return this._pRenderCollection_doRender(rendered, entities, opts);
 	}
 
-	async _pRenderCollection_doRender (rendered, entities, cbExists, cbNotExists, opts) {
+	async _pRenderCollection_doRender (rendered, entities, opts) {
 		opts = opts || {};
 
 		const toDelete = new Set(Object.keys(rendered));
@@ -1922,12 +2111,12 @@ class BaseComponent extends ProxyBase {
 					else continue;
 				}
 
-				const nxtMeta = await cbExists(meta, it, i);
+				const nxtMeta = await opts.pFnUpdateExisting(meta, it);
 				// Overwrite the existing renders in multi-render mode
 				//    Otherwise, just ignore the result--single renders never modify their render
 				if (opts.isMultiRender) rendered[it.id] = nxtMeta;
 			} else {
-				const meta = await cbNotExists(it, i);
+				const meta = await opts.pFnGetNew(it);
 				// If the generator decides there's nothing to render, skip this item
 				if (meta == null) continue;
 
@@ -1958,20 +2147,26 @@ class BaseComponent extends ProxyBase {
 	/**
 	 * Detach (and thus preserve) rendered collection elements so they can be re-used later.
 	 * @param prop The state property.
+	 * @param [namespace] A namespace to store these renders under. Useful if multiple renders are being made from
+	 *        the same collection.
 	 */
-	_detachCollection (prop) {
-		const rendered = (this.__rendered[prop] = this.__rendered[prop] || {});
+	_detachCollection (prop, namespace = null) {
+		const renderedLookupProp = namespace ? `${namespace}.${prop}` : prop;
+		const rendered = (this.__rendered[renderedLookupProp] = this.__rendered[renderedLookupProp] || {});
 		Object.values(rendered).forEach(it => it.$wrpRow.detach());
 	}
 
 	/**
 	 * Wipe any rendered collection elements, and reset the render cache.
 	 * @param prop The state property.
+	 * @param [namespace] A namespace to store these renders under. Useful if multiple renders are being made from
+	 *        the same collection.
 	 */
-	_resetCollectionRenders (prop) {
-		const rendered = (this.__rendered[prop] = this.__rendered[prop] || {});
+	_resetCollectionRenders (prop, namespace = null) {
+		const renderedLookupProp = namespace ? `${namespace}.${prop}` : prop;
+		const rendered = (this.__rendered[renderedLookupProp] = this.__rendered[renderedLookupProp] || {});
 		Object.values(rendered).forEach(it => it.$wrpRow.remove());
-		delete this.__rendered[prop];
+		delete this.__rendered[renderedLookupProp];
 	}
 
 	render () { throw new Error("Unimplemented!"); }
@@ -1999,6 +2194,7 @@ class BaseComponent extends ProxyBase {
 	}
 
 	_triggerCollectionUpdate (prop) {
+		if (!this._state[prop]) return;
 		this._state[prop] = [...this._state[prop]];
 	}
 
@@ -2104,7 +2300,7 @@ class BaseLayeredComponent extends BaseComponent {
 	}
 
 	getPod () {
-		return {
+		this.__pod = this.__pod || {
 			...super.getPod(),
 
 			addHookDeep: (prop, hook) => this._addHookDeep(prop, hook),
@@ -2120,7 +2316,8 @@ class BaseLayeredComponent extends BaseComponent {
 			},
 			removeLayer: (layer) => this._removeLayer(layer),
 			layers: this._layers // FIXME avoid passing this directly to the child
-		}
+		};
+		return this.__pod;
 	}
 }
 
@@ -2257,6 +2454,7 @@ class ComponentUiUtil {
 	 * @param [fallbackEmpty] Fallback number if string is empty.
 	 * @param [opts] Options Object.
 	 * @param [opts.$ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
 	 * @param [opts.max] Max allowed return value.
 	 * @param [opts.min] Min allowed return value.
 	 * @param [opts.offset] Offset to add to value displayed.
@@ -2276,6 +2474,7 @@ class ComponentUiUtil {
 	 * @param [fallbackEmpty] Fallback number if string is empty.
 	 * @param [opts] Options Object.
 	 * @param [opts.$ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
 	 * @param [opts.max] Max allowed return value.
 	 * @param [opts.min] Min allowed return value.
 	 * @param [opts.offset] Offset to add to value displayed.
@@ -2292,13 +2491,29 @@ class ComponentUiUtil {
 		opts = opts || {};
 		opts.offset = opts.offset || 0;
 
-		const $ipt = (opts.$ele || $(`<input class="form-control input-xs form-control--minimal text-right" type="search">`))
+		const $ipt = (opts.$ele || $(opts.html || `<input class="form-control input-xs form-control--minimal text-right">`)).disableSpellcheck()
 			.change(() => {
-				if (opts.isAllowNull) {
-					const raw = $ipt.val().trim();
-					if (!raw) return component._state[prop] = null;
+				const raw = $ipt.val().trim();
+
+				if (opts.isAllowNull && !raw) return component._state[prop] = null;
+
+				if (raw.startsWith("=")) {
+					// if it starts with "=", force-set to the value provided
+					component._state[prop] = fnConvert(raw.slice(1), fallbackEmpty, opts) - opts.offset;
+				} else {
+					// otherwise, try to modify the previous value
+					const mUnary = /^[-+/*^]/.exec(raw);
+					if (mUnary) {
+						const cur = component._state[prop];
+						let proc = raw;
+						proc = proc.slice(1).trim();
+						const mod = fnConvert(proc, fallbackEmpty, opts);
+						const full = `${cur}${mUnary[0]}${mod}`;
+						component._state[prop] = fnConvert(full, fallbackEmpty, opts) - opts.offset;
+					} else {
+						component._state[prop] = fnConvert(raw, fallbackEmpty, opts) - opts.offset;
+					}
 				}
-				component._state[prop] = fnConvert($ipt.val(), fallbackEmpty, opts) - opts.offset;
 			});
 		const hook = () => {
 			if (opts.isAllowNull && component._state[prop] == null) {
@@ -2318,23 +2533,66 @@ class ComponentUiUtil {
 	 * @param prop Component to hook on.
 	 * @param [opts] Options Object.
 	 * @param [opts.$ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
 	 * @param [opts.isNoTrim] If the text should not be trimmed.
 	 * @param [opts.isAllowNull] If null should be allowed (and preferred) for empty inputs
 	 * @param [opts.asMeta] If a meta-object should be returned containing the hook and the checkbox.
-	 * @return {JQuery}
+	 * @param [opts.autocomplete] Array of autocomplete strings. REQUIRES INCLUSION OF THE TYPEAHEAD LIBRARY.
+	 * @param [opts.decorationLeft] Decoration to be added to the left-hand-side of the input. Can be `"search"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
+	 * @param [opts.decorationRight] Decoration to be added to the right-hand-side of the input. Can be `"search"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
 	 */
 	static $getIptStr (component, prop, opts) {
 		opts = opts || {};
 
-		const $ipt = (opts.$ele || $(`<input class="form-control input-xs form-control--minimal" type="search">`))
+		// Validate options
+		if ((opts.decorationLeft || opts.decorationRight) && !opts.asMeta) throw new Error(`Input must be created with "asMeta" option`);
+
+		const $ipt = (opts.$ele || $(opts.html || `<input class="form-control input-xs form-control--minimal">`)).disableSpellcheck()
 			.change(() => {
 				const nxtVal = opts.isNoTrim ? $ipt.val() : $ipt.val().trim();
 				component._state[prop] = opts.isAllowNull && !nxtVal ? null : nxtVal;
 			});
+
+		if (opts.autocomplete && opts.autocomplete.length) $ipt.typeahead({source: opts.autocomplete});
 		const hook = () => $ipt.val(component._state[prop]);
 		component._addHookBase(prop, hook);
 		hook();
-		return opts.asMeta ? ({$ipt, unhook: () => component._removeHookBase(prop, hook)}) : $ipt;
+
+		if (opts.asMeta) {
+			const out = {$ipt, unhook: () => component._removeHookBase(prop, hook)};
+
+			if (opts.decorationLeft || opts.decorationRight) {
+				let $decorLeft;
+				let $decorRight;
+
+				if (opts.decorationLeft) {
+					$ipt.addClass(`ui__ipt-decorated--left`);
+					$decorLeft = ComponentUiUtil._$getDecor($ipt, opts.decorationLeft, "left");
+				}
+
+				if (opts.decorationRight) {
+					$ipt.addClass(`ui__ipt-decorated--right`);
+					$decorRight = ComponentUiUtil._$getDecor($ipt, opts.decorationRight, "right");
+				}
+
+				out.$wrp = $$`<div class="relative w-100">${$ipt}${$decorLeft}${$decorRight}</div>`
+			}
+
+			return out;
+		} else return $ipt;
+	}
+
+	static _$getDecor ($ipt, decorType, side) {
+		switch (decorType) {
+			case "search": {
+				return $(`<div class="ui__ipt-decoration ui__ipt-decoration--${side} no-events flex-vh-center"><span class="glyphicon glyphicon-search"/></div>`);
+			}
+			case "clear": {
+				return $(`<div class="ui__ipt-decoration ui__ipt-decoration--${side} flex-vh-center clickable" title="Clear"><span class="glyphicon glyphicon-remove"/></div>`)
+					.click(() => $ipt.val("").change().keydown().keyup());
+			}
+			default: throw new Error(`Unimplemented!`);
+		}
 	}
 
 	/**
@@ -2377,22 +2635,32 @@ class ComponentUiUtil {
 	 * @param prop Component to hook on.
 	 * @param [opts] Options Object.
 	 * @param [opts.$ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
 	 * @param [opts.text] Button text, if element is not specified.
 	 * @param [opts.fnHookPost] Function to run after primary hook.
 	 * @param [opts.stateName] State name.
 	 * @param [opts.stateProp] State prop.
+	 * @param [opts.isInverted] If the toggle display should be inverted.
+	 * @param [opts.activeClass] CSS class to use when setting the button as "active."
 	 * @return {JQuery}
 	 */
 	static $getBtnBool (component, prop, opts) {
 		opts = opts || {};
 
+		if (opts.html) opts.$ele = $(opts.html);
+
+		const activeClass = opts.activeClass || "active";
 		const stateName = opts.stateName || "state";
 		const stateProp = opts.stateProp || "_state";
 
 		const $btn = (opts.$ele || $(`<button class="btn btn-xs btn-default">${opts.text || "Toggle"}</button>`))
-			.click(() => component[stateProp][prop] = !component[stateProp][prop]);
+			.click(() => component[stateProp][prop] = !component[stateProp][prop])
+			.contextmenu(evt => {
+				evt.preventDefault();
+				component[stateProp][prop] = !component[stateProp][prop];
+			});
 		const hook = () => {
-			$btn.toggleClass("active", !!component[stateProp][prop]);
+			$btn.toggleClass(activeClass, opts.isInverted ? !component[stateProp][prop] : !!component[stateProp][prop]);
 			if (opts.fnHookPost) opts.fnHookPost(component[stateProp][prop]);
 		};
 		component._addHook(stateName, prop, hook);
@@ -2426,6 +2694,7 @@ class ComponentUiUtil {
 	 * @param opts Options Object.
 	 * @param opts.values Values to display.
 	 * @param [opts.$ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
 	 * @param [opts.isAllowNull] If null is allowed.
 	 * @param [opts.fnDisplay] Value display function.
 	 * @param [opts.asMeta] If a meta-object should be returned containing the hook and the select.
@@ -2434,7 +2703,7 @@ class ComponentUiUtil {
 	static $getSelEnum (component, prop, opts) {
 		opts = opts || {};
 
-		const $sel = (opts.$ele || $(`<select class="form-control input-xs"/>`))
+		const $sel = (opts.$ele || $(opts.html || `<select class="form-control input-xs"/>`))
 			.change(() => {
 				const ix = Number($sel.val());
 				if (~ix) component._state[prop] = opts.values[ix];
@@ -2446,8 +2715,9 @@ class ComponentUiUtil {
 		if (opts.isAllowNull) $(`<option/>`, {value: -1, text: "\u2014"}).appendTo($sel);
 		opts.values.forEach((it, i) => $(`<option/>`, {value: i, text: opts.fnDisplay ? opts.fnDisplay(it) : it}).appendTo($sel));
 		const hook = () => {
+			const searchFor = component._state[prop] === undefined ? null : component._state[prop];
 			// Null handling is done in change handler
-			const ix = opts.values.indexOf(component._state[prop]);
+			const ix = opts.values.indexOf(searchFor);
 			$sel.val(`${ix}`);
 		};
 		component._addHookBase(prop, hook);
@@ -2467,15 +2737,14 @@ class ComponentUiUtil {
 		opts = opts || {};
 
 		const initialVals = opts.values
-			.map(v => ({[v]: component._state[prop] && component._state[prop].includes(v)}))
-			.reduce((a, b) => Object.assign(a, b), {});
+			.mergeMap(v => ({[v]: component._state[prop] && component._state[prop].includes(v)}));
 
 		const contextId = ContextUtil.getNextGenericMenuId();
-		const contextOptions = opts.values.map(it => ({name: opts.fnDisplay ? opts.fnDisplay(it) : it, action: () => pickComp.getPod().set(it, true)}));
-		ContextUtil.doInitContextMenu(contextId, (evt, ele, $invokedOn, $selectedMenu) => {
-			const val = Number($selectedMenu.data("ctx-id"));
-			contextOptions[val].action(evt, $invokedOn);
-		}, contextOptions.map(it => it.name));
+		const contextOptions = opts.values.map(it => new ContextUtil.Action(
+			opts.fnDisplay ? opts.fnDisplay(it) : it,
+			() => pickComp.getPod().set(it, true)
+		));
+		ContextUtil.doInitActionContextMenu(contextId, contextOptions);
 
 		const pickComp = BaseComponent.fromObject(initialVals);
 		pickComp.render = function ($parent) {
@@ -2486,14 +2755,14 @@ class ComponentUiUtil {
 
 				const $btnRemove = $(`<button class="btn btn-danger ui-pick__btn-remove">×</button>`)
 					.click(() => this._state[k] = false);
-				$$`<div class="flex mx-1 ui-pick__disp-pill"><div class="px-1 ui-pick__disp-text flex-v-center">${opts.fnDisplay ? opts.fnDisplay(k) : k}</div>${$btnRemove}</div>`.appendTo($parent);
+				$$`<div class="flex mx-1 mb-1 ui-pick__disp-pill"><div class="px-1 ui-pick__disp-text flex-v-center">${opts.fnDisplay ? opts.fnDisplay(k) : k}</div>${$btnRemove}</div>`.appendTo($parent);
 			});
 		};
 
-		const $btnAdd = $(`<button class="btn btn-xxs btn-default ui-pick__btn-add">+</button>`)
+		const $btnAdd = $(`<button class="btn btn-xxs btn-default ui-pick__btn-add mb-1">+</button>`)
 			.click(evt => ContextUtil.handleOpenContextMenu(evt, $btnAdd, contextId));
 
-		const $wrpPills = $(`<div class="flex flex-wrap w-100 ui-pick__wrp"/>`);
+		const $wrpPills = $(`<div class="flex flex-wrap w-100"/>`);
 		const $wrp = $$`<div class="flex-v-center">${$btnAdd}${$wrpPills}</div>`;
 		pickComp._addHookAll("state", () => {
 			component._state[prop] = Object.keys(pickComp._state).filter(k => pickComp._state[k]);

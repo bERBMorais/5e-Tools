@@ -24,12 +24,15 @@ class ObjectsPage extends ListPage {
 		this._sourceFilter = sourceFilter;
 	}
 
-	getListItem (obj, obI) {
-		this._sourceFilter.addItem(obj.source);
+	getListItem (obj, obI, isExcluded) {
+		if (!isExcluded) {
+			// populate filters
+			this._sourceFilter.addItem(obj.source);
+		}
 		obj._fMisc = obj.srd ? ["SRD"] : [];
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(obj.source);
 		const hash = UrlUtil.autoEncodeHash(obj);
@@ -48,8 +51,11 @@ class ObjectsPage extends ListPage {
 			{
 				hash,
 				source,
-				size,
-				uniqueId: obj.uniqueId ? obj.uniqueId : obI
+				size
+			},
+			{
+				uniqueId: obj.uniqueId ? obj.uniqueId : obI,
+				isExcluded
 			}
 		);
 
@@ -110,7 +116,7 @@ class ObjectsPage extends ListPage {
 		if (obj.tokenUrl || !obj.uniqueId) {
 			const imgLink = obj.tokenUrl || UrlUtil.link(`img/objects/${obj.name.replace(/"/g, "")}.png`);
 			$floatToken.append(`
-			<a href="${imgLink}" target="_blank" rel="noopener">
+			<a href="${imgLink}" target="_blank" rel="noopener noreferrer">
 				<img src="${imgLink}" id="token_image" class="token" onerror="TokenUtil.imgError(this)" alt="${obj.name}">
 			</a>`
 			);
@@ -119,9 +125,9 @@ class ObjectsPage extends ListPage {
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 	}
 }
 

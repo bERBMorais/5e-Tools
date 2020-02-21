@@ -4,11 +4,6 @@ const CONTENTS_URL = "data/adventures.json";
 
 window.onload = function load () {
 	BookUtil.renderArea = $(`#pagecontent`);
-
-	BookUtil.renderArea.append(Renderer.utils.getBorderTr());
-	BookUtil.renderArea.append(`<tr><td colspan="6" class="initial-message book-loading-message">Loading...</td></tr>`);
-	BookUtil.renderArea.append(Renderer.utils.getBorderTr());
-
 	ExcludeUtil.pInitialise(); // don't await, as this is only used for search
 	DataUtil.loadJSON(CONTENTS_URL).then(onJsonLoad);
 };
@@ -41,6 +36,7 @@ function onJsonLoad (data) {
 			} else {
 				$(`.contents-item`).show();
 			}
+			window.dispatchEvent(new Event("toolsLoaded"));
 		});
 }
 
@@ -53,7 +49,7 @@ function handleBrew (homebrew) {
 function addAdventures (data) {
 	if (!data.adventure || !data.adventure.length) return;
 
-	adventures = adventures.concat(data.adventure);
+	adventures.push(...data.adventure);
 	BookUtil.bookIndex = adventures;
 
 	const adventuresList = $("ul.contents");

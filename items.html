@@ -29,6 +29,11 @@
 		ul.list {
 			height: initial;
 			max-height: 100%;
+			min-height: 100px;
+		}
+
+		ul.list.subitems {
+			min-height: initial;
 		}
 
 		span.side-label {
@@ -82,6 +87,10 @@
 			height: 1px;
 			background: #ccc;
 		}
+
+		.night-mode .itm__list-divider {
+			background: #555;
+		}
 	</style>
 </head>
 
@@ -107,8 +116,8 @@
 			<div class="view-col" id="listcontainer" style="flex: 7">
 				<div class="lst__form-top" id="filter-search-input-group">
 					<div class="w-100 relative">
-						<input type="search" id="search" autocomplete="off" autocapitalize="off" spellcheck="false" class="search form-control lst__search lst__search--no-border-h">
-						<div class="lst__wrp-search-glass no-events flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>
+						<input type="search" id="lst__search" autocomplete="off" autocapitalize="off" spellcheck="false" class="search form-control lst__search lst__search--no-border-h">
+						<div id="lst__search-glass" class="lst__wrp-search-glass no-events flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>
 						<div class="lst__wrp-search-visible no-events flex-vh-center"></div>
 					</div>
 					<button class="btn btn-default" id="reset">Reset</button>
@@ -130,7 +139,7 @@
 					<button class="fullborder col-3-5 sort btn btn-default btn-xs" data-sort="name" data-sortby="asc">Name <span class="caret_wrp"></span></button>
 					<button class="fullborder col-4 sort btn btn-default btn-xs" data-sort="type" data-sortby="asc">Type <span class="caret_wrp"></span></button>
 					<button class="fullborder col-1-5 sort btn btn-default btn-xs" data-sort="weight" data-sortby="asc">Weight <span class="caret_wrp"></span></button>
-					<button class="col-0-6 sort btn btn-default btn-xs" data-sort="attunement" title="Can Be Attunement">A. <span class="caret_wrp"></span></button>
+					<button class="col-0-6 sort btn btn-default btn-xs" data-sort="attunement" title="Can Be Attuned">A. <span class="caret_wrp"></span></button>
 					<button class="fullborder col-1-4 sort btn btn-default btn-xs" data-sort="rarity" data-sortby="asc">Rarity <span class="caret_wrp"></span></button>
 					<button class="fullborder sort btn btn-default btn-xs" data-sort="source" data-sortby="asc">Source <span class="caret_wrp"></span></button>
 				</div>
@@ -153,7 +162,7 @@
 					<div class="row">
 						<span class="col-6 text-right">Total:</span>
 						<span class="col-2 text-center no-wrap" id="totalweight"></span>
-						<span class="col-2 text-center no-wrap" id="totalvalue"></span>
+						<span class="col-2 text-center no-wrap clickable" id="totalvalue"></span>
 					</div>
 				</div>
 
@@ -170,7 +179,8 @@
 				</div>
 
 				<div class="text-center wrp-footer-buttons">
-					<button class="btn btn-default btn-xs btn-file btn-info" id="manage-brew">Manage Homebrew</button>
+					<button class="btn btn-default btn-xs" id="btn-show-table" title="View and Download Items in Tabular Format">Table View</button>
+					<button class="btn btn-xs btn-file btn-info" id="manage-brew">Manage Homebrew</button>
 				</div>
 			</div>
 		</div>

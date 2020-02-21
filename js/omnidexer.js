@@ -206,7 +206,8 @@ Omnidexer.TO_INDEX__FROM_INDEX_JSON = [
 		primary: "name",
 		source: "source",
 		listProp: "class",
-		baseUrl: "classes.html"
+		baseUrl: "classes.html",
+		hover: true
 	},
 	{
 		category: Parser.CAT_ID_SUBCLASS,
@@ -216,6 +217,7 @@ Omnidexer.TO_INDEX__FROM_INDEX_JSON = [
 		listProp: "class",
 		brewProp: "subclass",
 		baseUrl: "classes.html",
+		hover: true,
 		onlyDeep: true,
 		deepIndex: (indexer, primary, it) => {
 			if (!it.subclasses) return [];
@@ -223,7 +225,7 @@ Omnidexer.TO_INDEX__FROM_INDEX_JSON = [
 				b: sc.name,
 				n: `${sc.name} (${primary.parentName})`,
 				s: indexer.getMetaId("s", sc.source),
-				u: `${UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CLASSES](it)}${HASH_PART_SEP}${HASH_SUBCLASS}${UrlUtil.encodeForHash(sc.name)}${HASH_SUB_LIST_SEP}${UrlUtil.encodeForHash(sc.source)}`
+				u: `${UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CLASSES](it)}${HASH_PART_SEP}${UrlUtil.getClassesPageStatePart({subclass: sc})}`
 			}));
 		},
 		pFnPreProcBrew: pPreProcessSubclassBrew
@@ -715,6 +717,18 @@ Omnidexer.TO_INDEX = [
 		file: "actions.json",
 		listProp: "action",
 		baseUrl: "actions.html",
+		hover: true
+	},
+	{
+		category: Parser.CAT_ID_LANGUAGE,
+		file: "languages.json",
+		listProp: "language",
+		baseUrl: "languages.html",
+		deepIndex: (indexer, primary, it) => {
+			return (it.dialects || []).map(d => ({
+				n: d
+			}));
+		},
 		hover: true
 	}
 ];

@@ -57,7 +57,7 @@ class NavBar {
 		addDivider(ulRules);
 		addLi(ulRules, "books.html", "View All/Homebrew");
 
-		const ulPlayers = addDropdown(navBar, "Player Options");
+		const ulPlayers = addDropdown(navBar, "Player");
 		addLi(ulPlayers, "classes.html", "Classes");
 		addLi(ulPlayers, "backgrounds.html", "Backgrounds");
 		addLi(ulPlayers, "feats.html", "Feats");
@@ -68,7 +68,7 @@ class NavBar {
 		addLi(ulPlayers, "lifegen.html", "This Is Your Life");
 		addLi(ulPlayers, "names.html", "Names");
 
-		const ulDms = addDropdown(navBar, "DM Tools");
+		const ulDms = addDropdown(navBar, "Dungeon Master");
 		addLi(ulDms, "dmscreen.html", "DM Screen");
 		addDivider(ulDms);
 		const ulAdventures = addDropdown(ulDms, "Adventures", true);
@@ -103,6 +103,7 @@ class NavBar {
 		addLi(ulAdventures, "adventure.html", "Locathah Rising", {isSide: true, aHash: "LR"});
 		addLi(ulAdventures, "adventure.html", "Eberron: Forgotten Relics", {isSide: true, aHash: "EFR"});
 		addLi(ulAdventures, "adventure.html", "Rick and Morty: Big Rick Energy", {isSide: true, aHash: "RMBRE"});
+		addLi(ulAdventures, "adventure.html", "Infernal Machine Rebuild", {isSide: true, aHash: "IMR"});
 		addDivider(ulAdventures);
 		addLi(ulAdventures, "adventures.html", "View All/Homebrew");
 		addLi(ulDms, "cultsboons.html", "Cults & Supernatural Boons");
@@ -119,6 +120,7 @@ class NavBar {
 		addLi(ulReferences, "conditionsdiseases.html", "Conditions & Diseases");
 		addLi(ulReferences, "deities.html", "Deities");
 		addLi(ulReferences, "items.html", "Items");
+		addLi(ulReferences, "languages.html", "Languages");
 		addLi(ulReferences, "optionalfeatures.html", "Other Options and Features");
 		addLi(ulReferences, "rewards.html", "Other Rewards");
 		addLi(ulReferences, "psionics.html", "Psionics");
@@ -127,13 +129,16 @@ class NavBar {
 
 		const ulUtils = addDropdown(navBar, "Utilities");
 		addLi(ulUtils, "blacklist.html", "Content Blacklist");
+		addLi(ulUtils, "makebrew.html", "Homebrew Builder");
 		addLi(ulUtils, "managebrew.html", "Homebrew Manager");
+		addDivider(ulUtils);
 		addLi(ulUtils, "inittrackerplayerview.html", "Initiative Tracker Player View");
 		addDivider(ulUtils);
-		addLi(ulUtils, "makebrew.html", "Homebrew Builder");
-		addLi(ulUtils, "demo.html", "Renderer Demo");
+		addLi(ulUtils, "renderdemo.html", "Renderer Demo");
 		addLi(ulUtils, "makecards.html", "RPG Cards JSON Builder");
 		addLi(ulUtils, "converter.html", "Text Converter");
+		addDivider(ulUtils);
+		addLi(ulUtils, "plutonium.html", "Plutonium (Foundry Module) Features");
 		addDivider(ulUtils);
 		addLi(ulUtils, "roll20.html", "Roll20 Script Help");
 		addLi(ulUtils, "makeshaped.html", "Roll20 Shaped Sheet JS Builder");

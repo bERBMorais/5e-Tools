@@ -132,6 +132,9 @@
 			"senseTags": [
 				"D"
 			],
+			"languageTags": [
+				"LF"
+			],
 			"damageTags": [
 				"N",
 				"O"

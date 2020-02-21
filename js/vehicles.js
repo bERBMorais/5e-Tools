@@ -23,12 +23,14 @@ class VehiclesPage extends ListPage {
 		this._sourceFilter = sourceFilter;
 	}
 
-	getListItem (it, vhI) {
-		// populate filters
-		this._sourceFilter.addItem(it.source);
+	getListItem (it, vhI, isExcluded) {
+		if (!isExcluded) {
+			// populate filters
+			this._sourceFilter.addItem(it.source);
+		}
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -44,8 +46,11 @@ class VehiclesPage extends ListPage {
 			it.name,
 			{
 				hash,
-				source,
-				uniqueId: it.uniqueId ? it.uniqueId : vhI
+				source
+			},
+			{
+				uniqueId: it.uniqueId ? it.uniqueId : vhI,
+				isExcluded
 			}
 		);
 
@@ -93,7 +98,7 @@ class VehiclesPage extends ListPage {
 		function buildStatsTab () {
 			if (veh.tokenUrl || !veh.uniqueId) {
 				const imgLink = veh.tokenUrl || UrlUtil.link(`img/vehicles/tokens/${Parser.sourceJsonToAbv(veh.source)}/${veh.name.replace(/"/g, "")}.png`);
-				$floatToken.append(`<a href="${imgLink}" target="_blank" rel="noopener">
+				$floatToken.append(`<a href="${imgLink}" target="_blank" rel="noopener noreferrer">
 					<img src="${imgLink}" id="token_image" class="token" onerror="TokenUtil.imgError(this)" alt="${veh.name}">
 				</a>`);
 			} else TokenUtil.imgError();
@@ -106,7 +111,7 @@ class VehiclesPage extends ListPage {
 				isImageTab,
 				$content,
 				veh,
-				(fluffJson) => veh.fluff || fluffJson.vehicle.find(it => it.name === veh.name && it.source === veh.source),
+				(fluffJson) => veh.fluff || fluffJson.vehicleFluff.find(it => it.name === veh.name && it.source === veh.source),
 				`data/fluff-vehicles.json`,
 				() => true
 			);
@@ -133,9 +138,9 @@ class VehiclesPage extends ListPage {
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 	}
 }
 

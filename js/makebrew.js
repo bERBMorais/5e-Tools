@@ -23,6 +23,8 @@ class PageUi {
 
 		this._settings = {};
 		this._saveSettingsDebounced = MiscUtil.debounce(() => this._doSaveSettings(), 50);
+
+		this._isLastRenderInputFail = false;
 	}
 
 	set creatureBuilder (creatureBuilder) { this._builders.creatureBuilder = creatureBuilder; }
@@ -243,9 +245,13 @@ class PageUi {
 	}
 
 	_getJsonOutputTemplate () {
+		const timestamp = Math.round(Date.now() / 1000);
 		return {
-			_meta: {sources: [MiscUtil.copy(BrewUtil.sourceJsonToSource(this._settings.activeSource))]},
-			dateAdded: Math.round(Date.now() / 1000)
+			_meta: {
+				sources: [MiscUtil.copy(BrewUtil.sourceJsonToSource(this._settings.activeSource))],
+				dateAdded: timestamp,
+				dateLastModified: timestamp
+			}
 		};
 	}
 }
@@ -411,9 +417,9 @@ class Builder extends ProxyBase {
 
 			const contextId = ContextUtil.getNextGenericMenuId();
 			const _CONTEXT_OPTIONS = [
-				{
-					name: "Duplicate",
-					action: async () => {
+				new ContextUtil.Action(
+					"Duplicate",
+					async () => {
 						const copy = MiscUtil.copy(entry);
 
 						// Get the root name without trailing numbers, e.g. "Goblin (2)" -> "Goblin"
@@ -423,10 +429,10 @@ class Builder extends ProxyBase {
 						await BrewUtil.pAddEntry(this._prop, copy);
 						this.doUpdateSidemenu();
 					}
-				},
-				{
-					name: "View JSON",
-					action: (evt) => {
+				),
+				new ContextUtil.Action(
+					"View JSON",
+					(evt) => {
 						const out = this._ui._getJsonOutputTemplate();
 						out[this._prop] = [PropOrder.getOrdered(DataUtil.cleanJson(MiscUtil.copy(entry)), this._prop)];
 
@@ -442,20 +448,17 @@ class Builder extends ProxyBase {
 							}
 						);
 					}
-				},
-				{
-					name: "Download JSON",
-					action: () => {
+				),
+				new ContextUtil.Action(
+					"Download JSON",
+					() => {
 						const out = this._ui._getJsonOutputTemplate();
 						out[this._prop] = [DataUtil.cleanJson(MiscUtil.copy(entry))];
 						DataUtil.userDownload(DataUtil.getCleanFilename(entry.name), out);
 					}
-				}
+				)
 			];
-			ContextUtil.doInitContextMenu(contextId, (evt, ele, $invokedOn, $selectedMenu) => {
-				const val = Number($selectedMenu.data("ctx-id"));
-				_CONTEXT_OPTIONS[val].action(evt, $invokedOn);
-			}, _CONTEXT_OPTIONS.map(it => it.name));
+			ContextUtil.doInitActionContextMenu(contextId, _CONTEXT_OPTIONS);
 
 			const $btnBurger = $(`<button class="btn btn-xs btn-default mr-2" title="More Options"><span class="glyphicon glyphicon-option-vertical"/></button>`)
 				.click(evt => ContextUtil.handleOpenContextMenu(evt, $btnBurger, contextId));
@@ -498,13 +501,17 @@ class Builder extends ProxyBase {
 
 		BuilderUi.$getResetButton().click(() => {
 			if (!confirm("Are you sure?")) return;
-			this.setStateFromLoaded({s: this._getInitialState(), m: this.getInitialMetaState()});
-			this.renderInput();
-			this.renderOutput();
-			this.isEntrySaved = true;
-			this.mutSavedButtonText();
-			this.doUiSave();
+			this.reset();
 		}).appendTo($wrpControls);
+	}
+
+	reset () {
+		this.setStateFromLoaded({s: this._getInitialState(), m: this.getInitialMetaState()});
+		this.renderInput();
+		this.renderOutput();
+		this.isEntrySaved = true;
+		this.mutSavedButtonText();
+		this.doUiSave();
 	}
 
 	async _renderInputControls_pSaveBrew () {
@@ -551,7 +558,21 @@ class Builder extends ProxyBase {
 	}
 
 	doHandleSourcesAdd () { throw new TypeError(`Unimplemented method!`); }
-	renderInput () { throw new TypeError(`Unimplemented method!`); }
+	renderInput () {
+		try {
+			this._renderInputImpl();
+			this._isLastRenderInputFail = false;
+		} catch (e) {
+			if (!this._isLastRenderInputFail) {
+				JqueryUtil.doToast({type: "danger", content: `Could not load homebrew, it contained errors! ${STR_SEE_CONSOLE}`});
+				setTimeout(() => { throw e; });
+			}
+			const tmp = this._isLastRenderInputFail;
+			this._isLastRenderInputFail = true;
+			if (!tmp) this.reset();
+		}
+	}
+	_renderInputImpl () { throw new TypeError(`Unimplemented method!`); }
 	renderOutput () { throw new TypeError(`Unimplemented method!`); }
 	async pHandleSidebarLoadExistingClick () { throw new TypeError(`Unimplemented method!`); }
 	getInitialMetaState () { return {}; }
@@ -584,6 +605,8 @@ class BuilderUi {
 			} else return state[path[0]] = toVal;
 		}
 	}
+
+	static fnPostProcessDice (ents) { return ents.map(ent => DiceConvert.getTaggedEntry(ent)); }
 
 	/**
 	 *
@@ -638,6 +661,7 @@ class BuilderUi {
 	 * @param [options.nullable]
 	 * @param [options.placeholder]
 	 * @param [options.withHeader]
+	 * @param [options.fnPostProcess]
 	 * @param path
 	 * @return {*}
 	 */
@@ -652,6 +676,12 @@ class BuilderUi {
 			.change(() => {
 				const raw = $ipt.val().trim();
 				let out = raw || !options.nullable ? UiUtil.getTextAsEntries(raw) : null;
+
+				if (out && options.fnPostProcess) {
+					out = options.fnPostProcess(out);
+					$ipt.val(UiUtil.getEntriesAsText(out));
+				}
+
 				if (options.withHeader && out) {
 					out = [
 						{
@@ -660,6 +690,7 @@ class BuilderUi {
 						}
 					];
 				}
+
 				BuilderUi.__setProp(out, options, state, ...path);
 				fnRender();
 			});
@@ -717,11 +748,13 @@ class BuilderUi {
 		if (options.nullable == null) options.nullable = true;
 
 		const initialState = MiscUtil.get(state, ...path);
-		const $ipt = $(`<input class="form-control input-xs form-control--minimal" type="number" ${options.placeholder ? `placeholder="${options.placeholder}"` : ""}>`)
+		const $ipt = $(`<input class="form-control input-xs form-control--minimal" ${options.placeholder ? `placeholder="${options.placeholder}"` : ""}>`)
 			.val(initialState)
 			.change(() => {
-				const raw = $ipt.val().trim();
-				BuilderUi.__setProp(raw || !options.nullable ? Number(raw) : null, options, state, ...path);
+				const defaultVal = options.nullable ? null : 0;
+				const val = UiUtil.strToInt($ipt.val(), defaultVal, {fallbackOnNaN: defaultVal});
+				BuilderUi.__setProp(val, options, state, ...path);
+				$ipt.val(val);
 				fnRender();
 			});
 		return BuilderUi.__$getRow(name, $ipt, options);
@@ -926,7 +959,9 @@ async function doPageInit () {
 	// page-specific init
 	await Builder.pInitAll();
 	Renderer.utils.bindPronounceButtons();
-	return ui.init();
+	await ui.init();
+
+	window.dispatchEvent(new Event("toolsLoaded"));
 }
 
 const ui = new PageUi();

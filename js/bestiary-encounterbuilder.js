@@ -8,6 +8,7 @@ class EncounterBuilder extends ProxyBase {
 		this._cache = null;
 		this._lastPlayerCount = null;
 		this._advanced = false;
+		this._lock = new VeLock();
 
 		this._cachedTitle = null;
 
@@ -81,7 +82,7 @@ class EncounterBuilder extends ProxyBase {
 			}
 			this.pDoLoadState(json);
 		});
-		$(`.ecgen__reset`).click(() => confirm("Are you sure?") && encounterBuilder.pReset());
+		$(`.ecgen__reset`).title(`SHIFT-click to reset players`).click(evt => confirm("Are you sure?") && encounterBuilder.pReset({isNotResetPlayers: !evt.shiftKey, isNotAddInitialPlayers: !evt.shiftKey}));
 
 		const $btnSvTxt = $(`.ecgen__sv_text`).click(() => {
 			let xpTotal = 0;
@@ -109,22 +110,22 @@ class EncounterBuilder extends ProxyBase {
 		$(`.ecgen_rng_easy`).click((evt) => {
 			evt.preventDefault();
 			this.pDoGenerateEncounter("easy");
-			$btnGen.data("mode", "easy").text("Random Easy").attr("title", "Randomly generate an Easy encounter");
+			$btnGen.data("mode", "easy").text("Random Easy").title("Randomly generate an Easy encounter");
 		});
 		$(`.ecgen_rng_medium`).click((evt) => {
 			evt.preventDefault();
 			this.pDoGenerateEncounter("medium");
-			$btnGen.data("mode", "medium").text("Random Medium").attr("title", "Randomly generate a Medium encounter");
+			$btnGen.data("mode", "medium").text("Random Medium").title("Randomly generate a Medium encounter");
 		});
 		$(`.ecgen_rng_hard`).click((evt) => {
 			evt.preventDefault();
 			this.pDoGenerateEncounter("hard");
-			$btnGen.data("mode", "hard").text("Random Hard").attr("title", "Randomly generate a Hard encounter");
+			$btnGen.data("mode", "hard").text("Random Hard").title("Randomly generate a Hard encounter");
 		});
 		$(`.ecgen_rng_deadly`).click((evt) => {
 			evt.preventDefault();
 			this.pDoGenerateEncounter("deadly");
-			$btnGen.data("mode", "deadly").text("Random Deadly").attr("title", "Randomly generate a Deadly encounter");
+			$btnGen.data("mode", "deadly").text("Random Deadly").title("Randomly generate a Deadly encounter");
 		});
 	}
 
@@ -139,22 +140,22 @@ class EncounterBuilder extends ProxyBase {
 		$(`.ecgen_adj_easy`).click((evt) => {
 			evt.preventDefault();
 			this.pDoAdjustEncounter("easy");
-			$btnAdjust.data("mode", "easy").text("Adjust to Easy").attr("title", "Adjust the current encounter difficulty to Easy");
+			$btnAdjust.data("mode", "easy").text("Adjust to Easy").title("Adjust the current encounter difficulty to Easy");
 		});
 		$(`.ecgen_adj_medium`).click((evt) => {
 			evt.preventDefault();
 			this.pDoAdjustEncounter("medium");
-			$btnAdjust.data("mode", "medium").text("Adjust to Medium").attr("title", "Adjust the current encounter difficulty to Medium");
+			$btnAdjust.data("mode", "medium").text("Adjust to Medium").title("Adjust the current encounter difficulty to Medium");
 		});
 		$(`.ecgen_adj_hard`).click((evt) => {
 			evt.preventDefault();
 			this.pDoAdjustEncounter("hard");
-			$btnAdjust.data("mode", "hard").text("Adjust to Hard").attr("title", "Adjust the current encounter difficulty to Hard");
+			$btnAdjust.data("mode", "hard").text("Adjust to Hard").title("Adjust the current encounter difficulty to Hard");
 		});
 		$(`.ecgen_adj_deadly`).click((evt) => {
 			evt.preventDefault();
 			this.pDoAdjustEncounter("deadly");
-			$btnAdjust.data("mode", "deadly").text("Adjust to Deadly").attr("title", "Adjust the current encounter difficulty to Deadly");
+			$btnAdjust.data("mode", "deadly").text("Adjust to Deadly").title("Adjust the current encounter difficulty to Deadly");
 		});
 	}
 
@@ -186,18 +187,24 @@ class EncounterBuilder extends ProxyBase {
 		else this.addPlayerRow(first, true, ECGEN_BASE_PLAYERS);
 	}
 
-	async pReset (doAddRows = true, playersOnly) {
-		if (!playersOnly) ListUtil.pDoSublistRemoveAll();
-
-		this.removeAllPlayerRows();
-		if (doAddRows) this.addInitialPlayerRows();
+	/**
+	 * @param [opts] Options object
+	 * @param [opts.isNotRemoveCreatures] If creature rows should not be removed.
+	 * @param [opts.isNotResetPlayers] If player info should not be reset.
+	 * @param [opts.isNotAddInitialPlayers] If initial player info should not be added.
+	 */
+	async pReset (opts) {
+		opts = opts || {};
+		if (!opts.isNotRemoveCreatures) await ListUtil.pDoSublistRemoveAll();
+		if (!opts.isNotResetPlayers) this.removeAllPlayerRows();
+		if (!opts.isNotAddInitialPlayers) this.addInitialPlayerRows();
 
 		this._state.activeKey = null;
 		this.pSetSavedEncountersThrottled();
 	}
 
 	async pDoLoadState (savedState, playersOnly) {
-		await this.pReset(false, playersOnly);
+		await this.pReset({isNotAddInitialPlayers: true, isNotRemoveCreatures: playersOnly});
 		if (!savedState) return;
 		try {
 			if (savedState.a) {
@@ -220,7 +227,8 @@ class EncounterBuilder extends ProxyBase {
 			}
 
 			if (savedState.l && !playersOnly) {
-				ListUtil.doJsonLoad(savedState.l, false, sublistFuncPreload);
+				await pPreloadSublistSources(savedState.l);
+				await ListUtil.pDoJsonLoad(savedState.l, false);
 			}
 
 			this.updateDifficulty();
@@ -415,11 +423,11 @@ class EncounterBuilder extends ProxyBase {
 			}
 		}
 
-		this._loadSublist({
+		await this._pLoadSublist({
 			items: currentEncounter.map(creatureType => ({
 				h: creatureType.hash,
 				c: `${creatureType.count}`,
-				uniqueId: creatureType.uniqueId || undefined
+				customHashId: creatureType.customHashId || undefined
 			})),
 			sources: ListUtil.getExportableSublist().sources
 		});
@@ -454,7 +462,7 @@ class EncounterBuilder extends ProxyBase {
 				sources.add(it.mon.source);
 			});
 			toLoad.sources = [...sources];
-			this._loadSublist(toLoad);
+			await this._pLoadSublist(toLoad);
 		} else {
 			await ListUtil.pDoSublistRemoveAll();
 			this.updateDifficulty();
@@ -588,13 +596,10 @@ class EncounterBuilder extends ProxyBase {
 		return {encounter, adjustedXp: getCurrentEncounterMeta(encounter).adjustedXp};
 	}
 
-	_loadSublist (toLoad) {
-		ListUtil.doJsonLoad(toLoad, false, (json, funcOnload) => {
-			sublistFuncPreload(json, () => {
-				funcOnload();
-				this.updateDifficulty();
-			});
-		});
+	async _pLoadSublist (toLoad) {
+		await pPreloadSublistSources(toLoad);
+		await ListUtil.pDoJsonLoad(toLoad, false);
+		this.updateDifficulty();
 	}
 
 	addAdvancedPlayerRow (first = true, doUpdate = true, name, level, extraCols) {
@@ -631,53 +636,59 @@ class EncounterBuilder extends ProxyBase {
 		$(`body`).removeClass("ecgen_active");
 	}
 
-	handleClick (evt, ix, add, uniqueId) {
-		const data = uniqueId ? {uid: uniqueId} : undefined;
+	handleClick (evt, ix, add, customHashId) {
+		const data = customHashId ? {customHashId} : undefined;
 		if (add) ListUtil.pDoSublistAdd(ix, true, evt.shiftKey ? 5 : 1, data);
 		else ListUtil.pDoSublistSubtract(ix, evt.shiftKey ? 5 : 1, data);
 	}
 
-	handleShuffleClick (ix) {
-		const mon = monsters[ix];
-		const xp = Parser.crToXpNumber(mon.cr);
-		if (!xp) return; // if Unknown/etc
+	async pHandleShuffleClick (ix) {
+		await this._lock.pLock();
 
-		const curr = ListUtil.getExportableSublist();
-		const hash = UrlUtil.autoEncodeHash(mon);
-		const itemToSwitch = curr.items.find(it => it.h === hash);
+		try {
+			const mon = monsters[ix];
+			const xp = Parser.crToXpNumber(mon.cr);
+			if (!xp) return; // if Unknown/etc
 
-		this.generateCache();
-		const availMons = this._cache[xp];
-		if (availMons.length !== 1) {
-			// note that this process does not remove any old sources
+			const curr = ListUtil.getExportableSublist();
+			const hash = UrlUtil.autoEncodeHash(mon);
+			const itemToSwitch = curr.items.find(it => it.h === hash);
 
-			let reroll = mon;
-			let rolledHash = hash;
-			while (rolledHash === hash) {
-				reroll = RollerUtil.rollOnArray(availMons);
-				rolledHash = UrlUtil.autoEncodeHash(reroll);
-			}
-			itemToSwitch.h = rolledHash;
-			if (!curr.sources.includes(reroll.source)) {
-				curr.sources.push(reroll.source);
-			}
+			this.generateCache();
+			const availMons = this._cache[xp];
+			if (availMons.length !== 1) {
+				// note that this process does not remove any old sources
 
-			// do a pass to merge any duplicates
-			outer: for (let i = 0; i < curr.items.length; ++i) {
-				const item = curr.items[i];
-				for (let j = i - 1; j >= 0; --j) {
-					const prevItem = curr.items[j];
+				let reroll = mon;
+				let rolledHash = hash;
+				while (rolledHash === hash) {
+					reroll = RollerUtil.rollOnArray(availMons);
+					rolledHash = UrlUtil.autoEncodeHash(reroll);
+				}
+				itemToSwitch.h = rolledHash;
+				if (!curr.sources.includes(reroll.source)) {
+					curr.sources.push(reroll.source);
+				}
 
-					if (item.h === prevItem.h) {
-						prevItem.c = String(Number(prevItem.c) + Number(item.c));
-						curr.items.splice(i, 1);
-						continue outer;
+				// do a pass to merge any duplicates
+				outer: for (let i = 0; i < curr.items.length; ++i) {
+					const item = curr.items[i];
+					for (let j = i - 1; j >= 0; --j) {
+						const prevItem = curr.items[j];
+
+						if (item.h === prevItem.h) {
+							prevItem.c = String(Number(prevItem.c) + Number(item.c));
+							curr.items.splice(i, 1);
+							continue outer;
+						}
 					}
 				}
-			}
 
-			this._loadSublist(curr);
-		} // else can't reroll
+				await this._pLoadSublist(curr);
+			} // else can't reroll
+		} finally {
+			this._lock.unlock();
+		}
 	}
 
 	handleSubhash () {
@@ -904,52 +915,60 @@ class EncounterBuilder extends ProxyBase {
 		} else handleNoImages();
 	}
 
-	doCrChange ($iptCr, ixMon, scaledTo) {
-		const mon = monsters[ixMon];
-		const baseCr = mon.cr.cr || mon.cr;
-		if (baseCr == null) return;
-		const baseCrNum = Parser.crToNumber(baseCr);
-		const targetCr = $iptCr.val();
+	async pDoCrChange ($iptCr, ixMon, scaledTo) {
+		await this._lock.pLock();
 
-		if (Parser.isValidCr(targetCr)) {
-			const targetCrNum = Parser.crToNumber(targetCr);
+		if (!$iptCr) return; // Should never occur, but if the creature has a non-adjustable CR, this field will not exist
 
-			if (targetCrNum === scaledTo) return;
+		try {
+			const mon = monsters[ixMon];
+			const baseCr = mon.cr.cr || mon.cr;
+			if (baseCr == null) return;
+			const baseCrNum = Parser.crToNumber(baseCr);
+			const targetCr = $iptCr.val();
 
-			const state = ListUtil.getExportableSublist();
-			const toFindHash = UrlUtil.autoEncodeHash(mon);
+			if (Parser.isValidCr(targetCr)) {
+				const targetCrNum = Parser.crToNumber(targetCr);
 
-			const toFindUid = !(scaledTo == null || baseCrNum === scaledTo) ? getUid(mon.name, mon.source, scaledTo) : null;
-			const ixCurrItem = state.items.findIndex(it => {
-				if (scaledTo == null || scaledTo === baseCrNum) return !it.uniqueId && it.h === toFindHash;
-				else return it.uniqueId === toFindUid;
-			});
-			if (!~ixCurrItem) throw new Error(`Could not find previously sublisted item!`);
+				if (targetCrNum === scaledTo) return;
 
-			const toFindNxtUid = baseCrNum !== targetCrNum ? getUid(mon.name, mon.source, targetCrNum) : null;
-			const nextItem = state.items.find(it => {
-				if (targetCrNum === baseCrNum) return !it.uniqueId && it.h === toFindHash;
-				else return it.uniqueId === toFindNxtUid;
-			});
+				const state = ListUtil.getExportableSublist();
+				const toFindHash = UrlUtil.autoEncodeHash(mon);
 
-			// if there's an existing item with a matching UID (or lack of), merge into it
-			if (nextItem) {
-				const curr = state.items[ixCurrItem];
-				nextItem.c = `${Number(nextItem.c || 1) + Number(curr.c || 1)}`;
-				state.items.splice(ixCurrItem, 1);
+				const toFindUid = !(scaledTo == null || baseCrNum === scaledTo) ? getCustomHashId(mon.name, mon.source, scaledTo) : null;
+				const ixCurrItem = state.items.findIndex(it => {
+					if (scaledTo == null || scaledTo === baseCrNum) return !it.customHashId && it.h === toFindHash;
+					else return it.customHashId === toFindUid;
+				});
+				if (!~ixCurrItem) throw new Error(`Could not find previously sublisted item!`);
+
+				const toFindNxtUid = baseCrNum !== targetCrNum ? getCustomHashId(mon.name, mon.source, targetCrNum) : null;
+				const nextItem = state.items.find(it => {
+					if (targetCrNum === baseCrNum) return !it.customHashId && it.h === toFindHash;
+					else return it.customHashId === toFindNxtUid;
+				});
+
+				// if there's an existing item with a matching UID (or lack of), merge into it
+				if (nextItem) {
+					const curr = state.items[ixCurrItem];
+					nextItem.c = `${Number(nextItem.c || 1) + Number(curr.c || 1)}`;
+					state.items.splice(ixCurrItem, 1);
+				} else {
+					// if we're returning to the original CR, wipe the existing UID. Otherwise, adjust it
+					if (targetCrNum === baseCrNum) delete state.items[ixCurrItem].customHashId;
+					else state.items[ixCurrItem].customHashId = getCustomHashId(mon.name, mon.source, targetCrNum);
+				}
+
+				await this._pLoadSublist(state);
 			} else {
-				// if we're returning to the original CR, wipe the existing UID. Otherwise, adjust it
-				if (targetCrNum === baseCrNum) delete state.items[ixCurrItem].uniqueId;
-				else state.items[ixCurrItem].uniqueId = getUid(mon.name, mon.source, targetCrNum);
+				JqueryUtil.doToast({
+					content: `"${$iptCr.val()}" is not a valid Challenge Rating! Please enter a valid CR (0-30). For fractions, "1/X" should be used.`,
+					type: "danger"
+				});
+				$iptCr.val(Parser.numberToCr(scaledTo || baseCr));
 			}
-
-			this._loadSublist(state);
-		} else {
-			JqueryUtil.doToast({
-				content: `"${$iptCr.val()}" is not a valid Challenge Rating! Please enter a valid CR (0-30). For fractions, "1/X" should be used.`,
-				type: "danger"
-			});
-			$iptCr.val(Parser.numberToCr(scaledTo || baseCr));
+		} finally {
+			this._lock.unlock();
 		}
 	}
 
@@ -1020,12 +1039,12 @@ class EncounterBuilder extends ProxyBase {
 		return `
 			<div class="row mb-2 ecgen__player_group">
 				<div class="col-2">
-					<select class="ecgen__player_group__count" onchange="encounterBuilder.updateDifficulty()">
+					<select class="ecgen__player_group__count form-control form-control--minimal input-xs" onchange="encounterBuilder.updateDifficulty()">
 					${[...new Array(12)].map((_, i) => `<option ${(count === i + 1) ? "selected" : ""}>${i + 1}</option>`).join("")}
 					</select>
 				</div>
 				<div class="col-2">
-					<select class="ecgen__player_group__level" onchange="encounterBuilder.updateDifficulty()" >
+					<select class="ecgen__player_group__level form-control form-control--minimal input-xs" onchange="encounterBuilder.updateDifficulty()" >
 						${[...new Array(20)].map((_, i) => `<option ${(level === i + 1) ? "selected" : ""}>${i + 1}</option>`).join("")}
 					</select>
 				</div>
@@ -1043,22 +1062,22 @@ class EncounterBuilder extends ProxyBase {
 	static getButtons (monId) {
 		return `<span class="ecgen__visible col-1 no-wrap pl-0" onclick="event.preventDefault(); event.stopPropagation()">
 			<button title="Add (SHIFT for 5)" class="btn btn-success btn-xs ecgen__btn_list" onclick="encounterBuilder.handleClick(event, ${monId}, 1)"><span class="glyphicon glyphicon-plus"></span></button>
-			<button title="Subtract (SHIFT for 5)" class="btn btn-danger btn-xs ecgen__btn_list" onclick="encounterBuilder.handleClick(event, ${monId}, 0)"><span class="glyphicon glyphicon-minus"></span></button> 
+			<button title="Subtract (SHIFT for 5)" class="btn btn-danger btn-xs ecgen__btn_list" onclick="encounterBuilder.handleClick(event, ${monId}, 0)"><span class="glyphicon glyphicon-minus"></span></button>
 		</span>`;
 	}
 
-	static $getSublistButtons (monId, uniqueId) {
+	static $getSublistButtons (monId, customHashId) {
 		const $btnAdd = $(`<button title="Add (SHIFT for 5)" class="btn btn-success btn-xs ecgen__btn_list"><span class="glyphicon glyphicon-plus"/></button>`)
-			.click(evt => encounterBuilder.handleClick(evt, monId, 1, uniqueId));
+			.click(evt => encounterBuilder.handleClick(evt, monId, 1, customHashId));
 
 		const $btnSub = $(`<button title="Subtract (SHIFT for 5)" class="btn btn-danger btn-xs ecgen__btn_list"><span class="glyphicon glyphicon-minus"/></button>`)
-			.click(evt => encounterBuilder.handleClick(evt, monId, 0, uniqueId));
+			.click(evt => encounterBuilder.handleClick(evt, monId, 0, customHashId));
 
 		const $btnRandomize = $(`<button title="Randomize Monster" class="btn btn-default btn-xs ecgen__btn_list"><span class="glyphicon glyphicon-random" style="right: 1px"/></button>`)
-			.click(() => encounterBuilder.handleShuffleClick(monId));
+			.click(() => encounterBuilder.pHandleShuffleClick(monId));
 
 		return $$`<span class="ecgen__visible col-1-5 no-wrap pl-0">
-			${$btnAdd} 
+			${$btnAdd}
 			${$btnSub}
 			${$btnRandomize}
 		</span>`
@@ -1207,16 +1226,15 @@ class EncounterBuilder extends ProxyBase {
 									if (this._state.activeKey === k) this._state.activeKey = null;
 									this._state.savedEncounters = Object.keys(this._state.savedEncounters)
 										.filter(it => it !== k)
-										.map(it => ({[it]: this._state.savedEncounters[it]}))
-										.reduce((a, b) => Object.assign(a, b), {});
+										.mergeMap(it => ({[it]: this._state.savedEncounters[it]}));
 									$row.remove();
 									if (!--rendered) $$`<div class="w-100 flex-vh-center italic">No saved encounters</div>`.appendTo($wrpRows);
 									this.pSetSavedEncountersThrottled();
 								});
 
 							const $row = $$`<div class="flex-v-center w-100 mb-2">
-								${$iptName} 
-								${$btnLoad} 
+								${$iptName}
+								${$btnLoad}
 								${$btnDelete}
 							</div>`.appendTo($wrpRows);
 						});

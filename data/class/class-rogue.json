@@ -3,6 +3,8 @@
 		{
 			"name": "Rogue",
 			"source": "PHB",
+			"page": 94,
+			"srd": true,
 			"hd": {
 				"number": 1,
 				"faces": 8
@@ -11,6 +13,84 @@
 				"dex",
 				"int"
 			],
+			"startingProficiencies": {
+				"armor": [
+					"light"
+				],
+				"weapons": [
+					"simple",
+					"hand crossbows",
+					"longswords",
+					"rapiers",
+					"shortswords"
+				],
+				"tools": [
+					"thieves' tools"
+				],
+				"skills": [
+					{
+						"choose": {
+							"from": [
+								"acrobatics",
+								"athletics",
+								"deception",
+								"insight",
+								"intimidation",
+								"investigation",
+								"perception",
+								"performance",
+								"persuasion",
+								"sleight of hand",
+								"stealth"
+							],
+							"count": 4
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"(a) a {@item rapier|phb} or (b) a {@item shortsword|phb}",
+					"(a) a {@item shortbow|phb} and {@item quiver|phb} of {@item arrows (20)|phb|20 arrows} or (b) a {@item shortsword|phb}",
+					"(a) a {@item burglar's pack|phb}, (b) a {@item dungeoneer's pack|phb}, or (c) an {@item explorer's pack|phb}",
+					"{@item Leather armor|phb}, two {@item dagger|phb|daggers}, and {@item thieves' tools|phb}"
+				],
+				"goldAlternative": "{@dice 4d4×10|4d4 × 10|Starting Gold}"
+			},
+			"multiclassing": {
+				"requirements": {
+					"dex": 13
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light"
+					],
+					"skills": [
+						{
+							"choose": {
+								"from": [
+									"acrobatics",
+									"athletics",
+									"deception",
+									"insight",
+									"intimidation",
+									"investigation",
+									"perception",
+									"performance",
+									"persuasion",
+									"sleight of hand",
+									"stealth"
+								],
+								"count": 1
+							}
+						}
+					],
+					"tools": [
+						"thieves' tools"
+					]
+				}
+			},
 			"classTableGroups": [
 				{
 					"colLabels": [
@@ -240,76 +320,6 @@
 					]
 				}
 			],
-			"startingProficiencies": {
-				"armor": [
-					"light"
-				],
-				"weapons": [
-					"simple",
-					"hand crossbows",
-					"longswords",
-					"rapiers",
-					"shortswords"
-				],
-				"tools": [
-					"thieves' tools"
-				],
-				"skills": {
-					"choose": 4,
-					"from": [
-						"Acrobatics",
-						"Athletics",
-						"Deception",
-						"Insight",
-						"Intimidation",
-						"Investigation",
-						"Perception",
-						"Performance",
-						"Persuasion",
-						"Sleight of Hand",
-						"Stealth"
-					]
-				}
-			},
-			"startingEquipment": {
-				"additionalFromBackground": true,
-				"default": [
-					"(a) a {@item rapier|phb} or (b) a {@item shortsword|phb}",
-					"(a) a {@item shortbow|phb} and {@item quiver|phb} of {@item arrows (20)|phb|20 arrows} or (b) a {@item shortsword|phb}",
-					"(a) a {@item burglar's pack|phb}, (b) a {@item dungeoneer's pack|phb}, or (c) an {@item explorer's pack|phb}",
-					"{@item Leather armor|phb}, two {@item dagger|phb|daggers}, and {@item thieves' tools|phb}"
-				],
-				"goldAlternative": "{@dice 4d4×10|4d4 × 10|Starting Gold}"
-			},
-			"multiclassing": {
-				"requirements": {
-					"dex": 13
-				},
-				"proficienciesGained": {
-					"armor": [
-						"light"
-					],
-					"skills": {
-						"choose": 1,
-						"from": [
-							"Acrobatics",
-							"Athletics",
-							"Deception",
-							"Insight",
-							"Intimidation",
-							"Investigation",
-							"Perception",
-							"Performance",
-							"Persuasion",
-							"Sleight of Hand",
-							"Stealth"
-						]
-					},
-					"tools": [
-						"thieves' tools"
-					]
-				}
-			},
 			"classFeatures": [
 				[
 					{
@@ -368,6 +378,17 @@
 							"When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 4th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -401,6 +422,17 @@
 							"When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 8th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -419,6 +451,17 @@
 							"When you reach 10th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 10th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -436,6 +479,17 @@
 							"When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 12th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -470,6 +524,17 @@
 							"When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 16th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -496,6 +561,17 @@
 							"When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 19th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -512,6 +588,10 @@
 			"subclasses": [
 				{
 					"name": "Arcane Trickster",
+					"shortName": "Arcane Trickster",
+					"source": "PHB",
+					"spellcastingAbility": "int",
+					"casterProgression": "1/3",
 					"subclassTableGroups": [
 						{
 							"subclasses": [
@@ -521,8 +601,8 @@
 								}
 							],
 							"colLabels": [
-								"{@filter Cantrips Known|spells|level=0|subclass=Arcane Trickster}",
-								"{@filter Spells Known|spells|subclass=Arcane Trickster}"
+								"{@filter Cantrips Known|spells|level=0|subclass=Rogue: Arcane Trickster}",
+								"{@filter Spells Known|spells|subclass=Rogue: Arcane Trickster}"
 							],
 							"rows": [
 								[
@@ -616,10 +696,10 @@
 								}
 							],
 							"colLabels": [
-								"{@filter 1st|spells|level=1|subclass=Arcane Trickster}",
-								"{@filter 2nd|spells|level=2|subclass=Arcane Trickster}",
-								"{@filter 3rd|spells|level=3|subclass=Arcane Trickster}",
-								"{@filter 4th|spells|level=4|subclass=Arcane Trickster}"
+								"{@filter 1st|spells|level=1|subclass=Rogue: Arcane Trickster}",
+								"{@filter 2nd|spells|level=2|subclass=Rogue: Arcane Trickster}",
+								"{@filter 3rd|spells|level=3|subclass=Rogue: Arcane Trickster}",
+								"{@filter 4th|spells|level=4|subclass=Rogue: Arcane Trickster}"
 							],
 							"rows": [
 								[
@@ -745,8 +825,6 @@
 							]
 						}
 					],
-					"spellcastingAbility": "int",
-					"casterProgression": "1/3",
 					"subclassFeatures": [
 						[
 							{
@@ -887,12 +965,12 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Arcane Trickster"
+					]
 				},
 				{
 					"name": "Assassin",
+					"shortName": "Assassin",
+					"source": "PHB",
 					"subclassFeatures": [
 						[
 							{
@@ -958,12 +1036,13 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Assassin"
+					]
 				},
 				{
 					"name": "Mastermind",
+					"shortName": "Mastermind",
+					"source": "SCAG",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1038,12 +1117,13 @@
 								]
 							}
 						]
-					],
-					"source": "SCAG",
-					"shortName": "Mastermind"
+					]
 				},
 				{
 					"name": "Inquisitive (UA)",
+					"shortName": "Inquisitive (UA)",
+					"source": "UAGothicHeroes",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1114,12 +1194,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAGothicHeroes",
-					"shortName": "Inquisitive (UA)"
+					]
 				},
 				{
 					"name": "Swashbuckler",
+					"shortName": "Swashbuckler",
+					"source": "SCAG",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1186,12 +1267,13 @@
 								]
 							}
 						]
-					],
-					"source": "SCAG",
-					"shortName": "Swashbuckler"
+					]
 				},
 				{
 					"name": "Thief",
+					"shortName": "Thief",
+					"source": "PHB",
+					"srd": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1255,12 +1337,13 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Thief"
+					]
 				},
 				{
 					"name": "Scout (UA)",
+					"shortName": "Scout (UA)",
+					"source": "UARangerAndRogue",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1324,12 +1407,12 @@
 								]
 							}
 						]
-					],
-					"source": "UARangerAndRogue",
-					"shortName": "Scout (UA)"
+					]
 				},
 				{
 					"name": "Inquisitive",
+					"shortName": "Inquisitive",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -1401,12 +1484,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Inquisitive"
+					]
 				},
 				{
 					"name": "Mastermind",
+					"shortName": "Mastermind",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -1481,12 +1564,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Mastermind"
+					]
 				},
 				{
 					"name": "Scout",
+					"shortName": "Scout",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -1550,12 +1633,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Scout"
+					]
 				},
 				{
 					"name": "Swashbuckler",
+					"shortName": "Swashbuckler",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -1622,12 +1705,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Swashbuckler"
+					]
 				},
 				{
 					"name": "Acrobat (Livestream)",
+					"shortName": "Acrobat (Stream)",
+					"source": "Stream",
 					"subclassFeatures": [
 						[
 							{
@@ -1685,12 +1768,12 @@
 								]
 							}
 						]
-					],
-					"source": "Stream",
-					"shortName": "Acrobat (Stream)"
+					]
 				},
 				{
 					"name": "The Revived (UA)",
+					"shortName": "Revived (UA)",
+					"source": "UAFighterRangerRogue",
 					"subclassFeatures": [
 						[
 							{
@@ -1803,12 +1886,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighterRangerRogue",
-					"shortName": "Revived (UA)"
+					]
 				},
 				{
 					"name": "Soulknife (UA)",
+					"shortName": "Soulknife (UA)",
+					"source": "UAFighterRogueWizard",
+					"page": 2,
 					"subclassFeatures": [
 						[
 							{
@@ -1888,10 +1972,7 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighterRogueWizard",
-					"shortName": "Soulknife (UA)",
-					"page": 2
+					]
 				}
 			],
 			"fluff": [
@@ -2183,8 +2264,7 @@
 					"page": 44,
 					"source": "XGE"
 				}
-			],
-			"page": 94
+			]
 		}
 	]
 }

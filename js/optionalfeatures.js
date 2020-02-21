@@ -80,7 +80,7 @@ class OptionalFeaturesPage extends ListPage {
 		this._levelFilter = levelFilter;
 	}
 
-	getListItem (it, ivI) {
+	getListItem (it, ivI, isExcluded) {
 		it.featureType = it.featureType || "OTH";
 		if (it.prerequisite) {
 			it._sPrereq = true;
@@ -93,7 +93,7 @@ class OptionalFeaturesPage extends ListPage {
 				return it.patron;
 			});
 			it._fprereqSpell = it.prerequisite.filter(it => it.spell).map(it => {
-				const mapped = (it.spell || []).map(it => it.split("#")[0]);
+				const mapped = (it.spell || []).map(it => it.split("#")[0].split("|")[0]);
 				this._spellFilter.addItem(mapped);
 				return mapped;
 			});
@@ -122,12 +122,14 @@ class OptionalFeaturesPage extends ListPage {
 			it._lFeatureType = it.featureType;
 		}
 
-		// populate filters
-		this._sourceFilter.addItem(it.source);
-		this._typeFilter.addItem(it.featureType);
+		if (!isExcluded) {
+			// populate filters
+			this._sourceFilter.addItem(it.source);
+			this._typeFilter.addItem(it.featureType);
+		}
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -151,8 +153,11 @@ class OptionalFeaturesPage extends ListPage {
 				source,
 				prerequisite,
 				level,
-				type: it._lFeatureType,
-				uniqueId: it.uniqueId ? it.uniqueId : ivI
+				type: it._lFeatureType
+			},
+			{
+				uniqueId: it.uniqueId ? it.uniqueId : ivI,
+				isExcluded
 			}
 		);
 
@@ -243,9 +248,9 @@ class OptionalFeaturesPage extends ListPage {
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 	}
 }
 

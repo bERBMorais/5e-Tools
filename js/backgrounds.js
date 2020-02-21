@@ -2,24 +2,12 @@
 
 class BackgroundPage extends ListPage {
 	constructor () {
-		const sourceFilter = SourceFilter.getInstance();
-		const skillFilter = new Filter({header: "Skill Proficiencies", displayFn: StrUtil.toTitleCase});
-		const toolFilter = new Filter({header: "Tool Proficiencies", displayFn: StrUtil.toTitleCase});
-		const languageFilter = new Filter({header: "Language Proficiencies", displayFn: StrUtil.toTitleCase});
-		const miscFilter = new Filter({header: "Miscellaneous", items: ["SRD"]});
-
+		const pageFilter = new PageFilterBackgrounds();
 		super({
 			dataSource: "data/backgrounds.json",
 			dataSourceFluff: "data/fluff-backgrounds.json",
 
-			filters: [
-				sourceFilter,
-				skillFilter,
-				toolFilter,
-				languageFilter,
-				miscFilter
-			],
-			filterSource: sourceFilter,
+			pageFilter,
 
 			listClass: "backgrounds",
 
@@ -27,27 +15,13 @@ class BackgroundPage extends ListPage {
 
 			dataProps: ["background"]
 		});
-
-		this._sourceFilter = sourceFilter;
-		this._skillFilter = skillFilter;
-		this._toolFilter = toolFilter;
-		this._languageFilter = languageFilter;
 	}
 
-	getListItem (bg, bgI) {
-		const skillDisplay = Renderer.background.getSkillSummary(bg.skillProficiencies, true, bg._fSkills = []);
-		Renderer.background.getToolSummary(bg.toolProficiencies, true, bg._fTools = []);
-		Renderer.background.getLanguageSummary(bg.languageProficiencies, true, bg._fLangs = []);
-		bg._fMisc = bg.srd ? ["SRD"] : [];
-
-		// populate filters
-		this._sourceFilter.addItem(bg.source);
-		this._skillFilter.addItem(bg._fSkills);
-		this._toolFilter.addItem(bg._fTools);
-		this._languageFilter.addItem(bg._fLangs);
+	getListItem (bg, bgI, isExcluded) {
+		this._pageFilter.mutateAndAddToFilters(bg, isExcluded);
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const name = bg.name.replace("Variant ", "");
 		const hash = UrlUtil.autoEncodeHash(bg);
@@ -55,7 +29,7 @@ class BackgroundPage extends ListPage {
 
 		eleLi.innerHTML = `<a href="#${hash}" class="lst--border">
 			<span class="bold col-4 pl-0">${name}</span>
-			<span class="col-6">${skillDisplay}</span>
+			<span class="col-6">${bg._skillDisplay}</span>
 			<span class="col-2 text-center ${Parser.sourceJsonToColor(bg.source)}" title="${Parser.sourceJsonToFull(bg.source)} pr-0" ${BrewUtil.sourceJsonToStyle(bg.source)}>${source}</span>
 		</a>`;
 
@@ -66,8 +40,11 @@ class BackgroundPage extends ListPage {
 			{
 				hash,
 				source,
-				skills: skillDisplay,
-				uniqueId: bg.uniqueId || bgI
+				skills: bg._skillDisplay
+			},
+			{
+				uniqueId: bg.uniqueId || bgI,
+				isExcluded
 			}
 		);
 
@@ -79,17 +56,7 @@ class BackgroundPage extends ListPage {
 
 	handleFilterChange () {
 		const f = this._filterBox.getValues();
-		this._list.filter(item => {
-			const bg = this._dataList[item.ix];
-			return this._filterBox.toDisplay(
-				f,
-				bg.source,
-				bg._fSkills,
-				bg._fTools,
-				bg._fLangs,
-				bg._fMisc
-			);
-		});
+		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
 		FilterBox.selectFirstVisible(this._dataList);
 	}
 
@@ -133,7 +100,7 @@ class BackgroundPage extends ListPage {
 				isImageTab,
 				$pgContent,
 				bg,
-				(fluffJson) => bg.fluff || fluffJson.background.find(it => it.name === bg.name && it.source === bg.source),
+				(fluffJson) => bg.fluff || fluffJson.backgroundFluff.find(it => it.name === bg.name && it.source === bg.source),
 				this._dataSourcefluff,
 				() => true
 			);
@@ -160,9 +127,9 @@ class BackgroundPage extends ListPage {
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 	}
 }
 

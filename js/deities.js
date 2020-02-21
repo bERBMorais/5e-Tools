@@ -93,7 +93,7 @@ class DeitiesPage extends ListPage {
 		this._categoryFilter = categoryFilter;
 	}
 
-	getListItem (g, dtI) {
+	getListItem (g, dtI, isExcluded) {
 		g._fAlign = g.alignment ? unpackAlignment(g) : [];
 		if (!g.category) g.category = STR_NONE;
 		if (!g.domains) g.domains = [STR_NONE];
@@ -102,12 +102,14 @@ class DeitiesPage extends ListPage {
 		g._fMisc = g.reprinted ? [STR_REPRINTED] : [];
 		if (g.srd) g._fMisc.push("SRD");
 
-		this._sourceFilter.addItem(g.source);
-		this._pantheonFilter.addItem(g.pantheon);
-		this._categoryFilter.addItem(g.category);
+		if (!isExcluded) {
+			this._sourceFilter.addItem(g.source);
+			this._pantheonFilter.addItem(g.pantheon);
+			this._categoryFilter.addItem(g.category);
+		}
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(g.source);
 		const hash = UrlUtil.autoEncodeHash(g);
@@ -131,8 +133,11 @@ class DeitiesPage extends ListPage {
 				source,
 				pantheon: g.pantheon,
 				alignment,
-				domains,
-				uniqueId: g.uniqueId ? g.uniqueId : dtI
+				domains
+			},
+			{
+				uniqueId: g.uniqueId ? g.uniqueId : dtI,
+				isExcluded
 			}
 		);
 
@@ -197,9 +202,9 @@ class DeitiesPage extends ListPage {
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 	}
 }
 

@@ -1,6 +1,6 @@
 "use strict";
 
-const JSON_URL = "data/demo.json";
+const JSON_URL = "data/renderdemo.json";
 const STORAGE_LOCATION = "demoInput";
 
 window.onload = pLoadJson;
@@ -8,6 +8,7 @@ window.onload = pLoadJson;
 async function pLoadJson () {
 	const rendererType = await StorageUtil.pGetForPage("renderer");
 	ExcludeUtil.pInitialise(); // don't await, as this is only used for search
+	BrewUtil.pAddBrewData(); // don't await, as this is only used for tags
 	const data = await DataUtil.loadJSON(JSON_URL);
 	return initDemo(data, rendererType);
 }
@@ -64,7 +65,7 @@ async function initDemo (data, rendererType) {
 		try {
 			json = JSON.parse(editor.getValue());
 		} catch (e) {
-			$msg.html(`Invalid JSON! We recommend using <a href="https://jsonlint.com/" target="_blank" rel="noopener">JSONLint</a>.`);
+			$msg.html(`Invalid JSON! We recommend using <a href="https://jsonlint.com/" target="_blank" rel="noopener noreferrer">JSONLint</a>.`);
 			setTimeout(() => {
 				throw e
 			});
@@ -76,7 +77,7 @@ async function initDemo (data, rendererType) {
 		$out.html(`
 			<tr><th class="border" colspan="6"></th></tr>
 			<tr class="text"><td colspan="6">${renderStack.join("")}</td></tr>
-			<tr><th class="border" colspan="6"></th></tr>		
+			<tr><th class="border" colspan="6"></th></tr>
 		`)
 	}
 
@@ -111,5 +112,7 @@ async function initDemo (data, rendererType) {
 	});
 	$btnReset.click(() => demoReset());
 	$btnRender.click(() => demoRender());
-	editor.change(() => renderAndSaveDebounced());
+	editor.on("change", () => renderAndSaveDebounced()); // N.B. specific "change" format required by Ace.js
+
+	window.dispatchEvent(new Event("toolsLoaded"));
 }

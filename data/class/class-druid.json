@@ -3,6 +3,8 @@
 		{
 			"name": "Druid",
 			"source": "PHB",
+			"page": 64,
+			"srd": true,
 			"hd": {
 				"number": 1,
 				"faces": 8
@@ -13,6 +15,72 @@
 			],
 			"spellcastingAbility": "wis",
 			"casterProgression": "full",
+			"startingProficiencies": {
+				"armor": [
+					"light",
+					"medium",
+					{
+						"proficiency": "shields",
+						"full": "shields (druids will not wear armor or use shields made of metal)"
+					}
+				],
+				"weapons": [
+					"clubs",
+					"daggers",
+					"darts",
+					"javelins",
+					"maces",
+					"quarterstaffs",
+					"scimitars",
+					"sickles",
+					"slings",
+					"spears"
+				],
+				"tools": [
+					"Herbalism kit"
+				],
+				"skills": [
+					{
+						"choose": {
+							"from": [
+								"arcana",
+								"animal handling",
+								"insight",
+								"medicine",
+								"nature",
+								"perception",
+								"religion",
+								"survival"
+							],
+							"count": 2
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"(a) a wooden {@item shield|phb} or (b) any {@filter simple weapon|items|source=phb|category=basic|type=simple weapon}",
+					"(a) a {@item scimitar|phb} or (b) any {@filter simple melee weapon|items|source=phb|category=basic|type=simple weapon;melee weapon=sand}",
+					"{@item Leather armor|phb}, an {@item explorer's pack|phb}, and a {@item druidic focus|phb}"
+				],
+				"goldAlternative": "{@dice 2d4×10|2d4 × 10|Starting Gold}"
+			},
+			"multiclassing": {
+				"requirements": {
+					"wis": 13
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light",
+						"medium",
+						{
+							"proficiency": "shields",
+							"full": "shields (druids will not wear armor or use shields made of metal)"
+						}
+					]
+				}
+			},
 			"classTableGroups": [
 				{
 					"colLabels": [
@@ -318,68 +386,12 @@
 					]
 				}
 			],
-			"startingProficiencies": {
-				"armor": [
-					"light",
-					"medium",
-					"shields (druids will not wear armor or use shields made of metal)"
-				],
-				"weapons": [
-					"clubs",
-					"daggers",
-					"darts",
-					"javelins",
-					"maces",
-					"quarterstaffs",
-					"scimitars",
-					"sickles",
-					"slings",
-					"spears"
-				],
-				"tools": [
-					"Herbalism kit"
-				],
-				"skills": {
-					"choose": 2,
-					"from": [
-						"Arcana",
-						"Animal Handling",
-						"Insight",
-						"Medicine",
-						"Nature",
-						"Perception",
-						"Religion",
-						"Survival"
-					]
-				}
-			},
-			"startingEquipment": {
-				"additionalFromBackground": true,
-				"default": [
-					"(a) a wooden {@item shield|phb} or (b) any {@filter simple weapon|items|source=phb|category=basic|type=simple weapon}",
-					"(a) a {@item scimitar|phb} or (b) any {@filter simple melee weapon|items|source=phb|category=basic|type=simple weapon;melee weapon=sand}",
-					"{@item Leather armor|phb}, an {@item explorer's pack|phb}, and a {@item druidic focus|phb}"
-				],
-				"goldAlternative": "{@dice 2d4×10|2d4 × 10|Starting Gold}"
-			},
-			"multiclassing": {
-				"requirements": {
-					"wis": 13
-				},
-				"proficienciesGained": {
-					"armor": [
-						"light",
-						"medium",
-						"shields (druids will not wear armor or use shields made of metal)"
-					]
-				}
-			},
 			"classFeatures": [
 				[
 					{
 						"name": "Druidic",
 						"entries": [
-							"You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic."
+							"You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom ({@skill Perception}) check but can't decipher it without magic."
 						]
 					},
 					{
@@ -538,6 +550,17 @@
 							"When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 4th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[],
@@ -564,6 +587,17 @@
 							"When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 8th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[],
@@ -584,6 +618,17 @@
 							"When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 12th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[],
@@ -604,6 +649,17 @@
 							"When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 16th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[],
@@ -628,6 +684,17 @@
 							"When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 19th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -644,6 +711,9 @@
 			"subclasses": [
 				{
 					"name": "Circle of the Land",
+					"shortName": "Land",
+					"source": "PHB",
+					"srd": true,
 					"subclassFeatures": [
 						[
 							{
@@ -957,12 +1027,12 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Land"
+					]
 				},
 				{
 					"name": "Circle of the Moon",
+					"shortName": "Moon",
+					"source": "PHB",
 					"subclassFeatures": [
 						[
 							{
@@ -1084,12 +1154,13 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Moon"
+					]
 				},
 				{
 					"name": "Circle of Dreams (UA)",
+					"shortName": "Dreams (UA)",
+					"source": "UADruid",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1150,12 +1221,13 @@
 								]
 							}
 						]
-					],
-					"source": "UADruid",
-					"shortName": "Dreams (UA)"
+					]
 				},
 				{
 					"name": "Circle of the Shepherd (UA)",
+					"shortName": "Shepherd (UA)",
+					"source": "UADruid",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1258,12 +1330,13 @@
 								]
 							}
 						]
-					],
-					"source": "UADruid",
-					"shortName": "Shepherd (UA)"
+					]
 				},
 				{
 					"name": "Circle of the Shepherd v2 (UA)",
+					"shortName": "Shepherd v2 (UA)",
+					"source": "UARevisedClassOptions",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1375,12 +1448,12 @@
 								]
 							}
 						]
-					],
-					"source": "UARevisedClassOptions",
-					"shortName": "Shepherd v2 (UA)"
+					]
 				},
 				{
 					"name": "Circle of Twilight (UA)",
+					"shortName": "Twilight (UA)",
+					"source": "UADruid",
 					"subclassFeatures": [
 						[
 							{
@@ -1440,12 +1513,12 @@
 								]
 							}
 						]
-					],
-					"source": "UADruid",
-					"shortName": "Twilight (UA)"
+					]
 				},
 				{
 					"name": "Circle of Dreams",
+					"shortName": "Dreams",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -1509,12 +1582,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Dreams"
+					]
 				},
 				{
 					"name": "Circle of the Shepherd",
+					"shortName": "Shepherd",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -1616,12 +1689,13 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Shepherd"
+					]
 				},
 				{
 					"name": "Circle of Spores (UA)",
+					"shortName": "Spores (UA)",
+					"source": "UAThreeSubclasses",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1724,12 +1798,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAThreeSubclasses",
-					"shortName": "Spores (UA)"
+					]
 				},
 				{
 					"name": "Circle of Spores",
+					"shortName": "Spores",
+					"source": "GGR",
+					"page": 26,
 					"subclassFeatures": [
 						[
 							{
@@ -1851,13 +1926,13 @@
 								]
 							}
 						]
-					],
-					"source": "GGR",
-					"shortName": "Spores",
-					"page": 26
+					]
 				},
 				{
 					"name": "Circle of Wildfire (UA)",
+					"shortName": "Wildfire (UA)",
+					"source": "UAClericDruidWizard",
+					"page": 2,
 					"subclassFeatures": [
 						[
 							{
@@ -1961,10 +2036,7 @@
 								]
 							}
 						]
-					],
-					"source": "UAClericDruidWizard",
-					"shortName": "Wildfire (UA)",
-					"page": 2
+					]
 				}
 			],
 			"fluff": [
@@ -3342,8 +3414,7 @@
 					"source": "XGE",
 					"page": 21
 				}
-			],
-			"page": 64
+			]
 		}
 	]
 }

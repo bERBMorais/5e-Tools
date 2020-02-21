@@ -3,6 +3,8 @@
 		{
 			"name": "Fighter",
 			"source": "PHB",
+			"page": 70,
+			"srd": true,
 			"hd": {
 				"number": 1,
 				"faces": 10
@@ -22,19 +24,23 @@
 					"simple",
 					"martial"
 				],
-				"skills": {
-					"choose": 2,
-					"from": [
-						"Acrobatics",
-						"Animal Handling",
-						"Athletics",
-						"History",
-						"Insight",
-						"Intimidation",
-						"Perception",
-						"Survival"
-					]
-				}
+				"skills": [
+					{
+						"choose": {
+							"from": [
+								"acrobatics",
+								"animal handling",
+								"athletics",
+								"history",
+								"insight",
+								"intimidation",
+								"perception",
+								"survival"
+							],
+							"count": 2
+						}
+					}
+				]
 			},
 			"startingEquipment": {
 				"additionalFromBackground": true,
@@ -245,6 +251,17 @@
 							"When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 4th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -263,6 +280,17 @@
 							"When you reach 6th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 6th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -281,6 +309,17 @@
 							"When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 8th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -316,6 +355,17 @@
 							"When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 12th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -333,6 +383,17 @@
 							"When you reach 14th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 14th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -351,6 +412,17 @@
 							"When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 16th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -383,6 +455,17 @@
 							"When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 							"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
 						]
+					},
+					{
+						"type": "entries",
+						"name": "Proficiency Versatility",
+						"entries": [
+							"{@i 19th-level feature (enhances Ability Score Improvement)}",
+							"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
+							"This change represents one of your skills atrophying as you focus on a different skill."
+						],
+						"source": "UAClassFeatureVariants",
+						"page": 1
 					}
 				],
 				[
@@ -398,6 +481,9 @@
 			"subclasses": [
 				{
 					"name": "Champion",
+					"shortName": "Champion",
+					"source": "PHB",
+					"srd": true,
 					"subclassFeatures": [
 						[
 							{
@@ -467,12 +553,12 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Champion"
+					]
 				},
 				{
 					"name": "Battle Master",
+					"shortName": "Battle Master",
+					"source": "PHB",
 					"subclassFeatures": [
 						[
 							{
@@ -483,7 +569,7 @@
 										"type": "entries",
 										"name": "Student of War",
 										"entries": [
-											"At 3rd level, you gain proficiency with one type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan tool} of your choice."
+											"At 3rd level, you gain proficiency with one type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} of your choice."
 										]
 									},
 									{
@@ -910,12 +996,13 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Battle Master"
+					]
 				},
 				{
 					"name": "Cavalier (UA)",
+					"shortName": "Cavalier (UA)",
+					"source": "UAKitsOfOld",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1032,12 +1119,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAKitsOfOld",
-					"shortName": "Cavalier (UA)"
+					]
 				},
 				{
 					"name": "Cavalier v2 (UA)",
+					"shortName": "Cavalier v2 (UA)",
+					"source": "UARevisedClassOptions",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -1186,12 +1274,14 @@
 								]
 							}
 						]
-					],
-					"source": "UARevisedClassOptions",
-					"shortName": "Cavalier v2 (UA)"
+					]
 				},
 				{
 					"name": "Eldritch Knight",
+					"shortName": "Eldritch Knight",
+					"source": "PHB",
+					"spellcastingAbility": "int",
+					"casterProgression": "1/3",
 					"subclassTableGroups": [
 						{
 							"subclasses": [
@@ -1201,8 +1291,8 @@
 								}
 							],
 							"colLabels": [
-								"{@filter Cantrips Known|spells|level=0|subclass=Eldritch Knight}",
-								"{@filter Spells Known|spells|subclass=Eldritch Knight}"
+								"{@filter Cantrips Known|spells|level=0|subclass=Fighter: Eldritch Knight}",
+								"{@filter Spells Known|spells|subclass=Fighter: Eldritch Knight}"
 							],
 							"rows": [
 								[
@@ -1296,10 +1386,10 @@
 								}
 							],
 							"colLabels": [
-								"{@filter 1st|spells|level=1|subclass=Eldritch Knight}",
-								"{@filter 2nd|spells|level=2|subclass=Eldritch Knight}",
-								"{@filter 3rd|spells|level=3|subclass=Eldritch Knight}",
-								"{@filter 4th|spells|level=4|subclass=Eldritch Knight}"
+								"{@filter 1st|spells|level=1|subclass=Fighter: Eldritch Knight}",
+								"{@filter 2nd|spells|level=2|subclass=Fighter: Eldritch Knight}",
+								"{@filter 3rd|spells|level=3|subclass=Fighter: Eldritch Knight}",
+								"{@filter 4th|spells|level=4|subclass=Fighter: Eldritch Knight}"
 							],
 							"rows": [
 								[
@@ -1425,8 +1515,6 @@
 							]
 						}
 					],
-					"spellcastingAbility": "int",
-					"casterProgression": "1/3",
 					"subclassFeatures": [
 						[
 							{
@@ -1565,12 +1653,12 @@
 								]
 							}
 						]
-					],
-					"source": "PHB",
-					"shortName": "Eldritch Knight"
+					]
 				},
 				{
 					"name": "Monster Hunter (UA)",
+					"shortName": "Monster Hunter (UA)",
+					"source": "UAGothicHeroes",
 					"spellcastingAbility": "wis",
 					"subclassFeatures": [
 						[
@@ -1688,12 +1776,12 @@
 								]
 							}
 						]
-					],
-					"source": "UAGothicHeroes",
-					"shortName": "Monster Hunter (UA)"
+					]
 				},
 				{
 					"name": "Purple Dragon Knight (Banneret)",
+					"shortName": "Purple Dragon Knight (Banneret)",
+					"source": "SCAG",
 					"subclassFeatures": [
 						[
 							{
@@ -1776,12 +1864,12 @@
 								]
 							}
 						]
-					],
-					"source": "SCAG",
-					"shortName": "Purple Dragon Knight (Banneret)"
+					]
 				},
 				{
 					"name": "Scout (UA)",
+					"shortName": "Scout (UA)",
+					"source": "UAKitsOfOld",
 					"subclassFeatures": [
 						[
 							{
@@ -1916,12 +2004,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAKitsOfOld",
-					"shortName": "Scout (UA)"
+					]
 				},
 				{
 					"name": "Arcane Archer (UA)",
+					"shortName": "Arcane Archer (UA)",
+					"source": "UAFighter",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -2113,12 +2202,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighter",
-					"shortName": "Arcane Archer (UA)"
+					]
 				},
 				{
 					"name": "Arcane Archer v2 (UA)",
+					"shortName": "Arcane Archer v2 (UA)",
+					"source": "UARevisedSubclasses",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -2294,12 +2384,12 @@
 								]
 							}
 						]
-					],
-					"source": "UARevisedSubclasses",
-					"shortName": "Arcane Archer v2 (UA)"
+					]
 				},
 				{
 					"name": "Knight (UA)",
+					"shortName": "Knight (UA)",
+					"source": "UAFighter",
 					"subclassFeatures": [
 						[
 							{
@@ -2379,12 +2469,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighter",
-					"shortName": "Knight (UA)"
+					]
 				},
 				{
 					"name": "Samurai (UA)",
+					"shortName": "Samurai (UA)",
+					"source": "UAFighter",
+					"isReprinted": true,
 					"subclassFeatures": [
 						[
 							{
@@ -2456,12 +2547,12 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighter",
-					"shortName": "Samurai (UA)"
+					]
 				},
 				{
 					"name": "Sharpshooter (UA)",
+					"shortName": "Sharpshooter (UA)",
+					"source": "UAFighter",
 					"subclassFeatures": [
 						[
 							{
@@ -2540,12 +2631,12 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighter",
-					"shortName": "Sharpshooter (UA)"
+					]
 				},
 				{
 					"name": "Arcane Archer",
+					"shortName": "Arcane Archer",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -2728,12 +2819,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Arcane Archer"
+					]
 				},
 				{
 					"name": "Cavalier",
+					"shortName": "Cavalier",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -2821,12 +2912,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Cavalier"
+					]
 				},
 				{
 					"name": "Samurai",
+					"shortName": "Samurai",
+					"source": "XGE",
 					"subclassFeatures": [
 						[
 							{
@@ -2905,12 +2996,12 @@
 								]
 							}
 						]
-					],
-					"source": "XGE",
-					"shortName": "Samurai"
+					]
 				},
 				{
 					"name": "Brute (UA)",
+					"shortName": "Brute (UA)",
+					"source": "UAThreeSubclasses",
 					"subclassFeatures": [
 						[
 							{
@@ -3010,12 +3101,12 @@
 								]
 							}
 						]
-					],
-					"source": "UAThreeSubclasses",
-					"shortName": "Brute (UA)"
+					]
 				},
 				{
 					"name": "Warlord (Livestream)",
+					"shortName": "Warlord (Stream)",
+					"source": "Stream",
 					"subclassTableGroups": [
 						{
 							"subclasses": [
@@ -3428,12 +3519,12 @@
 								]
 							}
 						]
-					],
-					"source": "Stream",
-					"shortName": "Warlord (Stream)"
+					]
 				},
 				{
 					"name": "Weapon Master (Livestream)",
+					"shortName": "Weapon Master (Stream)",
+					"source": "Stream",
 					"subclassFeatures": [
 						[
 							{
@@ -3771,12 +3862,12 @@
 								]
 							}
 						]
-					],
-					"source": "Stream",
-					"shortName": "Weapon Master (Stream)"
+					]
 				},
 				{
 					"name": "Slayer (Livestream)",
+					"shortName": "Slayer (Stream)",
+					"source": "Stream",
 					"subclassFeatures": [
 						[
 							{
@@ -3934,12 +4025,12 @@
 								]
 							}
 						]
-					],
-					"source": "Stream",
-					"shortName": "Slayer (Stream)"
+					]
 				},
 				{
 					"name": "Rune Knight (UA)",
+					"shortName": "Rune Knight (UA)",
+					"source": "UAFighterRangerRogue",
 					"subclassFeatures": [
 						[
 							{
@@ -4099,12 +4190,13 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighterRangerAndRogue",
-					"shortName": "Rune Knight (UA)"
+					]
 				},
 				{
 					"name": "Psychic Warrior (UA)",
+					"shortName": "Psychic Warrior (UA)",
+					"source": "UAFighterRogueWizard",
+					"page": 1,
 					"subclassFeatures": [
 						[
 							{
@@ -4221,10 +4313,7 @@
 								]
 							}
 						]
-					],
-					"source": "UAFighterRogueWizard",
-					"shortName": "Psychic Warrior (UA)",
-					"page": 1
+					]
 				}
 			],
 			"fluff": [
@@ -4513,8 +4602,7 @@
 					"source": "XGE",
 					"page": 27
 				}
-			],
-			"page": 70
+			]
 		}
 	]
 }

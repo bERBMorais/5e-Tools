@@ -4,55 +4,25 @@ let magicList;
 let subList;
 
 class ItemsPage {
-	// region static
-	static rarityValue (rarity) {
-		switch (rarity) {
-			case "None": return 0;
-			case "Common": return 1;
-			case "Uncommon": return 2;
-			case "Rare": return 3;
-			case "Very Rare": return 4;
-			case "Legendary": return 5;
-			case "Artifact": return 6;
-			case "Other": return 7;
-			case "Varies": return 8;
-			case "Unknown (Magic)": return 9;
-			case "Unknown": return 10;
-			default: return 11;
-		}
-	}
-
-	static sortItems (a, b, o) {
-		if (o.sortBy === "name") return SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "type") return SortUtil.ascSortLower(a.values.type, b.values.type) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "source") return SortUtil.ascSortLower(a.values.source, b.values.source) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "rarity") return SortUtil.ascSort(ItemsPage.rarityValue(b.values.rarity), ItemsPage.rarityValue(a.values.rarity)) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "attunement") return SortUtil.ascSort(a.values.attunement, b.values.attunement) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "count") return SortUtil.ascSort(a.values.count, b.values.count) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "weight") return SortUtil.ascSort(a.values.weight, b.values.weight) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "cost") return SortUtil.ascSort(a.values.cost, b.values.cost) || SortUtil.compareListNames(a, b);
-		else return 0;
-	}
-	// endregion
-
 	constructor () {
 		this._pageFilter = new PageFilterItems();
 
 		this._sublistCurrencyConversion = null;
+		this._sublistCurrencyDisplayMode = null;
 
 		this._$totalWeight = null;
 		this._$totalValue = null;
 	}
 
-	getListItem (item, itI) {
+	getListItem (item, itI, isExcluded) {
 		if (ExcludeUtil.isExcluded(item.name, "item", item.source)) return null;
 		if (item.noDisplay) return null;
 		Renderer.item.enhanceItem(item);
 
-		this._pageFilter.addToFilters(item);
+		this._pageFilter.mutateAndAddToFilters(item, isExcluded);
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const hash = UrlUtil.autoEncodeHash(item);
 		const source = Parser.sourceJsonToAbv(item.source);
@@ -76,8 +46,11 @@ class ItemsPage {
 					source,
 					type,
 					cost: item.value || 0,
-					weight: Parser.weightValueToNumber(item.weight),
-					uniqueId: item.uniqueId ? item.uniqueId : itI
+					weight: Parser.weightValueToNumber(item.weight)
+				},
+				{
+					uniqueId: item.uniqueId ? item.uniqueId : itI,
+					isExcluded
 				}
 			);
 			eleLi.addEventListener("click", (evt) => mundaneList.doSelect(listItem, evt));
@@ -103,9 +76,9 @@ class ItemsPage {
 					type,
 					rarity: item.rarity,
 					attunement: item._attunementCategory !== "No",
-					weight: Parser.weightValueToNumber(item.weight),
-					uniqueId: item.uniqueId ? item.uniqueId : itI
-				}
+					weight: Parser.weightValueToNumber(item.weight)
+				},
+				{uniqueId: item.uniqueId ? item.uniqueId : itI}
 			);
 			eleLi.addEventListener("click", (evt) => magicList.doSelect(listItem, evt));
 			eleLi.addEventListener("contextmenu", (evt) => ListUtil.openContextMenu(evt, magicList, listItem));
@@ -170,7 +143,7 @@ class ItemsPage {
 				isImageTab,
 				$content,
 				item,
-				(fluffJson) => item.fluff || fluffJson.item.find(it => it.name === item.name && it.source === item.source),
+				(fluffJson) => item.fluff || fluffJson.itemFluff.find(it => it.name === item.name && it.source === item.source),
 				`data/fluff-items.json`,
 				() => true
 			);
@@ -199,9 +172,9 @@ class ItemsPage {
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._pageFilter.filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 	}
 
 	onSublistChange () {
@@ -214,7 +187,7 @@ class ItemsPage {
 		const availConversions = new Set();
 		ListUtil.sublist.items.forEach(it => {
 			const item = itemList[it.ix];
-			if (item.valueConversion) availConversions.add(item.valueConversion);
+			if (item.currencyConversion) availConversions.add(item.currencyConversion);
 			const count = it.values.count;
 			if (item.weight) weight += Number(item.weight) * count;
 			if (item.value) value += item.value * count;
@@ -223,7 +196,9 @@ class ItemsPage {
 		this._$totalwWeight.text(`${weight.toLocaleString()} lb${weight !== 1 ? "s" : ""}.`);
 
 		if (availConversions.size) {
-			this._$totalValue.addClass("clickable").text(Parser.itemValueToFull({value, valueConversion: this._sublistCurrencyConversion})).off("click")
+			this._$totalValue
+				.text(Parser.itemValueToFull({value, currencyConversion: this._sublistCurrencyConversion}))
+				.off("click")
 				.click(async () => {
 					const values = ["(Default)", ...[...availConversions].sort(SortUtil.ascSortLower)];
 					const defaultSel = values.indexOf(this._sublistCurrencyConversion);
@@ -232,26 +207,60 @@ class ItemsPage {
 						isResolveItem: true,
 						default: ~defaultSel ? defaultSel : 0,
 						title: "Select Currency Conversion Table",
-						fnDisplay: it => it === null ? "(Default)" : it
+						fnDisplay: it => it === null ? values[0] : it
 					});
 					if (userSel == null) return;
-					this._sublistCurrencyConversion = userSel === "(Default)" ? null : userSel;
-					StorageUtil.pSetForPage("sublistCurrencyConversion", this._sublistCurrencyConversion);
+					this._sublistCurrencyConversion = userSel === values[0] ? null : userSel;
+					await StorageUtil.pSetForPage("sublistCurrencyConversion", this._sublistCurrencyConversion);
 					this.onSublistChange();
 				});
 		} else {
-			this._$totalValue.removeClass("clickable").text(Parser.itemValueToFull({value})).off("click");
+			const modes = ["Exact Coinage", "Lowest Common Currency", "Gold"];
+			const text = (() => {
+				switch (this._sublistCurrencyDisplayMode) {
+					case modes[1]: return Parser.itemValueToFull({value});
+					case modes[2]: {
+						return value ? `${Parser._DEFAULT_CURRENCY_CONVERSION_TABLE.find(it => it.coin === "gp").mult * value} gp` : "";
+					}
+					default:
+					case modes[0]: {
+						const CURRENCIES = ["gp", "sp", "cp"];
+						const coins = {cp: value};
+						CurrencyUtil.doSimplifyCoins(coins, CURRENCIES);
+						return CURRENCIES.filter(it => coins[it]).map(it => `${coins[it]} ${it}`).join(", ");
+					}
+				}
+			})();
+
+			this._$totalValue
+				.text(text || "\u2014")
+				.off("click")
+				.click(async () => {
+					const defaultSel = modes.indexOf(this._sublistCurrencyDisplayMode);
+					const userSel = await InputUiUtil.pGetUserEnum({
+						values: modes,
+						isResolveItem: true,
+						default: ~defaultSel ? defaultSel : 0,
+						title: "Select Display Mode",
+						fnDisplay: it => it === null ? modes[0] : it
+					});
+					if (userSel == null) return;
+					this._sublistCurrencyDisplayMode = userSel === modes[0] ? null : userSel;
+					await StorageUtil.pSetForPage("sublistCurrencyDisplayMode", this._sublistCurrencyDisplayMode);
+					this.onSublistChange();
+				});
 		}
 	}
 
 	async pOnLoad () {
 		window.loadHash = this.doLoadHash.bind(this);
-		window.loadSubHash = this.doLoadSubHash.bind(this);
+		window.loadSubHash = this.pDoLoadSubHash.bind(this);
 
-		this._sublistCurrencyConversion = await StorageUtil.pGetForPage("sublistCurrencyConversion");
+		[this._sublistCurrencyConversion, this._sublistCurrencyDisplayMode] = await Promise.all([StorageUtil.pGetForPage("sublistCurrencyConversion"), StorageUtil.pGetForPage("sublistCurrencyDisplayMode")]);
 		await ExcludeUtil.pInitialise();
 		await this._pageFilter.pInitFilterBox({
-			$wrpFormTop: $(`#filter-search-input-group`).attr("title", "Hotkey: f"),
+			$iptSearch: $(`#lst__search`),
+			$wrpFormTop: $(`#filter-search-input-group`).title("Hotkey: f"),
 			$btnReset: $(`#reset`)
 		});
 
@@ -262,11 +271,11 @@ class ItemsPage {
 async function pPopulateTablesAndFilters (data) {
 	mundaneList = ListUtil.initList({
 		listClass: "mundane",
-		fnSort: ItemsPage.sortItems
+		fnSort: PageFilterItems.sortItems
 	});
 	magicList = ListUtil.initList({
 		listClass: "magic",
-		fnSort: ItemsPage.sortItems
+		fnSort: PageFilterItems.sortItems
 	});
 	mundaneList.nextList = magicList;
 	magicList.prevList = mundaneList;
@@ -320,7 +329,7 @@ async function pPopulateTablesAndFilters (data) {
 
 	subList = ListUtil.initSublist({
 		listClass: "subitems",
-		fnSort: ItemsPage.sortItems,
+		fnSort: PageFilterItems.sortItems,
 		getSublistRow: itemsPage.getSublistItem.bind(itemsPage),
 		onUpdate: itemsPage.onSublistChange.bind(itemsPage)
 	});
@@ -339,12 +348,33 @@ async function pPopulateTablesAndFilters (data) {
 			RollerUtil.addListRollButton();
 			ListUtil.addListShowHide();
 
+			ListUtil.bindShowTableButton(
+				"btn-show-table",
+				"Items",
+				itemList,
+				{
+					name: {name: "Name", transform: true},
+					source: {name: "Source", transform: (it) => `<span class="${Parser.sourceJsonToColor(it)}" title="${Parser.sourceJsonToFull(it)}" ${BrewUtil.sourceJsonToStyle(it.source)}>${Parser.sourceJsonToAbv(it)}</span>`},
+					rarity: {name: "Rarity", transform: true},
+					_type: {name: "Type", transform: it => it._typeHtml},
+					_attunement: {name: "Attunement", transform: it => it._attunement ? it._attunement.slice(1, it._attunement.length - 1) : ""},
+					_properties: {name: "Properties", transform: it => Renderer.item.getDamageAndPropertiesText(it).filter(Boolean).join(", ")},
+					_weight: {name: "Weight", transform: it => Parser.itemWeightToFull(it)},
+					_value: {name: "Value", transform: it => Parser.itemValueToFull(it)},
+					_entries: {name: "Text", transform: (it) => Renderer.item.getRenderedEntries(it, true), flex: 3}
+				},
+				{generator: ListUtil.basicFilterGenerator},
+				(a, b) => SortUtil.ascSort(a.name, b.name) || SortUtil.ascSort(a.source, b.source)
+			);
+
 			mundaneList.init();
 			magicList.init();
 			subList.init();
 
 			Hist.init(true);
 			ExcludeUtil.checkShowAllExcluded(itemList, $(`#pagecontent`));
+
+			window.dispatchEvent(new Event("toolsLoaded"));
 		});
 }
 
@@ -357,7 +387,8 @@ let itemList = [];
 let itI = 0;
 function addItems (data) {
 	if (!data.item || !data.item.length) return;
-	itemList = itemList.concat(data.item);
+
+	itemList.push(...data.item);
 
 	for (; itI < itemList.length; itI++) {
 		const item = itemList[itI];

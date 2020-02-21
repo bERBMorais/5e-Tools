@@ -60,6 +60,10 @@
 			border-radius: 4px;
 		}
 
+		.night-mode #lastError {
+			border-color: #555;
+		}
+
 		.conv__head {
 			margin-top: 0;
 			margin-bottom: 2px;
@@ -115,7 +119,7 @@
 			<div class="split conv__out_control__wrp">
 				<button id="editable" class="btn btn-sm btn-default">Enable Editing</button>
 				<div>
-					<button id="save_local" class="btn btn-sm btn-default" style="display: none">Save to Homebrew</button>
+					<button id="save_local" class="btn btn-sm btn-default hidden">Save to Homebrew</button>
 					<button id="download" class="btn btn-sm btn-default">Download JSON</button>
 				</div>
 			</div>
@@ -138,8 +142,11 @@
 <script type="text/javascript" src="js/render.js"></script>
 <script type="text/javascript" src="js/render-markdown.js"></script>
 <script type="text/javascript" src="js/scalecreature.js"></script>
-<script type="text/javascript" src="js/converterutils.js"></script>
 <script type="text/javascript" src="js/converter.js"></script>
+<script type="text/javascript" src="js/converter-creature.js"></script>
+<script type="text/javascript" src="js/converter-spell.js"></script>
+<script type="text/javascript" src="js/converter-table.js"></script>
+<script type="text/javascript" src="js/converterutils.js"></script>
 <script type="text/javascript" src="js/list2.js"></script>
 <script type="text/javascript" src="lib/jquery.js"></script>
 <script type="text/javascript" src="lib/jquery-ui.js"></script>

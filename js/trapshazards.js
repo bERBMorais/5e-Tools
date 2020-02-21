@@ -45,14 +45,16 @@ class TrapsHazardsPage extends ListPage {
 		this._sourceFilter = sourceFilter;
 	}
 
-	getListItem (it, thI) {
+	getListItem (it, thI, isExcluded) {
 		it.trapHazType = it.trapHazType || "HAZ";
 
-		// populate filters
-		this._sourceFilter.addItem(it.source);
+		if (!isExcluded) {
+			// populate filters
+			this._sourceFilter.addItem(it.source);
+		}
 
 		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -71,8 +73,11 @@ class TrapsHazardsPage extends ListPage {
 			{
 				hash,
 				source,
-				trapType,
-				uniqueId: it.uniqueId ? it.uniqueId : thI
+				trapType
+			},
+			{
+				uniqueId: it.uniqueId ? it.uniqueId : thI,
+				isExcluded
 			}
 		);
 
@@ -128,9 +133,9 @@ class TrapsHazardsPage extends ListPage {
 		ListUtil.updateSelected();
 	}
 
-	doLoadSubHash (sub) {
+	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
-		ListUtil.setFromSubHashes(sub);
+		await ListUtil.pSetFromSubHashes(sub);
 	}
 }
 
