@@ -1,0 +1,32 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "VW",
+				"abbreviation": "VW",
+				"full": "Vandrake's World Homebrew",
+				"authors": [
+					"Vandrake"
+				],
+				"convertedBy": [
+					"Vandrake"
+				],
+				"version": "1.0",
+				"url": "",
+				"targetSchema": "1.0.0"
+			}
+		],
+		"dateAdded": 1548505822
+	},
+	"feat": [
+	],
+	"spell": [
+	],
+	"table": [
+	],
+	"monster": [
+	],
+	"item": [
+
+	]
+}
