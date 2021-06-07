@@ -438,11 +438,106 @@
 					"The weapon has been stuck in a local monument for as long as anyone can remember."
 				]
 			]
+		},
+		{
+			"name": "20 Magical Trinkets",
+			"source": "VW",
+			"page": 1,
+			"caption": "20 Magical Trinkets",
+			"colLabels": [
+				"d20",
+				"Magical Trinkets"
+			],
+			"colStyles": [
+				"col-1 text-center",
+				"col-12"
+			],
+			"rows": [
+				[
+					"1",
+					"A brown scroll case that can hold a single scroll. It can disappear and reappear when the wearer utters the word 'secrets'."
+				],
+				[
+					"2",
+					"A small vial of vampire's blood that repels creatures within a 1-foot radius who feed exclusively on blood."
+				],
+				[
+					"3",
+					"A pouch containing an ounce of altered wolfsbane that attracts lycanthropes to the bearer."
+				],
+				[
+					"4",
+					"A dark mahogany seed the size of a fist that if planted, immediately causes all nearby flora to bloom, but then immediately decays."
+				],
+				[
+					"5",
+					"A mask resembling the visage of an old halfling woman that when donned, causes the wearer to glimpse the very moment of their birth."
+				],
+				[
+					"6",
+					"A glass jar containing the preserved ear of a night hag in embalming fluid. If exposed to starlight, it causes those nearby to hear the faint sound of children wailing."
+				],
+				[
+					"7",
+					"A wooden lyre carved with leaven motifs that plays notes impossible to hear by anyone under the age of 100."
+				],
+				[
+					"8",
+					"A silver cup inlaid with elvish script that sings mesmerizing melodies when filled with wine but howls in anguish when filled with anything else."
+				],
+				[
+					"9",
+					"A bright crimson felt hat that when worn, makes the wearer appear slender to everyone except themselves."
+				],
+				[
+					"10",
+					"A petrified red and purple starfish that makes the bearer impervious to losing their footing while aboard a sea vessel."
+				],
+				[
+					"11",
+					"A set of dark spectacles that allows the wearer to see faint auras of similar colorings encircling individuals who share a common ancestor."
+				],
+				[
+					"12",
+					"A simple metal box impossible to open except by a divine being, the contents of which is a single scroll of Wish."
+				],
+				[
+					"13",
+					"A pair of crude looking bracers made of horse hide that deflects all harmless items thrown at the wearer, including ones they wish to catch."
+				],
+				[
+					"14",
+					"A love letter written in an ancient and forgotten tongue, that when read aloud causes feelings of homesickness in those who listen until their next rest."
+				],
+				[
+					"15",
+					"A book written by a halfing named Heroicus about the intricacies of pony breeding, complete with illustrations. Any ponies the possessor interacts with instantly take a liking to them."
+				],
+				[
+					"16",
+					"An easily breakable hairpin made of jade shaped like a dragonfly that allows the wearer the ability to see through smoke, fog and mist."
+				],
+				[
+					"17",
+					"A doll shaped like a pixie that makes the holder incapable of being pulled into the air, or pushed off a cliff."
+				],
+				[
+					"18",
+					"A golden ring affixed with a tiny dark stone chiseled into a cats head. It purrs with pleasure and graces the wearer with good luck whenever a being with canine blood is slain in its presence."
+				],
+				[
+					"19",
+					"Three gems that hover about the bearers head that sparkle and hum in the presence of beings with royal blood."
+				],
+				[
+					"20",
+					"The petrified hand of a once lime- colored goblin that allows the bearer to speak to wolves, but only when the moon is visible."
+				]
+			]
 		}
 	],
 	"monster": [
 	],
 	"item": [
-
 	]
 }
