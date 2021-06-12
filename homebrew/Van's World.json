@@ -1525,5 +1525,56 @@
 	"monster": [
 	],
 	"item": [
+		{
+			"name": "Potion of Mana",
+			"type": "P",
+			"weight": 0.5,
+			"tier": "Minor",
+			"rarity": "Uncommon",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"You regain {@dice 1d4} spells slots. The potion's blue liquid glimmers when agitated.",
+				"You use the value rolled to recover spells. ",
+				"Example: if you roll a 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell",
+				"You cannot regain more slots than your maximum spell slots",
+				"You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted"
+			],
+			"value": 5000
+		},
+		{
+			"name": "Potion of Greater Mana",
+			"type": "P",
+			"weight": 0.5,
+			"tier": "Minor",
+			"rarity": "Rare",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"You regain {@dice 1d4 + 2} spells slots. The potion's blue liquid glimmers when agitated.",
+				"You use the value rolled to recover spells. ",
+				"Example: if you roll a 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell",
+				"You cannot regain more slots than your maximum spell slots",
+				"You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted"
+			],
+			"value": 5000
+		},
+		{
+			"name": "Potion of Superior Mana",
+			"type": "P",
+			"weight": 0.75,
+			"tier": "Minor",
+			"rarity": "Very Rare",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"You regain {@dice 1d4 + 4} spells slots. The potion's blue liquid glimmers when agitated.",
+				"You use the value rolled to recover spells. ",
+				"Example: if you roll a 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell",
+				"You cannot regain more slots than your maximum spell slots",
+				"You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted"
+			],
+			"value": 5000
+		}
 	]
 }
