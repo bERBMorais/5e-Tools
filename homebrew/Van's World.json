@@ -20,8 +20,68 @@
 	},
 	"feat": [
 	],
-	"spell": [
-	],
+	"spell": [{
+		"name": "Disarm",
+		"source": "VW",
+		"page": 1,
+		"otherSources": [],
+		"level": 1,
+		"school": "T",
+		"time": [
+			{
+				"number": 1,
+				"unit": "action"
+			}
+		],
+		"range": {
+			"type": "point",
+			"distance": {
+				"type": "feet",
+				"amount": 30
+			}
+		},
+		"components": {
+			"v": true,
+			"s": true,
+			"m": "a pinch of iron dust"
+		},
+		"duration": [
+			{
+				"type": "instant"
+			}
+		],
+		"entries": [
+			"You point to a weapon, shield or item wielded by the target. The target must succeed a Strength saving throw or lose the item. The item is thrown on the floor, up to 30 feet from the target, in a direction chosen by you. This spell can't affect magic items.,",
+			"The range of the spell is 30 feet. This means that your target must be in a radius of 30 feet from you. If you succeed in disarming your target, then you can decide to throw their weapon at a distance of 30 feet from the target. If you decide to throw the weapon in your direction, then it will reach you. If you decide to throw it in the opposite direction, then it can arrive up to 60 feet far from you."
+		],
+		"damageInflict": [
+			"necrotic"
+		],
+		"savingThrow": [
+			"constitution"
+		],
+		"areaTags": [
+			"C"
+		],
+		"classes": {
+			"fromClassList": [
+				{
+					"name": "Sorcerer",
+					"source": "PHB"
+				},
+				{
+					"name": "Wizard",
+					"source": "PHB"
+				}
+			],
+			"fromClassListVariant": [
+				{
+					"name": "Warlock",
+					"source": "PHB"
+				}
+			]
+		}
+	}],
 	"table": [
 		{
 			"name": "100 Weapon Histories",
