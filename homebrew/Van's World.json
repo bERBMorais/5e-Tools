@@ -1526,7 +1526,7 @@
 	],
 	"item": [
 		{
-			"name": "Potion of Mana",
+			"name": "Potion of Mana (Tier A)",
 			"type": "P",
 			"weight": 0.5,
 			"tier": "Minor",
@@ -1534,16 +1534,16 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"You regain {@dice 1d4} spells slots. The potion's blue liquid glimmers when agitated.",
-				"You use the value rolled to recover spells. ",
-				"Example: if you roll a 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell",
-				"You cannot regain more slots than your maximum spell slots",
-				"You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted"
+				"The potion's blue liquid glimmers when agitated. You use the value rolled to recover spells. ",
+				"You cannot regain more slots than your maximum spell slots. You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted",
+				"Based on the level, you recover Xd4 + Spell casting modifier.",
+				"Tier A: Level 1, 2 and 3",
+				"Example: If your spell casting modifier is INT+2 and you roll a 3, for a total of 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell"
 			],
-			"value": 5000
+			"value": 30000
 		},
 		{
-			"name": "Potion of Greater Mana",
+			"name": "Potion of Mana (Tier B)",
 			"type": "P",
 			"weight": 0.5,
 			"tier": "Minor",
@@ -1551,16 +1551,16 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"You regain {@dice 1d4 + 2} spells slots. The potion's blue liquid glimmers when agitated.",
-				"You use the value rolled to recover spells. ",
-				"Example: if you roll a 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell",
-				"You cannot regain more slots than your maximum spell slots",
-				"You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted"
+				"The potion's blue liquid glimmers when agitated. You use the value rolled to recover spells. ",
+				"You cannot regain more slots than your maximum spell slots. You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted",
+				"Based on the level, you recover Xd4 + Spell casting modifier.",
+				"Tier B: Level 4, 5 and 6",
+				"Example: If your spell casting modifier is INT+2 and you roll a 3, for a total of 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell"
 			],
-			"value": 5000
+			"value": 100000
 		},
 		{
-			"name": "Potion of Superior Mana",
+			"name": "Potion of Mana (Tier C)",
 			"type": "P",
 			"weight": 0.75,
 			"tier": "Minor",
@@ -1568,13 +1568,13 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"You regain {@dice 1d4 + 4} spells slots. The potion's blue liquid glimmers when agitated.",
-				"You use the value rolled to recover spells. ",
-				"Example: if you roll a 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell",
-				"You cannot regain more slots than your maximum spell slots",
-				"You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted"
+				"The potion's blue liquid glimmers when agitated. You use the value rolled to recover spells. ",
+				"You cannot regain more slots than your maximum spell slots. You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted",
+				"Based on the level, you recover Xd4 + Spell casting modifier.",
+				"Tier C: Level 7, 8, 9 and 10",
+				"Example: If your spell casting modifier is INT+2 and you roll a 3, for a total of 5, you can regain 5 level 1 spells, or 1 level 5 spell, or maybe 1 level 3 spell and 1 level 2 spell"
 			],
-			"value": 5000
+			"value": 300000
 		},
 		{
 			"name": "The Light of Pelor",

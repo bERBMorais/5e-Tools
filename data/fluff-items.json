@@ -3361,6 +3361,45 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "Potion of Mana (Tier A)",
+			"source": "VW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "van/potions/mana_tierA.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Potion of Mana (Tier B)",
+			"source": "VW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "van/potions/mana_tierB.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Potion of Mana (Tier C)",
+			"source": "VW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "van/potions/mana_tierC.png"
+					}
+				}
+			]
 		}
 	]
 }
