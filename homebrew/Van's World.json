@@ -1695,6 +1695,91 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bandit%20Archer.png"
+		},
+		{
+			"name": "Abomination",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "L",
+			"type": "undead",
+			"alignment": [
+				"C",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 75,
+				"formula": "10d10+30"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 19,
+			"dex": 11,
+			"con": 16,
+			"int": 8,
+			"wis": 9,
+			"cha": 10,
+			"immune": [
+				"necrotic",
+				"poison",
+				"psychic"
+			],
+			"resist": [
+				"piercing",
+				"slashing"
+			],
+			"vulnerable": [
+				"bludgeoning"
+			],
+			"senses": [
+				"blindsight 60 ft."
+			],
+			"passive": 9,
+			"cr": "3",
+			"trait": [
+				{
+					"name": "Damage Transfer",
+					"entries": [
+						"While it is grappling a creature, the\nabomination takes only half the damage dealt to it, and the\ncreature grappled by the abomination takes the other half."
+					]
+				},
+				{
+					"name": "Mobile Cage",
+					"entries": [
+						"The abomination can move freely while\ngrappling another creature. The grappled creature occupies\nthe same space as the abomination and remains grappled."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The abomination makes four scimitar attacks."
+					]
+				},
+				{
+					"name": "Scimitar",
+					"entries": [
+						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d6+3}) slashing damage."
+					]
+				},
+				{
+					"name": "Rib Cage",
+					"entries": [
+						"{@atk mw} {@hit 7} to hit, reach 5 ft., one Medium or smaller creature. {@h}3 The creature is grappled (escape DC 15). Until the grapple ends, the target is restrained and the abomination can't grapple another creature."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Abomination.png"
 		}
 	],
 	"item": [
