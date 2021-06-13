@@ -1575,6 +1575,251 @@
 				"You must regain immediately all slots gained by this potion. If you do not have any slot missing, then this potion is wasted"
 			],
 			"value": 5000
+		},
+		{
+			"name": "The Light of Pelor",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"A small vial on a thin leather rope worn as an amulet. This vial magically emits dim light up to 5 feet."
+			],
+			"value": 100
+		},
+		{
+			"name": "Monastery's Habit",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"When wearing this brown headband with golden stitching while drunk, the wearer magically seems to a casual observer to be completely sober. A DC 14 Investigation check will reveal that the wearer is indeed drunk. You still experience all other effects of inebriation. The headband applies pressure on the temples just so."
+			],
+			"value": 100
+		},
+		{
+			"name": "Compass of Pelor",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"This compass, shaped liked a sun, will magically point to the nearest Temple of Pelor if it is within 10 miles. (note: you can substitute any deity for Pelor)."
+			],
+			"value": 100
+		},
+		{
+			"name": "Signet Ring",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"Whenever this golden signet ring is pressed against a piece of parchment signed by its wearer, it magically imparts a wax seal to the parchment.",
+				"The wax seal to impart must first be imprinted in this ring, and can be changed at will"
+			],
+			"value": 100
+		},
+		{
+			"name": "Chastity's Promise",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"A simple thin iron chain holds a small circle engraved with the abjuration symbol.",
+				"Rolls involving seduction or flirting against the wearer have disadvantage."
+			],
+			"value": 100
+		},
+		{
+			"name": "Quill of Many Inks",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"When writing with this quill, the writer can magically change the color of the ink."
+			],
+			"value": 100
+		},
+		{
+			"name": "Grifter's Gold",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"This normal-looking gold piece teleports back to the last gifter after an hour of being more than 10 feet from them"
+			],
+			"value": 100
+		},
+		{
+			"name": "Vest of Escape",
+			"wondrous": true,
+			"weight": 1,
+			"rarity": "Uncommon",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"This well-fitting gray vest has a magical pocket that always\ncontains lockpicks. Only the wearer can access the pocket\nand a \"pat down\" will not reveal the presence of the pocket or\nthe lockpicks inside."
+			],
+			"value": 100
+		},
+		{
+			"name": "Mystery Key",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Uncommon",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"A key in the shape of a question mark. When used on a non-\nmagical lock, roll a d20. On a 19 or 20 the key unlocks the\nlock and then turns to dust. Otherwise nothing happens."
+			],
+			"value": 100
+		},
+		{
+			"name": "Ring Glove",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"This normal-looking ring, when activated, covers the wearer's\nhand in a black cloth glove."
+			],
+			"value": 100
+		},
+		{
+			"name": "Hood of Tongues",
+			"wondrous": true,
+			"weight": 1,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"When you put this hood up and activate it, its magic causes\nyour lips to no longer match your words, preventing any\nlipreaders from spying on you."
+			],
+			"value": 100
+		},
+		{
+			"name": "Kojax Journal",
+			"wondrous": true,
+			"weight": 1,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"With this journal, you can magically draw an impressively\nrealistic rendering of any face that you have seen since your\nlast long rest.",
+				"When found, roll {@dice 2d100}. Those are the pages that you have available to write. When bought, it contains 200 clean pages.",
+				"Ripping a page off will not allow realistic rendering, and neither will mending the Journal"
+			],
+			"value": 100
+		},
+		{
+			"name": "Showman's Swordsman",
+			"type": "M",
+			"weight": 3,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"When fighting with an ally who is \"in on it\", this normal-looking sword allows the wielder to magically stab their ally without harming them. Do not dispel during a live play."
+			],
+			"value": 1500
+		},
+		{
+			"name": "Bullseye Ball",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"This soft rubber ball with a bullseye painted on it can be\nthrown with uncanny accuracy up to 300 feet. Does not\ndamage."
+			],
+			"value": 100
+		},
+		{
+			"name": "Locket of Memories",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"When opened, the locket shows the user a comforting\nmemory of a time since passed."
+			],
+			"value": 100
+		},
+		{
+			"name": "Cook's Cookpot",
+			"wondrous": true,
+			"weight": 2,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"Any soup or stew cooked in this cookpot comes out tasting\njust like grandma's and will magically serve a dozen people a\nday."
+			],
+			"value": 1500
+		},
+		{
+			"name": "Lens of Minute Sight",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"When used to view anything less than 1 foot away, this small,\ncircular, highly polished lens gives advantage on Perception\nchecks."
+			],
+			"value": 500
+		},
+		{
+			"name": "Monarch's Ring",
+			"wondrous": true,
+			"weight": 0.25,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"Once per day, the wearer can blow on the ring to summon a\nmagical butterfly. The wearer can issue very basic commands\nto the butterfly, such as \"land on him\" or \"fly over there\". The\nbutterfly disappears after 1 minute."
+			],
+			"value": 1500
+		},
+		{
+			"name": "The Dictator",
+			"wondrous": true,
+			"weight": 1,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"This magical quill automatically writes down the words that\nare spoken to it by its owner."
+			],
+			"value": 2500
+		},
+		{
+			"name": "Sylvanus' Sensational Seasoning",
+			"wondrous": true,
+			"weight": 1,
+			"rarity": "Common",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"This small pouch contains a magical seasoning that can\nmake any food - even the blandest of military rations - taste\nincredible.",
+				"When found, roll {@dice 10d10}. Those are the doses that you have available to use. When bought, it contains 100 doses."
+			],
+			"value": 3500
 		}
 	]
 }
