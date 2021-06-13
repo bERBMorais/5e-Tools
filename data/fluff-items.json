@@ -3369,8 +3369,8 @@
 				{
 					"type": "image",
 					"href": {
-						"type": "internal",
-						"path": "van/potions/mana_tierA.png"
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/potions/mana_tierA.png"
 					}
 				}
 			]
@@ -3382,8 +3382,8 @@
 				{
 					"type": "image",
 					"href": {
-						"type": "internal",
-						"path": "van/potions/mana_tierB.png"
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/potions/mana_tierB.png"
 					}
 				}
 			]
@@ -3395,8 +3395,21 @@
 				{
 					"type": "image",
 					"href": {
-						"type": "internal",
-						"path": "van/potions/mana_tierC.png"
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/potions/mana_tierC.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "The Light of Pelor",
+			"source": "VW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/necklaces/light_of_pelor.jpg"
 					}
 				}
 			]
