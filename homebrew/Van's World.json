@@ -1541,7 +1541,7 @@
 				{
 					"ac": 14,
 					"from": [
-						"breastplate"
+						"{@item breastplate|phb}"
 					]
 				}
 			],
@@ -1965,6 +1965,19 @@
 			"charges": 3,
 			"staff": true,
 			"recharge": "turn"
+		},
+		{
+			"name": "Band of the Full Beast",
+			"weight": 1,
+			"type": "RG",
+			"rarity": "Uncommon",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"Carved bone and antler encircle the finger of those in need to tame a beast's savagery. With hand outstretched the ringbearer can halt a ravenous beast on it's tracks, enveloping the animal in the warm serene feel of a full belly and sated hunter",
+				"While wearing this ring you have advantage on animal handling checks, if the target animal is motivated by hunger."
+			],
+			"value": 1500
 		}
 	]
 }
