@@ -3413,6 +3413,19 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "Blackrazor",
+			"source": "DMG",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Blackrazor.png"
+					}
+				}
+			]
 		}
 	]
 }
