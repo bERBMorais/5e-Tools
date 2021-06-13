@@ -1934,6 +1934,37 @@
 				"When found, roll {@dice 10d10}. Those are the doses that you have available to use. When bought, it contains 100 doses."
 			],
 			"value": 3500
+		},
+		{
+			"name": "Miner's Banestaff",
+			"weaponCategory": "Simple",
+			"dmg1": "1d6",
+			"dmg2": "1d8",
+			"dmgType": "B",
+			"property": [
+				"V"
+			],
+			"weight": 4,
+			"tier": "Major",
+			"rarity": "Legendary",
+			"source": "VW",
+			"page": 1,
+			"reqAttune": true,
+			"entries": [
+				"Used only in the most direst of events, the dwarves hide the banestaff deep in their vaults lest its use collapse their mines and cave in their underearth holds. When it's runic end touches stone, a deep rythmic thump can be heard through the earth, picking up in tempo as the iron heats and the ground erupts violently around it.",
+				"The staff has 3 charges. While you hold it, you can use an action to cast Tunnel Tremor. When it reaches 0 charges roll a {@dice 1d4} to recharge, on a 1 the staff shatters and is destroyed.",
+				{
+					"name": "Tunnel Tremor",
+					"type": "entries",
+					"entries": [
+						"You cause a 10-foot radius tremor. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, false creature takes {@dice 1d8} bludgeoning damage and is knocked prone.",
+						"If the surrounding area is stone, on a DC15 it will collapse doing a further {@dice 3d8} bludgeoning damage and creating difiult or impassable terrain"
+					]
+				}
+			],
+			"charges": 3,
+			"staff": true,
+			"recharge": "turn"
 		}
 	]
 }
