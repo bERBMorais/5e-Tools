@@ -1523,6 +1523,120 @@
 		}
 	],
 	"monster": [
+		{
+			"name": "Thessalar",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "M",
+			"type": {
+				"type": "humanoid",
+				"tags": []
+			},
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"breastplate"
+					]
+				}
+			],
+			"hp": {
+				"average": 104,
+				"formula": "19d8+19"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 10,
+			"dex": 12,
+			"con": 13,
+			"int": 19,
+			"wis": 16,
+			"cha": 16,
+			"save": {
+				"con": "+5",
+				"int": "+8",
+				"wis": "+7"
+			},
+			"skill": {
+				"animal handling": "+7",
+				"arcana": "+8",
+				"insight": "+7",
+				"medicine": "+7"
+			},
+			"passive": 13,
+			"immune": [
+				"acid",
+				"poison"
+			],
+			"conditionImmune": [
+				"poisoned"
+			],
+			"languages": [
+				"Common",
+				"Draconic",
+				"Elvish",
+				"Primordial"
+			],
+			"cr": "12",
+			"trait": [
+				{
+					"name": "Special Equipment",
+					"entries": [
+						"Thessalar wields a +1 dagger coated with thessaltoxin poison."
+					]
+				},
+				{
+					"name": "Alchemical Homunculus",
+					"entries": [
+						"Thessalar is accompanied by his homunculus. If the mending spell is cast on it, the homunculus regains 2d6 hit points."
+					]
+				},
+				{
+					"name": "Healing Toxicity",
+					"entries": [
+						"Any magic item that restores hit points and can be applied to a piercing or slashing weapon (a potion, an ointment, and so forth) causes a hit with that weapon to deal extra damage to Thessalar equal to the amount the item would normally heal."
+					]
+				},
+				{
+					"name": "Greater Restoration (1/day)",
+					"entries": [
+						"Thessalar can cast greater restoration if he has access to alchemical supplies."
+					]
+				},
+				{
+					"name": "Spellcasting",
+					"entries": [
+						"Thessalar is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save DC 16, +8 to hit with spell attacks). He has the following artificer spells prepared:",
+						{
+							"type": "list",
+							"style": "list-no-bullets",
+							"items": [
+								"Cantrips (at will): {@spell light}, {@spell mending}, {@spell message}, {@spell shocking grasp}",
+								"1st level (4 slots): {@spell alarm}, {@spell cure wounds}, {@spell identify}, {@spell ray of sickness}",
+								"2nd level (3 slots): {@spell invisibility}, {@spell Melf's acid arrow}, {@spell web}",
+								"3rd level (3 slots): {@spell dispel magic}, {@spell haste}, {@spell stinking cloud}",
+								"4th level (3 slots): {@spell blight}, {@spell Mordenkainen's faithful hound}, {@spell Otiluke's resilient sphere}",
+								"5th level (1 slot): {@spell cloudkill}"
+							]
+						}
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Dagger",
+					"entries": [
+						"{@atk mw,rw} {@hit 5} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@damage 1d4+1}) piercing damage, and the target must succeed on a DC 15 Constitution saving throw. On a failed save, the target is affected as if by the polymorph spell, transforming into a random beast or a creature it has seen within the last 24 hours (as chosen by the DM). This effect lasts until the target finishes a long rest."
+					]
+				}
+			]
+		}
 	],
 	"item": [
 		{
@@ -1670,7 +1784,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"This well-fitting gray vest has a magical pocket that always\ncontains lockpicks. Only the wearer can access the pocket\nand a \"pat down\" will not reveal the presence of the pocket or\nthe lockpicks inside."
+				"This well-fitting gray vest has a magical pocket that always contains lockpicks. Only the wearer can access the pocket and a \"pat down\" will not reveal the presence of the pocket or the lockpicks inside."
 			],
 			"value": 100
 		},
@@ -1682,7 +1796,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"A key in the shape of a question mark. When used on a non-\nmagical lock, roll a d20. On a 19 or 20 the key unlocks the\nlock and then turns to dust. Otherwise nothing happens."
+				"A key in the shape of a question mark. When used on a non- magical lock, roll a d20. On a 19 or 20 the key unlocks the lock and then turns to dust. Otherwise nothing happens."
 			],
 			"value": 100
 		},
@@ -1694,7 +1808,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"This normal-looking ring, when activated, covers the wearer's\nhand in a black cloth glove."
+				"This normal-looking ring, when activated, covers the wearer's hand in a black cloth glove."
 			],
 			"value": 100
 		},
@@ -1706,7 +1820,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"When you put this hood up and activate it, its magic causes\nyour lips to no longer match your words, preventing any\nlipreaders from spying on you."
+				"When you put this hood up and activate it, its magic causes your lips to no longer match your words, preventing any lipreaders from spying on you."
 			],
 			"value": 100
 		},
@@ -1718,7 +1832,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"With this journal, you can magically draw an impressively\nrealistic rendering of any face that you have seen since your\nlast long rest.",
+				"With this journal, you can magically draw an impressively realistic rendering of any face that you have seen since your last long rest.",
 				"When found, roll {@dice 2d100}. Those are the pages that you have available to write. When bought, it contains 200 clean pages.",
 				"Ripping a page off will not allow realistic rendering, and neither will mending the Journal"
 			],
@@ -1744,7 +1858,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"This soft rubber ball with a bullseye painted on it can be\nthrown with uncanny accuracy up to 300 feet. Does not\ndamage."
+				"This soft rubber ball with a bullseye painted on it can be thrown with uncanny accuracy up to 300 feet. Does not damage."
 			],
 			"value": 100
 		},
@@ -1756,7 +1870,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"When opened, the locket shows the user a comforting\nmemory of a time since passed."
+				"When opened, the locket shows the user a comforting memory of a time since passed."
 			],
 			"value": 100
 		},
@@ -1768,7 +1882,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"Any soup or stew cooked in this cookpot comes out tasting\njust like grandma's and will magically serve a dozen people a\nday."
+				"Any soup or stew cooked in this cookpot comes out tasting just like grandma's and will magically serve a dozen people a day."
 			],
 			"value": 1500
 		},
@@ -1780,7 +1894,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"When used to view anything less than 1 foot away, this small,\ncircular, highly polished lens gives advantage on Perception\nchecks."
+				"When used to view anything less than 1 foot away, this small, circular, highly polished lens gives advantage on Perception checks."
 			],
 			"value": 500
 		},
@@ -1792,7 +1906,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"Once per day, the wearer can blow on the ring to summon a\nmagical butterfly. The wearer can issue very basic commands\nto the butterfly, such as \"land on him\" or \"fly over there\". The\nbutterfly disappears after 1 minute."
+				"Once per day, the wearer can blow on the ring to summon a magical butterfly. The wearer can issue very basic commands to the butterfly, such as \"land on him\" or \"fly over there\". The butterfly disappears after 1 minute."
 			],
 			"value": 1500
 		},
@@ -1804,7 +1918,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"This magical quill automatically writes down the words that\nare spoken to it by its owner."
+				"This magical quill automatically writes down the words that are spoken to it by its owner."
 			],
 			"value": 2500
 		},
@@ -1816,7 +1930,7 @@
 			"source": "VW",
 			"page": 1,
 			"entries": [
-				"This small pouch contains a magical seasoning that can\nmake any food - even the blandest of military rations - taste\nincredible.",
+				"This small pouch contains a magical seasoning that can make any food - even the blandest of military rations - taste incredible.",
 				"When found, roll {@dice 10d10}. Those are the doses that you have available to use. When bought, it contains 100 doses."
 			],
 			"value": 3500

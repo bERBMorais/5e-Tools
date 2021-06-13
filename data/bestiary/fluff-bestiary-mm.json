@@ -11622,6 +11622,22 @@
 			]
 		},
 		{
+			"name": "Thessalar",
+			"source": "VW",
+			"entries": [
+				"As an artificer, Thessalar is vainglorious, egotistical, and utterly ruthless in furthering his research. His career began as a priest in the service of Moloch, where he rose through the ranks before eventually taking over the temple as a working laboratory. Most of his experiments have involved the pursuit of new forms of life, resulting in such creatures as the thessalhydra and the owlbear. In recent years, he has also researched the prolonging of life—namely his own. Thessalar hopes that by becoming a lich, his research and experiments can continue indefinitely. Over time, Thessalar has subjected himself to so many of his own experiments that his blood has taken on alchemical and magical properties. He regularly uses it as the basis for many of the reagents used throughout his labs. As a side effect, although Thessalar is now immune to poison and the poisoned condition, any magical liquid or salve that restores hit points acts as a poison against him if applied to a piercing or slashing weapon."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"path": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/portraits/Thessalar.png"
+					}
+				}
+			]
+		},
+		{
 			"name": "Thri-kreen",
 			"source": "MM",
 			"entries": [
