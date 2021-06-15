@@ -1749,13 +1749,13 @@
 				{
 					"name": "Damage Transfer",
 					"entries": [
-						"While it is grappling a creature, the\nabomination takes only half the damage dealt to it, and the\ncreature grappled by the abomination takes the other half."
+						"While it is grappling a creature, the abomination takes only half the damage dealt to it, and the creature grappled by the abomination takes the other half."
 					]
 				},
 				{
 					"name": "Mobile Cage",
 					"entries": [
-						"The abomination can move freely while\ngrappling another creature. The grappled creature occupies\nthe same space as the abomination and remains grappled."
+						"The abomination can move freely while grappling another creature. The grappled creature occupies the same space as the abomination and remains grappled."
 					]
 				}
 			],
@@ -1954,19 +1954,19 @@
 				{
 					"name": "Beast Master",
 					"entries": [
-						" The beast-master has advantage\non Wisdom (Animal Handling) checks relating\nto bats, lizards, rats, spiders, and wolves, including dire or giant varieties. Mounting such\na beast costs the beast-master 5 feet of movement, rather than half its speed."
+						" The beast-master has advantage on Wisdom (Animal Handling) checks relating to bats, lizards, rats, spiders, and wolves, including dire or giant varieties. Mounting such a beast costs the beast-master 5 feet of movement, rather than half its speed."
 					]
 				},
 				{
 					"name": "Cavalry Training",
 					"entries": [
-						"When the beast-master hits\na target with a melee attack while mounted\non a beast, the beast can make a melee attack\nagainst the same target as a reaction"
+						"When the beast-master hits a target with a melee attack while mounted on a beast, the beast can make a melee attack against the same target as a reaction"
 					]
 				},
 				{
 					"name": "Deft Lancer",
 					"entries": [
-						"The goblin beast-master deals\none extra die of damage when wielding a lance\n(included in the attack below)"
+						"The goblin beast-master deals one extra die of damage when wielding a lance (included in the attack below)"
 					]
 				},
 				{
@@ -1980,7 +1980,7 @@
 				{
 					"name": "Multiattack",
 					"entries": [
-						"The beast-master makes two\nscimitar attacks"
+						"The beast-master makes two scimitar attacks"
 					]
 				},
 				{
@@ -2003,6 +2003,78 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20BeastMaster.png"
+		},
+		{
+			"name": "Goblin Bomber",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "S",
+			"type": {
+				"type": "humanoid",
+				"tags": []
+			},
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 15,
+					"from": [
+						"{@item leather armor|phb}",
+						"{@item shield|phb}"
+					]
+				}
+			],
+			"hp": {
+				"average": 9,
+				"formula": "2d6+2"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 8,
+			"dex": 14,
+			"con": 12,
+			"int": 10,
+			"wis": 8,
+			"cha": 8,
+			"passive": 9,
+			"languages": [
+				"Common",
+				"goblin"
+			],
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"skill": {
+				"stealth": "+6"
+			},
+			"cr": "1/4",
+			"trait": [
+				{
+					"name": "Nimble Escape",
+					"entries": [
+						"The goblin can take the Disengage or Hide action as a bonus action"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Dagger",
+					"entries": [
+						"{@atk mw,rw} {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4+2}) piercing damage."
+					]
+				},
+				{
+					"name": "Fire Bomb (Recharge 5-6)",
+					"entries": [
+						"The goblin bomber chooses a point within 60 feet. Each creature in a 5-foot-radius sphere centered on that point must make a DC 12 Dexterity saving throw. A target takes 10 ({@damage 3d6}) fire damage on a failed save, or half as much damage on a successful one. The fire ignites flammable objects in the area that aren’t being worn or carried."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Bomber.png"
 		}
 	],
 	"item": [
