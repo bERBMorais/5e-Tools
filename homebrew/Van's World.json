@@ -1908,7 +1908,9 @@
 			"size": "S",
 			"type": {
 				"type": "humanoid",
-				"tags": []
+				"tags": [
+					"goblin"
+				]
 			},
 			"alignment": [
 				"N",
@@ -2012,7 +2014,9 @@
 			"size": "S",
 			"type": {
 				"type": "humanoid",
-				"tags": []
+				"tags": [
+					"goblin"
+				]
 			},
 			"alignment": [
 				"N",
@@ -2084,7 +2088,9 @@
 			"size": "S",
 			"type": {
 				"type": "humanoid",
-				"tags": []
+				"tags": [
+					"goblin"
+				]
 			},
 			"alignment": [
 				"N",
@@ -2153,6 +2159,103 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Deadeye.png"
+		},
+		{
+			"name": "Goblin Shaman",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "S",
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"goblin"
+				]
+			},
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"{@item hide armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"average": 14,
+				"formula": "4d6"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 8,
+			"dex": 14,
+			"con": 11,
+			"int": 11,
+			"wis": 13,
+			"cha": 8,
+			"passive": 11,
+			"languages": [
+				"Common",
+				"goblin"
+			],
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"skill": {
+				"medicine": "+2",
+				"stealth": "+6",
+				"nature": "+2"
+			},
+			"cr": "1/2",
+			"trait": [
+				{
+					"name": "Nimble Escape",
+					"entries": [
+						"The goblin can take the Disengage or Hide action as a bonus action"
+					]
+				},
+				{
+					"name": "Spellcasting",
+					"entries": [
+						"The goblin shaman is a 2nd-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 11, +3 to hit with spell attacks). The shaman has the following druid spells prepared:",
+						{
+							"type": "list",
+							"style": "list-no-bullets",
+							"items": [
+								"Cantrips (at will): {@spell druidcraft}, {@spell poison spray}",
+								"1st level (3 slots): {@spell detect magic}, {@spell faerie fire}, {@spell healing word}"
+							]
+						}
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Shortsword",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6+2}) piercing damage."
+					]
+				},
+				{
+					"name": "Dart",
+					"entries": [
+						"{@atk rw} {@hit 4} to hit, range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Reactive Poison",
+					"entries": [
+						"When the goblin shaman would be hit with a melee attack, it may cast poison spray as a reaction."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Shaman.png"
 		}
 	],
 	"item": [
