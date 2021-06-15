@@ -2336,6 +2336,105 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Shaman.png"
+		},
+		{
+			"name": "Goblin Witchdoctor",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "S",
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"goblin"
+				]
+			},
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"{@item hide armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"average": 24,
+				"formula": "7d6"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 8,
+			"dex": 14,
+			"con": 10,
+			"int": 10,
+			"wis": 12,
+			"cha": 15,
+			"passive": 11,
+			"languages": [
+				"Common",
+				"goblin"
+			],
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"skill": {
+				"arcana": "+4",
+				"stealth": "+6",
+				"nature": "+4"
+			},
+			"cr": "2",
+			"trait": [
+				{
+					"name": "Nimble Escape",
+					"entries": [
+						"The goblin can take the Disengage or Hide action as a bonus action"
+					]
+				},
+				{
+					"name": "Spellcasting",
+					"entries": [
+						"The witchdoctor is a 5th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). The witchdoctor knows the following spells:",
+						{
+							"type": "list",
+							"style": "list-no-bullets",
+							"items": [
+								"Cantrips (at will): {@spell chill touch}, {@spell minor illusion}, {@spell poison spray}, {@spell thaumaturgy}",
+								"1st level (4 slots): {@spell bane}, {@spell detect magic}, {@spell healing word}, {@spell magic missile}",
+								"2nd level (3 slots): {@spell blindness/deafness}, {@spell prayer of healing}, {@spell web}",
+								"3rd level (2 slots): {@spell bestow curse}, {@spell hypnotic pattern}"
+							]
+						}
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Dagger",
+					"entries": [
+						"{@atk mw,rw} {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4+2}) piercing damage."
+					]
+				},
+				{
+					"name": "Quarterstaff",
+					"entries": [
+						"{@atk mw} {@hit 1} to hit, reach 5 ft., one target. {@h}2 ({@damage 1d6-1}) bludgeoning damage, or 3 ({@damage 1d8-1}) bludgeoning damage if used in two hands."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Redirect Attack",
+					"entries": [
+						"When a creature witchdoctor can see targets him with an attack, witchdoctor chooses another goblin within 5 feet of him. The two goblins swap places, and the chosen goblin becomes the target instead."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Witchdoctor.png"
 		}
 	],
 	"item": [
