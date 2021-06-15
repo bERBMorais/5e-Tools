@@ -325,6 +325,9 @@ class PageFilterBestiary extends PageFilter {
 	}
 
 	toDisplay (values, m) {
+		if (m._pTypes === undefined) {
+			Renderer.monster.updateParsed(m);
+		}
 		return this._filterBox.toDisplay(
 			values,
 			m._fSources,
