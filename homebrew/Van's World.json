@@ -2161,6 +2161,86 @@
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Deadeye.png"
 		},
 		{
+			"name": "Goblin Viper",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "S",
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"goblin"
+				]
+			},
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 15,
+					"from": [
+						"{@item leather armor|phb}",
+						"{@item shield|phb}"
+					]
+				}
+			],
+			"hp": {
+				"average": 10,
+				"formula": "3d6"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 8,
+			"dex": 14,
+			"con": 10,
+			"int": 10,
+			"wis": 8,
+			"cha": 8,
+			"passive": 9,
+			"languages": [
+				"Common",
+				"goblin"
+			],
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"skill": {
+				"stealth": "+6"
+			},
+			"cr": "1/2",
+			"trait": [
+				{
+					"name": "Nimble Escape",
+					"entries": [
+						"The goblin can take the Disengage or Hide action as a bonus action"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Shortsword",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6+2}) piercing damage."
+					]
+				},
+				{
+					"name": "Dart",
+					"entries": [
+						"{@atk rw} {@hit 4} to hit, range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
+					]
+				},
+				{
+					"name": "Poisoned Dart (Recharge 4-6)",
+					"entries": [
+						"{@atk rw} {@hit 4} to hit, range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage, plus 5 ({@damage 2d4}) poison damage and the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. On a successful save, the target takes only half damage from the poison."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20viper.png"
+		},
+		{
 			"name": "Goblin Shaman",
 			"source": "VW",
 			"page": 1,
