@@ -1899,6 +1899,110 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bandit%20Thug.png"
+		},
+		{
+			"name": "Goblin Beast-Master",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "S",
+			"type": {
+				"type": "humanoid",
+				"tags": []
+			},
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"{@item breastplate|phb}",
+						"{@item shield|phb}"
+					]
+				}
+			],
+			"hp": {
+				"average": 40,
+				"formula": "9d6+9"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 13,
+			"dex": 16,
+			"con": 12,
+			"int": 10,
+			"wis": 15,
+			"cha": 10,
+			"passive": 14,
+			"languages": [
+				"Common",
+				"goblin"
+			],
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"skill": {
+				"animal handling": "+6",
+				"perception": "+4",
+				"stealth": "+7"
+			},
+			"cr": "2",
+			"trait": [
+				{
+					"name": "Beast Master",
+					"entries": [
+						" The beast-master has advantage\non Wisdom (Animal Handling) checks relating\nto bats, lizards, rats, spiders, and wolves, including dire or giant varieties. Mounting such\na beast costs the beast-master 5 feet of movement, rather than half its speed."
+					]
+				},
+				{
+					"name": "Cavalry Training",
+					"entries": [
+						"When the beast-master hits\na target with a melee attack while mounted\non a beast, the beast can make a melee attack\nagainst the same target as a reaction"
+					]
+				},
+				{
+					"name": "Deft Lancer",
+					"entries": [
+						"The goblin beast-master deals\none extra die of damage when wielding a lance\n(included in the attack below)"
+					]
+				},
+				{
+					"name": "Nimble Escape",
+					"entries": [
+						"The goblin can take the Disengage or Hide action as a bonus action"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The beast-master makes two\nscimitar attacks"
+					]
+				},
+				{
+					"name": "Lance",
+					"entries": [
+						"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}14 ({@damage 2d12+1}) piercing damage."
+					]
+				},
+				{
+					"name": "Scimitar",
+					"entries": [
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6+3}) slashing damage."
+					]
+				},
+				{
+					"name": "Javelin",
+					"entries": [
+						"{@atk mw,rw} {@hit 5} to hit. range 30/120 ft., one target. {@h}6 ({@damage 1d6+3}) piercing damage."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20BeastMaster.png"
 		}
 	],
 	"item": [
