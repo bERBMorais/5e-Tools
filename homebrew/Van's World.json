@@ -2435,6 +2435,184 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Witchdoctor.png"
+		},
+		{
+			"name": "Flame - Wolf",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "L",
+			"type": "beast",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 47,
+				"formula": "7d10+10"
+			},
+			"speed": {
+				"walk": 50
+			},
+			"str": 15,
+			"dex": 15,
+			"con": 15,
+			"int": 12,
+			"wis": 14,
+			"cha": 8,
+			"passive": 13,
+			"languages": [
+				"Common"
+			],
+			"skill": {
+				"perception": "+3",
+				"stealth": "+4"
+			},
+			"immune": [
+				"fire"
+			],
+			"cr": "3",
+			"trait": [
+				{
+					"name": "Legendary Resistance (1/Day)",
+					"entries": [
+						"If Flame fails a saving throw, he can choose to succeed instead."
+					]
+				},
+				{
+					"name": "Keen Hearing and Smell",
+					"entries": [
+						"Flame has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+					]
+				},
+				{
+					"name": "Pack Tactics",
+					"entries": [
+						"Flame has advantage on an attack roll against a creature if at least one of her allies is within 5 feet of the creature and the ally isn't incapacitated."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6+2}) piercing damage. If the target is a creature, it must succeed on a {@dc 13} Strength saving throw or be knocked prone"
+					]
+				},
+				{
+					"name": "Fire Breath {@recharge 5}",
+					"entries": [
+						"Flame exhales a firey blast in a 15-foot cone. Each creature in that area must make a {@dc 13} Dexterity saving throw, taking 7({@damage 2d6}) fire damage on a failed save, or half as much damage on a successful one."
+					]
+				}
+			],
+			"legendaryActions": 1,
+			"legendary": [
+				{
+					"name": "Frightening Howl",
+					"entries": [
+						"Each non-undead creature of the creature's choice within range must make a {@dc 14} Wisdom saving throw or be frightened for 1 minute"
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Flame.png"
+		},
+		{
+			"name": "Bolt - Wolf",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "L",
+			"type": "beast",
+			"alignment": [
+				"L",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 47,
+				"formula": "7d10+10"
+			},
+			"speed": {
+				"walk": 50
+			},
+			"str": 15,
+			"dex": 15,
+			"con": 15,
+			"int": 12,
+			"wis": 14,
+			"cha": 8,
+			"passive": 13,
+			"languages": [
+				"Common"
+			],
+			"immune": [
+				"lightning"
+			],
+			"skill": {
+				"perception": "+3",
+				"stealth": "+4"
+			},
+			"cr": "3",
+			"trait": [
+				{
+					"name": "Legendary Resistance (1/Day)",
+					"entries": [
+						"If Bolt fails a saving throw, he can choose to succeed instead."
+					]
+				},
+				{
+					"name": "Keen Hearing and Smell",
+					"entries": [
+						"Bolt has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+					]
+				},
+				{
+					"name": "Pack Tactics",
+					"entries": [
+						"Bolt has advantage on an attack roll against a creature if at least one of her allies is within 5 feet of the creature and the ally isn't incapacitated."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6+2}) piercing damage. If the target is a creature, it must succeed on a {@dc 13} Strength saving throw or be knocked prone"
+					]
+				},
+				{
+					"name": "Lightning Breath {@recharge 5}",
+					"entries": [
+						"Bolt exhales a blast of blue lightning in a 30-foot line. Each creature in that area must make a {@dc 13} Dexterity saving throw, taking 7({@damage 2d6}) lightning damage on a failed save, or half as much damage on a successful one."
+					]
+				}
+			],
+			"legendaryActions": 1,
+			"legendary": [
+				{
+					"name": "Lead the Pack",
+					"entries": [
+						"Commands two other wolves to use their reaction and make an attack."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bolt.png"
 		}
 	],
 	"item": [
