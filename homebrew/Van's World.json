@@ -2613,6 +2613,82 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bolt.png"
+		},
+		{
+			"name": "Blade Juggler",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "M",
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"any race"
+				]
+			},
+			"alignment": [
+				"C",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 81,
+				"formula": "18d8"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 12,
+			"dex": 18,
+			"con": 11,
+			"int": 11,
+			"wis": 12,
+			"cha": 14,
+			"passive": 11,
+			"languages": [
+				"Common"
+			],
+			"senses": [],
+			"skill": {
+				"sleight of hand": "+6"
+			},
+			"cr": "3",
+			"trait": [
+				{
+					"name": "Blur of Blades",
+					"entries": [
+						"Until the blade juggler is hit or attacks, any incoming attack has disadvantage. The blade juggler may use an action to gain the benefit once more"
+					]
+				},
+				{
+					"name": "Spectacle: Retrieve blades",
+					"entries": [
+						"If the blade juggler has dealt damage to a creature this turn, they may use this as a bonus action. The blade juggler may move up to 10ft and retrieve any number of daggers that are no longer within their possession."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The Blade Juggler attacks once for each Dagger in their possession"
+					]
+				},
+				{
+					"name": "Dagger",
+					"entries": [
+						"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 15/30 ft., one target. {@h}6 ({@damage 1d4+4}) piercing damage."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Blade%20Juggler.png"
 		}
 	],
 	"item": [
