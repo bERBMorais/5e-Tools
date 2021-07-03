@@ -20,68 +20,191 @@
 	},
 	"feat": [
 	],
-	"spell": [{
-		"name": "Disarm",
-		"source": "VW",
-		"page": 1,
-		"otherSources": [],
-		"level": 1,
-		"school": "T",
-		"time": [
-			{
-				"number": 1,
-				"unit": "action"
-			}
-		],
-		"range": {
-			"type": "point",
-			"distance": {
-				"type": "feet",
-				"amount": 30
-			}
-		},
-		"components": {
-			"v": true,
-			"s": true,
-			"m": "a pinch of iron dust"
-		},
-		"duration": [
-			{
-				"type": "instant"
-			}
-		],
-		"entries": [
-			"You point to a weapon, shield or item wielded by the target. The target must succeed a Strength saving throw or lose the item. The item is thrown on the floor, up to 30 feet from the target, in a direction chosen by you. This spell can't affect magic items.,",
-			"The range of the spell is 30 feet. This means that your target must be in a radius of 30 feet from you. If you succeed in disarming your target, then you can decide to throw their weapon at a distance of 30 feet from the target. If you decide to throw the weapon in your direction, then it will reach you. If you decide to throw it in the opposite direction, then it can arrive up to 60 feet far from you."
-		],
-		"damageInflict": [
-			"necrotic"
-		],
-		"savingThrow": [
-			"constitution"
-		],
-		"areaTags": [
-			"C"
-		],
-		"classes": {
-			"fromClassList": [
+	"spell": [
+		{
+			"name": "Disarm",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"level": 1,
+			"school": "T",
+			"time": [
 				{
-					"name": "Sorcerer",
-					"source": "PHB"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB"
+					"number": 1,
+					"unit": "action"
 				}
 			],
-			"fromClassListVariant": [
-				{
-					"name": "Warlock",
-					"source": "PHB"
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
 				}
-			]
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a pinch of iron dust"
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"You point to a weapon, shield or item wielded by the target. The target must succeed a Strength saving throw or lose the item. The item is thrown on the floor, up to 30 feet from the target, in a direction chosen by you. This spell can't affect magic items.,",
+				"The range of the spell is 30 feet. This means that your target must be in a radius of 30 feet from you. If you succeed in disarming your target, then you can decide to throw their weapon at a distance of 30 feet from the target. If you decide to throw the weapon in your direction, then it will reach you. If you decide to throw it in the opposite direction, then it can arrive up to 60 feet far from you."
+			],
+			"damageInflict": [
+				"necrotic"
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"areaTags": [
+				"C"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				],
+				"fromClassListVariant": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Puppetry",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"level": 2,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 3
+					}
+				}
+			],
+			"entries": [
+				"You summon a doll of a creature it can see within range. That creature must succeed a Charisma Saving Throw. On a failed save that creature falls under the your control. You can give the following simple commands as a bonus action.",
+				"Attack: The affected creature moves to and attacks the nearest creature with its strongest melee weapon attack. If multiple are in equal distance the target is chosen at random",
+				"Move: The affected creature moves to a location chosen by you",
+				"Dance: The affected creature spends its entire turn dancing"
+			],
+			"savingThrow": [
+				"charisma"
+			],
+			"areaTags": [
+				"C"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				],
+				"fromClassListVariant": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Smoldering Word",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"level": 2,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"You shoot a small shot of fire from your mouth. You make a ranged spell attack, on a hit that creature takes ({@damage 2d4}) fire damage and gains disadvantage on their next attack roll"
+			],
+			"savingThrow": [
+				"charisma"
+			],
+			"areaTags": [
+				"C"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				],
+				"fromClassListVariant": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					}
+				]
+			}
 		}
-	}],
+	],
 	"table": [
 		{
 			"name": "100 Weapon Histories",
@@ -2689,6 +2812,103 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Blade%20Juggler.png"
+		},
+		{
+			"name": "Cult Guildmage",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "M",
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"any race"
+				]
+			},
+			"alignment": [
+				"C",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 13,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 97,
+				"formula": "13d8+39"
+			},
+			"speed": {
+				"walk": 30,
+				"swim": 30
+			},
+			"str": 13,
+			"dex": 16,
+			"con": 17,
+			"int": 10,
+			"wis": 10,
+			"cha": 18,
+			"passive": 10,
+			"languages": [
+				"Common",
+				"Abyssal",
+				"Infernal"
+			],
+			"senses": [],
+			"skill": {
+				"performance": "+5",
+				"acrobatics": "+5"
+			},
+			"cr": "4",
+			"trait": [
+				{
+					"name": "Guildmage Magic 4/day",
+					"entries": [
+						"The Cult Guildmage can cast these Spells each four times a day without using a normal spell slot.",
+						{
+							"type": "list",
+							"style": "list-no-bullets",
+							"items": [
+								"{@spell Puppetry|VW}",
+								"{@spell Smoldering Word|VW}"
+							]
+						}
+					]
+				},
+				{
+					"name": "Spellcasting",
+					"entries": [
+						"The Guildmage is a 4th-level spellcaster. His spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). He has the following druid spells prepared:",
+						{
+							"type": "list",
+							"style": "list-no-bullets",
+							"items": [
+								"Cantrips (at will): {@spell dancing lights|PHB}, {@spell prestidigitation}, {@spell vicious mockery}",
+								"1st level (4 slots): {@spell dissonant whispers|PHB}, {@spell Tasha's hideous laughter}, {@spell thunderwave}",
+								"2nd level (3 slots): {@spell crown of madness}, {@spell enthrall}, {@spell Pyrotechnics|XGE}"
+							]
+						}
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The Guildmage attacks twice with the dagger"
+					]
+				},
+				{
+					"name": "Dagger",
+					"entries": [
+						"{@atk mw,rw} {@hit 5} to hit, reach 5 ft. one target. {@h}4 ({@damage 1d4+3}) piercing damage."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Cult%20Guildmage.png"
 		}
 	],
 	"item": [
