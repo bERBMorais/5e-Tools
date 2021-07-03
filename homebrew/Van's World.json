@@ -2955,6 +2955,27 @@
 				"While wearing this ring you have advantage on animal handling checks, if the target animal is motivated by hunger."
 			],
 			"value": 1500
+		},
+		{
+			"name": "Comrades Bracelet",
+			"weight": 0.25,
+			"type": "RG",
+			"rarity": "Uncommon",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"An utterly fearless man is a far more dangerous comrade than a coward",
+				"This bracelet is always used in a set pair, with a matching mate assigned during its creation. Instill within the matching metal plates and leather is a uniquely crafted magic that has come in handy for several adventurers over the ages",
+				{
+					"name": "Give & Take: (Bonus action)",
+					"type": "entries",
+					"entries": [
+						"If the matching bracelet wearer is within 30ft, the user teleports, switching places with the willing wearer who must use their reaction to confirm the sweap.",
+						"Each bracelet can only be used once before needing to be recharged over a long rest while within proximity of it's pair mate."
+					]
+				}
+			],
+			"value": 1500
 		}
 	]
 }
