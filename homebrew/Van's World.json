@@ -2916,8 +2916,8 @@
 			"name": "Potion of Mana (Tier A)",
 			"type": "P",
 			"weight": 0.5,
-			"tier": "Minor",
-			"rarity": "Uncommon",
+			"tier": "Major",
+			"rarity": "Rare",
 			"source": "VW",
 			"page": 1,
 			"entries": [
@@ -2933,8 +2933,8 @@
 			"name": "Potion of Mana (Tier B)",
 			"type": "P",
 			"weight": 0.5,
-			"tier": "Minor",
-			"rarity": "Rare",
+			"tier": "Major",
+			"rarity": "Very Rare",
 			"source": "VW",
 			"page": 1,
 			"entries": [
@@ -2950,8 +2950,8 @@
 			"name": "Potion of Mana (Tier C)",
 			"type": "P",
 			"weight": 0.75,
-			"tier": "Minor",
-			"rarity": "Very Rare",
+			"tier": "Major",
+			"rarity": "Legendary",
 			"source": "VW",
 			"page": 1,
 			"entries": [
