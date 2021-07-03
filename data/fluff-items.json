@@ -3426,6 +3426,19 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "Comrades Bracelet",
+			"source": "DMG",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Comrades%20Bracelet.png"
+					}
+				}
+			]
 		}
 	]
 }
