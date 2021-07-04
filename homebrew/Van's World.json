@@ -203,6 +203,54 @@
 					}
 				]
 			}
+		},
+		{
+			"name": "Flame Sands",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"level": 4,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 15
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 6
+					}
+				}
+			],
+			"entries": [
+				"For 6 rounds, you can vomit sand that is almost molten. It does ({@damage 2d4+2}) damage and if it hits water, it creates scalding steam that does ({@damage 4d4+2}) damage."
+			],
+			"savingThrow": [
+				"dexterity"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					}
+				]
+			}
 		}
 	],
 	"table": [
