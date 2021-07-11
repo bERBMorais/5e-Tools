@@ -3439,6 +3439,19 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "Potion of Invulnerability",
+			"source": "DMG",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/potions/invulnerability_tierA.png"
+					}
+				}
+			]
 		}
 	]
 }
