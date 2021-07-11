@@ -3302,6 +3302,7 @@
 		},
 		{
 			"name": "Comrades Bracelet",
+			"wondrous": true,
 			"weight": 0.25,
 			"type": "RG",
 			"rarity": "Uncommon",
