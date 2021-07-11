@@ -3429,13 +3429,13 @@
 		},
 		{
 			"name": "Comrades Bracelet",
-			"source": "DMG",
+			"source": "VW",
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "external",
-						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Comrades%20Bracelet.png"
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Comrades_Bracelet.png"
 					}
 				}
 			]
