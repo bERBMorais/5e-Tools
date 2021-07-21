@@ -3402,6 +3402,45 @@
 			]
 		},
 		{
+			"name": "Potion of Health (Tier A)",
+			"source": "VW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/potions/healing_tierA.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Potion of Health (Tier B)",
+			"source": "VW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/potions/healing_tierB.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Potion of Health (Tier C)",
+			"source": "VW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/potions/healing_tierC.png"
+					}
+				}
+			]
+		},
+		{
 			"name": "The Light of Pelor",
 			"source": "VW",
 			"images": [

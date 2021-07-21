@@ -3012,6 +3012,51 @@
 			"value": 300000
 		},
 		{
+			"name": "Potion of Health (Tier A)",
+			"type": "P",
+			"weight": 0.5,
+			"tier": "Major",
+			"rarity": "Uncommon",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"The potion's red liquid glimmers when agitated. You use the value rolled to recover health points. ",
+				"Based on the level, you recover Xd4 + X",
+				"Tier A: Level 1, 2 and 3"
+			],
+			"value": 3000
+		},
+		{
+			"name": "Potion of Health (Tier B)",
+			"type": "P",
+			"weight": 0.5,
+			"tier": "Major",
+			"rarity": "Rare",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"The potion's red liquid glimmers when agitated. You use the value rolled to recover health points. ",
+				"Based on the level, you recover Xd4 + X",
+				"Tier B: Level 4, 5 and 6"
+			],
+			"value": 10000
+		},
+		{
+			"name": "Potion of Health (Tier C)",
+			"type": "P",
+			"weight": 0.75,
+			"tier": "Major",
+			"rarity": "Very Rare",
+			"source": "VW",
+			"page": 1,
+			"entries": [
+				"The potion's red liquid glimmers when agitated. You use the value rolled to recover health points. ",
+				"Based on the level, you recover Xd4 + X",
+				"Tier C: Level 7, 8, 9 and 10"
+			],
+			"value": 30000
+		},
+		{
 			"name": "The Light of Pelor",
 			"wondrous": true,
 			"weight": 0.25,
