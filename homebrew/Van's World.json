@@ -3360,7 +3360,7 @@
 					"name": "Give & Take: (Bonus action)",
 					"type": "entries",
 					"entries": [
-						"If the matching bracelet wearer is within 30ft, the user teleports, switching places with the willing wearer who must use their reaction to confirm the sweap.",
+						"If the matching bracelet wearer is within 30ft, the user teleports, switching places with the willing wearer who must use their reaction to confirm the swap.",
 						"Each bracelet can only be used once before needing to be recharged over a long rest while within proximity of it's pair mate."
 					]
 				}
