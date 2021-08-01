@@ -3454,6 +3454,41 @@
 					}
 				]
 			}
+		},
+		{
+			"name": "Ki Blade",
+			"type": "M",
+			"source": "VW",
+			"page": 1,
+			"weight": 2,
+			"tier": "Minor",
+			"rarity": "Very rare",
+			"entries": [
+				"Breathe in. Breathe Out. Take a deep breath, for it will be your last.",
+				"This gently curved blade resonates with the force of your ki. You gain a +2 bonus to attack and damage rolls made with this magic weapon, and while you're attuned to it, your ki point maximum increases by 2.",
+				"When you use your Deflect Missiles feature and are holding the ki blade, you can choose to use the weapon to attack the missile instead of capturing it. If you do, the damage you take from the ranged attack is reduced by an extra 1d10. If you reduce the damage to 0, the missile is destroyed unless it was magical, in which case it clatters to the ground at your feet. Once you use this property, you can spend 1 ki point to use your Deflect Missiles feature again on the same turn, potentially destroying multiple missiles from the same attacker."
+			],
+			"value": 1500,
+			"weapon": true,
+			"sword": true,
+			"weaponCategory": "Martial",
+			"dmg1": "1d6+2",
+			"dmgType": "P",
+			"property": [
+				"F",
+				"L"
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/weapons/Ki_Blade.png"
+						}
+					}
+				]
+			}
 		}
 	]
 }
