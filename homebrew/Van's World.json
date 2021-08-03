@@ -3468,7 +3468,7 @@
 				"This gently curved blade resonates with the force of your ki. You gain a +2 bonus to attack and damage rolls made with this magic weapon, and while you're attuned to it, your ki point maximum increases by 2.",
 				"When you use your Deflect Missiles feature and are holding the ki blade, you can choose to use the weapon to attack the missile instead of capturing it. If you do, the damage you take from the ranged attack is reduced by an extra 1d10. If you reduce the damage to 0, the missile is destroyed unless it was magical, in which case it clatters to the ground at your feet. Once you use this property, you can spend 1 ki point to use your Deflect Missiles feature again on the same turn, potentially destroying multiple missiles from the same attacker."
 			],
-			"value": 1500,
+			"value": 15000,
 			"weapon": true,
 			"sword": true,
 			"weaponCategory": "Martial",
@@ -3489,6 +3489,32 @@
 					}
 				]
 			}
+		},
+		{
+			"name": "Goodberry Plant",
+			"type": "TG",
+			"weight": 2,
+			"value": 150000,
+			"source": "VW",
+			"page": 1,
+			"tier": "Minor",
+			"rarity": "Uncommon",
+			"entries": [
+				"This magical clay plant holder contains a living goodberry plant with glowing purple berries. The plant has up to ten berries, and each has the same properties as if a goodberry spell created them. Each dawn 1d10 plucked berries regrow, never exceeding ten total at any given time. The plant requires only a little sunlight and water to survive, but it cannot live outside of the holder. If removed from the holder, a new goodberry plant regrows in one week.",
+				"The famous druids of Arvell learned the secrets of growing goodberry plants many years ago. They use the berries to make the most fantastic jams and wines, trading them at the local market for supplies."
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Goodberry_Plant.png"
+						}
+					}
+				]
+			},
+			"wondrous": "true"
 		}
 	]
 }
