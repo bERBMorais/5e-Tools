@@ -3526,6 +3526,7 @@
 			"page": 1,
 			"tier": "Minor",
 			"rarity": "Very rare",
+			"reqAttune": "by a rogue",
 			"entries": [
 				"You have a +1 bonus to AC while wearing this armor. ",
 				"While wearing it, you are imbued with the hardiness of a raccoon. Your rogue feature Evasion now applies to Constitution saving throws as well.",
@@ -3552,6 +3553,41 @@
 						"href": {
 							"type": "external",
 							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/armor/Raiment_of_the_Raccon.png"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragontongue Whip",
+			"type": "M",
+			"weight": 3,
+			"value": 700,
+			"source": "VW",
+			"page": 1,
+			"tier": "Minor",
+			"rarity": "Very rare",
+			"weaponCategory": "Martial",
+			"reqAttune": true,
+			"dmgType": "S",
+			"dmg1": "1d4+1",
+			"dmg2": "1d8+1",
+			"entries": [
+				"The hilt of this whip is shaped like a snarling dragon’s head, and its pommel is a curled claw. The handle is wrapped in dragonhide. While wielding this whip, you can use a bonus action to speak this magic weapon’s command word, causing a flexible lash of flame to erupt from the hilt that can be used as a whip. This flame sheds bright light in a 20-foot radius and dim light for an additional 20 feet. ",
+				"You gain a +1 bonus to attack and damage rolls made with this magic weapon, which deals an additional 1d8 fire damage on a hit. On a roll of 20 on an attack roll, the target is restrained and you can choose to pull the target up to 10 feet towards you. A restrained creature must succeed on a DC 13 Strength saving throw, taking 1d8 fire damage on a failed save, and half as much damage on a successful one and is no longer restrained. The creature can repeat this saving throw at the end of each of its turns. If you move further than 10 feet away from the target or attack another creature with the dragontongue whip, the restrained condition ends. ",
+				"The flames last until you use a bonus action to speak the command word again or until you drop or sheathe the whip."
+			],
+			"property": [
+				"F",
+				"R"
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Dragontongue_Whip.png"
 						}
 					}
 				]
