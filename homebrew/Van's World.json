@@ -3500,7 +3500,7 @@
 			"tier": "Minor",
 			"rarity": "Uncommon",
 			"entries": [
-				"This magical clay plant holder contains a living goodberry plant with glowing purple berries. The plant has up to ten berries, and each has the same properties as if a goodberry spell created them. Each dawn 1d10 plucked berries regrow, never exceeding ten total at any given time. The plant requires only a little sunlight and water to survive, but it cannot live outside of the holder. If removed from the holder, a new goodberry plant regrows in one week.",
+				"This magical clay plant holder contains a living goodberry plant with glowing purple berries. The plant has up to ten berries, and each has the same properties as if a goodberry spell created them. Each dawn {@dice 1d10} plucked berries regrow, never exceeding ten total at any given time. The plant requires only a little sunlight and water to survive, but it cannot live outside of the holder. If removed from the holder, a new goodberry plant regrows in one week.",
 				"The famous druids of Arvell learned the secrets of growing goodberry plants many years ago. They use the berries to make the most fantastic jams and wines, trading them at the local market for supplies."
 			],
 			"fluff": {
@@ -3515,6 +3515,47 @@
 				]
 			},
 			"wondrous": "true"
+		},
+		{
+			"name": "Raiment of the Raccoon",
+			"type": "LA",
+			"ac": 12,
+			"weight": 14,
+			"value": 90000,
+			"source": "VW",
+			"page": 1,
+			"tier": "Minor",
+			"rarity": "Very rare",
+			"entries": [
+				"You have a +1 bonus to AC while wearing this armor. ",
+				"While wearing it, you are imbued with the hardiness of a raccoon. Your rogue feature Evasion now applies to Constitution saving throws as well.",
+				{
+					"type": "entries",
+					"name": "Curse",
+					"entries": [
+						"While attuned to this armor you become obsessively hygienic. You must spend at least 10 minutes washing your hands to benefit from a short or long rest and you prefer to dunk your food into water before eating it."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Keen Sense of Touch",
+					"entries": [
+						"While wearing this armor you develop a hypersensitive tactile awareness.",
+						"You can add your Wisdom modifier to Dexterity (Sleight of Hand) checks, thieves tools checks and Intelligence (Investigation) checks that use your sense of touch. You can reliably detect the surface details, such as engraved writing or material properties, of an object by touching it."
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/armor/Raiment_of_the_Raccon.png"
+						}
+					}
+				]
+			}
 		}
 	]
 }
