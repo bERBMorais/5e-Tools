@@ -3592,6 +3592,53 @@
 					}
 				]
 			}
+		},
+		{
+			"name": "Arachknit Armour",
+			"type": "LA",
+			"ac": 12,
+			"weight": 13,
+			"value": 5500,
+			"source": "VW",
+			"page": 1,
+			"tier": "Minor",
+			"rarity": "Uncommon",
+			"entries": [
+				"Designed for dark elves on missions to the surface, this intricately-wrought armour is crafted from flexible panels of deep purple and green.",
+				"With the capability to filter sunlight, the armour protects the fragile vision of its subterranean wearers, and is home to thousands of minuscule ‘stitch-spiders’ enchanted to sew up minor wounds.",
+				{
+					"type": "entries",
+					"name": "Dome of Dimness",
+					"entries": [
+						"While in direct sunlight, this armour’s protective capabilities activate, causing all light within a 5-foot radius to become dim. A creature does not suffer the effects of its Sunlight Sensitivity trait while it is within this area."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Optional Attunement",
+					"entries": [
+						"If you choose to attune to this armour, it gains the Knit Spider property while you remain attuned to it. This item has 3 charges and regains all expended charges daily at dawn."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Knit Spider",
+					"entries": [
+						"If you have fewer than 50% of your hit points remaining at the start of your turn, the armour automatically expends 1 charge causing you to regain 1d4 hit points as tiny spiders emerge to sew shut your wounds."
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/armor/Arachknit_Armor.png"
+						}
+					}
+				]
+			}
 		}
 	]
 }
