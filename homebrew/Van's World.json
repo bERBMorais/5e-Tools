@@ -2957,6 +2957,169 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Cult%20Guildmage.png"
+		},
+		{
+			"name": "Phineas Taylor",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "M",
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"any race"
+				]
+			},
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 16,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 114,
+				"formula": "12d10+48"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 10,
+			"dex": 15,
+			"con": 19,
+			"int": 14,
+			"wis": 15,
+			"cha": 20,
+			"passive": 14,
+			"languages": [
+				"Common",
+				"Draconic",
+				"Infernal"
+			],
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"immune": [
+				"charmed",
+				"frightened"
+			],
+			"skill": {
+				"performance": "+5"
+			},
+			"save": {
+				"dex": "+7",
+				"wis": "+7",
+				"cha": "+10"
+			},
+			"cr": "9",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Phineas is a 10th-level spellcaster. His spellcasting ability is Charisma (spell save DC 17, +9 to hit with spell attacks). He has the following bard spells prepared:"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell light}",
+								"{@spell minor illusion}",
+								"{@spell vicious mockery}"
+							]
+						},
+						"1": {
+							"slots": 4,
+							"spells": [
+								"{@spell charm person}",
+								"{@spell disguise self}",
+								"{@spell sleep}",
+								"{@spell dissonant whispers}",
+								"{@spell faerie fire}"
+							]
+						},
+						"2": {
+							"slots": 3,
+							"spells": [
+								"{@spell calm emotions}",
+								"{@spell heat metal}",
+								"{@spell hold person}"
+							]
+						},
+						"3": {
+							"slots": 3,
+							"spells": [
+								"{@spell dispel magic}",
+								"{@spell fireball}",
+								"{@spell hypnotic pattern}",
+								"{@spell major image}"
+							]
+						},
+						"4": {
+							"slots": 2,
+							"spells": [
+								"{@spell confusion}",
+								"{@spell polymorph}"
+							]
+						},
+						"5": {
+							"slots": 2,
+							"spells": [
+								"{@spell mislead}",
+								"{@spell synaptic static}"
+							]
+						}
+					},
+					"ability": "cha"
+				}
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (2/Day)",
+					"entries": [
+						"If Phineas fails a saving throw, he can choose to succeed instead."
+					]
+				},
+				{
+					"name": "Ring of the Raven",
+					"entries": [
+						"Phineas is attuned to this magical item. It has 4 charges. Phineas can expend two to cast Misty Step as a 2nd level spell, or expend 4 to cast Dimension Door as a 4th-level spell."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Quarterstaff",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d6}) or {@h}5 ({@damage 1d8}) if used with two hands (bludgeoning damage)."
+					]
+				}
+			],
+			"legendaryActions": 3,
+			"legendary": [
+				{
+					"name": "Move",
+					"entries": [
+						"Phineas moves up to his speed."
+					]
+				},
+				{
+					"name": "Cantrip",
+					"entries": [
+						"Phineas casts a Cantrip."
+					]
+				},
+				{
+					"name": "Spell (2 points)",
+					"entries": [
+						"Phineas casts a 1st, 2nd or 3rd level spell."
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Phineas_Taylor.png"
 		}
 	],
 	"item": [
