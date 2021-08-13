@@ -3646,7 +3646,6 @@
 			"weight": 1,
 			"value": 10000,
 			"source": "VW",
-			"tier": "Minor",
 			"rarity": "Very rare",
 			"reqAttune": true,
 			"entries": [
@@ -3674,6 +3673,87 @@
 						"href": {
 							"type": "external",
 							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Ringmaster’s_Top_Hat.png"
+						}
+					}
+				]
+			},
+			"wondrous": "true"
+		},
+		{
+			"name": "Plan Bee",
+			"type": "G",
+			"weight": 0.2,
+			"value": 1500,
+			"source": "VW",
+			"page": 1,
+			"rarity": "Uncommon",
+			"entries": [
+				"As an action, you can activate this mechanical bee and command it to fly up to 60 feet.",
+				"When it finishes moving, it emits a loud buzzing whir and each creature within 30 feet of it that can hear it must make a DC 13 Wisdom saving throw. A creature that fails this save is distracted by the bee for 1 minute.",
+				"A distracted creature has disadvantage on Wisdom (Perception) checks and attack rolls, and can repeat the save at the end of each of its turns, ending the effect on itself on a successful save. After a minute has passed, the bee becomes a mundane mechanical toy.",
+				{
+					"type": "entries",
+					"name": "Very rare variant",
+					"entries": [
+						"The DC becomes 15 instead of 13. Additionally, the bee does not become a mechanical toy once it has been used, and can instead be used again after the next dawn."
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Plan_Bee.png"
+						}
+					}
+				]
+			},
+			"wondrous": "true"
+		},
+		{
+			"name": "Gluttonous Grimoire",
+			"type": "G",
+			"weight": 4,
+			"value": 150000,
+			"source": "VW",
+			"page": 1,
+			"tier": "Major",
+			"rarity": "Very rare",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Arcane Hunger",
+					"entries": [
+						"This grotesquely decorated spellbook bears a hunger for arcane knowledge. While attuned to this spellbook, you can use an action to place a spellbook or spell scroll inside it and speak its command word, causing its jaws to animate and devour the item placed inside. The item is destroyed, and its contents are magically transcribed within the grimoire, without need for gold or time spent copying the new spells."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Glutton's Bargain",
+					"entries": [
+						"While holding this spellbook, you can cast a spell of 5th level or lower without expending a spell slot. When you do so, you take necrotic damage equal to (10 + 1d10 x the spell's level), and your hit point maximum is reduced by an amount equal to the necrotic damage taken. This necrotic damage cannot be reduced in any way. If this damage reduces you to 0 hit points, you die, and the grimoire instantly devours your body. Your hit point maximum returns to normal the next time you take a long rest.",
+						"Once you use use this effect to cast five levels worth of spells, you cannot use it again until you take a long rest."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Curse",
+					"entries": [
+						"This spellbook is cursed, and becoming aftuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the spellbook.",
+						"Whenever you take a long rest, the book attempts to devour a portion of your intellect, forcing you to make a DC 10 Wisdom saving throw. On a failure, your Intelligence score is reduced by 1. If your Intelligence score is reduced to 0 by this effect, you fall into a coma, and remain unconscious until you regain 1 point of Intelligence.",
+						"Being targeted by a greater restoration spell or similar magic restores 1 point of Intelligence. Breaking the curse or destroying the book causes you to regain 1 point of lost Intelligence every time you take a long rest, until you return to your initial score."
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/items/Gluttonous_Grimoire.png"
 						}
 					}
 				]
