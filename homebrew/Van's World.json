@@ -3922,6 +3922,93 @@
 				]
 			},
 			"wondrous": "true"
+		},
+		{
+			"name": "Pouch of mysterious seeds",
+			"type": "OTH",
+			"value": 1500,
+			"source": "VW",
+			"page": 1,
+			"tier": "Minor",
+			"rarity": "Uncommon",
+			"entries": [
+				"A mystery seed appears as a small, spiral-shaped seed of a bright green color. These seeds supposedly grow only from magical trees in a far away land, and cannot be cultivated elsewhere. As an action, you can throw it on the ground or any hard surface within a range of 60 feet — a ranged weapon attack roll is needed to hit a specific creature. You can also fire the seed from a sling as if it was a sling bullet.",
+				"On impact, the seed is destroyed, and a random effect occurs. If the seed is used as a sling bullet, it inflicts damage immediately before the random effect.",
+				{
+					"type": "table",
+					"caption": "Mysterious Seeds",
+					"colLabels": [
+						"d12",
+						"Magical Effect"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-10"
+					],
+					"rows": [
+						[
+							"1",
+							"If the target is a creature, it restores 3d6 hit points, and gains enough nourishment to sustain itself for one day. If the target is not a creature, it is affected by the mending spell, and up to 1 cubic foot around the impact point is cleaned as if by the prestidigitation spell."
+						],
+						[
+							"2",
+							"If the target is a creature, it becomes invisible for 1 minute. If the target is not a creature, then for 1 minute, all creatures which come within 5 feet of it become invisible while they remain within 5 feet of it."
+						],
+						[
+							"3",
+							"If the target is a creature, it is affected by the tongues spell for 1 minute. If the target creature's Intelligence score is below 3, it is increased to 3 for the duration of this effect. If the target is not a creature, roll again for a different effect."
+						],
+						[
+							"4",
+							"A wave of overwhelming gravity washes out from the impact point. The target itself is not affected, but all creatures within 120 feet of it must succeed on a DC 15 Strength saving throw or be knocked prone."
+						],
+						[
+							"5",
+							"A fog cloud, as the spell, emanates from the target, and lasts where it was created for 1 hour unless something disrupts it."
+						],
+						[
+							"6",
+							"A blinding flash and bang emanate from the impact point. All creatures within 30 feet must succeed on a DC 15 Constitution saving throw or be blinded and deafened for 1 minute."
+						],
+						[
+							"7",
+							"If the target is a creature, it is stunned until the end of its next turn, but is otherwise affected as if by the haste spell for 1 minute."
+						],
+						[
+							"8",
+							"All objects and creatures within a 10-foot radius of the impact point, including the target, glow green as the faerie fire spell for 1 minute."
+						],
+						[
+							"9",
+							"If the hit target is a creature, it suffers 1d6 poison damage. Any creature which begins its turn in the target square must succeed a DC 15 Constitution saving throw or suffer 1d6 poison damage and become poisoned until the end of its turn. If the target is a creature with a keen sense of smell, it has disadvantage on this saving throw."
+						],
+						[
+							"10",
+							"If the hit target is a creature or loose object smaller than a Huge creature, it is immediately thrown directly upward a distance of 30 feet, potentially subjecting it to 3d6 bludgeoning damage from falling. Otherwise, a momentary whirlwind blows over the target, causing any dust or minor objects to be blown up instead."
+						],
+						[
+							"11",
+							"A burst of flame explodes from the impact point. The target and everything within 10 feet of it takes 6d6 fire damage; if the target is a creature, it is ignited for 2d6 fire damage. Succeeding on a DC 15 Dexterity saving throw halves this damage."
+						],
+						[
+							"12",
+							"If the target is a creature, it must succeed on a DC 15 Wisdom saving throw or be polymorphed — as the spell — into a chicken for a duration of 1 minute. If the target is not a creature, a normal chicken is magically created immediately above the target, and persists indefinitely."
+						]
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "homebrew/items/Pouch%20of%20mysterious%20seeds.png"
+						}
+					}
+				]
+			},
+			"wondrous": "true"
 		}
 	]
 }
