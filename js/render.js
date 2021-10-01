@@ -4012,7 +4012,7 @@ Renderer.item = {
 	getAttunementAndAttunementCatText (item) {
 		let attunement = null;
 		let attunementCat = "No";
-		if (item.reqAttune != null) {
+		if (item.reqAttune) {
 			if (item.reqAttune === true) {
 				attunementCat = "Yes";
 				attunement = "(Requires Attunement)"
