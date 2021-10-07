@@ -23,7 +23,7 @@
 		"build": "npm run clean-jsons && npm run gen-all && npm run build:css && npm run build:sw",
 		"preversion": "npm test",
 		"version": "node node/version-bump.js",
-		"serve:dev": "http-server -c-1 --cors --port 5000"
+		"serve:dev": "http-server -c-1 --cors --port 8080"
 	},
 	"repository": {
 		"type": "git",

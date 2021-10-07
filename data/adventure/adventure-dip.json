@@ -1536,7 +1536,7 @@
 									"name": "C: Cell",
 									"id": "08e",
 									"entries": [
-										"The gate to this cell is lashed shut with rope. The cell is used to hold animals doomed to be sacrificed in rituals to Talos. There's a 25 percent chance that a harmless deer is trapped inside. Otherwise, the cell is empty."
+										"The gate to this cell is lashed shut with rope. The cell is used to hold animals doomed to be sacrificed in rituals to Talos. There's a {@chance 25|25 percent} chance that a harmless deer is trapped inside. Otherwise, the cell is empty."
 									]
 								},
 								{

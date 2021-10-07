@@ -18850,6 +18850,1155 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Adventures in the Forgotten Realms: In Scarlet Flames",
+			"id": "AitFR-ISF",
+			"source": "AitFR-ISF",
+			"coverUrl": "img/covers/AitFR-ISF.png",
+			"published": "2021-06-30",
+			"storyline": "Adventures in the Forgotten Realms",
+			"level": {
+				"start": 8,
+				"end": 8
+			},
+			"contents": [
+				{
+					"name": "In Scarlet Flames"
+				},
+				{
+					"name": "Part 1: The Village of Secomber"
+				},
+				{
+					"name": "Part 2: The Wizard's Barrow",
+					"headers": [
+						{
+							"header": "1. Guard Chamber",
+							"depth": 1
+						},
+						{
+							"header": "2. Moldering Supplies",
+							"depth": 1
+						},
+						{
+							"header": "3. Rotten Common Room",
+							"depth": 1
+						},
+						{
+							"header": "4. Abandoned Quarters",
+							"depth": 1
+						},
+						{
+							"header": "4A: Hidden Shrine",
+							"depth": 1
+						},
+						{
+							"header": "5. Ceremonial Entryway",
+							"depth": 1
+						},
+						{
+							"header": "6. Descent Passage",
+							"depth": 1
+						},
+						{
+							"header": "7. Observer's Chamber",
+							"depth": 1
+						},
+						{
+							"header": "8. Second-Level Passageways",
+							"depth": 1
+						},
+						{
+							"header": "9. Component Vault",
+							"depth": 1
+						},
+						{
+							"header": "10. Ritual Casting Chamber (North)",
+							"depth": 1
+						},
+						{
+							"header": "11. Ritual Casting Chamber (South)",
+							"depth": 1
+						},
+						{
+							"header": "12. Laboratory Chamber",
+							"depth": 1
+						},
+						{
+							"header": "13. Common Catacomb",
+							"depth": 1
+						},
+						{
+							"header": "14. Grand Library",
+							"depth": 1
+						},
+						{
+							"header": "15. Processional Hall",
+							"depth": 1
+						},
+						{
+							"header": "16. Honored Crypts",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Part 3: What's Next?"
+				},
+				{
+					"name": "Appendix: Maps, Monsters, & NPCs"
+				}
+			]
+		},
+		{
+			"name": "Adventures in the Forgotten Realms: The Hidden Page",
+			"id": "AitFR-THP",
+			"source": "AitFR-THP",
+			"coverUrl": "img/covers/AitFR-THP.png",
+			"published": "2021-07-07",
+			"storyline": "Adventures in the Forgotten Realms",
+			"level": {
+				"start": 8,
+				"end": 9
+			},
+			"contents": [
+				{
+					"name": "The Hidden Page"
+				},
+				{
+					"name": "Part 1: Hidden Chambers",
+					"headers": [
+						{
+							"header": "1. Entry Hall",
+							"depth": 1
+						},
+						{
+							"header": "2. Crackling Corridor",
+							"depth": 1
+						},
+						{
+							"header": "3. Emitter Stone",
+							"depth": 1
+						},
+						{
+							"header": "4. Bladed Corridors",
+							"depth": 1
+						},
+						{
+							"header": "5. Listing Floor",
+							"depth": 1
+						},
+						{
+							"header": "6. Room of Rising Blades",
+							"depth": 1
+						},
+						{
+							"header": "1. West Foyer",
+							"depth": 1
+						},
+						{
+							"header": "2. Grand Hall",
+							"depth": 1
+						},
+						{
+							"header": "3. Dining Room",
+							"depth": 1
+						},
+						{
+							"header": "4. Kitchen",
+							"depth": 1
+						},
+						{
+							"header": "5. Study",
+							"depth": 1
+						},
+						{
+							"header": "6. East Foyer",
+							"depth": 1
+						},
+						{
+							"header": "7. Bed Chamber",
+							"depth": 1
+						},
+						{
+							"header": "8. Outer Garden",
+							"depth": 1
+						},
+						{
+							"header": "9. Solarium",
+							"depth": 1
+						},
+						{
+							"header": "10. Cellar",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Part 4: What's Next"
+				},
+				{
+					"name": "Appendix: Monsters and Magic Items"
+				}
+			]
+		},
+		{
+			"name": "Adventures in the Forgotten Realms: A Verdant Tomb",
+			"id": "AitFR-AVT",
+			"source": "AitFR-AVT",
+			"coverUrl": "img/covers/AitFR-AVT.png",
+			"published": "2021-07-14",
+			"storyline": "Adventures in the Forgotten Realms",
+			"level": {
+				"start": 9,
+				"end": 9
+			},
+			"contents": [
+				{
+					"name": "A Verdant Tomb"
+				},
+				{
+					"name": "Part 1: Riverside",
+					"headers": [
+						{
+							"header": "1. Sunken Yard",
+							"depth": 1
+						},
+						{
+							"header": "2. Garden Shrine",
+							"depth": 1
+						},
+						{
+							"header": "3. Sepulcher Entrance",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Part 2: Inside the Crypts",
+					"headers": [
+						{
+							"header": "4. Ceremonial Chamber",
+							"depth": 1
+						},
+						{
+							"header": "5. Northern Crypt",
+							"depth": 1
+						},
+						{
+							"header": "6. Southern Crypt",
+							"depth": 1
+						},
+						{
+							"header": "7. Grand Mausoleum",
+							"depth": 1
+						},
+						{
+							"header": "8. Processional Corridor",
+							"depth": 1
+						},
+						{
+							"header": "9. Tiled Passage",
+							"depth": 1
+						},
+						{
+							"header": "10. Memorial Chamber",
+							"depth": 1
+						},
+						{
+							"header": "11. Grand Crypt",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Part 3: What's Next"
+				},
+				{
+					"name": "Appendix A: New Spells",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "A"
+					}
+				},
+				{
+					"name": "Appendix B: New Artifacts",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "B"
+					}
+				}
+			]
+		},
+		{
+			"name": "Adventures in the Forgotten Realms: Darkest Night",
+			"id": "AitFR-DN",
+			"source": "AitFR-DN",
+			"coverUrl": "img/covers/AitFR-DN.png",
+			"published": "2021-07-21",
+			"storyline": "Adventures in the Forgotten Realms",
+			"level": {
+				"start": 9,
+				"end": 10
+			},
+			"contents": [
+				{
+					"name": "Deepest Night"
+				},
+				{
+					"name": "Part 1: The Outer Lair",
+					"headers": [
+						{
+							"header": "1. Cleft in the Rock",
+							"depth": 1
+						},
+						{
+							"header": "2. Boulder Trio",
+							"depth": 1
+						},
+						{
+							"header": "3. Abandoned Altar",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Part 2: The Inner Lair",
+					"headers": [
+						{
+							"header": "4. At the Threshold",
+							"depth": 1
+						},
+						{
+							"header": "5. A Deep, Dark Well",
+							"depth": 1
+						},
+						{
+							"header": "6. Giant Snake Den",
+							"depth": 1
+						},
+						{
+							"header": "7. Lost Bones",
+							"depth": 1
+						},
+						{
+							"header": "8. Poison Pool",
+							"depth": 1
+						},
+						{
+							"header": "9. Abandoned Chambers",
+							"depth": 1
+						},
+						{
+							"header": "10. Rotting Ceremonial Chamber",
+							"depth": 1
+						},
+						{
+							"header": "11. Magic Door",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Part 3: Starry Refuge",
+					"headers": [
+						{
+							"header": "12. Deepest Night",
+							"depth": 1
+						},
+						{
+							"header": "13. A Cozy Cottage",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Part 4: What's Next"
+				},
+				{
+					"name": "Appendix A: Monsters & NPCs",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "A"
+					}
+				},
+				{
+					"name": "Appendix B: New Magic Items",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "B"
+					}
+				}
+			]
+		},
+		{
+			"name": "Adventures in the Forgotten Realms: From Cyan Depths",
+			"id": "AitFR-FCD",
+			"source": "AitFR-FCD",
+			"coverUrl": "img/covers/AitFR-FCD.png",
+			"published": "2021-07-28",
+			"storyline": "Adventures in the Forgotten Realms",
+			"level": {
+				"start": 10,
+				"end": 10
+			},
+			"contents": [
+				{
+					"name": "From Cyan Depths"
+				},
+				{
+					"name": "The Fortress of the Cobalt Mage",
+					"headers": [
+						{
+							"header": "1. Lakeshore Gate",
+							"depth": 1
+						},
+						{
+							"header": "2. Central Guard Tower",
+							"depth": 1
+						},
+						{
+							"header": "3. Southern Guard Tower",
+							"depth": 1
+						},
+						{
+							"header": "4. Northern Guard Tower",
+							"depth": 1
+						},
+						{
+							"header": "5. Arched Walkways",
+							"depth": 1
+						},
+						{
+							"header": "6. Northern Turret",
+							"depth": 1
+						},
+						{
+							"header": "7. Southern Turret",
+							"depth": 1
+						},
+						{
+							"header": "8. Cellar Vault",
+							"depth": 1
+						},
+						{
+							"header": "9. Wizard's Residence",
+							"depth": 1
+						},
+						{
+							"header": "10. Sanctum",
+							"depth": 1
+						},
+						{
+							"header": "11. Study",
+							"depth": 1
+						},
+						{
+							"header": "12. Meeting Hall",
+							"depth": 1
+						},
+						{
+							"header": "13. Observatory",
+							"depth": 1
+						}
+					]
+				},
+				{
+					"name": "Appendix A: Monsters & NPCs",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "A"
+					}
+				},
+				{
+					"name": "Appendix B: Spells",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "B"
+					}
+				},
+				{
+					"name": "Appendix C: Artifacts",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "C"
+					}
+				}
+			]
+		},
+		{
+			"name": "The Wild Beyond the Witchlight",
+			"id": "WBtW",
+			"source": "WBtW",
+			"coverUrl": "img/covers/WBtW.png",
+			"published": "2021-09-21",
+			"storyline": "The Wild Beyond the Witchlight",
+			"level": {
+				"start": 1,
+				"end": 8
+			},
+			"contents": [
+				{
+					"name": "Into the Feywild",
+					"headers": [
+						"Adventure Summary",
+						"Running the Adventure",
+						"Feywild Trinkets",
+						"Backgrounds",
+						"Races",
+						"Character Traits",
+						"Beginning the Adventure",
+						"Pronunciation Guide"
+					]
+				},
+				{
+					"name": "Witchlight Carnival",
+					"headers": [
+						"Running This Chapter",
+						"Carnival Owners",
+						"Witchlight Hands",
+						"Carnival Overview",
+						"Carnival Locations",
+						"Carnival Events"
+					],
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 1
+					}
+				},
+				{
+					"name": "Hither",
+					"headers": [
+						"Running This Chapter",
+						"Prismeer Overview",
+						"Features of Hither",
+						"Arrival in Hither",
+						"Locations in Hither",
+						"Downfall",
+						"Where's Bavlorna?",
+						"The Soggy Court",
+						"Downfall Locations",
+						{
+							"depth": 1,
+							"header": "D1. Channel"
+						},
+						{
+							"depth": 1,
+							"header": "D2. Damaged Balloon"
+						},
+						{
+							"depth": 1,
+							"header": "D3. Stepstone Crossing"
+						},
+						{
+							"depth": 1,
+							"header": "D4. Burned-out Balloon Factory"
+						},
+						{
+							"depth": 1,
+							"header": "D5. Chattering Heads"
+						},
+						{
+							"depth": 1,
+							"header": "D6. His Royal Majesty Gullop XIX"
+						},
+						{
+							"depth": 1,
+							"header": "D7. Murky Lake"
+						},
+						{
+							"depth": 1,
+							"header": "D8. Holding Cells"
+						},
+						{
+							"depth": 1,
+							"header": "D9. Proving Grounds"
+						},
+						{
+							"depth": 1,
+							"header": "D10. Trinket, Bauble, and Charm's"
+						},
+						{
+							"depth": 1,
+							"header": "D11. Sinking Palace"
+						},
+						{
+							"depth": 1,
+							"header": "D12. Bavlorna's Cottage"
+						},
+						{
+							"depth": 1,
+							"header": "D13. Big Barkless"
+						},
+						{
+							"depth": 1,
+							"header": "D14. Toadstool Patch"
+						},
+						{
+							"depth": 1,
+							"header": "D15. Bullywug Hut"
+						},
+						{
+							"depth": 1,
+							"header": "D16. Bullywug Hut"
+						},
+						{
+							"depth": 1,
+							"header": "D17. King's Mount"
+						},
+						{
+							"depth": 1,
+							"header": "D18. Bavlorna's Cauldron"
+						},
+						{
+							"depth": 1,
+							"header": "D19. Watch Tower"
+						},
+						"Bavlorna's Cottage",
+						{
+							"depth": 1,
+							"header": "B1. Preservation Pool"
+						},
+						{
+							"depth": 1,
+							"header": "B2. Taxidermy Workshop"
+						},
+						{
+							"depth": 1,
+							"header": "B3. Fabric Storage Room"
+						},
+						{
+							"depth": 1,
+							"header": "B4. Rickety Stairs"
+						},
+						{
+							"depth": 1,
+							"header": "B5. Trove of Lesser Goodies"
+						},
+						{
+							"depth": 1,
+							"header": "B6. Balcony"
+						},
+						{
+							"depth": 1,
+							"header": "B7. Hallway"
+						},
+						{
+							"depth": 1,
+							"header": "B8. Guest Room"
+						},
+						{
+							"depth": 1,
+							"header": "B9. Secret Passage"
+						},
+						{
+							"depth": 1,
+							"header": "B10. Study"
+						},
+						{
+							"depth": 1,
+							"header": "B11. Aviary"
+						},
+						{
+							"depth": 1,
+							"header": "B12. Meat Locker"
+						},
+						{
+							"depth": 1,
+							"header": "B13. Kitchen"
+						},
+						{
+							"depth": 1,
+							"header": "B14. Cages"
+						},
+						{
+							"depth": 1,
+							"header": "B15. Pantry"
+						},
+						{
+							"depth": 1,
+							"header": "B16. Dining Room"
+						},
+						{
+							"depth": 1,
+							"header": "B17. Hooch Distillery"
+						},
+						{
+							"depth": 1,
+							"header": "B18. Bavlorna's Bedroom"
+						},
+						{
+							"depth": 1,
+							"header": "B19. Bavlorna's Hoard"
+						},
+						"From Hither to Thither"
+					],
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 2
+					}
+				},
+				{
+					"name": "Thither",
+					"headers": [
+						"Running This Chapter",
+						"Features of Thither",
+						"Arrival in Thither",
+						"Locations in Thither",
+						"Loomlurch",
+						"Approaching Loomlurch",
+						"Where's Skabatha?",
+						"Skabatha's Minions",
+						"Lost Children",
+						"Loomlurch Locations",
+						{
+							"depth": 1,
+							"header": "L1. Root Bridges"
+						},
+						{
+							"depth": 1,
+							"header": "L2. Goblin Market"
+						},
+						{
+							"depth": 1,
+							"header": "L3. Parlor"
+						},
+						{
+							"depth": 1,
+							"header": "L4. Workshop"
+						},
+						{
+							"depth": 1,
+							"header": "L5. Granny Nightshade's Garden"
+						},
+						{
+							"depth": 1,
+							"header": "L6. Rocking Horse"
+						},
+						{
+							"depth": 1,
+							"header": "L7. Tin Soldier Barracks"
+						},
+						{
+							"depth": 1,
+							"header": "L8. Workhouse Dormitory"
+						},
+						{
+							"depth": 1,
+							"header": "L9. Sewing Room"
+						},
+						{
+							"depth": 1,
+							"header": "L10. Cupboards"
+						},
+						{
+							"depth": 1,
+							"header": "L11. Family Tree"
+						},
+						{
+							"depth": 1,
+							"header": "L12. Textile Mill"
+						},
+						{
+							"depth": 1,
+							"header": "L13. Granny Nightshade's Kitchen"
+						},
+						{
+							"depth": 1,
+							"header": "L14. Study"
+						},
+						{
+							"depth": 1,
+							"header": "L15. Redcap Patch"
+						},
+						{
+							"depth": 1,
+							"header": "L16. Granny Nightshade's Bedroom"
+						},
+						{
+							"depth": 1,
+							"header": "L17. Aviary"
+						},
+						"From Thither to Yon"
+					],
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 3
+					}
+				},
+				{
+					"name": "Yon",
+					"headers": [
+						"Running This Chapter",
+						"Features of Yon",
+						"Arrival in Yon",
+						"Locations in Yon",
+						"Motherhorn",
+						"Entering Motherhorn",
+						"Approaching Motherhorn",
+						"Where's Endelyn?",
+						"A Tragedy in the Making",
+						"Motherhorn Locations",
+						{
+							"depth": 1,
+							"header": "M1. Main Entrance"
+						},
+						{
+							"depth": 1,
+							"header": "M2. Amphitheater"
+						},
+						{
+							"depth": 1,
+							"header": "M3. Stage Left"
+						},
+						{
+							"depth": 1,
+							"header": "M4. Prop Storage"
+						},
+						{
+							"depth": 1,
+							"header": "M5. Dressing Room"
+						},
+						{
+							"depth": 1,
+							"header": "M6. Performers' Quarters"
+						},
+						{
+							"depth": 1,
+							"header": "M7. Oracular Library"
+						},
+						{
+							"depth": 1,
+							"header": "M8. Endelyn's Mask Collection"
+						},
+						{
+							"depth": 1,
+							"header": "M9. Backdrop Hallway"
+						},
+						{
+							"depth": 1,
+							"header": "M10. Shadow Theater"
+						},
+						{
+							"depth": 1,
+							"header": "M11. Stage Workshop"
+						},
+						{
+							"depth": 1,
+							"header": "M12. Parts Storage"
+						},
+						{
+							"depth": 1,
+							"header": "M13. Worker Cells"
+						},
+						{
+							"depth": 1,
+							"header": "M14. Orrery of Tragedies"
+						},
+						{
+							"depth": 1,
+							"header": "M15. Theater Boxes"
+						},
+						{
+							"depth": 1,
+							"header": "M16. Darkling Balloon Dock"
+						},
+						{
+							"depth": 1,
+							"header": "M17. Prison"
+						},
+						{
+							"depth": 1,
+							"header": "M18. Audience Chamber"
+						},
+						{
+							"depth": 1,
+							"header": "M19. Viewing Gallery"
+						},
+						{
+							"depth": 1,
+							"header": "M20. Paper Birds and Hidden Belfry"
+						},
+						{
+							"depth": 1,
+							"header": "M21. Ornithopter Pad"
+						},
+						{
+							"depth": 1,
+							"header": "M22. Endelyn's Room"
+						},
+						"Leaving Yon"
+					],
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 4
+					}
+				},
+				{
+					"name": "Palace of Heart's Desire",
+					"headers": [
+						"Running This Chapter",
+						"Arrival at the Palace",
+						"Exploring the Palace",
+						"Lower Palace Locations",
+						{
+							"depth": 1,
+							"header": "P1. Front Gate"
+						},
+						{
+							"depth": 1,
+							"header": "P2. Palace Garden"
+						},
+						{
+							"depth": 1,
+							"header": "P3. Pavilion"
+						},
+						{
+							"depth": 1,
+							"header": "P4. Standing Stones"
+						},
+						{
+							"depth": 1,
+							"header": "P5. Fountain of Awakening"
+						},
+						{
+							"depth": 1,
+							"header": "P6. Woodcutter's Axe"
+						},
+						{
+							"depth": 1,
+							"header": "P7. Rose Garden"
+						},
+						{
+							"depth": 1,
+							"header": "P8. Maiden's Pond"
+						},
+						{
+							"depth": 1,
+							"header": "P9. Envy's Tower"
+						},
+						{
+							"depth": 1,
+							"header": "P10. Wrath's Tower"
+						},
+						{
+							"depth": 1,
+							"header": "P11. Carriage House"
+						},
+						{
+							"depth": 1,
+							"header": "P12. Hall of Stars"
+						},
+						{
+							"depth": 1,
+							"header": "P13. Court of Storms"
+						},
+						{
+							"depth": 1,
+							"header": "P14. Spiral Staircases"
+						},
+						{
+							"depth": 1,
+							"header": "P15. Servants' Quarters"
+						},
+						{
+							"depth": 1,
+							"header": "P16. Palace Kitchen"
+						},
+						{
+							"depth": 1,
+							"header": "P17. Base of the Beanstalk"
+						},
+						{
+							"depth": 1,
+							"header": "P18. Banquet Hall"
+						},
+						{
+							"depth": 1,
+							"header": "P19. Dining Terrace"
+						},
+						{
+							"depth": 1,
+							"header": "P20. Aviary"
+						},
+						{
+							"depth": 1,
+							"header": "P21. Records Room"
+						},
+						{
+							"depth": 1,
+							"header": "P22. Ballroom"
+						},
+						{
+							"depth": 1,
+							"header": "P23. Round Table"
+						},
+						{
+							"depth": 1,
+							"header": "P24. Ruined Staterooms"
+						},
+						{
+							"depth": 1,
+							"header": "P25. Bathing Room"
+						},
+						{
+							"depth": 1,
+							"header": "P26. Changing Room"
+						},
+						{
+							"depth": 1,
+							"header": "P27. Armory"
+						},
+						{
+							"depth": 1,
+							"header": "P28. Library"
+						},
+						{
+							"depth": 1,
+							"header": "P29. Rug of White Roses"
+						},
+						{
+							"depth": 1,
+							"header": "P30. Sludge-Filled Tower"
+						},
+						{
+							"depth": 1,
+							"header": "P31. Throne Room"
+						},
+						"Upper Palace Locations",
+						{
+							"depth": 1,
+							"header": "P32. Minstrels' Gallery"
+						},
+						{
+							"depth": 1,
+							"header": "P33. Glass Statues"
+						},
+						{
+							"depth": 1,
+							"header": "P34. Hall of Hatches"
+						},
+						{
+							"depth": 1,
+							"header": "P35. Flooded Hall"
+						},
+						{
+							"depth": 1,
+							"header": "P36. Costume Room"
+						},
+						{
+							"depth": 1,
+							"header": "P37. Dretch Nursery"
+						},
+						{
+							"depth": 1,
+							"header": "P38. Secret Library"
+						},
+						{
+							"depth": 1,
+							"header": "P39. Roost"
+						},
+						{
+							"depth": 1,
+							"header": "P40. Guest Wing"
+						},
+						{
+							"depth": 1,
+							"header": "P41. Talking Door"
+						},
+						{
+							"depth": 1,
+							"header": "P42. Laboratory"
+						},
+						{
+							"depth": 1,
+							"header": "P43. Mirror of Heart's Desire"
+						},
+						{
+							"depth": 1,
+							"header": "P44. Jars of Time"
+						},
+						{
+							"depth": 1,
+							"header": "P45. Zybilna's Bedroom"
+						},
+						{
+							"depth": 1,
+							"header": "P46. Dressing Room"
+						},
+						{
+							"depth": 1,
+							"header": "P47. Destroyed Study"
+						},
+						{
+							"depth": 1,
+							"header": "P48. Turrets"
+						},
+						{
+							"depth": 1,
+							"header": "P49. Black Book"
+						},
+						{
+							"depth": 1,
+							"header": "P50. Vault"
+						},
+						{
+							"depth": 1,
+							"header": "P51. Beanstalk Tower"
+						},
+						"Ending the Story",
+						"Zybilna Comes Alive",
+						"Zybilna's Gifts"
+					],
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 5
+					}
+				},
+				{
+					"name": "Magic Items",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "A"
+					}
+				},
+				{
+					"name": "Factions",
+					"headers": [
+						"Hourglass Coven",
+						"League of Malevolence",
+						"Valor's Call"
+					],
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "B"
+					}
+				},
+				{
+					"name": "Creatures",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "C"
+					}
+				},
+				{
+					"name": "Roleplaying Cards",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "D"
+					}
+				},
+				{
+					"name": "Stagefright's Lines",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "E"
+					}
+				},
+				{
+					"name": "Story Tracker"
+				}
+			]
 		}
 	]
 }

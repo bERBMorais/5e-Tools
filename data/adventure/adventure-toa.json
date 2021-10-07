@@ -756,7 +756,7 @@
 							"entries": [
 								"Chult is hot, humid, and rainy throughout the year. The temperature regularly climbs as high as 95 degrees F (35 degrees C) during the day and seldom falls below 70 degrees F (20 degrees C) even at night. A day without rain is rare, but rain varies from a steady mist to drenching downpours.",
 								"Visibility in heavy rain is limited to 50 yards. Beyond that distance, only Huge or larger objects can be distinguished. Missile weapon ranges are halved during rain.",
-								"On days that receive heavy rain, there's a 25 percent chance of a full-blown tropical storm featuring sheets of rain, high wind, lightning, tall waves at sea, and immense surf along the coast. Guides who know the conditions in Chult recommend hunkering down and staying put on these days. Travel by river is impossible (canoes are swamped by waves within 15 minutes of launching). If characters insist on traveling by foot, every character gains 1 level of {@condition exhaustion} automatically and must make a successful DC 10 Constitution check or gain another. Skill checks to avoid becoming lost are made with disadvantage on storm days."
+								"On days that receive heavy rain, there's a {@chance 25|25 percent} chance of a full-blown tropical storm featuring sheets of rain, high wind, lightning, tall waves at sea, and immense surf along the coast. Guides who know the conditions in Chult recommend hunkering down and staying put on these days. Travel by river is impossible (canoes are swamped by waves within 15 minutes of launching). If characters insist on traveling by foot, every character gains 1 level of {@condition exhaustion} automatically and must make a successful DC 10 Constitution check or gain another. Skill checks to avoid becoming lost are made with disadvantage on storm days."
 							]
 						},
 						{
@@ -2293,7 +2293,7 @@
 							"name": "Treasure",
 							"id": "094",
 							"entries": [
-								" The suite contains personal items equivalent to two rolls on the \"Gems or Art Objects\" column of the Treasure Hoard, Challenge 0-4 table in the {@i Dungeon Master's Guide}. If the room contains jewelry, there is a 50 percent chance it is in a locked jewelry box requiring thieves' tools and a successful DC 15 Dexterity check to open."
+								" The suite contains personal items equivalent to two rolls on the \"Gems or Art Objects\" column of the Treasure Hoard, Challenge 0-4 table in the {@i Dungeon Master's Guide}. If the room contains jewelry, there is a {@chance 50|50 percent} chance it is in a locked jewelry box requiring thieves' tools and a successful DC 15 Dexterity check to open."
 							]
 						}
 					]
@@ -3524,7 +3524,7 @@
 					"name": "6A. Concealed Pit Trap",
 					"id": "0e4",
 					"entries": [
-						"The ceiling here is 23 feet high and draped with cobwebs, and the stone-tiled floor is covered with a thick layer of mud, creepers, and blown-in leaves, so attempts to spot this pit trap are made with disadvantage. An individual who crosses this section of floor has a 50 percent chance of triggering the trapdoor and dropping into the 20-foot-deep pit, taking damage from the fall as normal.",
+						"The ceiling here is 23 feet high and draped with cobwebs, and the stone-tiled floor is covered with a thick layer of mud, creepers, and blown-in leaves, so attempts to spot this pit trap are made with disadvantage. An individual who crosses this section of floor has a {@chance 50|50 percent} chance of triggering the trapdoor and dropping into the 20-foot-deep pit, taking damage from the fall as normal.",
 						"Once the pit opens, a narrow ledge remains around the outside edge. The ledge can be traversed safely with a successful DC 10 Dexterity (Acrobatics) check, but a character with someone riding on his or her shoulders makes the check with disadvantage."
 					]
 				},
@@ -3533,7 +3533,7 @@
 					"name": "6B. Blade Trap",
 					"id": "0e5",
 					"entries": [
-						"The ceiling here is 23 feet high and draped with cobwebs. Each individual that passes through this section of the corridor has a 50 percent chance of triggering scything blades that sweep out from concealed wall niches. Any creature in the 10-foot-square section of hall between the blades must make a DC 13 Dexterity throw, taking 18 (4d8) slashing damage on a failed save, or half as much damage on a successful one. Once identified, the trap can be jammed by hammering spikes or metal blades into the niches and succeeding on four separate DC 10 Strength checks (to hammer in the metal solidly enough). Each successful check jams one scythe and reduces the trap's damage by 1d8."
+						"The ceiling here is 23 feet high and draped with cobwebs. Each individual that passes through this section of the corridor has a {@chance 50|50 percent} chance of triggering scything blades that sweep out from concealed wall niches. Any creature in the 10-foot-square section of hall between the blades must make a DC 13 Dexterity throw, taking 18 (4d8) slashing damage on a failed save, or half as much damage on a successful one. Once identified, the trap can be jammed by hammering spikes or metal blades into the niches and succeeding on four separate DC 10 Strength checks (to hammer in the metal solidly enough). Each successful check jams one scythe and reduces the trap's damage by 1d8."
 					]
 				},
 				{
@@ -5946,7 +5946,7 @@
 							"id": "1bb",
 							"entries": [
 								"The water in this pool is unusually clear. A dozen or more large fish, turtles, and lizards swim lazily through it, and waterbirds paddle on the surface. Their ripples obscure something on the bottom of the pool, so you can't quite make it out, but the bottom appears blanketed in oddly shaped stones.",
-								"Bits of shattered stone rest atop a square dais that rises from middle of the pool-evidence of a sculpture that once stood atop it. Part of the sculpture lies in the pool, west of the dais: a large stone face staring up at the sky."
+								"Bits of shattered stone rest atop a square dais that rises from middle of the pool\u2014evidence of a sculpture that once stood atop it. Part of the sculpture lies in the pool, west of the dais: a large stone face staring up at the sky."
 							]
 						},
 						"An immense stone bust of Zalkoré once rose above the pool atop the dais. It was the most beautiful sculpture in the garden. After Zalkoré learned the truth about Thiru-taya, she destroyed the likeness of herself in an act of self-revulsion.",
@@ -5963,7 +5963,7 @@
 							"type": "inset",
 							"id": "1bd",
 							"entries": [
-								"The single, large chamber inside the dome is obviously a royal apartment-or was, centuries ago. Now the bright, floral murals are dim and gray, bits of colored glass are heaped beneath a cracked mosaic, enameled wooden tables are split and tilting, and every bit of cloth is frayed and streaked.",
+								"The single, large chamber inside the dome is obviously a royal apartment\u2014or was, centuries ago. Now the bright, floral murals are dim and gray, bits of colored glass are heaped beneath a cracked mosaic, enameled wooden tables are split and tilting, and every bit of cloth is frayed and streaked.",
 								"At the center of the room, a long divan stands atop a circular dais. Reclining on the divan is a woman dressed in a flowing robe made from parrot feathers in stunning colors. Despite the heat, her arms, head, and face are covered in feathery veils. Next to her, a black orchid grows out of a large clay pot at the head of the divan. She addresses you in a voice tinged with odd inflections."
 							]
 						},
@@ -6475,7 +6475,7 @@
 								"An ore cart sits on the tracks at the entrance to the mine, held in place by a block under the wheels."
 							]
 						},
-						"The cart's metal box is still solid, but one of the axles is broken and the other screeches horribly. The supply shed ({@area 2|1ef}) contains the parts and grease to get it rolling again. The old brake looks solid, but each time it's used, it has a 10 percent chance to fail utterly. This risk is recognized by someone who inspects the brake and makes a successful DC 10 Intelligence check. The brake can be repaired with spare parts from the supply shed."
+						"The cart's metal box is still solid, but one of the axles is broken and the other screeches horribly. The supply shed ({@area 2|1ef}) contains the parts and grease to get it rolling again. The old brake looks solid, but each time it's used, it has a {@chance 10|10 percent} chance to fail utterly. This risk is recognized by someone who inspects the brake and makes a successful DC 10 Intelligence check. The brake can be repaired with spare parts from the supply shed."
 					]
 				},
 				{
@@ -6532,7 +6532,7 @@
 					"name": "6C. Rolling Stone Trap",
 					"id": "1f9",
 					"entries": [
-						"A tripwire stretches across the mouth of the tunnel where the lower passage joins the cart track. It can be spotted with a successful DC 13 Wisdom (Perception) check. If the tripwire is missed, each character who passes through the tunnel mouth has a 50 percent chance to trip it and trigger two mechanisms.",
+						"A tripwire stretches across the mouth of the tunnel where the lower passage joins the cart track. It can be spotted with a successful DC 13 Wisdom (Perception) check. If the tripwire is missed, each character who passes through the tunnel mouth has a {@chance 50|50 percent} chance to trip it and trigger two mechanisms.",
 						"The first mechanism is a spring-loaded wooden contraption resembling a claw that swings out from the wall of the mine shaft up-slope from this tunnel to snap across the tunnel mouth. Whoever triggered the trap must succeed on a DC 13 Dexterity throw or take 7 (2d6) bludgeoning damage from the claw. One round later, the second mechanism releases a 5-foot-diameter stone sphere that drops into the cave (marked T on the map) and rolls into the wooden claw across the tunnel mouth, which is demolished by the sphere's impact-but not before diverting the sphere onto the cart tracks. The sphere careens down the tracks until it reaches {@area 11|201}, where it derails and smashes into the urds' living quarters. (The urds easily hear it coming and get out of the way.)",
 						"Everyone in the sphere's path must succeed on a DC 13 Dexterity saving throw or take 22 (4d10) bludgeoning damage and be knocked prone. Instead of being hit by the sphere, a character who fails the saving throw can opt to leap off the tracks and fall to the bottom of the shaft; this succeeds automatically. The sphere can't be slowed down by Strength checks because of the steep incline of the tracks."
 					]
@@ -6548,7 +6548,7 @@
 							"name": "Ore Cart",
 							"id": "1fb",
 							"entries": [
-								" The ore cart north of this area appears to be in working condition, though its brakes have a 10 percent chance to fail each time they're used."
+								" The ore cart north of this area appears to be in working condition, though its brakes have a {@chance 10|10 percent} chance to fail each time they're used."
 							]
 						}
 					]
@@ -6568,7 +6568,7 @@
 							"width": 950,
 							"height": 1700
 						},
-						"The north passage connecting this chamber to the cart track is trapped with a swinging log studded with spikes. A character moving through the passage has a 50 percent chance to trip the trigger wire, which can be spotted with a successful DC 13 Wisdom (Perception) check. Each creature in the passage when the log swings through must make a successful DC 13 Dexterity saving throw or take 10 (3d6) piercing damage and be knocked prone.",
+						"The north passage connecting this chamber to the cart track is trapped with a swinging log studded with spikes. A character moving through the passage has a {@chance 50|50 percent} chance to trip the trigger wire, which can be spotted with a successful DC 13 Wisdom (Perception) check. Each creature in the passage when the log swings through must make a successful DC 13 Dexterity saving throw or take 10 (3d6) piercing damage and be knocked prone.",
 						{
 							"type": "inset",
 							"id": "1fd",
@@ -7021,7 +7021,7 @@
 							"width": 500,
 							"height": 571
 						},
-						"The puzzle cubes can't be destroyed by any means. If they're discarded, buried, or taken more than a mile outside Omu, they teleport back to their resting places inside their respective shrines. If the characters return to a previously cleared shrine, there's a cumulative 20 percent chance per day that kobolds have reset its traps.",
+						"The puzzle cubes can't be destroyed by any means. If they're discarded, buried, or taken more than a mile outside Omu, they teleport back to their resting places inside their respective shrines. If the characters return to a previously cleared shrine, there's a cumulative {@chance 20|20 percent} chance per day that kobolds have reset its traps.",
 						{
 							"type": "entries",
 							"name": "Learning of the Shrines",
@@ -7036,7 +7036,7 @@
 							"id": "228",
 							"entries": [
 								"The characters need not explore all nine shrines. The Red Wizards find at least two of the puzzle cubes, and Ras Nsi always steps in to claim the final cube. Things play out differently if the players find a way to foil their enemies' plans-by killing them, for example.",
-								"On the day the characters claim their first puzzle cube, the Red Wizards clear a separate shrine within the city. While the Red Wizards remain active, there's a cumulative 25 percent chance per day that they claim another puzzle cube from a random shrine. If the players arrive at a cleared shrine, they discover a scene of devastation: traps sprung, monsters slain, and the cube missing.",
+								"On the day the characters claim their first puzzle cube, the Red Wizards clear a separate shrine within the city. While the Red Wizards remain active, there's a cumulative {@chance 25|25 percent} chance per day that they claim another puzzle cube from a random shrine. If the players arrive at a cleared shrine, they discover a scene of devastation: traps sprung, monsters slain, and the cube missing.",
 								"Once five puzzle cubes have been taken from their shrines, Ras Nsi begins to set ambushes. When the characters arrive at their next shrine, three type 1 {@creature yuan-ti malison (type 1)||yuan-ti malisons} and six {@creature yuan-ti pureblood||yuan-ti purebloods} ambush them. Their orders are to capture characters and bring them to the Fane of the Night Serpent for interrogation.",
 								"Once eight puzzle cubes have been claimed, Ras Nsi steals the ninth cube for himself and leaves an obvious trail leading pursuers to the main entrance of his underground temple (see {@area 20A|2de}). The characters must infiltrate the temple and either take the puzzle cube by force or convince Ras Nsi to part with it. For more information on the temple and its inhabitants, see chapter 4."
 							]
@@ -8555,7 +8555,7 @@
 							"name": "Hail to the King",
 							"id": "2a3",
 							"entries": [
-								"During the day, there is a 50 percent chance that the King of Feathers rests in the amphitheater. At night, this chance decreases to 25 percent. If the beast is out hunting, there is a cumulative 20 percent chance per hour of it returning. The King of Feathers is a feathered {@creature tyrannosaurus rex}, with these changes:",
+								"During the day, there is a {@chance 50|50 percent} chance that the King of Feathers rests in the amphitheater. At night, this chance decreases to 25 percent. If the beast is out hunting, there is a cumulative {@chance 20|20 percent} chance per hour of it returning. The King of Feathers is a feathered {@creature tyrannosaurus rex}, with these changes:",
 								{
 									"type": "list",
 									"items": [
@@ -8578,7 +8578,7 @@
 									"name": "Summon Swarm (Recharge 5-6)",
 									"id": "2a5",
 									"entries": [
-										" The King of Feathers exhales a swarm of insects (wasps) that forms in a space within 20 feet of it. The swarm acts as an ally of the King of Feathers and takes its turn immediately after it. The swarm disperses after 1 minute."
+										" The King of Feathers exhales a {@creature swarm of wasps||swarm of insects (wasps)} that forms in a space within 20 feet of it. The swarm acts as an ally of the King of Feathers and takes its turn immediately after it. The swarm disperses after 1 minute."
 									]
 								}
 							]
@@ -8631,7 +8631,7 @@
 								"A derelict market hall stands on the street corner ahead. Frayed cloth awnings hang in tatters above a broad alley lined with stalls."
 							]
 						},
-						"Kobolds live in hidden cellars underneath the ruined market hall and have set six traps throughout the bazaar. A character has a cumulative 20 percent chance of finding a trap for each minute spent searching the bazaar. When a trap is found, have the character make a DC 15 Wisdom (Perception) check. If the check succeeds, the character spots the trap (a hidden, springloaded catapult) and its triggering mechanism (a tripwire or pressure plate) without triggering it. Once spotted, the trap is easily disarmed or avoided (no check required). A failed check indicates that the character accidentally set off the trap, which duplicates the Weapon Invention attack of a kobold inventor.",
+						"Kobolds live in hidden cellars underneath the ruined market hall and have set six traps throughout the bazaar. A character has a cumulative {@chance 20|20 percent} chance of finding a trap for each minute spent searching the bazaar. When a trap is found, have the character make a DC 15 Wisdom (Perception) check. If the check succeeds, the character spots the trap (a hidden, springloaded catapult) and its triggering mechanism (a tripwire or pressure plate) without triggering it. Once spotted, the trap is easily disarmed or avoided (no check required). A failed check indicates that the character accidentally set off the trap, which duplicates the Weapon Invention attack of a {@creature kobold inventor|VGM}.",
 						"After the characters find three traps, they spot a {@creature kobold} disappearing down a well-hidden staircase on the outskirts of the bazaar. If they follow the creature, it leads them to the cellars under the marketplace.",
 						{
 							"type": "entries",
@@ -12357,7 +12357,7 @@
 								"Old wooden benches and shelves along the walls of this chamber are covered with gears, chains, trap components, and cages filled with rats. Lit iron braziers hang by chains from the ceiling. Along the north wall, a stepped dais is set with a bulky contraption: an iron maiden of sorts, attached to a network of steaming pistons, tubes, and bubbling vats of blood. Five masked dwarves operate the contraption."
 							]
 						},
-						"When the characters arrive, five tomb dwarves are working inside the chamber. Each one has the statistics of a {@creature wight}, except that it wields a battleaxe and a light crossbow. If the adventurers leave this area, there's a 50 percent chance that 1d4 of the other tomb dwarves prowling the dungeon are present when they return.",
+						"When the characters arrive, five tomb dwarves are working inside the chamber. Each one has the statistics of a {@creature wight}, except that it wields a battleaxe and a light crossbow. If the adventurers leave this area, there's a {@chance 50|50 percent} chance that 1d4 of the other tomb dwarves prowling the dungeon are present when they return.",
 						"Any character who searches the forge uncovers enough gear to assemble two sets of thieves' tools, a set of artisan's tools, a set of {@item alchemist's supplies|phb}, a set of mason's tools, and a set of smith's tools. The caged rats are used to test traps.",
 						{
 							"type": "image",
@@ -15481,7 +15481,7 @@
 								"{@b DC 10:} Planar vortices are incredibly destructive. No one can expect to enter a vortex and survive.",
 								"{@b DC 15:} The chain is called a Mechanus chain. Such chains are crafted by modrons and used in conjunction with other machinery to keep the plane of Mechanus in working order.",
 								"{@b DC 20:} This Mechanus chain has been repurposed for the tomb. One chain would be enough to keep the tomb's traps and other mechanisms in working order.",
-								"{@b DC 25:} Destroying a Mechanus chain requires the casting of three wish spells."
+								"{@b DC 25:} Destroying a Mechanus chain requires the casting of three {@spell wish} spells."
 							]
 						},
 						{
@@ -16202,7 +16202,7 @@
 									]
 								},
 								"Acererak has disciples scattered throughout the multiverse, including many liches that seek to become as powerful as him. He keeps their phylacteries here.",
-								"Each balcony has 2d6+5 lich phylacteries on it. Any character who succeeds on a DC 15 Intelligence (Arcana) check recognizes the phylacteries for what they are. Destroying a phylactery is no simple task and often requires a special ritual, item, or weapon. The phylacteries here are all unique, and discovering the key to each one's destruction will require time and expensive research. There's a 10 percent chance that any one of these phylacteries would be destroyed by hurling it into the lava."
+								"Each balcony has 2d6+5 lich phylacteries on it. Any character who succeeds on a DC 15 Intelligence (Arcana) check recognizes the phylacteries for what they are. Destroying a phylactery is no simple task and often requires a special ritual, item, or weapon. The phylacteries here are all unique, and discovering the key to each one's destruction will require time and expensive research. There's a {@chance 10|10 percent} chance that any one of these phylacteries would be destroyed by hurling it into the lava."
 							]
 						},
 						{
@@ -16795,7 +16795,7 @@
 					"name": "Volo",
 					"id": "593",
 					"entries": [
-						"The characters run into {@creature Volothamp \"Volo\" Geddarm|toa|Volothamp Geddarm}, who is delivering a copy of his new book to one of the city's merchant princes. There is a 50 percent chance that Volo is drunk."
+						"The characters run into {@creature Volothamp \"Volo\" Geddarm|toa|Volothamp Geddarm}, who is delivering a copy of his new book to one of the city's merchant princes. There is a {@chance 50|50 percent} chance that Volo is drunk."
 					]
 				},
 				{
@@ -18175,8 +18175,8 @@
 									"type": "table",
 									"caption": "Wilderness River Chance - Low",
 									"colLabels": [
-										"col-2 text-center",
-										"col-10"
+										"d20",
+										"Result"
 									],
 									"colStyles": [
 										"col-2 text-center",
@@ -19502,7 +19502,7 @@
 							"name": "Tyrannosaurus",
 							"id": "5b9",
 							"entries": [
-								" The characters spot a {@creature tyrannosaurus rex} 300 yards away. There's a 50 percent chance that the hungry behemoth is fighting either a stegosaurus, a triceratops, a pair of giant constrictor snakes, a giant ape, or a mob of ghouls and zombies. None of these creatures will voluntarily team up with the party, but their presence might weaken the tyrannosaurus to the point where the characters have a chance of slaying it."
+								" The characters spot a {@creature tyrannosaurus rex} 300 yards away. There's a {@chance 50|50 percent} chance that the hungry behemoth is fighting either a stegosaurus, a triceratops, a pair of giant constrictor snakes, a giant ape, or a mob of ghouls and zombies. None of these creatures will voluntarily team up with the party, but their presence might weaken the tyrannosaurus to the point where the characters have a chance of slaying it."
 							]
 						},
 						"Characters can avoid an encounter with the tyrannosaurus if they keep their distance and succeed on a DC 15 group Dexterity (Stealth) check. If any character is trained in the Survival skill, all the characters' checks are made with advantage.",
@@ -19755,7 +19755,7 @@
 					"name": "Frost Giants",
 					"id": "5c8",
 					"entries": [
-						"The characters hear the sound of huge creatures stomping through the wilderness. If they follow the noise, they encounter a search party of three {@creature frost giant||frost giants} accompanied by 1d2 {@creature winter wolf||winter wolves}. For each such encounter, there is a 20 percent chance that this is Drufi's search party (see {@i \"Hvalspyd\"}).",
+						"The characters hear the sound of huge creatures stomping through the wilderness. If they follow the noise, they encounter a search party of three {@creature frost giant||frost giants} accompanied by 1d2 {@creature winter wolf||winter wolves}. For each such encounter, there is a {@chance 20|20 percent} chance that this is Drufi's search party (see {@i \"Hvalspyd\"}).",
 						"The frost giants are concerned chiefly with locating the {@item Ring of Winter|ToA}, and they might help characters who can provide useful information. They immediately attack characters who withhold information, or who threaten to reveal the giants' presence to the Flaming Fist. The frost giants carry no treasure with them while they hunt."
 					]
 				},
@@ -19859,7 +19859,7 @@
 					"id": "5d4",
 					"entries": [
 						"The party is ambushed by 1d2 {@creature kamadan|ToA|kamadans}. Any character with a passive Wisdom (Perception) score of 16 or higher gets a warning of the attack, but all others are surprised. Characters who prevail against the kamadans can search the area for their lair, finding it with a successful DC 15 Wisdom (Survival) check.",
-						"A kamadan lair has a 25 percent chance of containing 1d3 noncombatant young the size of house cats. With their snakes not yet grown out, they look like leopard cubs. Ifan Talro'a in Port Nyanzaru will pay 150 gp for a live kamadan cub, but a successful DC 15 Charisma (Persuasion) check talks him up to 300 gp.",
+						"A kamadan lair has a {@chance 25|25 percent} chance of containing 1d3 noncombatant young the size of house cats. With their snakes not yet grown out, they look like leopard cubs. Ifan Talro'a in Port Nyanzaru will pay 150 gp for a live kamadan cub, but a successful DC 15 Charisma (Persuasion) check talks him up to 300 gp.",
 						{
 							"type": "table",
 							"caption": "Kamadan Cubs",
@@ -20089,7 +20089,7 @@
 						},
 						"{@b 1.} Treasure lies at the foot of the statue, left there as tribute by some jungle creature. Roll once on the Treasure Drops table to determine what treasure is found. If the roll indicates no treasure, the characters find worthless pieces of bone jewelry instead.",
 						"{@b 2.} Goblin, grung, and su-monster skulls are piled around the statue's base.",
-						"{@b 3.} A {@spell glyph of warding} is inscribed on the statue. To spot the glyph, a character searching the statue must succeed on a DC 15 Intelligence (Investigation) check. If any creature touches the statue, the glyph erupts with magical energy in a 20-foot-radius sphere centered on the statue. Each creature in the area must succeed on a DC 14 Dexterity saving throw, taking 22 (5d8) thunder damage on a failed save, or half as much damage on a successful one. The thunderous noise has a 75 percent chance of attracting stirges or a troll lurking nearby (see \"Stirges\" and \"Troll\" below).",
+						"{@b 3.} A {@spell glyph of warding} is inscribed on the statue. To spot the glyph, a character searching the statue must succeed on a DC 15 Intelligence (Investigation) check. If any creature touches the statue, the glyph erupts with magical energy in a 20-foot-radius sphere centered on the statue. Each creature in the area must succeed on a DC 14 Dexterity saving throw, taking 22 (5d8) thunder damage on a failed save, or half as much damage on a successful one. The thunderous noise has a {@chance 75|75 percent} chance of attracting stirges or a troll lurking nearby (see \"Stirges\" and \"Troll\" below).",
 						"{@b 4.} The statue has grooves carved into its stomach that form a maze. Any character who studies the grooves and succeeds on a DC 10 Intelligence check sees a clear pathway through the labyrinth. That character is then bestowed with the power to cast the {@spell find the path} spell as an action, no components required, by tracing the same path with his or her finger. Once used, this ability goes away. Once the statue has granted this benefit, it can't do so again until the next dawn."
 					]
 				},
