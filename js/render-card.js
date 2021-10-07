@@ -281,8 +281,7 @@ class RendererCard {
 	*/
 
 	_renderLink (entry, textStack, meta, options) {
-		const href = this._renderLink_getHref(entry);
-		textStack[0] += `<a href="${href}" rel="noopener noreferrer">${this.render(entry.text)}</a>`;
+		this._recursiveRender(entry.text, textStack, meta);
 	}
 
 	/*
@@ -292,6 +291,10 @@ class RendererCard {
 
 	_renderAttack (entry, textStack, meta, options) {
 		// TODO?
+	}
+
+	_renderIngredient (entry, textStack, meta, options) {
+		// (Use base implementation)
 	}
 	// endregion
 
@@ -336,6 +339,18 @@ class RendererCard {
 
 	_renderDataTrapHazard (entry, textStack, meta, options) {
 		textStack[0] += `text | (Inline trap/hazard rendering within cards is not supported.)\n`
+	}
+
+	_renderDataObject (entry, textStack, meta, options) {
+		textStack[0] += `text | (Inline object rendering within cards is not supported.)\n`
+	}
+
+	_renderDataItem (entry, textStack, meta, options) {
+		textStack[0] += `text | (Inline item rendering within cards is not supported.)\n`
+	}
+
+	_renderDataLegendaryGroup (entry, textStack, meta, options) {
+		textStack[0] += `text | (Inline legendary group rendering within cards is not supported.)\n`
 	}
 	// endregion
 
@@ -389,12 +404,21 @@ class RendererCard {
 
 	// region primitives
 	_renderString (entry, textStack, meta, options) {
-		// Render strings as HTML
-		const renderer = Renderer.get().setAddHandlers(false);
-		if (textStack[0].last() === "\n" || !textStack[0].last()) textStack[0] += `text | `;
-		textStack[0] += renderer.render(entry);
-		renderer.setAddHandlers(true);
+		const tagSplit = Renderer.splitByTags(entry);
+		const len = tagSplit.length;
+		for (let i = 0; i < len; ++i) {
+			const s = tagSplit[i];
+			if (!s) continue;
+			if (s.startsWith("{@")) {
+				const [tag, text] = Renderer.splitFirstSpace(s.slice(1, -1));
+				this._renderString_renderTag(textStack, meta, options, tag, text);
+			} else {
+				if (textStack[0].last() === "\n" || !textStack[0].last()) textStack[0] += `text | `;
+				textStack[0] += s;
+			}
+		}
 	}
+
 	_renderPrimitive (entry, textStack, meta, options) {
 		if (textStack[0].last() === "\n" || !textStack[0].last()) textStack[0] += `text | `;
 		textStack[0] += `${entry}`
@@ -404,7 +428,7 @@ class RendererCard {
 RendererCard.utils = class {
 	static getPageText (it) {
 		const sourceSub = Renderer.utils.getSourceSubText(it);
-		const baseText = it.page > 0 ? `text | <b>Source:</b> <i>${Parser.sourceJsonToAbv(it.source)}${sourceSub}</i>, page ${it.page}` : "";
+		const baseText = Renderer.utils.isDisplayPage(it.page) ? `text | <b>Source:</b> <i>${Parser.sourceJsonToAbv(it.source)}${sourceSub}</i>, page ${it.page}` : "";
 		const addSourceText = this._getPageText_getAltSourceText(it, "additionalSources", "Additional information from");
 		const otherSourceText = this._getPageText_getAltSourceText(it, "otherSources", "Also found in");
 		const externalSourceText = this._getPageText_getAltSourceText(it, "externalSources", "External sources:");
@@ -417,7 +441,7 @@ RendererCard.utils = class {
 
 		return `${introText} ${it[prop].map(as => {
 			if (as.entry) return Renderer.get().render(as.entry);
-			else return `<i>${Parser.sourceJsonToAbv(as.source)}</i>>${as.page > 0 ? `, page ${as.page}` : ""}`;
+			else return `<i>${Parser.sourceJsonToAbv(as.source)}</i>>${Renderer.utils.isDisplayPage(as.page) ? `, page ${as.page}` : ""}`;
 		}).join("; ")}`
 	}
 };

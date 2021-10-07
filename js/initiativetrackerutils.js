@@ -28,7 +28,7 @@ class InitiativeTrackerUtil {
 		const state = {
 			name: opts.name,
 			color: opts.color,
-			turns: opts.turns ? Number(opts.turns) : null
+			turns: opts.turns ? Number(opts.turns) : null,
 		};
 
 		const tickDown = (fromClick) => {
@@ -59,7 +59,7 @@ class InitiativeTrackerUtil {
 				const styleStack = [
 					state.turns == null || state.turns > 3
 						? `background-image: linear-gradient(135deg, ${state.color} 41.67%, transparent 41.67%, transparent 50%, ${state.color} 50%, ${state.color} 91.67%, transparent 91.67%, transparent 100%); background-size: 8.49px 8.49px;`
-						: `background: ${state.color};`
+						: `background: ${state.color};`,
 				];
 				if (opts.width) styleStack.push(`width: ${opts.width}px;`);
 				return `<div class="init__cond_bar" style="${styleStack.join(" ")}"/>`
@@ -99,7 +99,7 @@ class InitiativeTrackerUtil {
 					if (evt.shiftKey) {
 						evt.shiftKey = false;
 						const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CONDITIONS_DISEASES]({name: cond.condName || cond.name, source: SRC_PHB});
-						Renderer.hover.pHandleLinkMouseOver(evt, ele, UrlUtil.PG_CONDITIONS_DISEASES, SRC_PHB, hash);
+						Renderer.hover.pHandleLinkMouseOver(evt, ele, {page: UrlUtil.PG_CONDITIONS_DISEASES, source: SRC_PHB, hash});
 					}
 				});
 				$cond.on("mousemove", (evt) => Renderer.hover.handleLinkMouseMove(evt, ele));
@@ -115,102 +115,42 @@ class InitiativeTrackerUtil {
 InitiativeTrackerUtil._WOUND_META = {
 	[-1]: {
 		text: "Unknown",
-		color: "#a5a5a5"
+		color: "#a5a5a5",
 	},
 	0: {
 		text: "Healthy",
-		color: MiscUtil.COLOR_HEALTHY
+		color: MiscUtil.COLOR_HEALTHY,
 	},
 	1: {
 		text: "Hurt",
-		color: MiscUtil.COLOR_HURT
+		color: MiscUtil.COLOR_HURT,
 	},
 	2: {
 		text: "Bloodied",
-		color: MiscUtil.COLOR_BLOODIED
+		color: MiscUtil.COLOR_BLOODIED,
 	},
 	3: {
 		text: "Defeated",
-		color: MiscUtil.COLOR_DEFEATED
-	}
+		color: MiscUtil.COLOR_DEFEATED,
+	},
 };
+
 InitiativeTrackerUtil.CONDITIONS = [
-	{
-		name: "Blinded",
-		color: "#434343"
-	},
-	{
-		name: "Charmed",
-		color: "#f01789"
-	},
-	{
-		name: "Concentrating",
-		color: "#009f7a",
-		condName: null
-	},
-	{
-		name: "Deafened",
-		color: "#c7d0d3"
-	},
+	...Object.keys(Parser.CONDITION_TO_COLOR).map(k => ({
+		name: k,
+		color: Parser.CONDITION_TO_COLOR[k],
+	})),
 	{
 		name: "Drunk",
-		color: "#ffcc00"
-	},
-	{
-		name: "Exhausted",
-		color: "#947a47",
-		condName: "Exhaustion"
-	},
-	{
-		name: "Frightened",
-		color: "#c9ca18"
-	},
-	{
-		name: "Grappled",
-		color: "#8784a0"
-	},
-	{
-		name: "Incapacitated",
-		color: "#3165a0"
-	},
-	{
-		name: "Invisible",
-		color: "#7ad2d6"
+		color: "#ffcc00",
+		condName: null,
 	},
 	{
 		name: "!!On Fire!!",
 		color: "#ff6800",
-		condName: null
+		condName: null,
 	},
-	{
-		name: "Paralyzed",
-		color: "#c00900"
-	},
-	{
-		name: "Petrified",
-		color: "#a0a0a0"
-	},
-	{
-		name: "Poisoned",
-		color: "#4dc200"
-	},
-	{
-		name: "Prone",
-		color: "#5e60a0"
-	},
-	{
-		name: "Restrained",
-		color: "#d98000"
-	},
-	{
-		name: "Stunned",
-		color: "#a23bcb"
-	},
-	{
-		name: "Unconscious",
-		color: "#1c2383"
-	}
-];
+].sort((a, b) => SortUtil.ascSortLower(a.name.replace(/\W+/g, ""), b.name.replace(/\W+/g, "")));
 
 class InitiativeTrackerPlayerUi {
 	constructor (view, playerName, serverToken) {
@@ -227,15 +167,15 @@ class InitiativeTrackerPlayerUi {
 				data => this._view.handleMessage(data),
 				{
 					label: this._playerName,
-					serialization: "json"
-				}
+					serialization: "json",
+				},
 			);
 		} catch (e) {
 			JqueryUtil.doToast({
 				content: `Failed to create client! Are you sure the token was valid? (See the log for more details.)`,
-				type: "danger"
+				type: "danger",
 			});
-			setTimeout(() => { throw e; });
+			throw e;
 		}
 	}
 }
@@ -294,7 +234,7 @@ class InitiativeTrackerPlayerMessageHandler {
 		(rowData.c || []).forEach(cond => {
 			const opts = {
 				...cond,
-				readonly: true
+				readonly: true,
 			};
 			if (!this._isCompact) {
 				opts.width = 24;

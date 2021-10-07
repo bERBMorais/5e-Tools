@@ -1,4 +1,14 @@
 {
+	"_meta": {
+		"dependencies": {
+			"monster": [
+				"MM"
+			]
+		},
+		"internalCopies": [
+			"monster"
+		]
+	},
 	"monster": [
 		{
 			"name": "Abjurer",
@@ -142,7 +152,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/9/abjurer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/abjurer.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -154,7 +168,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Alhoon",
@@ -220,7 +235,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -351,7 +367,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/14/alhoon.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/alhoon.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance",
 				"Turn Resistance"
@@ -375,12 +395,29 @@
 			],
 			"miscTags": [
 				"AOE"
-			]
+			],
+			"conditionInflict": [
+				"stunned"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"frightened",
+				"incapacitated",
+				"invisible",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Annis Hag",
 			"source": "VGM",
 			"page": 159,
+			"otherSources": [
+				{
+					"source": "MOT"
+				}
+			],
 			"size": "L",
 			"type": "fey",
 			"alignment": [
@@ -427,7 +464,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -703,7 +741,11 @@
 				"mountain",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/19/annis-hag.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/annis-hag.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -727,7 +769,22 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"frightened",
+				"paralyzed",
+				"poisoned",
+				"restrained",
+				"stunned",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Apprentice Wizard",
@@ -822,7 +879,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/21/apprentice-wizard.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/apprentice-wizard.mp3"
+			},
 			"languageTags": [
 				"C",
 				"X"
@@ -837,7 +898,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Archdruid",
@@ -849,6 +912,9 @@
 				},
 				{
 					"source": "GoS"
+				},
+				{
+					"source": "MOT"
 				}
 			],
 			"size": "M",
@@ -1005,7 +1071,11 @@
 				"mountain",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/23/archdruid.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/archdruid.mp3"
+			},
 			"languageTags": [
 				"DU",
 				"X"
@@ -1018,7 +1088,15 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"paralyzed",
+				"prone",
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Archer",
@@ -1030,6 +1108,9 @@
 				},
 				{
 					"source": "SLW"
+				},
+				{
+					"source": "MOT"
 				}
 			],
 			"size": "M",
@@ -1104,7 +1185,11 @@
 				"forest",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/24/archer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/archer.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1119,7 +1204,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Aurochs",
@@ -1174,7 +1261,11 @@
 				"grassland",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/27/aurochs.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/aurochs.mp3"
+			},
 			"traitTags": [
 				"Charge"
 			],
@@ -1183,7 +1274,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Babau",
@@ -1239,7 +1335,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -1298,7 +1395,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/32/babau.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/babau.mp3"
+			},
 			"senseTags": [
 				"SD"
 			],
@@ -1319,7 +1420,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Banderhobb",
@@ -1412,7 +1515,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/36/banderhobb.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/banderhobb.mp3"
+			},
 			"senseTags": [
 				"SD"
 			],
@@ -1429,7 +1536,14 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"grappled",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Bard",
@@ -1557,7 +1671,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/41/bard.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/bard.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -1571,7 +1689,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Barghest",
@@ -1608,7 +1728,7 @@
 			"speed": {
 				"walk": {
 					"number": 60,
-					"condition": " (30 ft. in goblin form)"
+					"condition": "(30 ft. in goblin form)"
 				}
 			},
 			"str": 19,
@@ -1638,7 +1758,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -1725,7 +1846,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/42/barghest.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/barghest.mp3"
+			},
 			"traitTags": [
 				"Keen Senses",
 				"Shapechanger"
@@ -1750,7 +1875,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Bheur Hag",
@@ -2038,7 +2165,7 @@
 				{
 					"name": "Graystaff Magic",
 					"entries": [
-						"The hag carries a graystaff, a length of gray wood that is a focus for her inner power. She can ride the staff as if it were a broom of flying. While holding the staff, she can cast additional spells with her Innate Spellcasting trait (these spells are marked with an asterisk). If the staff is lost or destroyed, the hag must craft another, which takes a year and a day. Only a bheur hag can use a graystaff."
+						"The hag carries a graystaff, a length of gray wood that is a focus for her inner power. She can ride the staff as if it were a {@item broom of flying}. While holding the staff, she can cast additional spells with her Innate Spellcasting trait (these spells are marked with an asterisk). If the staff is lost or destroyed, the hag must craft another, which takes a year and a day. Only a bheur hag can use a graystaff."
 					]
 				},
 				{
@@ -2066,7 +2193,7 @@
 				{
 					"name": "Slam",
 					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. Hit:10 ({@damage 2d8 + 1}) bludgeoning damage plus 3 ({@damage 1d6}) cold damage."
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}10 ({@damage 2d8 + 1}) bludgeoning damage plus 3 ({@damage 1d6}) cold damage."
 					]
 				},
 				{
@@ -2079,7 +2206,11 @@
 			"environment": [
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/50/bheur-hag.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/bheur-hag.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -2099,7 +2230,23 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"incapacitated"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"frightened",
+				"paralyzed",
+				"poisoned",
+				"restrained",
+				"stunned",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Black Guard Drake",
@@ -2178,7 +2325,11 @@
 				"swamp",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/254/guard-drake.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/guard-drake.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -2198,7 +2349,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Blackguard",
@@ -2213,6 +2366,9 @@
 				},
 				{
 					"source": "SDW"
+				},
+				{
+					"source": "MOT"
 				}
 			],
 			"size": "M",
@@ -2327,7 +2483,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/55/blackguard.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/blackguard.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2347,7 +2507,15 @@
 				"RCH",
 				"RNG",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Blue Guard Drake",
@@ -2418,7 +2586,11 @@
 				"desert",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/254/guard-drake.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/guard-drake.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -2435,7 +2607,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Bodak",
@@ -2494,7 +2668,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -2551,7 +2726,11 @@
 				"swamp",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/63/bodak.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/bodak.mp3"
+			},
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -2565,11 +2744,17 @@
 			"damageTags": [
 				"B",
 				"N",
+				"R",
 				"Y"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Boggle",
@@ -2663,7 +2848,11 @@
 				"hill",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/64/boggle.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/boggle.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -2675,7 +2864,195 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Booyahg Booyahg Booyahg",
+			"shortName": "Goblin",
+			"source": "VGM",
+			"page": 43,
+			"_copy": {
+				"name": "Mage",
+				"source": "MM",
+				"_trait": {
+					"name": "Goblin",
+					"source": "DMG"
+				},
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "(^| )mage",
+						"with": "$1goblin"
+					},
+					"trait": {
+						"mode": "appendArr",
+						"items": {
+							"name": "Wild Magic",
+							"entries": [
+								"Each time the goblin casts a spell (including cantrips), there is an accompanying surge of wild magic; roll on the {@table Wild Magic Surge|PHB} table in the {@book Player's Handbook|PHB} to determine the wild magic effect."
+							]
+						}
+					}
+				}
+			},
+			"hasFluff": true
+		},
+		{
+			"name": "Booyahg Caster",
+			"source": "VGM",
+			"page": 42,
+			"_copy": {
+				"name": "Goblin",
+				"source": "MM"
+			},
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"The goblin can cast a randomly determined {@filter 1st-level wizard spell|spells|level=1|class=wizard} once per day. Intelligence is its spellcasting ability (spell save {@dc 10}, {@hit 2} to hit with spell attacks)."
+					],
+					"ability": "int"
+				}
+			],
+			"spellcastingTags": [
+				"CW"
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Booyahg Slave of the Archfey",
+			"shortName": "Goblin",
+			"source": "VGM",
+			"page": 42,
+			"_copy": {
+				"name": "Warlock of the Archfey",
+				"source": "VGM",
+				"_trait": {
+					"name": "Goblin",
+					"source": "DMG"
+				},
+				"_mod": {
+					"*": [
+						{
+							"mode": "replaceTxt",
+							"replace": "The warlock",
+							"with": "The goblin"
+						},
+						{
+							"mode": "replaceTxt",
+							"replace": "the warlock",
+							"with": "the goblin"
+						}
+					]
+				}
+			},
+			"hasFluff": true
+		},
+		{
+			"name": "Booyahg Slave of the Fiend",
+			"shortName": "Goblin",
+			"source": "VGM",
+			"page": 42,
+			"_copy": {
+				"name": "Warlock of the Fiend",
+				"source": "VGM",
+				"_trait": {
+					"name": "Goblin",
+					"source": "DMG"
+				},
+				"_mod": {
+					"*": [
+						{
+							"mode": "replaceTxt",
+							"replace": "The warlock",
+							"with": "The goblin"
+						},
+						{
+							"mode": "replaceTxt",
+							"replace": "the warlock",
+							"with": "the goblin"
+						}
+					]
+				}
+			},
+			"hasFluff": true
+		},
+		{
+			"name": "Booyahg Slave of the Great Old One",
+			"shortName": "Goblin",
+			"source": "VGM",
+			"page": 42,
+			"_copy": {
+				"name": "Warlock of the Great Old One",
+				"source": "VGM",
+				"_trait": {
+					"name": "Goblin",
+					"source": "DMG"
+				},
+				"_mod": {
+					"*": [
+						{
+							"mode": "replaceTxt",
+							"replace": "The warlock",
+							"with": "The goblin"
+						},
+						{
+							"mode": "replaceTxt",
+							"replace": "the warlock",
+							"with": "the goblin"
+						}
+					]
+				}
+			},
+			"hasFluff": true
+		},
+		{
+			"name": "Booyahg Whip",
+			"source": "VGM",
+			"page": 42,
+			"_copy": {
+				"name": "Goblin",
+				"source": "MM",
+				"_mod": {
+					"trait": {
+						"mode": "appendArr",
+						"items": {
+							"name": "Khurgorbaeyag's Gift",
+							"entries": [
+								"Khurgorbaeyag saw fit to gift this goblin with powers that enable it to dominate others. The goblin has {@dice 1d3} other {@creature goblin||goblins} that slavishly obey its orders."
+							]
+						}
+					}
+				}
+			},
+			"hasFluff": true
+		},
+		{
+			"name": "Booyahg Wielder",
+			"source": "VGM",
+			"page": 42,
+			"_copy": {
+				"name": "Goblin",
+				"source": "MM",
+				"_mod": {
+					"trait": {
+						"mode": "appendArr",
+						"items": {
+							"name": "Special Equipment",
+							"entries": [
+								"The goblin found a magic item (a {@item necklace of fireballs}, a {@item circlet of blasting}, or the like) and learned how to use it."
+							]
+						}
+					}
+				}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Brontosaurus",
@@ -2736,19 +3113,32 @@
 				"grassland",
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/69/brontosaurus.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/brontosaurus.mp3"
+			},
 			"damageTags": [
 				"B"
 			],
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Catoblepas",
 			"source": "VGM",
 			"page": 129,
+			"otherSources": [
+				{
+					"source": "MOT"
+				}
+			],
 			"size": "L",
 			"type": "monstrosity",
 			"alignment": [
@@ -2811,7 +3201,11 @@
 			"environment": [
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/81/catoblepas.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/catoblepas.mp3"
+			},
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -2825,7 +3219,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"poisoned",
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Cave Fisher",
@@ -2910,7 +3310,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/83/cave-fisher.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/cave-fisher.mp3"
+			},
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -2925,7 +3329,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Champion",
@@ -3025,7 +3434,11 @@
 				"desert",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/86/champion.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/champion.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3041,7 +3454,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Chitine",
@@ -3130,7 +3545,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/89/chitine.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/chitine.mp3"
+			},
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity",
@@ -3153,7 +3572,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Choldrith",
@@ -3284,7 +3705,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/90/choldrith.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/choldrith.mp3"
+			},
 			"traitTags": [
 				"Fey Ancestry",
 				"Spider Climb",
@@ -3309,7 +3734,15 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"paralyzed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Cloud Giant Smiling One",
@@ -3466,7 +3899,11 @@
 			"environment": [
 				"mountain"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/93/cloud-giant-smiling-one.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/cloud-giant-smiling-one.mp3"
+			},
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -3488,7 +3925,9 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Conjurer",
@@ -3621,7 +4060,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/97/conjurer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/conjurer.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -3635,7 +4078,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Cow",
@@ -3688,7 +4132,11 @@
 			"environment": [
 				"grassland"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/103/cow.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/cow.mp3"
+			},
 			"traitTags": [
 				"Charge"
 			],
@@ -3697,7 +4145,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Cranium Rat",
@@ -3759,7 +4208,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/105/cranium-rat.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/cranium-rat.mp3"
+			},
 			"traitTags": [
 				"Illumination"
 			],
@@ -3775,7 +4228,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Darkling",
@@ -3852,7 +4307,11 @@
 				"swamp",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/113/darkling.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/darkling.mp3"
+			},
 			"traitTags": [
 				"Light Sensitivity"
 			],
@@ -3872,7 +4331,12 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"blinded"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Darkling Elder",
@@ -3955,7 +4419,11 @@
 				"swamp",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/112/darkling-elder.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/darkling-elder.mp3"
+			},
 			"senseTags": [
 				"B",
 				"SD"
@@ -3974,7 +4442,12 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"blinded"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Death Kiss",
@@ -4066,7 +4539,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/116/death-kiss.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/death-kiss.mp3"
+			},
 			"senseTags": [
 				"SD"
 			],
@@ -4085,7 +4562,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Deep Rothé",
@@ -4151,7 +4634,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/6/rothe.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/rothe.mp3"
+			},
 			"traitTags": [
 				"Charge"
 			],
@@ -4166,7 +4653,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Deep Scion",
@@ -4198,7 +4686,7 @@
 			"speed": {
 				"walk": {
 					"number": 30,
-					"condition": " (20 ft. and swim 40 ft. in hybrid form)"
+					"condition": "(20 ft. and swim 40 ft. in hybrid form)"
 				}
 			},
 			"str": 18,
@@ -4277,8 +4765,13 @@
 				"underwater",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/120/deep-scion.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/deep-scion.mp3"
+			},
 			"traitTags": [
+				"Amphibious",
 				"Shapechanger"
 			],
 			"senseTags": [
@@ -4298,7 +4791,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Deinonychus",
@@ -4374,7 +4872,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/122/deinonychus.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/deinonychus.mp3"
+			},
 			"traitTags": [
 				"Pounce"
 			],
@@ -4387,7 +4889,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Devourer",
@@ -4469,7 +4975,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/125/devourer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/devourer.mp3"
+			},
 			"senseTags": [
 				"SD"
 			],
@@ -4487,7 +4997,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dimetrodon",
@@ -4543,13 +5055,18 @@
 				"swamp",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/126/dimetrodon.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/dimetrodon.mp3"
+			},
 			"damageTags": [
 				"P"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Diviner",
@@ -4700,7 +5217,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/129/diviner.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/diviner.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -4712,7 +5233,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Dolphin",
@@ -4784,7 +5306,11 @@
 				"underwater",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/130/dolphin.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/dolphin.mp3"
+			},
 			"traitTags": [
 				"Charge",
 				"Hold Breath"
@@ -4797,7 +5323,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Draegloth",
@@ -4910,7 +5437,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/132/draegloth.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/draegloth.mp3"
+			},
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -4935,7 +5466,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Elder Brain",
@@ -5010,7 +5543,7 @@
 				{
 					"name": "Creature Sense",
 					"entries": [
-						"The elder brain is aware of the presence of creatures within 5 miles of it that have an Intelligence score of 4 or higher. It knows the distance and direction to each creature, as well as each one's intelligence score, but can't sense anything else about it. A creature protected by a mind blank spell. a nondetection spell, or similar magic can't be perceived in this manner."
+						"The elder brain is aware of the presence of creatures within 5 miles of it that have an Intelligence score of 4 or higher. It knows the distance and direction to each creature, as well as each one's intelligence score, but can't sense anything else about it. A creature protected by a {@spell mind blank} spell, a {@spell nondetection} spell, or similar magic can't be perceived in this manner."
 					]
 				},
 				{
@@ -5091,7 +5624,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/150/elder-brain.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/elder-brain.mp3"
+			},
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -5120,7 +5657,16 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"stunned"
+			],
+			"conditionInflictSpell": [
+				"charmed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Enchanter",
@@ -5254,7 +5800,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/155/enchanter.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/enchanter.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -5266,7 +5816,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Evoker",
@@ -5416,7 +5967,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/159/evoker.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/evoker.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -5428,7 +5983,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Fire Giant Dreadnought",
@@ -5522,7 +6078,11 @@
 				"underdark",
 				"mountain"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/163/fire-giant-dreadnought.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/fire-giant-dreadnought.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -5537,7 +6097,12 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Firenewt Warlock of Imix",
@@ -5663,6 +6228,7 @@
 				"hill",
 				"desert"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -5682,7 +6248,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Firenewt Warrior",
@@ -5769,7 +6337,11 @@
 				"hill",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/166/firenewt-warrior.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/firenewt-warrior.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -5786,7 +6358,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Flail Snail",
@@ -5847,9 +6421,30 @@
 					"name": "Antimagic Shell",
 					"entries": [
 						"The snail has advantage on saving throws against spells, and any creature making a spell attack against the snail has disadvantage on the attack roll. If the snail succeeds on its saving throw against a spell or a spell attack misses it, an additional effect might occur, as determined by rolling a {@dice d6}:",
-						"1\u20132: If the spell affects an area or has multiple targets, it fails and has no effect. If the spell targets only the snail, it has no effect on the snail and is reflected back at the caster, using the spell slot level, spell save DC, attack bonus, and spellcasting ability of the caster.",
-						"3\u20134: No additional effect.",
-						"5\u20136: The snail's shell converts some of the spell's energy into a burst of destructive force. Each creature within 30 feet of the snail must make a {@dc 15} Constitution saving throw, taking {@dice 1d6} force damage per level of the spell on a failed save, or half as much damage on a successful one."
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "1\u20132.",
+									"style": "italic",
+									"entry": "If the spell affects an area or has multiple targets, it fails and has no effect. If the spell targets only the snail, it has no effect on the snail and is reflected back at the caster, using the spell slot level, spell save DC, attack bonus, and spellcasting ability of the caster."
+								},
+								{
+									"type": "item",
+									"name": "3\u20134.",
+									"style": "italic",
+									"entry": "No additional effect."
+								},
+								{
+									"type": "item",
+									"name": "5\u20136.",
+									"style": "italic",
+									"entry": "The snail's shell converts some of the spell's energy into a burst of destructive force. Each creature within 30 feet of the snail must make a {@dc 15} Constitution saving throw, taking {@dice 1d6} force damage per level of the spell on a failed save, or half as much damage on a successful one."
+								}
+							]
+						}
 					]
 				},
 				{
@@ -5890,7 +6485,11 @@
 				"forest",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/167/flail-snail.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/flail-snail.mp3"
+			},
 			"senseTags": [
 				"D",
 				"T"
@@ -5905,7 +6504,12 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Flind",
@@ -6006,7 +6610,11 @@
 				"hill",
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/170/flind.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/flind.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -6026,7 +6634,12 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Froghemoth",
@@ -6126,7 +6739,11 @@
 				"underdark",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/176/froghemoth.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/froghemoth.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -6146,7 +6763,14 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"grappled",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Frost Giant Everlasting One",
@@ -6251,7 +6875,11 @@
 				"coastal",
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/177/frost-giant-everlasting-one.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/frost-giant-everlasting-one.mp3"
+			},
 			"traitTags": [
 				"Regeneration"
 			],
@@ -6272,7 +6900,9 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gauth",
@@ -6356,19 +6986,59 @@
 					"name": "Eye Rays",
 					"entries": [
 						"The gauth shoots three of the following magical eye rays at random (reroll duplicates), choosing one to three targets it can see within 120 feet of it:",
-						"1. Devour Magic Ray: The targeted creature must succeed on a {@dc 14} Dexterity saving throw or have one of its magic items lose all magical properties until the start of the gauth's next turn. If the object is a charged item, it also loses {@dice 1d4} charges. Determine the affected item randomly, ignoring single-use items such as potions and scrolls.",
-						"2. Enervation Ray: The targeted creature must make a {@dc 14} Constitution saving throw, taking 18 ({@damage 4d8}) necrotic damage on a failed save, or half as much damage on a successful one.",
-						"3. Pushing Ray: The targeted creature must succeed on a {@dc 14} Strength saving throw or be pushed up to 15 feet directly away from the gauth and have its speed halved until the start of the gauth's next turn.",
-						"4. Fire Ray: The targeted creature must succeed on a {@dc 14} Dexterity saving throw or take 22 ({@damage 4d10}) fire damage.",
-						"5. Paralyzing Ray: The targeted creature must succeed on a {@dc 14} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-						"6. Sleep Ray: The targeted creature must succeed on a {@dc 14} Wisdom saving throw or fall asleep and remain {@condition unconscious} for 1 minute. The target awakens if it takes damage or another creature takes an action to wake it. This ray has no effect on constructs and undead."
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "1. Devour Magic Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 14} Dexterity saving throw or have one of its magic items lose all magical properties until the start of the gauth's next turn. If the object is a charged item, it also loses {@dice 1d4} charges. Determine the affected item randomly, ignoring single-use items such as potions and scrolls."
+								},
+								{
+									"type": "item",
+									"name": "2. Enervation Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must make a {@dc 14} Constitution saving throw, taking 18 ({@damage 4d8}) necrotic damage on a failed save, or half as much damage on a successful one."
+								},
+								{
+									"type": "item",
+									"name": "3. Pushing Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 14} Strength saving throw or be pushed up to 15 feet directly away from the gauth and have its speed halved until the start of the gauth's next turn."
+								},
+								{
+									"type": "item",
+									"name": "4. Fire Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 14} Dexterity saving throw or take 22 ({@damage 4d10}) fire damage."
+								},
+								{
+									"type": "item",
+									"name": "5. Paralyzing Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 14} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+								},
+								{
+									"type": "item",
+									"name": "6. Sleep Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 14} Wisdom saving throw or fall asleep and remain {@condition unconscious} for 1 minute. The target awakens if it takes damage or another creature takes an action to wake it. This ray has no effect on constructs and undead."
+								}
+							]
+						}
 					]
 				}
 			],
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/182/gauth.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/gauth.mp3"
+			},
 			"traitTags": [
 				"Death Burst"
 			],
@@ -6387,7 +7057,14 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed",
+				"stunned",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gazer",
@@ -6466,11 +7143,39 @@
 					"name": "Eye Rays",
 					"entries": [
 						"The gazer shoots two of the following magical eye rays at random (reroll duplicates), choosing one or two targets it can see within 60 feet of it:",
-						"1. Dazing Ray: The targeted creature must succeed on a {@dc 12} Wisdom saving throw or be {@condition charmed} until the start of the gazer's next turn. While the target is {@condition charmed} in this way, its speed is halved, and it has disadvantage on attack rolls.",
-						"2. Fear Ray: The targeted creature must succeed on a {@dc 12} Wisdom saving throw or be {@condition frightened} until the start of the gazer's next turn.",
-						"3. Frost Ray: The targeted creature must succeed on a {@dc 12} Dexterity saving throw or take 10 ({@damage 3d6}) cold damage.",
-						"4. Telekinetic Ray: If the target is a creature that is Medium or smaller, it must succeed on a {@dc 12} Strength saving throw or be moved up to 30 feet directly away from the gazer.",
-						"If the target is an object weighing 10 pounds or less that isn't being worn or carried, the gazer moves it up to 30 feet in any direction. The gazer can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a container."
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "1. Dazing Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 12} Wisdom saving throw or be {@condition charmed} until the start of the gazer's next turn. While the target is {@condition charmed} in this way, its speed is halved, and it has disadvantage on attack rolls."
+								},
+								{
+									"type": "item",
+									"name": "2. Fear Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 12} Wisdom saving throw or be {@condition frightened} until the start of the gazer's next turn."
+								},
+								{
+									"type": "item",
+									"name": "3. Frost Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 12} Dexterity saving throw or take 10 ({@damage 3d6}) cold damage."
+								},
+								{
+									"type": "item",
+									"name": "4. Telekinetic Ray.",
+									"style": "italic",
+									"entries": [
+										"If the target is a creature that is Medium or smaller, it must succeed on a {@dc 12} Strength saving throw or be moved up to 30 feet directly away from the gazer.",
+										"If the target is an object weighing 10 pounds or less that isn't being worn or carried, the gazer moves it up to 30 feet in any direction. The gazer can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a container."
+									]
+								}
+							]
+						}
 					]
 				}
 			],
@@ -6494,7 +7199,11 @@
 				"underdark"
 			],
 			"familiar": true,
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/183/gazer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/gazer.mp3"
+			},
 			"traitTags": [
 				"Aggressive"
 			],
@@ -6507,7 +7216,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Giant Strider",
@@ -6577,7 +7292,11 @@
 				"mountain",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/212/giant-stider.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/giant-stider.mp3"
+			},
 			"traitTags": [
 				"Damage Absorption"
 			],
@@ -6588,7 +7307,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Girallon",
@@ -6639,6 +7360,12 @@
 					"entries": [
 						"As a bonus action, the girallon can move up to its speed toward a hostile creature that it can see."
 					]
+				},
+				{
+					"name": "Keen Smell",
+					"entries": [
+						"The girallon has advantage on Wisdom (Perception) checks that rely on smell."
+					]
 				}
 			],
 			"action": [
@@ -6664,9 +7391,14 @@
 			"environment": [
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/219/girallon.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/girallon.mp3"
+			},
 			"traitTags": [
-				"Aggressive"
+				"Aggressive",
+				"Keen Senses"
 			],
 			"senseTags": [
 				"D"
@@ -6681,7 +7413,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gnoll Flesh Gnawer",
@@ -6770,7 +7504,11 @@
 				"hill",
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/226/gnoll-flesh-gnawer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/gnoll-flesh-gnawer.mp3"
+			},
 			"traitTags": [
 				"Rampage"
 			],
@@ -6788,7 +7526,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gnoll Hunter",
@@ -6828,7 +7568,7 @@
 			"cha": 8,
 			"skill": {
 				"perception": "+3",
-				"stealth": "+3"
+				"stealth": "+4"
 			},
 			"senses": [
 				"darkvision 60 ft."
@@ -6878,7 +7618,11 @@
 				"hill",
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/227/gnoll-hunter.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/gnoll-hunter.mp3"
+			},
 			"traitTags": [
 				"Rampage"
 			],
@@ -6899,7 +7643,8 @@
 				"RNG",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Gnoll Witherling",
@@ -6989,7 +7734,11 @@
 				"hill",
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/229/gnoll-witherling.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/gnoll-witherling.mp3"
+			},
 			"traitTags": [
 				"Rampage"
 			],
@@ -7009,7 +7758,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Green Guard Drake",
@@ -7088,7 +7839,11 @@
 				"forest",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/254/guard-drake.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/guard-drake.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -7108,7 +7863,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Grung",
@@ -7201,19 +7958,59 @@
 					"name": "Grung Poison",
 					"entries": [
 						"Grung poison loses its potency 1 minute after being removed from a grung. A similar breakdown occurs if the grung dies. A creature {@condition poisoned} by a grung can suffer an additional effect that varies depending on the grung's skin color. This effect lasts until the creature is no longer {@condition poisoned} by the grung.",
-						"Green. The {@condition poisoned} creature can't move except to climb or make standing jumps. If the creature is flying, it can't take any actions or reactions unless it lands.",
-						"Blue. The {@condition poisoned} creature must shout loudly or otherwise make a loud noise at the start and end of its turn.",
-						"Purple. The {@condition poisoned} creature feels a desperate need to soak itself in liquid or mud. It can't take actions or move except to do so or to reach a body of liquid or mud.",
-						"Red. The {@condition poisoned} creature must use its action to eat if food is within reach.",
-						"Orange. The {@condition poisoned} creature is {@condition frightened} of its allies.",
-						"Gold. The {@condition poisoned} creature is {@condition charmed} and can speak Grung."
+						{
+							"type": "entries",
+							"name": "Green",
+							"entries": [
+								"The {@condition poisoned} creature can't move except to climb or make standing jumps. If the creature is flying, it can't take any actions or reactions unless it lands."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Blue",
+							"entries": [
+								"The {@condition poisoned} creature must shout loudly or otherwise make a loud noise at the start and end of its turn."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Purple",
+							"entries": [
+								"The {@condition poisoned} creature feels a desperate need to soak itself in liquid or mud. It can't take actions or move except to do so or to reach a body of liquid or mud."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Red",
+							"entries": [
+								"The {@condition poisoned} creature must use its action to eat if food is within reach."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Orange",
+							"entries": [
+								"The {@condition poisoned} creature is {@condition frightened} of its allies."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Gold",
+							"entries": [
+								"The {@condition poisoned} creature is {@condition charmed} and can speak Grung."
+							]
+						}
 					]
 				}
 			],
 			"environment": [
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/253/grung.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/grung.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -7228,7 +8025,14 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Grung Elite Warrior",
@@ -7333,19 +8137,59 @@
 					"name": "Grung Poison",
 					"entries": [
 						"Grung poison loses its potency 1 minute after being removed from a grung. A similar breakdown occurs if the grung dies. A creature {@condition poisoned} by a grung can suffer an additional effect that varies depending on the grung's skin color. This effect lasts until the creature is no longer {@condition poisoned} by the grung.",
-						"Green. The {@condition poisoned} creature can't move except to climb or make standing jumps. If the creature is flying, it can't take any actions or reactions unless it lands.",
-						"Blue. The {@condition poisoned} creature must shout loudly or otherwise make a loud noise at the start and end of its turn.",
-						"Purple. The {@condition poisoned} creature feels a desperate need to soak itself in liquid or mud. It can't take actions or move except to do so or to reach a body of liquid or mud.",
-						"Red. The {@condition poisoned} creature must use its action to eat if food is within reach.",
-						"Orange. The {@condition poisoned} creature is {@condition frightened} of its allies.",
-						"Gold. The {@condition poisoned} creature is {@condition charmed} and can speak Grung."
+						{
+							"type": "entries",
+							"name": "Green",
+							"entries": [
+								"The {@condition poisoned} creature can't move except to climb or make standing jumps. If the creature is flying, it can't take any actions or reactions unless it lands."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Blue",
+							"entries": [
+								"The {@condition poisoned} creature must shout loudly or otherwise make a loud noise at the start and end of its turn."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Purple",
+							"entries": [
+								"The {@condition poisoned} creature feels a desperate need to soak itself in liquid or mud. It can't take actions or move except to do so or to reach a body of liquid or mud."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Red",
+							"entries": [
+								"The {@condition poisoned} creature must use its action to eat if food is within reach."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Orange",
+							"entries": [
+								"The {@condition poisoned} creature is {@condition frightened} of its allies."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Gold",
+							"entries": [
+								"The {@condition poisoned} creature is {@condition charmed} and can speak Grung."
+							]
+						}
 					]
 				}
 			],
 			"environment": [
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/251/grung-elite-warrior.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/grung-elite-warrior.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -7361,7 +8205,15 @@
 				"RNG",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"frightened",
+				"poisoned",
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Grung Wildling",
@@ -7495,16 +8347,60 @@
 					"type": "variant",
 					"name": "Grung Poison",
 					"entries": [
-						"Grung poison loses its potency 1 minute after being removed from a grung. A similar breakdown occurs if the grung dies.",
-						"A creature {@condition poisoned} by a grung can suffer an additional effect that varies depending on the grung's skin color. This effect lasts until the creature is no longer {@condition poisoned} by the grung.",
-						"Red. The {@condition poisoned} creature must use its action to eat if food is within reach."
+						"Grung poison loses its potency 1 minute after being removed from a grung. A similar breakdown occurs if the grung dies. A creature {@condition poisoned} by a grung can suffer an additional effect that varies depending on the grung's skin color. This effect lasts until the creature is no longer {@condition poisoned} by the grung.",
+						{
+							"type": "entries",
+							"name": "Green",
+							"entries": [
+								"The {@condition poisoned} creature can't move except to climb or make standing jumps. If the creature is flying, it can't take any actions or reactions unless it lands."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Blue",
+							"entries": [
+								"The {@condition poisoned} creature must shout loudly or otherwise make a loud noise at the start and end of its turn."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Purple",
+							"entries": [
+								"The {@condition poisoned} creature feels a desperate need to soak itself in liquid or mud. It can't take actions or move except to do so or to reach a body of liquid or mud."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Red",
+							"entries": [
+								"The {@condition poisoned} creature must use its action to eat if food is within reach."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Orange",
+							"entries": [
+								"The {@condition poisoned} creature is {@condition frightened} of its allies."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Gold",
+							"entries": [
+								"The {@condition poisoned} creature is {@condition charmed} and can speak Grung."
+							]
+						}
 					]
 				}
 			],
 			"environment": [
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/252/grung-wildling.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/grung-wildling.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -7523,7 +8419,9 @@
 				"RNG",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hadrosaurus",
@@ -7578,13 +8476,18 @@
 				"grassland",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/258/hadrosaurus.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/hadrosaurus.mp3"
+			},
 			"damageTags": [
 				"B"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Hobgoblin Devastator",
@@ -7710,7 +8613,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/272/hobgoblin-devastator.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/hobgoblin-devastator.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -7726,7 +8633,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hobgoblin Iron Shadow",
@@ -7839,7 +8748,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/273/hobgoblin-iron-shadow.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/hobgoblin-iron-shadow.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -7861,7 +8774,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Illithilich",
@@ -7905,7 +8820,7 @@
 				"wis": "+9"
 			},
 			"skill": {
-				"arcana": "+18",
+				"arcana": "+19",
 				"history": "+12",
 				"insight": "+9",
 				"perception": "+9"
@@ -7927,7 +8842,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -8131,7 +9047,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/336/mind-flayer-lich-illithilich.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/mind-flayer-lich-illithilich.mp3"
+			},
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -8162,7 +9082,19 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"paralyzed",
+				"stunned"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"invisible",
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Illusionist",
@@ -8246,7 +9178,7 @@
 							"spells": [
 								"{@spell invisibility}*",
 								"{@spell mirror image}*",
-								"{@spell phantasmal force}"
+								"{@spell phantasmal force}*"
 							]
 						},
 						"3": {
@@ -8288,7 +9220,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/285/illusionist.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/illusionist.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -8300,7 +9236,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"frightened",
+				"invisible"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Ki-rin",
@@ -8534,7 +9476,11 @@
 				"desert",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/296/ki-rin.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/ki-rin.mp3"
+			},
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -8562,7 +9508,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kobold Dragonshield",
@@ -8667,7 +9615,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/298/kobold-dragonshield.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/kobold-dragonshield.mp3"
+			},
 			"traitTags": [
 				"Pack Tactics",
 				"Sunlight Sensitivity"
@@ -8689,7 +9641,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kobold Inventor",
@@ -8749,7 +9703,7 @@
 				{
 					"name": "Pack Tactics",
 					"entries": [
-						"The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 ft. of the creature and the ally isn't {@condition incapacitated}."
+						"The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally isn't {@condition incapacitated}."
 					]
 				}
 			],
@@ -8770,14 +9724,60 @@
 					"name": "Weapon Invention",
 					"entries": [
 						"The kobold uses one of the following options (roll a {@dice d8} or choose one); the kobold can use each one no more than once per day:",
-						"{@i 1. Acid}. The kobold hurls a flask of {@item Acid (vial)|phb|acid}. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}7 ({@damage 2d6}) acid damage.",
-						"{@i 2. Alchemist's fire}. The kobold throws a flask of {@item Alchemist's Fire (flask)|phb|alchemist's fire}. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}2 ({@damage 1d4}) fire damage at the start of each of the target's turns. A creature can end this damage by using its action to make a {@dc 10} Dexterity check to extinguish the flames.",
-						"{@i 3. Basket of Centipedes}. The kobold throws a small basket into a 5-foot-square space within 20 feet of it. A {@creature swarm of centipedes||swarm of insects (centipedes)} with 11 hit points emerges from the basket and rolls initiative. At the end of each of the swarm's turns, there's a {@chance 50} chance that the swarm disperses.",
-						"{@i 4. Green Slime Pot}. The kobold throws a clay pot full of green slime at the target, and it breaks open on impact. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}The target is covered in a patch of {@hazard green slime} (see chapter 5 of the Dungeon Master's Guide). Miss: A patch of green slime covers a randomly determined 5-foot-square section of wall or floor within 5 feet of the target.",
-						"{@i 5. Rot Grub Pot}. The kobold throws a clay pot into a 5-foot-square space within 20 feet of it, and it breaks open on impact. A {@creature Swarm of Rot Grubs|vgm|swarm of rot grubs} (see appendix A) emerges from the shattered pot and remains a hazard in that square.",
-						"{@i 6. Scorpion on a Stick}. The kobold makes a melee attack with a scorpion tied to the end of a 5-foot-long pole. {@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}1 piercing damage, and the target must make a {@dc 9} Constitution saving throw, taking 4 ({@damage 1d8}) poison damage on a failed save, or half as much damage on a successful one.",
-						"{@i 7. Skunk in a Cage}. The kobold releases a skunk into an unoccupied space within 5 feet of it. The skunk has a walking speed of 20 feet, AC 10, 1 hit point, and no effective attacks. It rolls initiative and, on its turn, uses its action to spray musk at a random creature within 5 feet of it. The target must make a {@dc 9} Constitution saving throw. On a failed save, the target retches and can't take actions for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. A creature that doesn't need to breathe or is immune to poison automatically succeeds on the saving throw. Once the skunk has sprayed its musk, it can't do so again until it finishes a short or long rest.",
-						"{@i 8. Wasp Nest in a Bag}. The kobold throws a small bag into a 5-foot-square space within 20 feet of it. A {@creature swarm of wasps||swarm of insects (wasps)} with 11 hit points emerges from the bag and rolls initiative. At the end of each of the swarm's turns, there's a {@chance 50} chance that the swarm disperses."
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "1. Acid.",
+									"style": "italic",
+									"entry": "The kobold hurls a flask of {@item Acid (vial)|phb|acid}. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}7 ({@damage 2d6}) acid damage."
+								},
+								{
+									"type": "item",
+									"name": "2. Alchemist's fire.",
+									"style": "italic",
+									"entry": "The kobold throws a flask of {@item Alchemist's Fire (flask)|phb|alchemist's fire}. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}2 ({@damage 1d4}) fire damage at the start of each of the target's turns. A creature can end this damage by using its action to make a {@dc 10} Dexterity check to extinguish the flames."
+								},
+								{
+									"type": "item",
+									"name": "3. Basket of Centipedes.",
+									"style": "italic",
+									"entry": "The kobold throws a small basket into a 5-foot-square space within 20 feet of it. A {@creature swarm of centipedes||swarm of insects (centipedes)} with 11 hit points emerges from the basket and rolls initiative. At the end of each of the swarm's turns, there's a {@chance 50} chance that the swarm disperses."
+								},
+								{
+									"type": "item",
+									"name": "4. Green Slime Pot.",
+									"style": "italic",
+									"entry": "The kobold throws a clay pot full of green slime at the target, and it breaks open on impact. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}The target is covered in a patch of {@hazard green slime} (see chapter 5 of the Dungeon Master's Guide). Miss: A patch of green slime covers a randomly determined 5-foot-square section of wall or floor within 5 feet of the target."
+								},
+								{
+									"type": "item",
+									"name": "5. Rot Grub Pot.",
+									"style": "italic",
+									"entry": "The kobold throws a clay pot into a 5-foot-square space within 20 feet of it, and it breaks open on impact. A {@creature Swarm of Rot Grubs|vgm|swarm of rot grubs} (see appendix A) emerges from the shattered pot and remains a hazard in that square."
+								},
+								{
+									"type": "item",
+									"name": "6. Scorpion on a Stick.",
+									"style": "italic",
+									"entry": "The kobold makes a melee attack with a scorpion tied to the end of a 5-foot-long pole. {@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}1 piercing damage, and the target must make a {@dc 9} Constitution saving throw, taking 4 ({@damage 1d8}) poison damage on a failed save, or half as much damage on a successful one."
+								},
+								{
+									"type": "item",
+									"name": "7. Skunk in a Cage.",
+									"style": "italic",
+									"entry": "The kobold releases a skunk into an unoccupied space within 5 feet of it. The skunk has a walking speed of 20 feet, AC 10, 1 hit point, and no effective attacks. It rolls initiative and, on its turn, uses its action to spray musk at a random creature within 5 feet of it. The target must make a {@dc 9} Constitution saving throw. On a failed save, the target retches and can't take actions for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. A creature that doesn't need to breathe or is immune to poison automatically succeeds on the saving throw. Once the skunk has sprayed its musk, it can't do so again until it finishes a short or long rest."
+								},
+								{
+									"type": "item",
+									"name": "8. Wasp Nest in a Bag.",
+									"style": "italic",
+									"entry": "The kobold throws a small bag into a 5-foot-square space within 20 feet of it. A {@creature swarm of wasps||swarm of insects (wasps)} with 11 hit points emerges from the bag and rolls initiative. At the end of each of the swarm's turns, there's a {@chance 50} chance that the swarm disperses."
+								}
+							]
+						}
 					]
 				}
 			],
@@ -8788,7 +9788,11 @@
 				"hill",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/299/kobold-inventor.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/kobold-inventor.mp3"
+			},
 			"traitTags": [
 				"Pack Tactics",
 				"Sunlight Sensitivity"
@@ -8812,7 +9816,9 @@
 				"RNG",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kobold Scale Sorcerer",
@@ -8938,7 +9944,11 @@
 				"hill",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/300/kobold-scale-sorcerer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/kobold-scale-sorcerer.mp3"
+			},
 			"traitTags": [
 				"Pack Tactics",
 				"Sunlight Sensitivity"
@@ -8960,7 +9970,12 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Korred",
@@ -9011,7 +10026,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -9086,7 +10102,11 @@
 			"environment": [
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/302/korred.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/korred.mp3"
+			},
 			"senseTags": [
 				"SD",
 				"T"
@@ -9110,7 +10130,16 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kraken Priest",
@@ -9171,7 +10200,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -9229,7 +10259,11 @@
 				"coastal",
 				"underwater"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/303/kraken-priest.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/kraken-priest.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -9241,7 +10275,16 @@
 			],
 			"spellcastingTags": [
 				"I"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"conditionInflictSpell": [
+				"prone",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Leucrotta",
@@ -9250,6 +10293,9 @@
 			"otherSources": [
 				{
 					"source": "TftYP"
+				},
+				{
+					"source": "MOT"
 				}
 			],
 			"size": "L",
@@ -9342,7 +10388,11 @@
 				"grassland",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/564/leucrotta.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/leucrotta.mp3"
+			},
 			"traitTags": [
 				"Keen Senses",
 				"Rampage"
@@ -9363,7 +10413,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Martial Arts Adept",
@@ -9463,7 +10515,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/324/martial-arts-adept.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/martial-arts-adept.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -9479,7 +10535,12 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"prone",
+				"stunned"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Master Thief",
@@ -9498,6 +10559,9 @@
 				{
 					"source": "IMR",
 					"page": 216
+				},
+				{
+					"source": "MOT"
 				}
 			],
 			"size": "M",
@@ -9598,7 +10662,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/325/master-thief.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/master-thief.mp3"
+			},
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -9617,7 +10685,8 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Maw Demon",
@@ -9700,7 +10769,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/327/maw-demon.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/maw-demon.mp3"
+			},
 			"traitTags": [
 				"Rampage"
 			],
@@ -9716,12 +10789,19 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Meenlock",
 			"source": "VGM",
 			"page": 170,
+			"otherSources": [
+				{
+					"source": "CM"
+				}
+			],
 			"size": "S",
 			"type": "fey",
 			"alignment": [
@@ -9798,7 +10878,11 @@
 				"swamp",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/329/meenlock.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/meenlock.mp3"
+			},
 			"traitTags": [
 				"Light Sensitivity"
 			],
@@ -9813,10 +10897,19 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"paralyzed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mind Flayer Psion",
+			"alias": [
+				"Illithid Psion"
+			],
 			"source": "VGM",
 			"page": 71,
 			"size": "M",
@@ -9956,6 +11049,7 @@
 			"environment": [
 				"underdark"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -9981,7 +11075,19 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"stunned"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"frightened",
+				"prone",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mindwitness",
@@ -10070,20 +11176,62 @@
 					"name": "Eye Rays",
 					"entries": [
 						"The mindwitness shoots three of the following magical eye rays at random (reroll duplicates), choosing one to three targets it can see within 120 feet of it:",
-						"1. Aversion Ray: The targeted creature must make a {@dc 13} Charisma saving throw. On a failed save, the target has disadvantage on attack rolls for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-						"2. Fear Ray: The targeted creature must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-						"3. Psychic Ray: The target must succeed on a {@dc 13} Intelligence saving throw or take 27 ({@damage 6d8}) psychic damage.",
-						"4. Slowing Ray: The targeted creature must make a {@dc 13} Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the creature can't take reactions, and it can take either an action or a bonus action on its turn but not both. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-						"5. Stunning Ray: The targeted creature must succeed on a {@dc 13} Constitution saving throw or be {@condition stunned} for 1 minute. The target can repeat the saving throw at the start of each of its turns, ending the effect on itself on a success.",
-						"6. Telekinetic Ray: If the target is a creature, it must make a {@dc 13} Strength saving throw. On a failed save, the mindwitness moves it up to 30 feet in any direction, and it is {@condition restrained} by the ray's telekinetic grip until the start of the mindwitness's next turn or until the mindwitness is {@condition incapacitated}.",
-						"If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is telekinetically moved up to 30 feet in any direction. The mindwitness can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or a container."
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "1. Aversion Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must make a {@dc 13} Charisma saving throw. On a failed save, the target has disadvantage on attack rolls for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+								},
+								{
+									"type": "item",
+									"name": "2. Fear Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+								},
+								{
+									"type": "item",
+									"name": "3. Psychic Ray.",
+									"style": "italic",
+									"entry": "The target must succeed on a {@dc 13} Intelligence saving throw or take 27 ({@damage 6d8}) psychic damage."
+								},
+								{
+									"type": "item",
+									"name": "4. Slowing Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must make a {@dc 13} Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the creature can't take reactions, and it can take either an action or a bonus action on its turn but not both. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+								},
+								{
+									"type": "item",
+									"name": "5. Stunning Ray.",
+									"style": "italic",
+									"entry": "The targeted creature must succeed on a {@dc 13} Constitution saving throw or be {@condition stunned} for 1 minute. The target can repeat the saving throw at the start of each of its turns, ending the effect on itself on a success."
+								},
+								{
+									"type": "item",
+									"name": "6. Telekinetic Ray.",
+									"style": "italic",
+									"entries": [
+										"If the target is a creature, it must make a {@dc 13} Strength saving throw. On a failed save, the mindwitness moves it up to 30 feet in any direction, and it is {@condition restrained} by the ray's telekinetic grip until the start of the mindwitness's next turn or until the mindwitness is {@condition incapacitated}.",
+										"If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is telekinetically moved up to 30 feet in any direction. The mindwitness can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or a container."
+									]
+								}
+							]
+						}
 					]
 				}
 			],
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/338/mindwitness.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/mindwitness.mp3"
+			},
 			"senseTags": [
 				"SD"
 			],
@@ -10102,7 +11250,15 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"grappled",
+				"restrained",
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Morkoth",
@@ -10159,7 +11315,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -10284,7 +11441,11 @@
 				"underwater",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/342/morkoth.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/morkoth.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -10310,7 +11471,18 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"grappled",
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mouth of Grolantor",
@@ -10390,7 +11562,11 @@
 				"grassland",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/343/mouth-of-grolantor.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/mouth-of-grolantor.mp3"
+			},
 			"languageTags": [
 				"GI"
 			],
@@ -10401,7 +11577,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Necromancer",
@@ -10552,7 +11730,11 @@
 				"desert",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/352/necromancer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/necromancer.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -10561,7 +11743,8 @@
 			],
 			"spellcastingTags": [
 				"CW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Neogi",
@@ -10613,7 +11796,7 @@
 				{
 					"name": "Mental Fortitude",
 					"entries": [
-						"The neogi has advantage on saving throws against being {@condition charmed} or {@condition frightened}. and magic can't put the neogi to sleep."
+						"The neogi has advantage on saving throws against being {@condition charmed} or {@condition frightened}, and magic can't put the neogi to sleep."
 					]
 				},
 				{
@@ -10653,7 +11836,11 @@
 				"underdark",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/356/neogi.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/neogi.mp3"
+			},
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -10675,7 +11862,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Neogi Hatchling",
@@ -10735,7 +11928,11 @@
 				"underdark",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/354/neogi-hatchling.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/neogi-hatchling.mp3"
+			},
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -10748,7 +11945,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Neogi Master",
@@ -10882,7 +12084,11 @@
 				"underdark",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/355/neogi-master.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/neogi-master.mp3"
+			},
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -10908,7 +12114,19 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"poisoned"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"frightened",
+				"invisible",
+				"paralyzed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Neothelid",
@@ -11007,7 +12225,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/566/neothelid.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/neothelid.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -11031,7 +12253,16 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Nilbog",
@@ -11141,7 +12372,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/359/nilbog.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/nilbog.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -11160,7 +12395,16 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"charmed"
+			],
+			"conditionInflictSpell": [
+				"incapacitated",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Orc Blade of Ilneval",
@@ -11263,7 +12507,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/368/orc-blade-of-ilneval.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/orc-blade-of-ilneval.mp3"
+			},
 			"traitTags": [
 				"Aggressive"
 			],
@@ -11285,7 +12533,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Orc Claw of Luthic",
@@ -11404,7 +12653,11 @@
 				"underdark",
 				"mountain"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/369/orc-claw-of-luthic.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/orc-claw-of-luthic.mp3"
+			},
 			"traitTags": [
 				"Aggressive"
 			],
@@ -11426,7 +12679,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Orc Hand of Yurtrus",
@@ -11536,7 +12791,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/371/orc-hand-of-yurtrus.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/orc-hand-of-yurtrus.mp3"
+			},
 			"traitTags": [
 				"Aggressive"
 			],
@@ -11556,7 +12815,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Orc Nurtured One of Yurtrus",
@@ -11639,7 +12899,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/372/orc-nurtured-one-of-yurtrus.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/orc-nurtured-one-of-yurtrus.mp3"
+			},
 			"traitTags": [
 				"Aggressive"
 			],
@@ -11657,7 +12921,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Orc Red Fang of Shargaas",
@@ -11768,7 +13037,11 @@
 				"hill",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/567/orc-red-fang.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/orc-red-fang.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -11787,7 +13060,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ox",
@@ -11846,7 +13121,11 @@
 			"environment": [
 				"grassland"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/553/ox.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/ox.mp3"
+			},
 			"traitTags": [
 				"Charge"
 			],
@@ -11855,7 +13134,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Quetzalcoatlus",
@@ -11926,7 +13206,11 @@
 				"hill",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/401/quetzalcoatlus.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/quetzalcoatlus.mp3"
+			},
 			"traitTags": [
 				"Flyby"
 			],
@@ -11936,7 +13220,8 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Quickling",
@@ -12010,7 +13295,11 @@
 			"environment": [
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/402/quickling.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/quickling.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -12028,7 +13317,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Red Guard Drake",
@@ -12100,7 +13391,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/254/guard-drake.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/guard-drake.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -12117,7 +13412,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Redcap",
@@ -12227,7 +13524,11 @@
 				"swamp",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/411/redcap.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/redcap.mp3"
+			},
 			"altArt": [
 				{
 					"name": "Madcap",
@@ -12250,7 +13551,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rothé",
@@ -12301,7 +13607,11 @@
 			"environment": [
 				"grassland"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/6/rothe.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/rothe.mp3"
+			},
 			"traitTags": [
 				"Charge"
 			],
@@ -12313,7 +13623,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sea Spawn",
@@ -12408,7 +13719,11 @@
 				"underwater",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/438/sea-spawn.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/sea-spawn.mp3"
+			},
 			"senseTags": [
 				"SD"
 			],
@@ -12428,7 +13743,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shadow Mastiff",
@@ -12471,7 +13792,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks while in dim light or darkness"
+					"note": "from nonmagical attacks while in dim light or darkness",
+					"cond": true
 				}
 			],
 			"cr": "2",
@@ -12538,7 +13860,11 @@
 				"swamp",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/441/shadow-mastiff.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/shadow-mastiff.mp3"
+			},
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -12550,7 +13876,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shoosuva",
@@ -12607,7 +13939,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -12658,7 +13991,11 @@
 				"hill",
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/445/shoosuva.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/shoosuva.mp3"
+			},
 			"traitTags": [
 				"Rampage"
 			],
@@ -12679,7 +14016,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed",
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Slithering Tracker",
@@ -12691,6 +14034,9 @@
 				},
 				{
 					"source": "IMR"
+				},
+				{
+					"source": "MOT"
 				}
 			],
 			"size": "M",
@@ -12731,7 +14077,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"vulnerable": [
@@ -12815,7 +14162,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/451/slithering-tracker.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/slithering-tracker.mp3"
+			},
 			"traitTags": [
 				"Ambusher",
 				"False Appearance",
@@ -12834,7 +14185,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Spawn of Kyuss",
@@ -12918,7 +14275,11 @@
 				"underdark",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/454/spawn-of-kyuss.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/spawn-of-kyuss.mp3"
+			},
 			"traitTags": [
 				"Regeneration"
 			],
@@ -12939,7 +14300,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Stegosaurus",
@@ -12991,14 +14354,20 @@
 				"grassland",
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/464/stegosaurus.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/stegosaurus.mp3"
+			},
 			"damageTags": [
 				"P"
 			],
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Stench Kow",
@@ -13057,7 +14426,11 @@
 					]
 				}
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/465/stench-cow.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/stench-cow.mp3"
+			},
 			"traitTags": [
 				"Charge"
 			],
@@ -13069,7 +14442,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Stone Giant Dreamwalker",
@@ -13168,7 +14545,11 @@
 				"hill",
 				"coastal"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/467/stone-giant-dreamwalker.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/stone-giant-dreamwalker.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -13186,7 +14567,14 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"petrified",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Storm Giant Quintessent",
@@ -13252,7 +14640,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -13323,7 +14712,11 @@
 				"coastal",
 				"arctic"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/570/storm-giant-quintessent.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/storm-giant-quintessent.mp3"
+			},
 			"traitTags": [
 				"Amphibious"
 			],
@@ -13345,7 +14738,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Swarm of Cranium Rats",
@@ -13451,7 +14846,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/474/swarm-of-cranium-rats.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/swarm-of-cranium-rats.mp3"
+			},
 			"traitTags": [
 				"Illumination"
 			],
@@ -13471,7 +14870,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Swarm of Rot Grubs",
@@ -13545,16 +14946,22 @@
 				"underdark",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/480/swarm-of-rot-grubs.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/swarm-of-rot-grubs.mp3"
+			},
 			"senseTags": [
 				"B"
 			],
 			"damageTags": [
-				"F"
+				"F",
+				"P"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Swashbuckler",
@@ -13660,7 +15067,11 @@
 				"coastal",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/481/swashbuckler.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/swashbuckler.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -13675,7 +15086,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tanarukk",
@@ -13779,7 +15192,11 @@
 				"mountain",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/483/tanarukk.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/tanarukk.mp3"
+			},
 			"traitTags": [
 				"Aggressive",
 				"Magic Resistance"
@@ -13801,7 +15218,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Thorny",
@@ -13863,6 +15282,12 @@
 					"entries": [
 						"The thorny regains 5 hit points at the start of its turn. If it takes cold, fire, or necrotic damage, this trait doesn't function at the start of the thorny's next turn. The thorny dies only if it starts its turn with 0 hit points and doesn't regenerate."
 					]
+				},
+				{
+					"name": "Thorny Body",
+					"entries": [
+						"At the start of its turn, the thorny deals 2 ({@damage 1d4}) piercing damage to any creature grappling it."
+					]
 				}
 			],
 			"action": [
@@ -13877,7 +15302,11 @@
 				"forest",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/485/thorny.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/thorny.mp3"
+			},
 			"traitTags": [
 				"Regeneration"
 			],
@@ -13889,7 +15318,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tlincalli",
@@ -13964,7 +15395,11 @@
 			"environment": [
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/572/tlincalli.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/tlincalli.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -13982,7 +15417,15 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"paralyzed",
+				"poisoned",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Transmuter",
@@ -14120,7 +15563,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/490/transmuter.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/transmuter.mp3"
+			},
 			"languageTags": [
 				"X"
 			],
@@ -14132,7 +15579,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Trapper",
@@ -14204,7 +15652,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/491/trapper.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/trapper.mp3"
+			},
 			"traitTags": [
 				"False Appearance",
 				"Spider Climb"
@@ -14216,7 +15668,14 @@
 			"damageTags": [
 				"A",
 				"B"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"grappled",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ulitharid",
@@ -14317,7 +15776,7 @@
 				{
 					"name": "Psionic Hub",
 					"entries": [
-						"If an elder brain establishes a psychic link with the ulitharid, the elder brain can form a psychic link with any other creature the ulitharid can detect using its Creature Sense. Any such link ends if the creature falls outside the telepathy ranges of both the ulitharid and the elder brain. The ulitharid can maintain its psychic link with the elder brain regardless of the distance between them, so long as they are both on the same plane of existence. lithe ulitharid is more than 5 miles away from the elder brain, it can end the psychic link at any time (no action required)."
+						"If an elder brain establishes a psychic link with the ulitharid, the elder brain can form a psychic link with any other creature the ulitharid can detect using its Creature Sense. Any such link ends if the creature falls outside the telepathy ranges of both the ulitharid and the elder brain. The ulitharid can maintain its psychic link with the elder brain regardless of the distance between them, so long as they are both on the same plane of existence. If the ulitharid is more than 5 miles away from the elder brain, it can end the psychic link at any time (no action required)."
 					]
 				}
 			],
@@ -14344,7 +15803,11 @@
 			"environment": [
 				"underdark"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/500/ulitharid.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/ulitharid.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -14371,7 +15834,21 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"stunned"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"frightened",
+				"restrained",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Vargouille",
@@ -14446,7 +15923,11 @@
 				"swamp",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/508/vargouille.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/vargouille.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -14461,7 +15942,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Vegepygmy",
@@ -14546,7 +16033,11 @@
 				"forest",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/510/vegepygmy.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/vegepygmy.mp3"
+			},
 			"traitTags": [
 				"Regeneration"
 			],
@@ -14564,7 +16055,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Vegepygmy Chief",
@@ -14661,7 +16154,11 @@
 				"forest",
 				"swamp"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/509/vegepygmy-chief.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/vegepygmy-chief.mp3"
+			},
 			"traitTags": [
 				"Regeneration"
 			],
@@ -14684,7 +16181,12 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Velociraptor",
@@ -14759,7 +16261,11 @@
 				"grassland",
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/511/velociraptor.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/velociraptor.mp3"
+			},
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -14772,7 +16278,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "War Priest",
@@ -14787,6 +16294,9 @@
 				},
 				{
 					"source": "SDW"
+				},
+				{
+					"source": "MOT"
 				}
 			],
 			"size": "M",
@@ -14925,7 +16435,11 @@
 				"desert",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/518/war-priest.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/war-priest.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -14940,7 +16454,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Warlock of the Archfey",
@@ -15075,7 +16590,11 @@
 				"swamp",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/520/warlock-of-the-archfey.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/warlock-of-the-archfey.mp3"
+			},
 			"languageTags": [
 				"S",
 				"X"
@@ -15091,7 +16610,14 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"frightened",
+				"paralyzed",
+				"unconscious"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Warlock of the Fiend",
@@ -15152,7 +16678,8 @@
 					"resist": [
 						"slashing"
 					],
-					"note": "from nonmagical attacks not made with silvered weapons"
+					"note": "from nonmagical attacks not made with silvered weapons",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -15240,7 +16767,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/521/warlock-of-the-fiend.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/warlock-of-the-fiend.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -15259,7 +16790,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Warlock of the Great Old One",
@@ -15403,7 +16936,11 @@
 				"underdark",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/522/warlock-of-the-great-old-one.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/warlock-of-the-great-old-one.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -15423,7 +16960,12 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Warlord",
@@ -15538,7 +17080,11 @@
 			"environment": [
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/523/warlord.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/warlord.mp3"
+			},
 			"actionTags": [
 				"Multiattack"
 			],
@@ -15553,7 +17099,11 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "White Guard Drake",
@@ -15625,7 +17175,11 @@
 				"arctic",
 				"urban"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/254/guard-drake.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/guard-drake.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -15642,7 +17196,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Wood Woad",
@@ -15752,7 +17308,11 @@
 			"environment": [
 				"forest"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/540/wood-woad.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/wood-woad.mp3"
+			},
 			"traitTags": [
 				"Regeneration"
 			],
@@ -15770,7 +17330,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Xvart",
@@ -15857,7 +17419,11 @@
 				"underdark",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/546/xvart.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/xvart.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -15872,7 +17438,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Xvart Speaker",
@@ -15959,7 +17527,11 @@
 				"underdark",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/544/xvart-speaker.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/xvart-speaker.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -15977,7 +17549,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Xvart Warlock of Raxivort",
@@ -16016,7 +17590,7 @@
 			"wis": 11,
 			"cha": 12,
 			"skill": {
-				"stealth": "+3"
+				"stealth": "+4"
 			},
 			"senses": [
 				"darkvision 30 ft."
@@ -16099,7 +17673,11 @@
 				"underdark",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/545/xvart-warlock-of-raxivort.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/xvart-warlock-of-raxivort.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -16115,7 +17693,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"invisible"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Yeth Hound",
@@ -16157,14 +17739,15 @@
 				"darkvision 60 ft."
 			],
 			"passive": 11,
-			"resist": [
+			"immune": [
 				{
-					"resist": [
+					"immune": [
 						"bludgeoning",
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks not made with silvered weapons"
+					"note": "from nonmagical attacks not made with silvered weapons",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -16217,7 +17800,11 @@
 				"forest",
 				"hill"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/547/yeth-hound.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yeth-hound.mp3"
+			},
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -16236,7 +17823,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Anathema",
@@ -16282,7 +17874,8 @@
 				"stealth": "+5"
 			},
 			"senses": [
-				"darkvision 60 ft."
+				"darkvision 60 ft.",
+				"blindsight 30 ft."
 			],
 			"passive": 17,
 			"resist": [
@@ -16407,13 +18000,21 @@
 				"forest",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/575/yuan-ti-anathema.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yuan-ti-anathema.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance",
 				"Shapechanger"
 			],
 			"senseTags": [
+				"B",
 				"D"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"AB",
@@ -16434,7 +18035,22 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"grappled",
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"frightened",
+				"restrained",
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Broodguard",
@@ -16556,7 +18172,11 @@
 				"forest",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/420/yuan-ti-broodguard.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yuan-ti-broodguard.mp3"
+			},
 			"traitTags": [
 				"Reckless"
 			],
@@ -16577,7 +18197,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Malison (Type 4)",
@@ -16720,13 +18342,20 @@
 				"swamp",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/421/yuan-ti-malison.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yuan-ti-malison.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance",
 				"Shapechanger"
 			],
 			"senseTags": [
 				"D"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"AB",
@@ -16746,7 +18375,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Malison (Type 5)",
@@ -16889,13 +18520,20 @@
 				"swamp",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/421/yuan-ti-malison.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yuan-ti-malison.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance",
 				"Shapechanger"
 			],
 			"senseTags": [
 				"D"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"AB",
@@ -16915,7 +18553,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Mind Whisperer",
@@ -17094,13 +18734,20 @@
 				"forest",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/422/yuan-ti-mind-whisperer.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yuan-ti-mind-whisperer.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance",
 				"Shapechanger"
 			],
 			"senseTags": [
 				"SD"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"AB",
@@ -17120,7 +18767,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Nightmare Speaker",
@@ -17304,13 +18953,20 @@
 				"forest",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/423/yuan-ti-nightmare-speaker.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yuan-ti-nightmare-speaker.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance",
 				"Shapechanger"
 			],
 			"senseTags": [
 				"SD"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"AB",
@@ -17331,7 +18987,20 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"grappled",
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"frightened",
+				"paralyzed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Pit Master",
@@ -17371,12 +19040,12 @@
 			"wis": 12,
 			"cha": 16,
 			"save": {
-				"wis": "+3",
-				"cha": "+5"
+				"wis": "+4",
+				"cha": "+6"
 			},
 			"skill": {
-				"deception": "+5",
-				"stealth": "+4"
+				"deception": "+6",
+				"stealth": "+5"
 			},
 			"senses": [
 				"darkvision 120 ft. (penetrates magical darkness)"
@@ -17504,13 +19173,20 @@
 				"forest",
 				"desert"
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/424/yuan-ti-pit-master.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/yuan-ti-pit-master.mp3"
+			},
 			"traitTags": [
 				"Magic Resistance",
 				"Shapechanger"
 			],
 			"senseTags": [
 				"SD"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"AB",
@@ -17528,7 +19204,17 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"unconscious"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"invisible",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

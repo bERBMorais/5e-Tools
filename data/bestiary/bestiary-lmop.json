@@ -77,6 +77,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Undead Fortitude"
 			],
@@ -92,11 +93,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Evil Mage",
-			"isNpc": true,
 			"source": "LMoP",
 			"page": 57,
 			"otherSources": [
@@ -187,6 +188,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"altArt": [
 				{
 					"name": "Evil Mage",
@@ -207,7 +209,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Gundren Rockseeker",
@@ -216,8 +219,13 @@
 			"page": 41,
 			"_copy": {
 				"name": "Commoner",
-				"source": "MM"
-			}
+				"source": "MM",
+				"_trait": {
+					"name": "Mountain Dwarf",
+					"source": "PHB"
+				}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Mormesk the Wraith",
@@ -263,7 +271,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks that aren't silvered"
+					"note": "from nonmagical attacks that aren't silvered",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -306,6 +315,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement",
 				"Sunlight Sensitivity"
@@ -322,7 +332,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Nezznar the Black Spider",
@@ -455,6 +466,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -476,7 +488,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"invisible"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Nundro Rockseeker",
@@ -485,8 +502,13 @@
 			"page": 50,
 			"_copy": {
 				"name": "Commoner",
-				"source": "MM"
-			}
+				"source": "MM",
+				"_trait": {
+					"name": "Mountain Dwarf",
+					"source": "PHB"
+				}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Redbrand Ruffian",
@@ -546,6 +568,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -557,7 +580,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sildar Hallwinter",
@@ -636,6 +660,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack",
 				"Parry"
@@ -651,7 +676,8 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Venomfang",

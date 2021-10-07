@@ -88,6 +88,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Spider Climb",
 				"Web Sense",
@@ -104,6 +105,10 @@
 				"MW",
 				"RCH",
 				"RW"
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
 			]
 		}
 	]

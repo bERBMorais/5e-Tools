@@ -5,14 +5,14 @@ const MONSTER_FEATURES_JSON_URL = "data/monsterfeatures.json";
 let msbcr;
 let monsterFeatures;
 
-window.onload = async function load () {
+window.addEventListener("load", async () => {
 	ExcludeUtil.pInitialise(); // don't await, as this is only used for search
 	msbcr = await DataUtil.loadJSON(MONSTER_STATS_BY_CR_JSON_URL);
 	const mfData = await DataUtil.loadJSON(MONSTER_FEATURES_JSON_URL);
 	addMonsterFeatures(mfData);
 
 	window.dispatchEvent(new Event("toolsLoaded"));
-};
+});
 
 function addMonsterFeatures (mfData) {
 	monsterFeatures = mfData.monsterfeatures;
@@ -281,7 +281,7 @@ function calculateCr () {
 				const $iptNum = $cb.siblings("input[type=number]");
 				return `${$cb.attr("id")}:${$iptNum.length ? $iptNum.val() : true}`
 			} else return false;
-		}).get().filter(Boolean).join(",")
+		}).get().filter(Boolean).join(","),
 	];
 	window.location = `#${hashParts.join(",")}`;
 
@@ -300,8 +300,8 @@ function calculateCr () {
 
 function calculateHd () {
 	const avgHp = $("#hdval").html().split("d")[1] / 2 + 0.5;
-	const conMod = Math.floor(($("#con").val() - 10) / 2);
-	let curHd = Math.floor(parseInt($("#hp").val()) / (avgHp + conMod));
+	const conMod = Math.round(($("#con").val() - 10) / 2);
+	let curHd = Math.round(parseInt($("#hp").val()) / (avgHp + conMod));
 	if (!curHd) curHd = 1;
 	return curHd;
 }
@@ -309,7 +309,7 @@ function calculateHd () {
 function calculateHp () {
 	const avgHp = $("#hdval").html().split("d")[1] / 2 + 0.5;
 	const conMod = Math.floor(($("#con").val() - 10) / 2);
-	return Math.round((avgHp + conMod) * $("#hd").val());
+	return Math.floor((avgHp + conMod) * $("#hd").val());
 }
 
 function fractionStrToDecimal (str) {

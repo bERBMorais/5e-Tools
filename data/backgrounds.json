@@ -28,7 +28,7 @@
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "A {@item holy symbol|phb} (a gift to you when you entered the priesthood), a prayer book or prayer wheel, 5 sticks of incense, vestments, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
+							"entry": "A {@item holy symbol|phb} (a gift to you when you entered the priesthood), a prayer {@item book|phb} or prayer wheel, 5 sticks of incense, vestments, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
 				},
@@ -217,7 +217,43 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "holy symbol|phb",
+							"displayName": "holy symbol (a gift to you when you entered the priesthood)"
+						},
+						{
+							"special": "sticks of incense",
+							"quantity": 5
+						},
+						{
+							"special": "vestments"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"item": "book|phb",
+							"displayName": "prayer book"
+						}
+					],
+					"b": [
+						{
+							"special": "prayer wheel"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Anthropologist",
@@ -473,7 +509,28 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "leather-bound diary"
+						},
+						"ink (1-ounce bottle)|phb",
+						"ink pen|phb",
+						"traveler's clothes|phb",
+						{
+							"item": "trinket|phb",
+							"displayName": "trinket of special significance"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Archaeologist",
@@ -753,7 +810,358 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "map or scroll case|phb",
+							"displayName": "wooden case containing a map to a ruin or dungeon"
+						},
+						"bullseye lantern|phb",
+						"miner's pick|phb",
+						"traveler's clothes|phb",
+						"shovel|phb",
+						"two-person tent|phb",
+						{
+							"item": "trinket|phb",
+							"displayName": "trinket recovered from a dig site"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 2500
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Athlete",
+			"source": "MOT",
+			"page": 31,
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Skill Proficiencies",
+							"entry": "{@skill Acrobatics}, {@skill Athletics}"
+						},
+						{
+							"type": "item",
+							"name": "Languages",
+							"entry": "One of your choice"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies",
+							"entry": "{@filter Vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment",
+							"entry": "A bronze discus or leather ball, a lucky charm or past trophy, a set of {@item traveler's clothes|phb}, and a {@item pouch|phb} containing 10 gp"
+						}
+					]
+				},
+				{
+					"name": "Feature: Echoes of Victory",
+					"type": "entries",
+					"entries": [
+						"You have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted your past athletic victories. When visiting any settlement within 100 miles of where you grew up, there is a 50 percent chance you can find someone there who admires you and is willing to provide information or temporary shelter.",
+						"Between adventures, you might compete in athletic events sufficient enough to maintain a comfortable lifestyle, as per the \"{@book Practicing a Profession|PHB|8|Practicing a Profession}\" downtime activity in chapter 8 of the {@book Player's Handbook|PHB}."
+					],
+					"data": {
+						"isFeature": true
+					}
+				},
+				{
+					"type": "entries",
+					"name": "Favored Event",
+					"entries": [
+						"While many athletes practice various games and events, most excel at a single form of competition. Roll or choose from the options in the Favored Event table to determine the athletic event in which you excel.",
+						{
+							"type": "table",
+							"caption": "Favored Event",
+							"colLabels": [
+								"d8",
+								"Favored Event"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"Marathon"
+								],
+								[
+									"2",
+									"Long-distance running"
+								],
+								[
+									"3",
+									"Wrestling"
+								],
+								[
+									"4",
+									"Boxing"
+								],
+								[
+									"5",
+									"Chariot or horse race"
+								],
+								[
+									"6",
+									"Pankration (mixed unarmed combat)"
+								],
+								[
+									"7",
+									"Hoplite race (racing in full armor with a unit)"
+								],
+								[
+									"8",
+									"Pentathlon (running, long jump, discus, javelin, wrestling)"
+								]
+							]
+						}
+					]
+				},
+				{
+					"name": "Suggested Characteristics",
+					"type": "entries",
+					"entries": [
+						"Competition can forge strong bonds between teammates and rivals or ignite bitter feuds that burn outside the arena. Athletes often apply lessons from their training to their lives in general.",
+						{
+							"type": "table",
+							"caption": "Athlete Personality Traits",
+							"colLabels": [
+								"d8",
+								"Personality Trait"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I feel most at peace during physical exertion, be it exercise or battle."
+								],
+								[
+									"2",
+									"I don't like to sit idle."
+								],
+								[
+									"3",
+									"I have a daily exercise routine that I refuse to break."
+								],
+								[
+									"4",
+									"Obstacles exist to be overcome."
+								],
+								[
+									"5",
+									"When I see others struggling, I offer to help."
+								],
+								[
+									"6",
+									"I love to trade banter and gibes."
+								],
+								[
+									"7",
+									"Anything worth doing is worth doing best."
+								],
+								[
+									"8",
+									"I get irritated if people praise someone else and not me."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"caption": "Athlete Ideals",
+							"colLabels": [
+								"d6",
+								"Ideal"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"Competition. I strive to test myself in all things. (Chaotic)"
+								],
+								[
+									"2",
+									"Triumph. The best part of winning is seeing my rivals brought low. (Evil)"
+								],
+								[
+									"3",
+									"Camaraderie. The strongest bonds are forged through struggle. (Good)"
+								],
+								[
+									"4",
+									"People. I strive to inspire my spectators. (Neutral)"
+								],
+								[
+									"5",
+									"Tradition. Every game has rules, and the playing field must be level. (Lawful)"
+								],
+								[
+									"6",
+									"Growth. Lessons hide in victory and defeat. (Any)"
+								]
+							]
+						},
+						{
+							"type": "table",
+							"caption": "Athlete Bonds",
+							"colLabels": [
+								"d6",
+								"Bond"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"My teammates are my family."
+								],
+								[
+									"2",
+									"I will overcome a rival and prove myself their better."
+								],
+								[
+									"3",
+									"My mistake got someone hurt. I'll never make that mistake again."
+								],
+								[
+									"4",
+									"I will be the best for the honor and glory of my home."
+								],
+								[
+									"5",
+									"The person who trained me is the most important person in my world."
+								],
+								[
+									"6",
+									"I strive to live up to a specific hero's example."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"caption": "Athlete Flaws",
+							"colLabels": [
+								"d6",
+								"Flaw"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I indulge in a habit that threatens my reputation or my health."
+								],
+								[
+									"2",
+									"I'll do absolutely anything to win."
+								],
+								[
+									"3",
+									"I ignore anyone who doesn't compete and anyone who loses to me."
+								],
+								[
+									"4",
+									"I have lingering pain from old injuries."
+								],
+								[
+									"5",
+									"Any defeat or failure on my part is because my opponent cheated."
+								],
+								[
+									"6",
+									"I must be the captain of any group I join."
+								]
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"acrobatics": true,
+					"athletics": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"anyStandard": 1
+				}
+			],
+			"toolProficiencies": [
+				{
+					"vehicles (land)": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"a": [
+						{
+							"special": "bronze discus"
+						}
+					],
+					"b": [
+						{
+							"special": "leather ball"
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"special": "lucky charm"
+						}
+					],
+					"b": [
+						{
+							"special": "past trophy"
+						}
+					]
+				},
+				{
+					"_": [
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Augen Trust (Spy)",
+			"source": "EGW",
+			"page": 203,
+			"_copy": {
+				"name": "Variant Criminal (Spy)",
+				"source": "PHB"
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Azorius Functionary",
@@ -1132,7 +1540,27 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Azorius insignia"
+						},
+						{
+							"special": "scroll containing the text of a law important to you"
+						},
+						"ink (1-ounce bottle)|phb",
+						"ink pen|phb",
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Acolyte",
@@ -1164,7 +1592,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Charlatan",
@@ -1197,7 +1626,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Criminal",
@@ -1284,7 +1714,9 @@
 						]
 					}
 				}
-			}
+			},
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Baldur's Gate Entertainer",
@@ -1316,7 +1748,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Folk Hero",
@@ -1395,7 +1828,8 @@
 						]
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Guild Artisan",
@@ -1427,7 +1861,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Hermit",
@@ -1506,7 +1941,8 @@
 						]
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Noble",
@@ -1538,7 +1974,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Outlander",
@@ -1617,7 +2054,8 @@
 						]
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Sage",
@@ -1649,7 +2087,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Sailor",
@@ -1681,7 +2120,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Soldier",
@@ -1740,7 +2180,8 @@
 						]
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Baldur's Gate Urchin",
@@ -1772,7 +2213,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Black Fist Double Agent",
@@ -2005,7 +2447,39 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"disguise kit|phb",
+						"common clothes|phb",
+						{
+							"item": "emblem|phb",
+							"displayName": "Tears of Virulence emblem"
+						},
+						{
+							"special": "writ of free agency signed by the Lord Regent"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"equipmentType": "toolArtisan"
+						}
+					],
+					"b": [
+						{
+							"equipmentType": "setGaming"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Boros Legionnaire",
@@ -2408,7 +2882,28 @@
 				{
 					"gaming set": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Boros insignia"
+						},
+						{
+							"special": "feather from an angel's wing"
+						},
+						{
+							"special": "tattered piece of a Boros banner (a souvenir from a famous battle)"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 200
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Caravan Specialist",
@@ -2643,7 +3138,24 @@
 				{
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"whip|phb",
+						"two-person tent|phb",
+						{
+							"special": "regional map"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Celebrity Adventurer's Scion",
@@ -2865,7 +3377,21 @@
 				{
 					"disguise kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"disguise kit|phb",
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 3000
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Charlatan",
@@ -3122,7 +3648,43 @@
 					"disguise kit": true,
 					"forgery kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fine clothes|phb",
+						"disguise kit|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"special": "stoppered bottles filled with colored liquid",
+							"quantity": 10
+						}
+					],
+					"b": [
+						{
+							"special": "set of weighted dice"
+						}
+					],
+					"c": [
+						{
+							"special": " deck of marked cards"
+						}
+					],
+					"d": [
+						{
+							"special": " signet ring of an imaginary duke"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "City Watch",
@@ -3179,7 +3741,29 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "uniform in the style of your unit and indicative of your rank"
+						},
+						{
+							"item": "horn|phb",
+							"displayName": "horn with which to summon help"
+						},
+						{
+							"item": "manacles|phb",
+							"displayName": "set of manacles"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Clan Crafter",
@@ -3249,7 +3833,25 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "toolArtisan"
+						},
+						{
+							"special": "maker's mark chisel used to mark your handiwork with the symbol of the clan of crafters you learned your skill from"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Cloistered Scholar",
@@ -3314,7 +3916,49 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "robes|phb",
+							"displayName": "The scholar's robes of your cloister"
+						},
+						"pouch|phb",
+						{
+							"special": "quill"
+						},
+						{
+							"special": "ink"
+						},
+						{
+							"special": "folded parchment"
+						},
+						{
+							"special": "small penknife"
+						},
+						{
+							"item": "book|phb",
+							"displayName": "borrowed book on the subject of your current study"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Cobalt Scholar (Sage)",
+			"source": "EGW",
+			"page": 203,
+			"_copy": {
+				"name": "Sage",
+				"source": "PHB"
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Cormanthor Refugee",
@@ -3343,7 +3987,7 @@
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "A {@item two-person tent|phb}, {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, a {@item holy symbol|phb}, a set of {@item traveler's clothes|phb}, a belt {@item pouch|phb}, 5 gp"
+							"entry": "A {@item two-person tent|phb}, {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, a {@item holy symbol|phb}, a set of {@item traveler's clothes|phb}, a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
 				},
@@ -3544,7 +4188,24 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"two-person tent|phb",
+						{
+							"equipmentType": "toolArtisan"
+						},
+						"holy symbol|phb",
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Courtier",
@@ -3601,7 +4262,19 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Criminal",
@@ -3866,7 +4539,23 @@
 					"gaming set": true,
 					"thieves' tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"crowbar|phb",
+						{
+							"item": "common clothes|phb",
+							"displayName": "dark common clothes including a hood"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Dimir Operative",
@@ -4248,7 +4937,28 @@
 				{
 					"disguise kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Dimir insignia"
+						},
+						{
+							"special": "small knives",
+							"quantity": 3
+						},
+						{
+							"item": "common clothes|phb",
+							"displayName": "dark-colored common clothes"
+						},
+						{
+							"special": "the starting equipment of the background described in this chapter for your secondary guild"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Dissenter",
@@ -4284,7 +4994,8 @@
 					"history": true,
 					"religion": true
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Dragon Casualty",
@@ -4673,7 +5384,29 @@
 				{
 					"gaming set": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"dagger|phb",
+						{
+							"special": "tattered rags"
+						},
+						{
+							"special": "loaf of moldy bread"
+						},
+						{
+							"special": "small cast-off scale belonging to Vorgansharax\u2014the Maimed Virulence"
+						},
+						{
+							"item": "pouch|phb",
+							"displayName": "pouch of various coins (salvaged during your escape from Phlan)",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Earthspur Miner",
@@ -4899,7 +5632,29 @@
 					"dwarvish": true,
 					"undercommon": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"a": [
+						"shovel|phb"
+					],
+					"b": [
+						"miner's pick|phb"
+					]
+				},
+				{
+					"_": [
+						"block and tackle|phb",
+						"climber's kit|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Entertainer",
@@ -5172,7 +5927,25 @@
 					"disguise kit": true,
 					"musical instrument": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "instrumentMusical"
+						},
+						{
+							"special": "the favor of an admirer (love letter, lock of hair, or trinket)"
+						},
+						"costume clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Faceless",
@@ -5455,7 +6228,20 @@
 				{
 					"disguise kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"disguise kit|phb",
+						"costume clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Faction Agent",
@@ -5528,7 +6314,25 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Badge or emblem of your faction"
+						},
+						{
+							"special": "copy of a seminal faction text (or code-book for a covert faction)"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Failed Merchant",
@@ -5750,7 +6554,23 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "toolArtisan"
+						},
+						"merchant's scale|phb",
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Far Traveler",
@@ -6013,7 +6833,38 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"traveler's clothes|phb",
+						{
+							"special": "poorly wrought maps from your homeland that depict where you are in Faerûn"
+						},
+						{
+							"special": "small piece of jewelry in the style of your homeland's craftsmanship",
+							"worthValue": 1000
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"equipmentType": "instrumentMusical"
+						}
+					],
+					"b": [
+						{
+							"equipmentType": "setGaming"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Fisher",
@@ -6281,7 +7132,33 @@
 				{
 					"anyStandard": 1
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fishing tackle|phb",
+						"net|phb",
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"special": "favorite fishing lure"
+						}
+					],
+					"b": [
+						{
+							"special": "oiled leather wading boots"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Folk Hero",
@@ -6554,7 +7431,24 @@
 					"artisan's tools": true,
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "toolArtisan"
+						},
+						"shovel|phb",
+						"iron pot|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Gambler",
@@ -6776,7 +7670,25 @@
 				{
 					"gaming set": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "setGaming"
+						},
+						{
+							"special": "lucky charm"
+						},
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Gate Urchin",
@@ -7002,7 +7914,45 @@
 					"thieves' tools": true,
 					"musical instrument": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "battered alms box"
+						},
+						{
+							"equipmentType": "instrumentMusical"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"displayName": "belt pouch"
+						},
+						{
+							"value": 1000
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"special": "cast-off military jacket"
+						}
+					],
+					"b": [
+						{
+							"special": "cap"
+						}
+					],
+					"c": [
+						{
+							"special": "scarf"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Golgari Agent",
@@ -7399,7 +8349,269 @@
 				{
 					"poisoner's kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Golgari insignia"
+						},
+						"poisoner's kit|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"special": "pet beetle"
+						}
+					],
+					"b": [
+						{
+							"special": "pet spider"
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Grinner",
+			"source": "EGW",
+			"page": 200,
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Skill Proficiencies",
+							"entry": "{@skill Deception}, {@skill Performance}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies",
+							"entry": "One type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}, {@item thieves' tools|phb}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment",
+							"entry": "A set of {@item fine clothes|phb}, a {@item disguise kit|phb}, a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} of your choice, a gold-plated ring depicting a smiling face, and a {@item pouch|phb} containing 15 gp"
+						}
+					]
+				},
+				{
+					"name": "Feature: Ballad of the Grinning Fool",
+					"type": "entries",
+					"entries": [
+						"Like every Grinner, you know how to find a hideout. In any city of 10,000 people or more on the Menagerie Coast or in the lands of the Dwendalian Empire, you can play the \"Ballad of the Grinning Fool\" in a major tavern or inn. A member of the Golden Grin will find you and give shelter to you and any companions you vouch for. This shelter might be discontinued if it becomes too dangerous to hide you, at the DM's discretion.",
+						"This feature must be used with caution, for not all who know the ballad are your friends. Some are traitors, counterspies, or agents of tyranny."
+					],
+					"data": {
+						"isFeature": true
+					}
+				},
+				{
+					"name": "Suggested Characteristics",
+					"type": "entries",
+					"entries": [
+						"Grinners are trained in the art of secrecy and innuendo, and are skilled at hiding in plain sight by being the loudest and brightest person in the room. Their skills in subterfuge and combat lend themselves well to an adventuring lifestyle, and traveling with mercenaries and treasure hunters creates a convenient excuse to journey through lands bent under tyranny.",
+						{
+							"type": "table",
+							"colLabels": [
+								"d8",
+								"Personality Trait"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I love the spotlight. Everyone, look at me!"
+								],
+								[
+									"2",
+									"Give me a drink and I'm your friend."
+								],
+								[
+									"3",
+									"Talk to me about yourself. I'm a hell of a listener."
+								],
+								[
+									"4",
+									"I hate to start fights, but I love to finish them."
+								],
+								[
+									"5",
+									"I can't sit still."
+								],
+								[
+									"6",
+									"I'm always humming an old tune from my past."
+								],
+								[
+									"7",
+									"When I don't have a reason to smile, I'm miserable."
+								],
+								[
+									"8",
+									"I'm lucky like you wouldn't believe."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"colLabels": [
+								"d6",
+								"Ideal"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"Revolution. Tyrants must fall, no matter the cost. (Chaotic)"
+								],
+								[
+									"2",
+									"Compassion. The only way to make a better world is to perform small kindnesses. (Good)"
+								],
+								[
+									"3",
+									"Justice. A nation built upon just foundations will uphold freedom for all. (Law)"
+								],
+								[
+									"4",
+									"Expression. Music, joy, and laughter are the keys to freedom. (Good)"
+								],
+								[
+									"5",
+									"Self-Determination. People should be free to do as they please. (Chaotic)"
+								],
+								[
+									"6",
+									"Vigilance. A free people must be carefully taught, lest they be misled. (Neutral)"
+								]
+							]
+						},
+						{
+							"type": "table",
+							"colLabels": [
+								"d6",
+								"Bond"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I lost someone important to an agent of the Dwendalian Empire. That regime will fall."
+								],
+								[
+									"2",
+									"The first people to be hurt by this war will be the common folk. I need to protect them."
+								],
+								[
+									"3",
+									"Music helped me through a dark time in my life. Now, I'll use music to change the world."
+								],
+								[
+									"4",
+									"I will be known as the greatest spy who ever lived."
+								],
+								[
+									"5",
+									"All life is precious to me. I know I can change the world without taking a humanoid life."
+								],
+								[
+									"6",
+									"The elite in their ivory towers don't understand how we suffer. I intend to show them."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"colLabels": [
+								"d6",
+								"Flaw"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I've never lied once in my life. What? No, I'm not crossing my fingers!"
+								],
+								[
+									"2",
+									"I do everything big! Subtlety? I don't know the meaning of subtlety! Oh, that's a problem?"
+								],
+								[
+									"3",
+									"Being a spy in wartime is painful. I've seen so much suffering, I think I'm losing my mind."
+								],
+								[
+									"4",
+									"I can't focus on my mission. I just want to carouse and sing and play!"
+								],
+								[
+									"5",
+									"Yeah, that's my name. Yeah, I'm a Grinner spy. Who cares about staying undercover?"
+								],
+								[
+									"6",
+									"I can't afford to trust anyone. Not. Anyone."
+								]
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"deception": true,
+					"performance": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"thieves' tools": true,
+					"musical instrument": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fine clothes|phb",
+						"disguise kit|phb",
+						{
+							"equipmentType": "instrumentMusical"
+						},
+						{
+							"special": "gold-plated ring depicting a smiling face"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gruul Anarch",
@@ -7796,7 +9008,30 @@
 				{
 					"herbalism kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Gruul insignia"
+						},
+						"hunting trap|phb",
+						"herbalism kit|phb",
+						{
+							"special": "the skull of a boar"
+						},
+						{
+							"special": "beast-hide cloak"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Guild Artisan",
@@ -8120,7 +9355,25 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "toolArtisan"
+						},
+						{
+							"special": "letter of introduction from your guild"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Harborfolk",
@@ -8346,12 +9599,38 @@
 					"gaming set": true,
 					"vehicles (water)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fishing tackle|phb",
+						"dice set|phb",
+						"playing card set|phb",
+						{
+							"item": "three-dragon ante set|phb",
+							"displayName": "or Three-Dragon Ante set"
+						},
+						"common clothes|phb",
+						"rowboat|",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Haunted One",
 			"source": "CoS",
 			"page": 209,
+			"otherSources": [
+				{
+					"source": "VRGR",
+					"page": 34
+				}
+			],
 			"entries": [
 				{
 					"type": "list",
@@ -8360,17 +9639,17 @@
 						{
 							"type": "item",
 							"name": "Skill Proficiencies",
-							"entry": "Choose two of {@skill Arcana}, {@skill Investigation}, {@skill Religion}, or {@skill Survival}"
+							"entry": "Choose two from among {@skill Arcana}, {@skill Investigation}, {@skill Religion}, or {@skill Survival}"
 						},
 						{
 							"type": "item",
 							"name": "Languages",
-							"entry": "Choose one exotic language (Abyssal, Celestial, Deep Speech, Draconic, Infernal, Primordial, Sylvan, or Undercommon)"
+							"entry": "Choose two, one of which must be {@language Abyssal}, {@language Celestial}, {@language Deep Speech}, {@language Draconic}, {@language Infernal}, {@language Primordial}, {@language Sylvan}, or {@language Undercommon}"
 						},
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "{@item Monster hunter's pack|cos}, a set of {@item common clothes|phb}, one trinket of special significance (choose one or roll on the Gothic Trinkets table)"
+							"entry": "{@item Monster hunter's pack|cos} (containing a {@item chest|PHB}, a {@item crowbar|PHB}, a {@item hammer|PHB}, three wooden stakes, a {@item holy symbol|PHB}, a {@item Holy Water (flask)|PHB|flask of holy water}, a {@item Manacles|PHB|set of manacles}, a {@item steel mirror|PHB}, a {@item Oil (flask)|PHB|flask of oil}, a {@item tinderbox|PHB}, and 3 {@item Torch|PHB|torches}), a set of {@item common clothes|phb}, one {@item trinket|CoS} of special significance (choose one or roll on the {@item Horror Trinket|VRGR|Horror Trinkets} table), and 1 sp"
 						}
 					]
 				},
@@ -8388,12 +9667,13 @@
 					"name": "Harrowing Event",
 					"type": "entries",
 					"entries": [
-						"Prior to becoming an adventurer, your path in life was defined by one dark moment, one fateful decision, or one tragedy. Now you feel a darkness threatening to consume you, and you fear there may be no hope of escape. Choose a harrowing event that haunts you, or roll 1d10.",
+						"Prior to becoming an adventurer, your path in life was defined by one dark moment, one fateful decision, or one tragedy. Now you feel a darkness threatening to consume you, and you fear there may be no hope of escape. Choose a harrowing event that haunts you, or roll one on the Harrowing Events table.",
 						{
 							"type": "table",
+							"caption": "Harrowing Event",
 							"colLabels": [
 								"d10",
-								"Harrowing Event"
+								"Event"
 							],
 							"colStyles": [
 								"col-1 text-center",
@@ -8434,7 +9714,7 @@
 								],
 								[
 									"9",
-									"A fiend possessed you as a child. You were locked away but escaped. The fiend is still inside you, but now you try to keep it locked away."
+									"A fiend possessed you as a child. You were locked away but escaped. The fiend is still inside you, but now you try to keep it bottled up."
 								],
 								[
 									"10",
@@ -8445,163 +9725,256 @@
 					]
 				},
 				{
-					"name": "Suggested Characteristics",
-					"type": "entries",
+					"type": "section",
+					"name": "Horror Characteristics",
+					"id": "0a4",
 					"entries": [
-						"You have learned to live with the terror that haunts you. You are a survivor, who can be very protective of those who bring light into your darkened life.",
+						"Characters in a horror-focused campaign might have distinct motivations and characteristics. Use the following tables to supplement your background's suggested characteristics or to inspire those of your own design.",
 						{
 							"type": "table",
+							"caption": "Horror Character Personality Traits",
 							"colLabels": [
-								"d8",
+								"d12",
 								"Personality Trait"
 							],
 							"colStyles": [
-								"col-1 text-center",
-								"col-11"
+								"col-2 text-center",
+								"col-10"
 							],
 							"rows": [
 								[
 									"1",
-									"I don't run from evil. Evil runs from me."
+									"I had an encounter that I believe gives me a special affinity with a supernatural creature or event."
 								],
 								[
 									"2",
-									"I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness."
+									"A signature piece of clothing or distinct weapon serves as an emblem of who I am."
 								],
 								[
 									"3",
-									"I spend money freely and live life to the fullest, knowing that tomorrow I might die."
+									"I never accept that I'm out of my depth."
 								],
 								[
 									"4",
-									"I live for the thrill of the hunt."
+									"I must know the answer to every secret. No door remains unopened in my presence."
 								],
 								[
 									"5",
-									"I don't talk about the thing that torments me. I'd rather not burden others with my curse."
+									"I let people underestimate me, revealing my full competency only to those close to me."
 								],
 								[
 									"6",
-									"I expect danger around every corner."
+									"I compulsively seek to collect trophies of my travels and victories."
 								],
 								[
 									"7",
-									"I refuse to become a victim, and I will not allow others to be victimized."
+									"It doesn't matter if the whole world's against me. I'll always do what I think is right."
 								],
 								[
 									"8",
-									"I put no trust in divine beings."
+									"I have morbid interests and a macabre aesthetic."
+								],
+								[
+									"9",
+									"I have a personal ritual, mantra, or relaxation method I use to deal with stress."
+								],
+								[
+									"10",
+									"Nothing is more important than life, and I never leave anyone in danger."
+								],
+								[
+									"11",
+									"I'm quick to jump to extreme solutions. Why risk a lesser option not working?"
+								],
+								[
+									"12",
+									"I'm easily startled, but I'm not a coward."
 								]
 							]
 						},
 						{
 							"type": "table",
+							"caption": "Horror Character Ideals",
 							"colLabels": [
-								"d6",
+								"d12",
 								"Ideal"
 							],
 							"colStyles": [
-								"col-1 text-center",
-								"col-11"
+								"col-2 text-center",
+								"col-10"
 							],
 							"rows": [
 								[
 									"1",
-									"I try to help those in need, no matter what the personal cost. (Good)"
+									"Adrenaline. I've experienced such strangeness that now I feel alive only in extreme situations."
 								],
 								[
 									"2",
-									"I'll stop the spirits that haunt me or die trying. (Any)"
+									"Balance. I strive to counter the deeds of someone for whom I feel responsible."
 								],
 								[
 									"3",
-									"I kill monsters to make the world a safer place, and to exorcise my own demons. (Good)"
+									"Bound. I've wronged someone and must work their will to avoid their curse."
 								],
 								[
 									"4",
-									"I have a dark calling that puts me above the law. (Chaotic)"
+									"Escape. I believe there is something beyond the world I know, and I need to find it."
 								],
 								[
 									"5",
-									"I like to know my enemy's capabilities and weaknesses before rushing into battle. (Lawful)"
+									"Legacy. I must do something great so that I'm remembered, and my time is running out."
 								],
 								[
 									"6",
-									"I'm a monster that destroys other monsters, and anything else that gets in my way. (Evil)"
+									"Misdirection. I work vigorously to keep others from realizing my flaws or misdeeds."
+								],
+								[
+									"7",
+									"Obsession. I've lived this way for so long that I can't imagine another way."
+								],
+								[
+									"8",
+									"Obligation. I owe it to my people, faith, family, or teacher to continue a vaunted legacy."
+								],
+								[
+									"9",
+									"Promise. My life is no longer my own. I must fulfill the dream of someone who's gone."
+								],
+								[
+									"10",
+									"Revelation. I need to know what lies beyond the mysteries of death, the world, or the Mists."
+								],
+								[
+									"11",
+									"Sanctuary. I know the forces at work in the world and strive to create islands apart from them."
+								],
+								[
+									"12",
+									"Truth. I care about the truth above all else, even if it doesn't benefit anyone."
 								]
 							]
 						},
 						{
 							"type": "table",
+							"caption": "Horror Character Bonds",
 							"colLabels": [
-								"d6",
+								"d12",
 								"Bond"
 							],
 							"colStyles": [
-								"col-1 text-center",
-								"col-11"
+								"col-2 text-center",
+								"col-10"
 							],
 							"rows": [
 								[
 									"1",
-									"I keep my thoughts and discoveries in a journal. My journal is my legacy."
+									"I desperately need to get back to someone or someplace, but I lost them in the Mists."
 								],
 								[
 									"2",
-									"I would sacrifice my life and my soul to protect the innocent."
+									"Everything I do is in the service of a powerful master, one I must keep a secret from everyone."
 								],
 								[
 									"3",
-									"My torment drove away the person I love. I strive to win back the love I've lost."
+									"I owe much to my vanished mentor. I seek to continue their work even as I search to find them."
 								],
 								[
 									"4",
-									"A terrible guilt consumes me. I hope that I can find redemption through my actions."
+									"I've seen great darkness, and I'm committed to being a light against it\u2014the light of all lights."
 								],
 								[
 									"5",
-									"There's evil in me, I can feel it. It must never be set free."
+									"Someone I love has become a monster, murderer, or other threat. It's up to me to redeem them."
 								],
 								[
 									"6",
-									"I have a child to protect. I must make the world a safer place for him (or her)."
+									"The world has been convinced of a terrible lie. It's up to me to reveal the truth."
+								],
+								[
+									"7",
+									"I deeply miss someone and am quick to adopt people who remind me of them."
+								],
+								[
+									"8",
+									"A great evil dwells within me. I will fight against it and the world's other evils for as long as I can."
+								],
+								[
+									"9",
+									"I'm desperately seeking a cure to an affliction or a curse, either for someone close to me for myself."
+								],
+								[
+									"10",
+									"Spirits are drawn to me. I do all I can to help them find peace."
+								],
+								[
+									"11",
+									"I use my cunning mind to solve mysteries and find justice for those who've been wronged."
+								],
+								[
+									"12",
+									"I lost someone I care about, but I still see them in guilty visions, recurring dreams, or as a spirit."
 								]
 							]
 						},
 						{
 							"type": "table",
+							"caption": "Horror Character Flaws",
 							"colLabels": [
-								"d6",
+								"d12",
 								"Flaw"
 							],
 							"colStyles": [
-								"col-1 text-center",
-								"col-11"
+								"col-2 text-center",
+								"col-10"
 							],
 							"rows": [
 								[
 									"1",
-									"I have certain rituals that I must follow every day. I can never break them."
+									"I believe doom follows me and that anyone who gets close to me will face a tragic end."
 								],
 								[
 									"2",
-									"I assume the worst in people."
+									"I'm convinced something is after me, appearing in mirrors, dreams, and places where no one could."
 								],
 								[
 									"3",
-									"I feel no compassion for the dead. They're the lucky ones."
+									"I'm especially superstitious and live life seeking to avoid bad luck, wicked spirits, or the Mists."
 								],
 								[
 									"4",
-									"I have an addiction."
+									"I've done unspeakable evil and will do anything to prevent others from finding out."
 								],
 								[
 									"5",
-									"I am a purveyor of doom and gloom who lives in a world without hope."
+									"I am exceptionally credulous and believe any story or legend immediately."
 								],
 								[
 									"6",
-									"I talk to spirits that no one else can see."
+									"I'm a skeptic and don't believe in the power of rituals, religion, superstition, or spirits."
+								],
+								[
+									"7",
+									"I know my future is written and that anything I do will lead to a prophesied end."
+								],
+								[
+									"8",
+									"I need to find the best in everyone and everything, even when that means denying obvious malice."
+								],
+								[
+									"9",
+									"I've seen the evil of a type of place\u2014like forests, cities, or graveyards\u2014and resist going there."
+								],
+								[
+									"10",
+									"I'm exceptionally cautious, planning laboriously and devising countless contingencies."
+								],
+								[
+									"11",
+									"I have a reputation for defeating a great evil, but that's a lie and the wicked force knows."
+								],
+								[
+									"12",
+									"I know the ends always justify the means and am quick to make sacrifices to attain my goals."
 								]
 							]
 						}
@@ -8623,6 +9996,7 @@
 			],
 			"languageProficiencies": [
 				{
+					"anyStandard": 1,
 					"choose": {
 						"from": [
 							"abyssal",
@@ -8636,7 +10010,24 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"monster hunter's pack|cos",
+						"common clothes|phb",
+						{
+							"item": "Horror Trinket|VRGR",
+							"displayName": "trinket of special significance (choose one or roll on the Horror Trinkets table)"
+						},
+						{
+							"value": 10
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hermit",
@@ -8911,7 +10302,27 @@
 				{
 					"herbalism kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "map or scroll case|phb",
+							"displayName": "scroll case stuffed full of notes from your studies or prayers"
+						},
+						{
+							"item": "blanket|phb",
+							"displayName": "winter blanket"
+						},
+						"common clothes|phb",
+						"herbalism kit|phb",
+						{
+							"value": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Hillsfar Merchant",
@@ -9149,7 +10560,23 @@
 					"vehicles (land)": true,
 					"vehicles (water)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fine clothes|phb",
+						"signet ring|phb",
+						{
+							"special": "letter of introduction from your family's trading house"
+						},
+						{
+							"special": "purse",
+							"containsValue": 2500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Hillsfar Smuggler",
@@ -9385,7 +10812,23 @@
 				{
 					"forgery kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"forgery kit|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"displayName": "belt pouch"
+						},
+						{
+							"value": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "House Agent",
@@ -9770,7 +11213,26 @@
 					"vehicles (land)": true,
 					"herbalism kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fine clothes|phb",
+						{
+							"item": "signet ring|phb",
+							"displayName": "house signet ring"
+						},
+						{
+							"special": "identification papers"
+						},
+						{
+							"special": "purse",
+							"containsValue": 2000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Inheritor",
@@ -9891,7 +11353,34 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Your inheritance"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"equipmentType": "setGaming"
+						}
+					],
+					"b": [
+						{
+							"equipmentType": "instrumentMusical"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Initiate",
@@ -10147,7 +11636,31 @@
 					"gaming set": true,
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "simple puzzle box"
+						},
+						{
+							"special": "scroll containing the basic teachings of the five gods"
+						},
+						{
+							"equipmentType": "setGaming"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						},
+						{
+							"special": "any cartouches you have earned"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Inquisitor",
@@ -10197,7 +11710,402 @@
 					"thieves' tools": true,
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"holy symbol|phb",
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Investigator",
+			"source": "VRGR",
+			"page": 35,
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Skill Proficiencies",
+							"entry": "Choose two from among {@skill Insight}, {@skill Investigation}, or {@skill Perception}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies",
+							"entry": "{@item Disguise kit|phb}, {@item Thieves' tools|phb}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment",
+							"entry": "A {@item magnifying glass|PHB}, evidence from a past case (choose one or roll for a trinket from the {@item Horror Trinket|VRGR|Horror Trinkets} later in this chapter), a {@item Common Clothes|PHB|set of common clothes}, and 10 gp"
+						}
+					]
+				},
+				{
+					"name": "Feature: Official Inquiry",
+					"type": "entries",
+					"entries": [
+						"You're experienced at gaining access to people and places to get the information you need. Through a combination of fast-talking, determination, and official-looking documentation, you can gain access to a place or an individual related to a crime you're investigating. Those who aren't involved in your investigation avoid impeding you or pass along your requests. Additionally, local law enforcement has firm opinions about you, viewing you as either a nuisance or one of their own."
+					],
+					"data": {
+						"isFeature": true
+					}
+				},
+				{
+					"name": "Path to Mystery",
+					"type": "entries",
+					"entries": [
+						"Your first case influenced the types of mysteries you're interested in. Why was this case so impactful, personal, or traumatic? Whom did it affect besides you? Why and how did you get involved? Was it solved? How did it set you on the path to investigating other mysteries? Roll on or choose details from the First Case table to develop the mystery that started your career as an investigator.",
+						{
+							"type": "table",
+							"caption": "First Case",
+							"colLabels": [
+								"d8",
+								"Case"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"A friend was wrongfully accused of murder. You tracked down the actual killer, proving your friend's innocence and starting your career as a detective."
+								],
+								[
+									"2",
+									"You're told you went missing for weeks. When you were found, you had no memory of being gone. Now you search to discover what happened to you."
+								],
+								[
+									"3",
+									"You helped a spirit find peace by finding its missing corpse. Ever since, other spectral clients have sought you out to help them find rest."
+								],
+								[
+									"4",
+									"You revealed that the monsters terrorizing your home were illusions created by a cruel mage. The magic-user escaped, but you've continued to uncover magical hoaxes."
+								],
+								[
+									"5",
+									"You were wrongfully accused and convicted of a crime. You managed to escape and seek to help others avoid the experience you suffered, even while still being pursued by the law."
+								],
+								[
+									"6",
+									"You survived the destructive use of a magic device that wiped out your home. Members of a secret organization found you. You now work with them, tracking down dangerous supernatural phenomena and preventing them from doing harm."
+								],
+								[
+									"7",
+									"You found evidence of a conspiracy underpinning society. You tried to expose this mysterious cabal, but no one believed you. You're still trying to prove what you know is true."
+								],
+								[
+									"8",
+									"You got a job with an agency that investigates crimes that local law enforcement can't solve. You often wonder which you value more, the truth or your pay."
+								]
+							]
+						}
+					]
+				},
+				{
+					"type": "section",
+					"name": "Horror Characteristics",
+					"id": "0a4",
+					"entries": [
+						"Characters in a horror-focused campaign might have distinct motivations and characteristics. Use the following tables to supplement your background's suggested characteristics or to inspire those of your own design.",
+						{
+							"type": "table",
+							"caption": "Horror Character Personality Traits",
+							"colLabels": [
+								"d12",
+								"Personality Trait"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I had an encounter that I believe gives me a special affinity with a supernatural creature or event."
+								],
+								[
+									"2",
+									"A signature piece of clothing or distinct weapon serves as an emblem of who I am."
+								],
+								[
+									"3",
+									"I never accept that I'm out of my depth."
+								],
+								[
+									"4",
+									"I must know the answer to every secret. No door remains unopened in my presence."
+								],
+								[
+									"5",
+									"I let people underestimate me, revealing my full competency only to those close to me."
+								],
+								[
+									"6",
+									"I compulsively seek to collect trophies of my travels and victories."
+								],
+								[
+									"7",
+									"It doesn't matter if the whole world's against me. I'll always do what I think is right."
+								],
+								[
+									"8",
+									"I have morbid interests and a macabre aesthetic."
+								],
+								[
+									"9",
+									"I have a personal ritual, mantra, or relaxation method I use to deal with stress."
+								],
+								[
+									"10",
+									"Nothing is more important than life, and I never leave anyone in danger."
+								],
+								[
+									"11",
+									"I'm quick to jump to extreme solutions. Why risk a lesser option not working?"
+								],
+								[
+									"12",
+									"I'm easily startled, but I'm not a coward."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"caption": "Horror Character Ideals",
+							"colLabels": [
+								"d12",
+								"Ideal"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"Adrenaline. I've experienced such strangeness that now I feel alive only in extreme situations."
+								],
+								[
+									"2",
+									"Balance. I strive to counter the deeds of someone for whom I feel responsible."
+								],
+								[
+									"3",
+									"Bound. I've wronged someone and must work their will to avoid their curse."
+								],
+								[
+									"4",
+									"Escape. I believe there is something beyond the world I know, and I need to find it."
+								],
+								[
+									"5",
+									"Legacy. I must do something great so that I'm remembered, and my time is running out."
+								],
+								[
+									"6",
+									"Misdirection. I work vigorously to keep others from realizing my flaws or misdeeds."
+								],
+								[
+									"7",
+									"Obsession. I've lived this way for so long that I can't imagine another way."
+								],
+								[
+									"8",
+									"Obligation. I owe it to my people, faith, family, or teacher to continue a vaunted legacy."
+								],
+								[
+									"9",
+									"Promise. My life is no longer my own. I must fulfill the dream of someone who's gone."
+								],
+								[
+									"10",
+									"Revelation. I need to know what lies beyond the mysteries of death, the world, or the Mists."
+								],
+								[
+									"11",
+									"Sanctuary. I know the forces at work in the world and strive to create islands apart from them."
+								],
+								[
+									"12",
+									"Truth. I care about the truth above all else, even if it doesn't benefit anyone."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"caption": "Horror Character Bonds",
+							"colLabels": [
+								"d12",
+								"Bond"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I desperately need to get back to someone or someplace, but I lost them in the Mists."
+								],
+								[
+									"2",
+									"Everything I do is in the service of a powerful master, one I must keep a secret from everyone."
+								],
+								[
+									"3",
+									"I owe much to my vanished mentor. I seek to continue their work even as I search to find them."
+								],
+								[
+									"4",
+									"I've seen great darkness, and I'm committed to being a light against it\u2014the light of all lights."
+								],
+								[
+									"5",
+									"Someone I love has become a monster, murderer, or other threat. It's up to me to redeem them."
+								],
+								[
+									"6",
+									"The world has been convinced of a terrible lie. It's up to me to reveal the truth."
+								],
+								[
+									"7",
+									"I deeply miss someone and am quick to adopt people who remind me of them."
+								],
+								[
+									"8",
+									"A great evil dwells within me. I will fight against it and the world's other evils for as long as I can."
+								],
+								[
+									"9",
+									"I'm desperately seeking a cure to an affliction or a curse, either for someone close to me for myself."
+								],
+								[
+									"10",
+									"Spirits are drawn to me. I do all I can to help them find peace."
+								],
+								[
+									"11",
+									"I use my cunning mind to solve mysteries and find justice for those who've been wronged."
+								],
+								[
+									"12",
+									"I lost someone I care about, but I still see them in guilty visions, recurring dreams, or as a spirit."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"caption": "Horror Character Flaws",
+							"colLabels": [
+								"d12",
+								"Flaw"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I believe doom follows me and that anyone who gets close to me will face a tragic end."
+								],
+								[
+									"2",
+									"I'm convinced something is after me, appearing in mirrors, dreams, and places where no one could."
+								],
+								[
+									"3",
+									"I'm especially superstitious and live life seeking to avoid bad luck, wicked spirits, or the Mists."
+								],
+								[
+									"4",
+									"I've done unspeakable evil and will do anything to prevent others from finding out."
+								],
+								[
+									"5",
+									"I am exceptionally credulous and believe any story or legend immediately."
+								],
+								[
+									"6",
+									"I'm a skeptic and don't believe in the power of rituals, religion, superstition, or spirits."
+								],
+								[
+									"7",
+									"I know my future is written and that anything I do will lead to a prophesied end."
+								],
+								[
+									"8",
+									"I need to find the best in everyone and everything, even when that means denying obvious malice."
+								],
+								[
+									"9",
+									"I've seen the evil of a type of place\u2014like forests, cities, or graveyards\u2014and resist going there."
+								],
+								[
+									"10",
+									"I'm exceptionally cautious, planning laboriously and devising countless contingencies."
+								],
+								[
+									"11",
+									"I have a reputation for defeating a great evil, but that's a lie and the wicked force knows."
+								],
+								[
+									"12",
+									"I know the ends always justify the means and am quick to make sacrifices to attain my goals."
+								]
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"insight",
+							"investigation",
+							"perception"
+						],
+						"count": 2
+					}
+				}
+			],
+			"toolProficiencies": [
+				{
+					"disguise kit": true,
+					"thieves' tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"magnifying glass|PHB",
+						"common clothes|phb",
+						{
+							"item": "Horror Trinket|VRGR",
+							"displayName": "evidence from a past case (choose one or roll for a trinket from the {@item Horror Trinket|VRGR|Horror Trinkets})"
+						},
+						{
+							"value": 10
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Iron Route Bandit",
@@ -10221,7 +12129,7 @@
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "A set of dark {@item common clothes|phb}, {@item pack saddle|phb}, {@item burglar's pack|phb} and a belt {@item pouch|phb} containing 5 gp"
+							"entry": "A set of dark {@item common clothes|phb}, {@item pack saddle|phb}, {@item burglar's pack|phb}, and a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
 				},
@@ -10423,7 +12331,24 @@
 					"gaming set": true,
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "common clothes|phb",
+							"displayName": "dark common clothes"
+						},
+						"pack saddle|phb",
+						"burglar's pack|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Izzet Engineer",
@@ -10820,7 +12745,30 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Izzet insignia"
+						},
+						{
+							"equipmentType": "toolArtisan"
+						},
+						{
+							"special": "the charred and twisted remains of a failed experiment"
+						},
+						"hammer|phb",
+						"block and tackle|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Knight of the Order",
@@ -10900,7 +12848,32 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"traveler's clothes|phb",
+						{
+							"special": "signet, banner, or seal representing your place or rank in the order"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Luxonborn (Acolyte)",
+			"source": "EGW",
+			"page": 203,
+			"_copy": {
+				"name": "Acolyte",
+				"source": "PHB"
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Marine",
@@ -11161,7 +13134,26 @@
 					"vehicles (water)": true,
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "dagger|phb",
+							"displayName": "dagger that belonged to a fallen comrade"
+						},
+						{
+							"special": "folded flag emblazoned with the symbol of your ship or company"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Mercenary Veteran",
@@ -11193,7 +13185,7 @@
 					"name": "Feature: Mercenary Life",
 					"type": "entries",
 					"entries": [
-						"You know the mercenary life as only someone who has experienced it can. You are able to identify mercenary companies by their emblems, and you know a little about any such company, including who has hired them recently. You can find the taverns and festhalls where mercenaries abide in any area, as long as you speak the language. You can find mercenary work between adventures sufficient to maintain a comfortable lifestyle (see \"Practicing a Profession\" under \"Downtime Activities\" in chapter 8 of the Player's Handbook)."
+						"You know the mercenary life as only someone who has experienced it can. You are able to identify mercenary companies by their emblems, and you know a little about any such company, including who has hired them recently. You can find the taverns and festhalls where mercenaries abide in any area, as long as you speak the language. You can find mercenary work between adventures sufficient to maintain a comfortable lifestyle (see \"{@book Practicing a Profession|PHB|8|Practicing a Profession}\" under \"Downtime Activities\" in chapter 8 of the Player's Handbook)."
 					],
 					"data": {
 						"isFeature": true
@@ -11219,7 +13211,28 @@
 					"gaming set": true,
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "traveler's clothes|phb",
+							"displayName": "uniform of your company"
+						},
+						{
+							"special": "insignia of your rank"
+						},
+						{
+							"equipmentType": "setGaming"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Mulmaster Aristocrat",
@@ -11445,7 +13458,41 @@
 					"artisan's tools": true,
 					"musical instrument": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"a": [
+						{
+							"equipmentType": "toolArtisan"
+						}
+					],
+					"b": [
+						{
+							"equipmentType": "instrumentMusical"
+						}
+					]
+				},
+				{
+					"_": [
+						"fine clothes|phb",
+						{
+							"special": "purse",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Myriad Operative (Criminal)",
+			"source": "EGW",
+			"page": 203,
+			"_copy": {
+				"name": "Criminal",
+				"source": "PHB"
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Noble",
@@ -11667,7 +13714,23 @@
 				{
 					"gaming set": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fine clothes|phb",
+						"signet ring|phb",
+						{
+							"special": "scroll of pedigree"
+						},
+						{
+							"special": "purse",
+							"containsValue": 2500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Orzhov Representative",
@@ -11916,113 +13979,113 @@
 									"I'll take any opportunity to steal from wealthier people, even for worthless trinkets."
 								]
 							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Contacts",
+					"entries": [
+						"The Orzhov Syndicate operates according to a strict hierarchy built on a network of connections among old, wealthy families. Your family might provide important contacts, while your family's activities in crime, banking, or debt collection could tie you to members of other guilds.",
+						"Roll twice on the Orzhov Contacts table (for an ally and a rival) and once on the Non-Orzhov Contacts table.",
+						{
+							"type": "table",
+							"caption": "Orzhov Contacts",
+							"colLabels": [
+								"d8",
+								"Contact"
+							],
+							"colStyles": [
+								"text-center col-2",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"The spirit of an ancestor has taken an interest in me."
+								],
+								[
+									"2",
+									"An older cousin has the ear of a powerful oligarch."
+								],
+								[
+									"3",
+									"I know a knight who is responsible for collecting debts from powerful people."
+								],
+								[
+									"4",
+									"A vampire pontiff tried to use me as a pawn in past schemes."
+								],
+								[
+									"5",
+									"A silent spirit follows me around."
+								],
+								[
+									"6",
+									"A sibling has keys to parts of Vizkopa Bank."
+								],
+								[
+									"7",
+									"A giant thinks I'm adorable."
+								],
+								[
+									"8",
+									"I regularly offer tribute to an angel, and the angel has been kind to me in turn."
+								]
+							]
 						},
 						{
-							"type": "entries",
-							"name": "Contacts",
-							"entries": [
-								"The Orzhov Syndicate operates according to a strict hierarchy built on a network of connections among old, wealthy families. Your family might provide important contacts, while your family's activities in crime, banking, or debt collection could tie you to members of other guilds.",
-								"Roll twice on the Orzhov Contacts table (for an ally and a rival) and once on the Non-Orzhov Contacts table.",
-								{
-									"type": "table",
-									"caption": "Orzhov Contacts",
-									"colLabels": [
-										"d8",
-										"Contact"
-									],
-									"colStyles": [
-										"text-center col-2",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1",
-											"The spirit of an ancestor has taken an interest in me."
-										],
-										[
-											"2",
-											"An older cousin has the ear of a powerful oligarch."
-										],
-										[
-											"3",
-											"I know a knight who is responsible for collecting debts from powerful people."
-										],
-										[
-											"4",
-											"A vampire pontiff tried to use me as a pawn in past schemes."
-										],
-										[
-											"5",
-											"A silent spirit follows me around."
-										],
-										[
-											"6",
-											"A sibling has keys to parts of Vizkopa Bank."
-										],
-										[
-											"7",
-											"A giant thinks I'm adorable."
-										],
-										[
-											"8",
-											"I regularly offer tribute to an angel, and the angel has been kind to me in turn."
-										]
-									]
-								},
-								{
-									"type": "table",
-									"caption": "Non-Orzhov Contacts",
-									"colLabels": [
-										"d10",
-										"Contact"
-									],
-									"colStyles": [
-										"text-center col-2",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1",
-											"An Azorius arrester is always snooping into my family's business transactions."
-										],
-										[
-											"2",
-											"A Boros paladin saved my life, to my everlasting shame."
-										],
-										[
-											"3",
-											"I know a shopkeeper who is secretly a Dimir agent and tries to make sure that I keep that secret hidden."
-										],
-										[
-											"4",
-											"I'm fascinated by the culture of the Golgari kraul, and I have formed a friendship with one of their death priests."
-										],
-										[
-											"5",
-											"A Gruul druid hates me but would never dare to touch me."
-										],
-										[
-											"6",
-											"I know an Izzet engineer who is desperate to pay off a debt accrued by a deceased relative."
-										],
-										[
-											"7",
-											"Roll an additional Orzhov contact; you can decide if the contact is an ally or a rival."
-										],
-										[
-											"8",
-											"My childhood friend is now a Rakdos torturer. We still meet for drinks occasionally."
-										],
-										[
-											"9",
-											"I have the key to a vault where a Selesnya druid is hiding an item of secret shame."
-										],
-										[
-											"10",
-											"I was married to a Simic bioengineer."
-										]
-									]
-								}
+							"type": "table",
+							"caption": "Non-Orzhov Contacts",
+							"colLabels": [
+								"d10",
+								"Contact"
+							],
+							"colStyles": [
+								"text-center col-2",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"An Azorius arrester is always snooping into my family's business transactions."
+								],
+								[
+									"2",
+									"A Boros paladin saved my life, to my everlasting shame."
+								],
+								[
+									"3",
+									"I know a shopkeeper who is secretly a Dimir agent and tries to make sure that I keep that secret hidden."
+								],
+								[
+									"4",
+									"I'm fascinated by the culture of the Golgari kraul, and I have formed a friendship with one of their death priests."
+								],
+								[
+									"5",
+									"A Gruul druid hates me but would never dare to touch me."
+								],
+								[
+									"6",
+									"I know an Izzet engineer who is desperate to pay off a debt accrued by a deceased relative."
+								],
+								[
+									"7",
+									"Roll an additional Orzhov contact; you can decide if the contact is an ally or a rival."
+								],
+								[
+									"8",
+									"My childhood friend is now a Rakdos torturer. We still meet for drinks occasionally."
+								],
+								[
+									"9",
+									"I have the key to a vault where a Selesnya druid is hiding an item of secret shame."
+								],
+								[
+									"10",
+									"I was married to a Simic bioengineer."
+								]
 							]
 						}
 					]
@@ -12046,7 +14109,28 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Orzhov insignia"
+						},
+						{
+							"special": "foot-long chain made of ten gold coins"
+						},
+						{
+							"special": "vestments"
+						},
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Outlander",
@@ -12167,7 +14251,7 @@
 							"rows": [
 								[
 									"1",
-									" I'm driven by a wanderlust that led me away from home"
+									" I'm driven by a wanderlust that led me away from home."
 								],
 								[
 									"2",
@@ -12191,7 +14275,7 @@
 								],
 								[
 									"7",
-									"I feel far more comfortable around animals than people"
+									"I feel far more comfortable around animals than people."
 								],
 								[
 									"8",
@@ -12328,7 +14412,24 @@
 				{
 					"musical instrument": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"staff|phb",
+						"hunting trap|phb",
+						{
+							"special": "trophy from an animal you killed"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Phlan Insurgent",
@@ -12352,7 +14453,7 @@
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "A bag of {@item caltrops (bag of 20)|phb}, a small trinket that connects you to the life you once had before the occupation of Phlan, a {@item healer's kit|phb}, a set of dark {@item common clothes|phb} that includes a cloak and hood, and a belt {@item pouch|phb} containing 5 gp"
+							"entry": "A bag of {@item caltrops (bag of 20)|phb}, a small {@item trinket|phb} that connects you to the life you once had before the occupation of Phlan, a {@item healer's kit|phb}, a set of dark {@item common clothes|phb} that includes a cloak and hood, and a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
 				},
@@ -12618,7 +14719,31 @@
 					"artisan's tools": true,
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "caltrops (bag of 20)|phb",
+							"displayName": "bag of caltrops (bag of 20)"
+						},
+						{
+							"item": "trinket|phb",
+							"displayName": "small trinket that connects you to the life you once had before the occupation of Phlan"
+						},
+						"healer's kit|phb",
+						{
+							"item": "common clothes|phb",
+							"displayName": "dark common clothes that includes a cloak and hood"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Phlan Refugee",
@@ -12853,7 +14978,25 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "toolArtisan"
+						},
+						{
+							"special": "token of the life you once knew"
+						},
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Plaintiff",
@@ -13079,7 +15222,22 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "toolArtisan"
+						},
+						"fine clothes|phb",
+						{
+							"value": 2000
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rakdos Cultist",
@@ -13526,7 +15684,51 @@
 				{
 					"musical instrument": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Rakdos insignia"
+						},
+						{
+							"equipmentType": "instrumentMusical"
+						},
+						"costume clothes|phb",
+						{
+							"item": "hooded lantern|phb",
+							"displayName": "hooded lantern made of wrought iron"
+						},
+						{
+							"special": "10-foot length of chain with sharply spiked links"
+						},
+						"tinderbox|phb",
+						{
+							"item": "torch|phb",
+							"quantity": 10
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						},
+						{
+							"special": "bottle of sweet, red juice"
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Revelry Pirate (Sailor)",
+			"source": "EGW",
+			"page": 203,
+			"_copy": {
+				"name": "Sailor",
+				"source": "PHB"
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Rival Intern",
@@ -13748,7 +15950,25 @@
 				{
 					"artisan's tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"equipmentType": "toolArtisan"
+						},
+						{
+							"special": "ledger from your previous employer containing a small piece of useful information"
+						},
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sage",
@@ -13780,7 +16000,7 @@
 					"name": "Feature: Researcher",
 					"type": "entries",
 					"entries": [
-						"When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature, Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign."
+						"When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign."
 					],
 					"data": {
 						"isFeature": true
@@ -14012,7 +16232,29 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"ink (1-ounce bottle)|phb",
+						{
+							"special": "quill"
+						},
+						{
+							"special": "small knife"
+						},
+						{
+							"special": "letter from a dead colleague posing a question you have not yet been able to answer"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sailor",
@@ -14036,7 +16278,7 @@
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "A belaying pin ({@item club|phb}), {@item silk rope (50 feet)|phb}, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5), a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
+							"entry": "A belaying pin ({@item club|phb}), {@item silk rope (50 feet)|phb}, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random {@item trinket|phb} on the Trinkets table in chapter 5), a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
 				},
@@ -14225,7 +16467,28 @@
 					"navigator's tools": true,
 					"vehicles (water)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "club|phb",
+							"displayName": "belaying pin"
+						},
+						"silk rope (50 feet)|phb",
+						{
+							"item": "trinket|phb",
+							"displayName": "lucky charm"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Secret Identity",
@@ -14451,7 +16714,24 @@
 					"disguise kit": true,
 					"forgery kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"disguise kit|phb",
+						"forgery kit|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"displayName": "belt pouch"
+						},
+						{
+							"value": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Selesnya Initiate",
@@ -14852,7 +17132,24 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Selesnya insignia"
+						},
+						"healer's kit|phb",
+						"robes|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Shade Fanatic",
@@ -15088,7 +17385,23 @@
 				{
 					"forgery kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"forgery kit|phb",
+						{
+							"special": "transparent cylinder of shadow that has no opening"
+						},
+						"signet ring|phb",
+						"fine clothes|phb",
+						{
+							"value": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Shipwright",
@@ -15349,7 +17662,29 @@
 					"carpenter's tools": true,
 					"vehicles (water)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "carpenter's tools|phb",
+							"displayName": "set of well-loved carpenter's tools"
+						},
+						{
+							"item": "book|phb",
+							"displayName": "blank book"
+						},
+						"ink (1-ounce bottle)|phb",
+						"ink pen|phb",
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Simic Scientist",
@@ -15774,7 +18109,48 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "Simic insignia"
+						},
+						"common clothes|phb",
+						{
+							"item": "book|phb",
+							"displayName": "book of research notes"
+						},
+						"ink pen|phb",
+						"ink (1-ounce bottle)|phb",
+						{
+							"item": "oil (flask)|phb",
+							"displayName": "flask of oil (made from blubber)"
+						},
+						{
+							"item": "acid (vial)|phb",
+							"displayName": "vial of acid (derived from digestive juices)"
+						},
+						{
+							"special": "vial of fish scales"
+						},
+						{
+							"special": "vial of seaweed"
+						},
+						{
+							"special": "vial of jellyfish stingers"
+						},
+						{
+							"special": "glass bottle of unidentified slime"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Smuggler",
@@ -16034,7 +18410,31 @@
 				{
 					"vehicles (water)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"a": [
+						{
+							"special": "fancy leather vest"
+						}
+					],
+					"b": [
+						{
+							"special": "pair of leather boots"
+						}
+					]
+				},
+				{
+					"_": [
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Soldier",
@@ -16299,7 +18699,36 @@
 					"gaming set": true,
 					"vehicles (land)": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "insignia of rank"
+						},
+						{
+							"special": "trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner)"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"item": "dice set|phb",
+							"displayName": "bone dice set"
+						}
+					],
+					"b": [
+						"playing card set|phb"
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Stojanow Prisoner",
@@ -16323,7 +18752,7 @@
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "A small knife, a set of {@item common clothes|phb}, a trinket from the life you stayed behind to defend, a belt {@item pouch|phb} with 10 gp"
+							"entry": "A small knife, a set of {@item common clothes|phb}, a {@item trinket|phb} from the life you stayed behind to defend, a belt {@item pouch|phb} with 10 gp"
 						}
 					]
 				},
@@ -16526,7 +18955,26 @@
 					"gaming set": true,
 					"thieves' tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "small knife"
+						},
+						"common clothes|phb",
+						{
+							"item": "trinket|phb",
+							"displayName": "trinket from the life you stayed behind to defend"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Ticklebelly Nomad",
@@ -16763,7 +19211,24 @@
 				{
 					"herbalism kit": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"herbalism kit|phb",
+						{
+							"special": "small article of jewelry that is distinct to your tribe"
+						},
+						"hunting trap|phb",
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 500
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Trade Sheriff",
@@ -16999,7 +19464,25 @@
 				{
 					"thieves' tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"thieves' tools|phb",
+						{
+							"special": "gray cloak"
+						},
+						{
+							"item": "fine clothes|phb",
+							"displayName": "Sheriff's insignia (badge) a set of fine clothes"
+						},
+						{
+							"value": 1700
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Urban Bounty Hunter",
@@ -17070,7 +19553,18 @@
 						"count": 2
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"item": "pouch|phb",
+							"containsValue": 2000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Urchin",
@@ -17283,7 +19777,31 @@
 					"disguise kit": true,
 					"thieves' tools": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "small knife"
+						},
+						{
+							"special": "map of the city you grew up in"
+						},
+						{
+							"special": "pet mouse"
+						},
+						{
+							"special": "token to remember your parents by"
+						},
+						"common clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Uthgardt Tribe Member",
@@ -17312,7 +19830,7 @@
 						{
 							"type": "item",
 							"name": "Equipment",
-							"entry": "A {@item hunting trap|phb}, a totemic token or set of tattoos marking your loyalty to Uthgar and your tribal {@item totem|phb}, a set of {@item traveler's clothes|phb}, and a {@item pouch|phb} containing 10 gp"
+							"entry": "A {@item hunting trap|phb}, a totemic token or set of tattoos marking your loyalty to Uthgar and your tribal totem, a set of {@item traveler's clothes|phb}, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
 				},
@@ -17357,7 +19875,32 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"hunting trap|phb",
+						"traveler's clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				},
+				{
+					"a": [
+						{
+							"special": "totemic token"
+						}
+					],
+					"b": [
+						{
+							"special": "set of tattoos marking your loyalty to Uthgar and your tribal totem"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Variant City Watch (Investigator)",
@@ -17414,7 +19957,29 @@
 				{
 					"anyStandard": 2
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						{
+							"special": "uniform in the style of your unit and indicative of your rank"
+						},
+						{
+							"item": "horn|phb",
+							"displayName": "horn with which to summon help"
+						},
+						{
+							"item": "manacles|phb",
+							"displayName": "set of manacles"
+						},
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Variant Criminal (Spy)",
@@ -17439,7 +20004,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Variant Entertainer (Gladiator)",
@@ -17449,35 +20015,54 @@
 				"name": "Entertainer",
 				"source": "PHB",
 				"_mod": {
-					"entries": {
-						"mode": "replaceArr",
-						"replace": {
-							"index": 0
+					"entries": [
+						{
+							"mode": "replaceArr",
+							"replace": {
+								"index": 0
+							},
+							"items": {
+								"type": "list",
+								"style": "list-hang-notitle",
+								"items": [
+									{
+										"type": "item",
+										"name": "Skill Proficiencies",
+										"entry": "{@skill Acrobatics}, {@skill Performance}"
+									},
+									{
+										"type": "item",
+										"name": "Tool Proficiencies",
+										"entry": "{@item Disguise kit|phb}, one type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
+									},
+									{
+										"type": "item",
+										"name": "Equipment",
+										"entry": "An inexpensive but unusual weapon, such as a {@item trident|phb} or {@item net|phb} (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), {@item costume clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
+									}
+								]
+							}
 						},
-						"items": {
-							"type": "list",
-							"style": "list-hang-notitle",
-							"items": [
-								{
-									"type": "item",
-									"name": "Skill Proficiencies",
-									"entry": "{@skill Acrobatics}, {@skill Performance}"
-								},
-								{
-									"type": "item",
-									"name": "Tool Proficiencies",
-									"entry": "{@item Disguise kit|phb}, one type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
-								},
-								{
-									"type": "item",
-									"name": "Equipment",
-									"entry": "An inexpensive but unusual weapon, such as a {@item trident|phb} or {@item net|phb} (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), {@item costume clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
+						{
+							"mode": "replaceArr",
+							"replace": {
+								"index": 1
+							},
+							"items": {
+								"name": "Feature: By Popular Demand",
+								"type": "entries",
+								"entries": [
+									"You can always find a place to perform in any place that features combat for entertainment\u2014perhaps a gladiatorial arena or secret pit fighting club. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you."
+								],
+								"data": {
+									"isFeature": true
 								}
-							]
+							}
 						}
-					}
+					]
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Variant Guild Artisan (Guild Merchant)",
@@ -17508,6 +20093,11 @@
 								},
 								{
 									"type": "item",
+									"name": "Languages",
+									"entry": "One of your choice"
+								},
+								{
+									"type": "item",
 									"name": "Equipment",
 									"entry": "A set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} (one of your choice) or a {@item mule|phb} and {@item cart|phb}, a letter of introduction from your guild, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 								}
@@ -17531,7 +20121,8 @@
 						]
 					}
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Variant Noble (Knight)",
@@ -17571,7 +20162,8 @@
 						}
 					]
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Variant Sailor (Pirate)",
@@ -17596,7 +20188,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasFluff": true
 		},
 		{
 			"name": "Vizier",
@@ -17817,7 +20410,253 @@
 					"artisan's tools": true,
 					"musical instrument": true
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"a": [
+						{
+							"equipmentType": "toolArtisan"
+						}
+					],
+					"b": [
+						{
+							"equipmentType": "instrumentMusical"
+						}
+					]
+				},
+				{
+					"_": [
+						{
+							"special": "scroll of your god's teachings"
+						},
+						{
+							"special": "vizier's cartouche"
+						},
+						"fine clothes|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 2500
+						}
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Volstrucker Agent",
+			"source": "EGW",
+			"page": 202,
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Skill Proficiencies",
+							"entry": "{@skill Deception}, {@skill Stealth}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies",
+							"entry": "{@item Poisoner's kit|phb}"
+						},
+						{
+							"type": "item",
+							"name": "Languages",
+							"entry": "One of your choice"
+						},
+						{
+							"type": "item",
+							"name": "Equipment",
+							"entry": "A set of {@item common clothes|phb}, a black cloak with a hood, a {@item poisoner's kit|phb}, and a {@item pouch|phb} containing 10 gp"
+						}
+					]
+				},
+				{
+					"name": "Feature: Shadow Network",
+					"type": "entries",
+					"entries": [
+						"You have access to the Volstrucker shadow network, which allows you to communicate with other members of the order over long distances. If you write a letter in a special arcane ink, address it to a member of the Volstrucker, and cast it into a fire, the letter will burn to cinders and materialize whole again on the person of the agent you addressed it to.",
+						"The ink used to send a letter across the shadow network is the same as that used by a wizard to scribe spells in a spellbook. Writing a letter in this ink costs 10 gp per page."
+					],
+					"data": {
+						"isFeature": true
+					}
+				},
+				{
+					"name": "Suggested Characteristics",
+					"type": "entries",
+					"entries": [
+						"Agents of the Volstrucker are groomed to follow orders without question and to kill without mercy. The trauma that brings one into the order can fester even more strongly against the darkness of a Volstrucker agent's assignments. Officially, no one ever leaves the order\u2014but those desperate enough do whatever it takes to gain some measure of freedom.",
+						{
+							"type": "table",
+							"colLabels": [
+								"d6",
+								"Personality Trait"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I prefer to keep my thoughts to myself."
+								],
+								[
+									"2",
+									"I indulge vice in excess to quiet my conscience."
+								],
+								[
+									"3",
+									"I've left emotion behind me. I'm now perfectly placid."
+								],
+								[
+									"4",
+									"Some event from the past keeps worming its way into my mind, making me restless."
+								],
+								[
+									"5",
+									"I always keep my word\u2014except when I'm commanded to break it."
+								],
+								[
+									"6",
+									"I laugh off insults and never take them personally."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"colLabels": [
+								"d6",
+								"Ideal"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"Order. The will of the crown is absolute. (Law)"
+								],
+								[
+									"2",
+									"True Loyalty. The Cerberus Assembly is greater than any power, even the crown. (Law)"
+								],
+								[
+									"3",
+									"Death. The penalty for disloyalty is death. (Evil)"
+								],
+								[
+									"4",
+									"Determination. I cannot fail. Not ever. (Neutral)"
+								],
+								[
+									"5",
+									"Fear. People should not respect power. They should fear it. (Evil)"
+								],
+								[
+									"6",
+									"Escape. The Volstrucker are pure evil! I can't atone for what I've done for them, but I can escape with my life. (Any)"
+								]
+							]
+						},
+						{
+							"type": "table",
+							"colLabels": [
+								"d4",
+								"Bond"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"The job is all that matters. I will see it through."
+								],
+								[
+									"2",
+									"My orders are important, but my comrades are worth more than anything. I would die for them."
+								],
+								[
+									"3",
+									"Everything I've done, I've done to protect someone close to me."
+								],
+								[
+									"4",
+									"If the empire falls, all of civilization falls with it. I will hold back chaos and barbarism at any cost."
+								]
+							]
+						},
+						{
+							"type": "table",
+							"colLabels": [
+								"d4",
+								"Flaw"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-10"
+							],
+							"rows": [
+								[
+									"1",
+									"I drink to dull the pain in the back of my head."
+								],
+								[
+									"2",
+									"I go a bit mad when I see blood."
+								],
+								[
+									"3",
+									"I can hear the voices of everyone I've killed. I see their faces. I can't be free of these ghosts."
+								],
+								[
+									"4",
+									"Fear is a powerful motivator. I will do whatever it takes to prevent those who know what I am from seeing me fail, and from those I care about from knowing what I am."
+								]
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"deception": true,
+					"stealth": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"anyStandard": 1
+				}
+			],
+			"toolProficiencies": [
+				{
+					"poisoner's kit": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"common clothes|phb",
+						{
+							"special": "black cloak with a hood"
+						},
+						"poisoner's kit|phb",
+						{
+							"item": "pouch|phb",
+							"containsValue": 1000
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Waterdhavian Noble",
@@ -17890,7 +20729,35 @@
 						]
 					}
 				}
-			]
+			],
+			"startingEquipment": [
+				{
+					"_": [
+						"fine clothes|phb",
+						{
+							"special": "scroll of pedigree"
+						},
+						{
+							"special": "skin of fine zzar or wine"
+						},
+						{
+							"special": "purse",
+							"containsValue": 2000
+						}
+					]
+				},
+				{
+					"a": [
+						"signet ring|phb"
+					],
+					"b": [
+						{
+							"special": "brooch"
+						}
+					]
+				}
+			],
+			"hasFluff": true
 		}
 	]
 }

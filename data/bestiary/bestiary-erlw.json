@@ -3,7 +3,8 @@
 		"otherSources": {
 			"monster": {
 				"MM": "ERLW",
-				"VGM": "ERLW"
+				"VGM": "ERLW",
+				"TCE": "ERLW"
 			}
 		},
 		"dependencies": {
@@ -137,31 +138,37 @@
 				{
 					"name": "Eye Ray",
 					"entries": [
-						"Belashyrra shoots one of the following magical eye rays of its choice, targeting one creature it can see within 120 feet of it:"
-					]
-				},
-				{
-					"name": "1",
-					"entries": [
-						"Psyche-Reconstruction Ray. The target must make a {@dc 22} Wisdom saving throw, taking 49 ({@damage 9d10}) psychic damage on a failed save, or half as much damage on a successful one. If this damage reduces a creature to 0 hit points, it dies and transforms into a spectator under Belashyrra's control and acts immediately after Belashyrra in the initiative order. The target can't be returned to its original form by any means short of a wish spell."
-					]
-				},
-				{
-					"name": "2",
-					"entries": [
-						"Domination Ray. The target must succeed on a {@dc 22} Wisdom saving throw or be {@condition charmed} by Belashyrra for 1 minute or until the target takes damage. Belashyrra can issue telepathic commands to the {@condition charmed} creature (no action required), which it does its best to obey."
-					]
-				},
-				{
-					"name": "3",
-					"entries": [
-						"Mind-Weakening Ray. The target must succeed on a {@dc 22} Intelligence saving throw or take 36 ({@damage 8d8}) psychic damage and be unable to cast spells or activate magic items for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
-					]
-				},
-				{
-					"name": "4",
-					"entries": [
-						"Blinding Ray. The target and each creature within 10 feet of it must succeed on a {@dc 22} Constitution saving throw or take 19 ({@damage 3d12}) radiant damage and be {@condition blinded} for 1 minute. Until this blindness ends, Belyshyrra can see through the {@condition blinded} creature's eyes. The {@condition blinded} creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+						"Belashyrra shoots one of the following magical eye rays of its choice, targeting one creature it can see within 120 feet of it:",
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "1. Psyche-Reconstruction Ray.",
+									"style": "italic",
+									"entry": "The target must make a {@dc 22} Wisdom saving throw, taking 49 ({@damage 9d10}) psychic damage on a failed save, or half as much damage on a successful one. If this damage reduces a creature to 0 hit points, it dies and transforms into a spectator under Belashyrra's control and acts immediately after Belashyrra in the initiative order. The target can't be returned to its original form by any means short of a wish spell."
+								},
+								{
+									"type": "item",
+									"name": "2. Domination Ray.",
+									"style": "italic",
+									"entry": "The target must succeed on a {@dc 22} Wisdom saving throw or be {@condition charmed} by Belashyrra for 1 minute or until the target takes damage. Belashyrra can issue telepathic commands to the {@condition charmed} creature (no action required), which it does its best to obey."
+								},
+								{
+									"type": "item",
+									"name": "3. Mind-Weakening Ray.",
+									"style": "italic",
+									"entry": "The target must succeed on a {@dc 22} Intelligence saving throw or take 36 ({@damage 8d8}) psychic damage and be unable to cast spells or activate magic items for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+								},
+								{
+									"type": "item",
+									"name": "4. Blinding Ray.",
+									"style": "italic",
+									"entry": "The target and each creature within 10 feet of it must succeed on a {@dc 22} Constitution saving throw or take 19 ({@damage 3d12}) radiant damage and be {@condition blinded} for 1 minute. Until this blindness ends, Belyshyrra can see through the {@condition blinded} creature's eyes. The {@condition blinded} creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+								}
+							]
+						}
 					]
 				}
 			],
@@ -189,6 +196,7 @@
 				"name": "Belashyrra",
 				"source": "ERLW"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -212,7 +220,18 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"charmed",
+				"exhaustion",
+				"stunned"
+			],
+			"conditionInflictLegendary": [
+				"charmed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Bone Knight",
@@ -236,7 +255,7 @@
 				{
 					"ac": 20,
 					"from": [
-						"bonecraft armour"
+						"bonecraft armor"
 					]
 				}
 			],
@@ -335,6 +354,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -353,7 +373,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Changeling",
@@ -435,6 +457,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -452,7 +475,11 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Clawfoot",
@@ -526,6 +553,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"altArt": [
 				{
 					"name": "Clawfoot Raptor",
@@ -545,7 +573,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Corrin Delmaco",
@@ -576,6 +608,7 @@
 				"average": 21,
 				"formula": "6d6"
 			},
+			"hasToken": true,
 			"languageTags": [
 				"H",
 				"X"
@@ -669,6 +702,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -687,7 +721,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dolgrim",
@@ -703,7 +742,7 @@
 				{
 					"ac": 15,
 					"from": [
-						"natural armour",
+						"natural armor",
 						"{@item shield|phb}"
 					]
 				}
@@ -764,6 +803,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -782,7 +822,9 @@
 				"RNG",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dusk Hag",
@@ -899,6 +941,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -922,7 +965,14 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"incapacitated",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dyrrn",
@@ -1076,6 +1126,7 @@
 				"name": "Dyrrn",
 				"source": "ERLW"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -1101,7 +1152,16 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"stunned"
+			],
+			"conditionInflictLegendary": [
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Expeditious Messenger",
@@ -1171,6 +1231,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Flyby"
 			],
@@ -1182,7 +1243,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Fastieth",
@@ -1228,12 +1290,15 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"P"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Garra",
@@ -1248,7 +1313,8 @@
 				"C",
 				"E"
 			],
-			"int": 14
+			"int": 14,
+			"hasToken": true
 		},
 		{
 			"name": "Hashalaq Quori",
@@ -1354,7 +1420,7 @@
 					"name": "Possession {@recharge}",
 					"entries": [
 						"One humanoid that the quori can see within 5 feet of it must succeed on a {@dc 16} Charisma saving throw or be possessed by the quori; the quori then disappears, and the target is {@condition incapacitated} and loses control of its body. The quori now controls the body but doesn't deprive the target of awareness. The quori can't be targeted by any attack, spell, or other effect, and it retains its alignment, Intelligence, Wisdom, Charisma, and immunity to being {@condition charmed} and {@condition frightened}. It otherwise uses the possessed target's statistics, but doesn't gain access to the target's knowledge, class features, or proficiencies.",
-						"The possession lasts until the body drops to 0 hit points, the quori ends it as a bonus action, or the quori is forced out by an effect like the dispel evil and good spell. When the possession ends, the quori reappears in an unoccupied space within 5 feet of the body. The target is immune to this quori's Possession for 24 hours after succeeding on the saving throw or after the possession ends."
+						"The possession lasts until the body drops to 0 hit points, the quori ends it as a bonus action, or the quori is forced out by an effect like the {@spell dispel evil and good} spell. When the possession ends, the quori reappears in an unoccupied space within 5 feet of the body. The target is immune to this quori's Possession for 24 hours after succeeding on the saving throw or after the possession ends."
 					]
 				}
 			],
@@ -1366,6 +1432,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1382,96 +1449,16 @@
 			"spellcastingTags": [
 				"I",
 				"P"
-			]
-		},
-		{
-			"name": "Homunculus Servant",
-			"source": "ERLW",
-			"page": 62,
-			"size": "T",
-			"type": "construct",
-			"alignment": [
-				"N"
 			],
-			"ac": [
-				{
-					"ac": 13,
-					"from": [
-						"natural armor"
-					]
-				}
+			"conditionInflict": [
+				"incapacitated",
+				"prone"
 			],
-			"hp": {
-				"special": "equal the homunculus's Constitution modifier + your Intelligence modifier + your level in this class"
-			},
-			"speed": {
-				"walk": 20,
-				"fly": 30
-			},
-			"str": 4,
-			"dex": 15,
-			"con": 12,
-			"int": 10,
-			"wis": 10,
-			"cha": 7,
-			"save": {
-				"dex": "+4"
-			},
-			"skill": {
-				"perception": "+4",
-				"stealth": "+4"
-			},
-			"senses": [
-				"darkvision 60 ft."
+			"conditionInflictSpell": [
+				"charmed"
 			],
-			"passive": 14,
-			"immune": [
-				"poison"
-			],
-			"conditionImmune": [
-				"exhaustion",
-				"poisoned"
-			],
-			"languages": [
-				"understands the languages you speak"
-			],
-			"trait": [
-				{
-					"name": "Evasion",
-					"entries": [
-						"If the homunculus is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. It can't use this trait if it's {@condition incapacitated}."
-					]
-				},
-				{
-					"name": "Might of the Master",
-					"entries": [
-						"The following numbers increase by 1 when your proficiency bonus increases by 1: the homunculus's skill and saving throw bonuses (above) and the bonuses to hit and damage of its attack (below)."
-					]
-				}
-			],
-			"actionNote": "Requires Your Bonus Action",
-			"action": [
-				{
-					"name": "Force Strike",
-					"entries": [
-						"{@atk rw} {@hit 4} to hit, range 30 ft., one target you can see. {@h}{@dice 1d4 + 2} force damage."
-					]
-				}
-			],
-			"reaction": [
-				{
-					"name": "Channel Magic",
-					"entries": [
-						"The homunculus delivers a spell you cast that has a range of touch. The homunculus must be within 120 feet of you."
-					]
-				}
-			],
-			"senseTags": [
-				"D"
-			],
-			"miscTags": [
-				"RW"
-			]
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Inspired",
@@ -1588,36 +1575,55 @@
 					"entries": [
 						"The Inspired are vessels for quori spirits, allowing the quori to manifest a portion of their power while the vessel is possessed. An Inspired can gain benefits depending on the type of quori possessing it. The quori also gains access to the Inspired's knowledge and features.",
 						{
-							"type": "entries",
-							"name": "Suggestion (3/Day)",
+							"type": "variantInner",
+							"name": "Hashalaq",
 							"entries": [
-								"The Inspired can cast the {@spell suggestion} spell (spell save DC 13), requiring no material components."
+								{
+									"type": "entries",
+									"name": "Suggestion (3/Day)",
+									"entries": [
+										"The Inspired can cast the {@spell suggestion} spell (spell save {@dc 13}), requiring no material components."
+									]
+								}
 							]
 						},
 						{
-							"type": "entries",
-							"name": "All Around Vision",
+							"type": "variantInner",
+							"name": "Kalaraq",
 							"entries": [
-								"The Inspired can't be surprised."
+								{
+									"type": "entries",
+									"name": "All Around Vision",
+									"entries": [
+										"The Inspired can't be surprised."
+									]
+								},
+								{
+									"type": "entries",
+									"name": "Arcane Eye (3/Day)",
+									"entries": [
+										"The Inspired can cast the {@spell arcane eye} spell, requiring no material components."
+									]
+								}
 							]
 						},
 						{
-							"type": "entries",
-							"name": "Arcane Eye (3/Day)",
+							"type": "variantInner",
+							"name": "Tsucora",
 							"entries": [
-								"The Inspired can cast the {@spell arcane eye} spell, requiring no material components."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Fear (1/Day)",
-							"entries": [
-								"The Inspired can cast the {@spell fear} spell (spell save DC 13), requiring no material components."
+								{
+									"type": "entries",
+									"name": "Fear (1/Day)",
+									"entries": [
+										"The Inspired can cast the {@spell fear} spell (spell save {@dc 13}), requiring no material components."
+									]
+								}
 							]
 						}
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1635,7 +1641,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Iron Defender",
@@ -1669,7 +1677,7 @@
 			"wis": 11,
 			"cha": 7,
 			"skill": {
-				"perception": "+3",
+				"perception": "+4",
 				"stealth": "+4"
 			},
 			"senses": [
@@ -1709,6 +1717,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -1723,7 +1732,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kalaraq Quori",
@@ -1787,7 +1801,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -1869,7 +1884,7 @@
 					"name": "Mind Seed (1/Day)",
 					"entries": [
 						"The quori touches one humanoid, which must succeed on a {@dc 21} Intelligence saving throw or be cursed. The curse lasts until it's removed by a remove curse or greater restoration spell.",
-						"The cursed target suffers 1 level of {@condition exhaustion} every 24 hours, and finishing a long rest doesn't reduce its {@condition exhaustion}. If the cursed target reaches {@condition exhaustion} level 6, it doesn't die; it instead becomes a thrall under the quori's control, and all its {@condition exhaustion} is removed. Only the wish spell can free the thrall from this control."
+						"The cursed target suffers 1 level of {@condition exhaustion} every 24 hours, and finishing a long rest doesn't reduce its {@condition exhaustion}. If the cursed target reaches {@condition exhaustion} level 6, it doesn't die; it instead becomes a thrall under the quori's control, and all its {@condition exhaustion} is removed. Only the {@spell wish} spell can free the thrall from this control."
 					]
 				},
 				{
@@ -1882,10 +1897,11 @@
 					"name": "Possession {@recharge}",
 					"entries": [
 						"One humanoid that the quori can see within 5 feet of it must succeed on a {@dc 21} Charisma saving throw or be possessed by the quori; the quori then disappears, and the target is {@condition incapacitated} and loses control of its body. The quori now controls the body but doesn't deprive the target of awareness. The quori can't be targeted by any attack, spell, or other effect, and it retains its alignment, Intelligence, Wisdom, Charisma, and immunity to being {@condition charmed} and {@condition frightened}. It otherwise uses the possessed target's statistics, but doesn't gain access to the target's knowledge, class features, or proficiencies.",
-						"The possession lasts until the body drops to 0 hit points, the quori ends it as a bonus action, or the quori is forced out by an effect like the dispel evil and good spell. When the possession ends, the quori reappears in an unoccupied space within 5 feet of the body. The target is immune to this quori's Possession for 24 hours after succeeding on the saving throw or after the possession ends."
+						"The possession lasts until the body drops to 0 hit points, the quori ends it as a bonus action, or the quori is forced out by an effect like the {@spell dispel evil and good} spell. When the possession ends, the quori reappears in an unoccupied space within 5 feet of the body. The target is immune to this quori's Possession for 24 hours after succeeding on the saving throw or after the possession ends."
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement",
 				"Magic Resistance"
@@ -1911,7 +1927,17 @@
 			],
 			"miscTags": [
 				"AOE"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"incapacitated"
+			],
+			"conditionInflictSpell": [
+				"frightened",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kalashtar",
@@ -1979,6 +2005,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"TP"
@@ -1991,7 +2018,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Karrnathi Undead Soldier",
@@ -2087,6 +2116,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics",
 				"Undead Fortitude"
@@ -2109,7 +2139,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lady Illmarrow",
@@ -2172,7 +2204,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -2353,6 +2386,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -2378,7 +2412,21 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"paralyzed",
+				"poisoned"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"paralyzed",
+				"petrified",
+				"restrained",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Living Burning Hands",
@@ -2422,7 +2470,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -2467,6 +2516,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amorphous",
 				"Magic Resistance"
@@ -2479,7 +2529,9 @@
 			],
 			"miscTags": [
 				"AOE"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Living Cloudkill",
@@ -2508,7 +2560,7 @@
 			},
 			"str": 10,
 			"dex": 15,
-			"con": 14,
+			"con": 20,
 			"int": 3,
 			"wis": 11,
 			"cha": 6,
@@ -2523,7 +2575,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -2575,6 +2628,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amorphous",
 				"Magic Resistance"
@@ -2590,7 +2644,9 @@
 			],
 			"miscTags": [
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Living Lightning Bolt",
@@ -2634,7 +2690,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -2685,6 +2742,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amorphous",
 				"Magic Resistance"
@@ -2700,7 +2758,9 @@
 			],
 			"miscTags": [
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Magewright",
@@ -2750,8 +2810,8 @@
 						"{@spell mage hand}",
 						"{@spell prestidigitation}"
 					],
-					"footerEntries": [
-						"Rituals: knock"
+					"ritual": [
+						"{@spell knock}"
 					],
 					"ability": "int"
 				}
@@ -2764,6 +2824,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -2775,7 +2836,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mordakhesh",
@@ -2832,7 +2895,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks that aren't silvered"
+					"note": "from nonmagical attacks that aren't silvered",
+					"cond": true
 				}
 			],
 			"vulnerable": [
@@ -2840,7 +2904,8 @@
 					"vulnerable": [
 						"piercing"
 					],
-					"note": "from magic weapons wielded by good creatures"
+					"note": "from magic weapons wielded by good creatures",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -2921,6 +2986,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -2940,7 +3006,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Radiant Idol",
@@ -2995,7 +3063,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -3066,6 +3135,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -3089,10 +3159,19 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed"
+			],
+			"conditionInflictSpell": [
+				"charmed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rak Tulkhesh",
+			"shortName": true,
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 303,
@@ -3158,7 +3237,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -3268,6 +3348,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -3292,7 +3373,9 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sergeant",
@@ -3301,7 +3384,8 @@
 			"_copy": {
 				"name": "Guard",
 				"source": "MM"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Shifter",
@@ -3374,6 +3458,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3385,106 +3470,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
-		},
-		{
-			"name": "Steel Defender",
-			"source": "ERLW",
-			"page": 61,
-			"size": "M",
-			"type": "construct",
-			"alignment": [
-				"N"
 			],
-			"ac": [
-				{
-					"ac": 15,
-					"from": [
-						"natural armor"
-					]
-				}
-			],
-			"hp": {
-				"special": "equal the steel defender's Constitution modifier + your Intelligence modifier + five times your level in this class"
-			},
-			"speed": {
-				"walk": 40
-			},
-			"str": 14,
-			"dex": 12,
-			"con": 14,
-			"int": 4,
-			"wis": 10,
-			"cha": 6,
-			"save": {
-				"dex": "+3",
-				"con": "+4"
-			},
-			"skill": {
-				"athletics": "+4",
-				"perception": "+4"
-			},
-			"senses": [
-				"darkvision 60 ft."
-			],
-			"passive": 14,
-			"immune": [
-				"poison"
-			],
-			"conditionImmune": [
-				"charmed",
-				"exhaustion",
-				"poisoned"
-			],
-			"languages": [
-				"understands the languages you speak"
-			],
-			"trait": [
-				{
-					"name": "Might of the Master",
-					"entries": [
-						"The following numbers increase by 1 when your proficiency bonus increases by 1: the defender's skill and saving throw bonuses (above), the bonuses to hit and damage of its rend attack, and the number of hit points restored by its Repair action (below)."
-					]
-				},
-				{
-					"name": "Vigilant",
-					"entries": [
-						"The defender can't be surprised."
-					]
-				}
-			],
-			"actionNote": "Requires Your Bonus Action",
-			"action": [
-				{
-					"name": "Force-Empowered Rend",
-					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target you can see. {@h}{@dice 1d8 + 2} force damage."
-					]
-				},
-				{
-					"name": "Repair (3/Day)",
-					"entries": [
-						"The magical mechanisms inside the defender restore {@dice 2d8 + 2} hit points to itself or to one construct or object within 5 feet of it."
-					]
-				}
-			],
-			"reaction": [
-				{
-					"name": "Deflect Attack",
-					"entries": [
-						"The defender imposes disadvantage on the attack roll of one creature it can see that is within 5 feet of it, provided the attack roll is against a creature other than the defender."
-					]
-				}
-			],
-			"senseTags": [
-				"D"
-			],
-			"miscTags": [
-				"MW"
-			]
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sul Khatesh",
+			"shortName": true,
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 304,
@@ -3549,7 +3541,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -3673,6 +3666,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -3696,7 +3690,15 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"frightened",
+				"paralyzed",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tarkanan Assassin",
@@ -3804,6 +3806,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3825,10 +3828,14 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "The Lord of Blades",
+			"shortName": true,
+			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 300,
 			"size": "M",
@@ -4028,6 +4035,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Charge"
 			],
@@ -4045,11 +4053,16 @@
 				"O",
 				"S"
 			],
+			"spellcastingTags": [
+				"CA"
+			],
 			"miscTags": [
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tsucora Quori",
@@ -4146,17 +4159,18 @@
 				{
 					"name": "Stinger",
 					"entries": [
-						"{@atk mw} {@hit 6} to hit, reach 10 ft., one creature. {@h}8 ({@damage 1d10 + 3}) piercing damage plus 10 ({@damage 3d10}) psychic damage, and the target must succeed on a {@dc 14} Wisdom saving throw or be {@condition frightened} of the quori for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+						"{@atk mw} {@hit 6} to hit, reach 10 ft., one creature. {@h}8 ({@damage 1d10 + 3}) piercing damage plus 10 ({@damage 3d6}) psychic damage, and the target must succeed on a {@dc 14} Wisdom saving throw or be {@condition frightened} of the quori for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 					]
 				},
 				{
 					"name": "Possession {@recharge}",
 					"entries": [
 						"One humanoid that the quori can see within 5 feet of it must succeed on a {@dc 14} Charisma saving throw or be possessed by the quori; the quori then disappears, and the target is {@condition incapacitated} and loses control of its body. The quori now controls the body but doesn't deprive the target of awareness. The quori can't be targeted by any attack, spell, or other effect, and it retains its alignment, Intelligence, Wisdom, Charisma, and immunity to being {@condition charmed} and {@condition frightened}. It otherwise uses the possessed target's statistics, but doesn't gain access to the target's knowledge, class features, or proficiencies.",
-						"The possession lasts until the body drops to 0 hit points, the quori ends it as a bonus action, or the quori is forced out by an effect like the dispel evil and good spell. When the possession ends, the quori reappears in an unoccupied space within 5 feet of the body. The target is immune to this quori's Possession for 24 hours after succeeding on the saving throw or after the possession ends."
+						"The possession lasts until the body drops to 0 hit points, the quori ends it as a bonus action, or the quori is forced out by an effect like the {@spell dispel evil and good} spell. When the possession ends, the quori reappears in an unoccupied space within 5 feet of the body. The target is immune to this quori's Possession for 24 hours after succeeding on the saving throw or after the possession ends."
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -4179,7 +4193,18 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"grappled",
+				"incapacitated"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Undying Councilor",
@@ -4375,6 +4400,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -4397,7 +4423,16 @@
 			],
 			"miscTags": [
 				"AOE"
-			]
+			],
+			"conditionInflict": [
+				"blinded"
+			],
+			"conditionInflictSpell": [
+				"incapacitated",
+				"paralyzed",
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Undying Soldier",
@@ -4449,7 +4484,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks that aren't silvered"
+					"note": "from nonmagical attacks that aren't silvered",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -4495,6 +4531,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Illumination",
 				"Turn Resistance"
@@ -4518,7 +4555,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Valenar Hawk",
@@ -4578,6 +4617,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -4592,7 +4632,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Valenar Hound",
@@ -4656,6 +4697,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -4670,7 +4712,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Valenar Steed",
@@ -4723,6 +4770,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"CS",
@@ -4734,7 +4782,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Warforged Colossus",
@@ -4784,7 +4834,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -4866,6 +4917,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Immutable Form",
 				"Legendary Resistances",
@@ -4891,7 +4943,13 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone",
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Warforged Soldier",
@@ -4978,6 +5036,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4992,7 +5051,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Warforged Titan",
@@ -5085,6 +5146,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Siege Monster"
 			],
@@ -5104,7 +5166,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Zakya Rakshasa",
@@ -5153,7 +5220,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"vulnerable": [
@@ -5161,7 +5229,8 @@
 					"vulnerable": [
 						"piercing"
 					],
-					"note": "from magic weapons wielded by good creatures"
+					"note": "from magic weapons wielded by good creatures",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -5227,6 +5296,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Weapons"
 			],
@@ -5251,7 +5321,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

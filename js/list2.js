@@ -19,7 +19,7 @@ class ListItem {
 			if (!v) continue;
 			searchText += `${v} - `;
 		}
-		this.searchText = searchText.toLowerCase();
+		this.searchText = searchText.toAscii().toLowerCase();
 
 		this._isSelected = false;
 	}
@@ -45,16 +45,24 @@ class List {
 	 * @param [opts] Options object.
 	 * @param [opts.fnSort] Sort function. Should accept `(a, b, o)` where `o` is an options object. Pass `null` to
 	 * disable sorting.
+	 * @param [opts.fnSearch] Search function. Should accept `(li, searchTerm)` where `li` is a list item.
 	 * @param [opts.$iptSearch] Search input.
 	 * @param opts.$wrpList List wrapper.
 	 * @param [opts.isUseJquery] If the list items are using jQuery elements. Significantly slower for large lists.
 	 * @param [opts.sortByInitial] Initial sortBy.
 	 * @param [opts.sortDirInitial] Initial sortDir.
+	 * @param [opts.syntax] A dictionary of search syntax prefixes, each with an item "to display" checker function.
+	 * @param [opts.isFuzzy]
 	 */
 	constructor (opts) {
+		if (opts.fnSearch && opts.isFuzzy) throw new Error(`The options "fnSearch" and "isFuzzy" are mutually incompatible!`);
+
 		this._$iptSearch = opts.$iptSearch;
 		this._$wrpList = opts.$wrpList;
 		this._fnSort = opts.fnSort === undefined ? SortUtil.listSort : opts.fnSort;
+		this._fnSearch = opts.fnSearch;
+		this._syntax = opts.syntax;
+		this._isFuzzy = !!opts.isFuzzy;
 
 		this._items = [];
 		this._eventHandlers = {};
@@ -62,8 +70,12 @@ class List {
 		this._searchTerm = List._DEFAULTS.searchTerm;
 		this._sortBy = opts.sortByInitial || List._DEFAULTS.sortBy;
 		this._sortDir = opts.sortDirInitial || List._DEFAULTS.sortDir;
+		this._sortByInitial = this._sortBy;
+		this._sortDirInitial = this._sortDir;
 		this._fnFilter = null;
 		this._isUseJquery = opts.isUseJquery;
+
+		if (this._isFuzzy) this._initFuzzySearch();
 
 		this._searchedItems = [];
 		this._filteredSortedItems = [];
@@ -91,27 +103,106 @@ class List {
 
 		// This should only be run after all the elements are ready from page load
 		if (this._$iptSearch) {
-			SearchWidget.bindTypingEnd({$iptSearch: this._$iptSearch, fnKeyup: () => this.search(this._$iptSearch.val())});
-			this._searchTerm = List._getCleanSearchTerm(this._$iptSearch.val());
+			UiUtil.bindTypingEnd({$ipt: this._$iptSearch, fnKeyup: () => this.search(this._$iptSearch.val())});
+			this._searchTerm = List.getCleanSearchTerm(this._$iptSearch.val());
+			this._init_bindKeydowns();
 		}
 		this._doSearch();
 		this._isInit = true;
 	}
 
-	update () {
-		if (this._isInit && this._isDirty) {
-			this._doSearch();
+	_init_bindKeydowns () {
+		this._$iptSearch
+			.on("keydown", evt => {
+				// Avoid handling the same event multiple times, if there are multiple lists bound to one input
+				if (evt._List__isHandled) return;
+
+				switch (evt.key) {
+					case "Escape": return this._handleKeydown_escape(evt);
+					case "Enter": return this._handleKeydown_enter(evt);
+				}
+			});
+	}
+
+	_handleKeydown_escape (evt) {
+		evt._List__isHandled = true;
+
+		if (!this._$iptSearch.val()) {
+			$(document.activeElement).blur();
+			return;
 		}
+
+		this._$iptSearch.val("");
+		this.search("");
+	}
+
+	_handleKeydown_enter (evt) {
+		if (IS_VTT) return;
+
+		const firstVisibleItem = this.visibleItems[0];
+		if (!firstVisibleItem) return;
+
+		evt._List__isHandled = true;
+
+		$(firstVisibleItem.ele).click();
+		if (firstVisibleItem.values.hash) window.location.hash = firstVisibleItem.values.hash;
+	}
+
+	_initFuzzySearch () {
+		elasticlunr.clearStopWords();
+		this._fuzzySearch = elasticlunr(function () {
+			this.addField("s");
+			this.setRef("ix");
+		});
+		SearchUtil.removeStemmer(this._fuzzySearch);
+	}
+
+	update () {
+		if (!this._isInit || !this._isDirty) return;
+		this._doSearch();
 	}
 
 	_doSearch () {
-		if (this._searchTerm) this._searchedItems = this._items.filter(it => it.searchText.includes(this._searchTerm));
-		else this._searchedItems = [...this._items];
+		this._doSearch_doSearchTerm();
 
 		// Never show excluded items
 		this._searchedItems = this._searchedItems.filter(it => !it.data.isExcluded);
 
 		this._doFilter();
+	}
+
+	_doSearch_doSearchTerm () {
+		if (!this._searchTerm) return this._searchedItems = [...this._items];
+
+		if (this._syntax) {
+			const [command, term] = this._searchTerm.split(/^([a-z]+):/).filter(Boolean);
+			if (command && term && this._syntax[command]) {
+				const fnCommand = this._syntax[command].fn;
+				this._searchedItems = this._items.filter(it => fnCommand(it, term));
+				return;
+			}
+		}
+
+		if (this._isFuzzy) return this._searchedItems = this._doSearch_doSearchTerm_fuzzy();
+
+		if (this._fnSearch) return this._searchedItems = this._items.filter(it => this._fnSearch(it, this._searchTerm));
+
+		this._searchedItems = this._items.filter(it => it.searchText.includes(this._searchTerm));
+	}
+
+	_doSearch_doSearchTerm_fuzzy () {
+		const results = this._fuzzySearch
+			.search(
+				this._searchTerm,
+				{
+					fields: {
+						s: {expand: true},
+					},
+					expand: true,
+				},
+			);
+
+		return results.map(res => this._items[res.doc.ix]);
 	}
 
 	_doFilter () {
@@ -121,9 +212,20 @@ class List {
 	}
 
 	_doSort () {
-		const opts = {sortBy: this._sortBy};
-		if (this._fnSort) this._filteredSortedItems.sort((a, b) => this._fnSort(a, b, opts));
-		if (this._sortDir === "desc") this._filteredSortedItems.reverse();
+		const isFuzzySearchActive = this._isFuzzy && this._searchTerm;
+
+		// Temporarily disable sorting, since we want to keep the fuzzy result order (most relevant item first) rather
+		//   than our more general sort.
+		if (!isFuzzySearchActive) {
+			const opts = {
+				sortBy: this._sortBy,
+				// The sort function should generally ignore this, as we do the reversing here. We expose it in case there
+				//   is specific functionality that requires it.
+				sortDir: this._sortDir,
+			};
+			if (this._fnSort) this._filteredSortedItems.sort((a, b) => this._fnSort(a, b, opts));
+			if (this._sortDir === "desc") this._filteredSortedItems.reverse();
+		}
 
 		this._doRender();
 	}
@@ -135,7 +237,7 @@ class List {
 			this._$wrpList.children().detach();
 			for (let i = 0; i < len; ++i) this._$wrpList.append(this._filteredSortedItems[i].ele);
 		} else {
-			this._$wrpList.empty();
+			this._$wrpList[0].innerHTML = "";
 			const frag = document.createDocumentFragment();
 			for (let i = 0; i < len; ++i) frag.appendChild(this._filteredSortedItems[i].ele);
 			this._$wrpList[0].appendChild(frag);
@@ -146,7 +248,7 @@ class List {
 	}
 
 	search (searchTerm) {
-		const nextTerm = List._getCleanSearchTerm(searchTerm);
+		const nextTerm = List.getCleanSearchTerm(searchTerm);
 		if (nextTerm !== this._searchTerm) {
 			this._searchTerm = nextTerm;
 			this._doSearch();
@@ -172,44 +274,45 @@ class List {
 		if (this._searchTerm !== List._DEFAULTS.searchTerm) {
 			this._searchTerm = List._DEFAULTS.searchTerm;
 			this._doSearch();
-		} else if (this._sortBy !== List._DEFAULTS.sortBy || this._sortDir !== List._DEFAULTS.sortDir) {
-			this._sortBy = List._DEFAULTS.sortBy;
-			this._sortDir = List._DEFAULTS.sortDir
+		} else if (this._sortBy !== this._sortByInitial || this._sortDir !== this._sortDirInitial) {
+			this._sortBy = this._sortByInitial;
+			this._sortDir = this._sortDirInitial;
 		}
 	}
 
 	addItem (listItem) {
 		this._isDirty = true;
 		this._items.push(listItem);
+
+		if (this._isFuzzy) this._fuzzySearch.addDoc({ix: listItem.ix, s: listItem.searchText});
 	}
 
-	removeItem (ix) {
-		const ixItem = this._items.findIndex(it => it.ix === ix);
-		if (~ixItem) {
-			this._isDirty = true;
-			this._items.splice(ixItem, 1);
-		}
+	removeItem (ix, ixItem) {
+		ixItem = ixItem ?? this._items.findIndex(it => it.ix === ix);
+		if (!~ixItem) return;
+
+		this._isDirty = true;
+		const removed = this._items.splice(ixItem, 1);
+
+		if (this._isFuzzy) this._fuzzySearch.removeDocByRef(ix);
+
+		return removed[0];
 	}
 
 	removeItemBy (valueName, value) {
 		const ixItem = this._items.findIndex(it => it.values[valueName] === value);
-		if (~ixItem) {
-			this._isDirty = true;
-			this._items.splice(ixItem, 1);
-		}
+		return this.removeItem(ixItem, ixItem);
 	}
 
 	removeItemByData (dataName, value) {
 		const ixItem = this._items.findIndex(it => it.data[dataName] === value);
-		if (~ixItem) {
-			this._isDirty = true;
-			this._items.splice(ixItem, 1);
-		}
+		return this.removeItem(ixItem, ixItem);
 	}
 
 	removeAllItems () {
 		this._isDirty = true;
 		this._items = [];
+		if (this._isFuzzy) this._initFuzzySearch();
 	}
 
 	on (eventName, handler) { (this._eventHandlers[eventName] = this._eventHandlers[eventName] || []).push(handler); }
@@ -245,7 +348,7 @@ class List {
 				node,
 				opts.fnGetName(dataItem),
 				opts.fnGetValues ? opts.fnGetValues(dataItem) : {},
-				{}
+				{},
 			);
 			if (opts.fnGetData) listItem.data = opts.fnGetData(listItem, dataItem);
 			if (opts.fnBindListeners) opts.fnBindListeners(listItem, dataItem);
@@ -343,18 +446,12 @@ class List {
 
 	updateSelected (item) {
 		if (this.visibleItems.includes(item)) {
-			if (this._isMultiSelection) {
-				this.deselectAll(true);
-			} else if (this._lastSelection) {
-				if (this._lastSelection !== item) {
-					this._lastSelection.isSelected = false;
-					item.isSelected = true;
-					this._lastSelection = item;
-				}
-			} else {
-				item.isSelected = true;
-				this._lastSelection = item;
-			}
+			if (this._isMultiSelection) this.deselectAll(true);
+
+			if (this._lastSelection && this._lastSelection !== item) this._lastSelection.isSelected = false;
+
+			item.isSelected = true;
+			this._lastSelection = item;
 		} else this.deselectAll();
 	}
 
@@ -363,15 +460,15 @@ class List {
 	}
 	// endregion
 
-	static _getCleanSearchTerm (str) {
-		return (str || "").trim().toLowerCase().split(/\s+/g).join(" ");
+	static getCleanSearchTerm (str) {
+		return (str || "").toAscii().trim().toLowerCase().split(/\s+/g).join(" ");
 	}
 }
 List._DEFAULTS = {
 	searchTerm: "",
 	sortBy: "name",
 	sortDir: "asc",
-	fnFilter: null
+	fnFilter: null,
 };
 
 if (typeof module !== "undefined") module.exports = {List, ListItem};

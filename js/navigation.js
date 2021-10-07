@@ -9,7 +9,7 @@ class NavBar {
 			function () {
 				NavBar.initElements();
 				NavBar.highlightCurrentPage();
-			}
+			},
 		);
 		window.addEventListener("load", NavBar.initHandlers);
 	}
@@ -32,38 +32,47 @@ class NavBar {
 		};
 		document.getElementById("navigation").prepend(btnShowHide);
 
-		addLi(navBar, "5etools.html", "Home", {isRoot: true});
+		addLi(navBar, "index.html", "Home", {isRoot: true});
 
 		const ulRules = addDropdown(navBar, "Rules");
 		addLi(ulRules, "quickreference.html", "Quick Reference");
-		addLi(ulRules, "variantrules.html", "Variant & Optional Rules/Misc");
+		addLi(ulRules, "variantrules.html", "Optional, Variant, and Expanded Rules");
 		addLi(ulRules, "tables.html", "Tables");
 		addDivider(ulRules);
-		addLi(ulRules, "book.html", "Dungeon Master's Guide", {aHash: "DMG"});
-		addLi(ulRules, "book.html", "Monster Manual", {aHash: "MM"});
-		addLi(ulRules, "book.html", "Player's Handbook", {aHash: "PHB"});
-		addDivider(ulRules);
-		addLi(ulRules, "book.html", "Acquisitions Incorporated", {aHash: "AI"});
-		addLi(ulRules, "book.html", "Guildmasters' Guide to Ravnica", {aHash: "GGR"});
-		addLi(ulRules, "book.html", "Mordenkainen's Tome of Foes", {aHash: "MTF"});
-		addLi(ulRules, "book.html", "Sword Coast Adventurer's Guide", {aHash: "SCAG"});
-		addLi(ulRules, "book.html", "Volo's Guide to Monsters", {aHash: "VGM"});
-		addLi(ulRules, "book.html", "Xanathar's Guide to Everything", {aHash: "XGE"});
-		addLi(ulRules, "book.html", "Eberron: Rising from the Last War", {aHash: "ERLW"});
-		addLi(ulRules, "book.html", "Dungeons & Dragons vs. Rick and Morty: Basic Rules", {aHash: "RMR"});
-		addDivider(ulRules);
-		addLi(ulRules, "book.html", "Adventurers League", {aHash: "AL"});
-		addLi(ulRules, "book.html", "Sage Advice Compendium", {aHash: "SAC"});
-		addDivider(ulRules);
-		addLi(ulRules, "books.html", "View All/Homebrew");
+		const ulBooks = addDropdown(ulRules, "Books", true);
+		addLi(ulBooks, "books.html", "View All/Homebrew");
+		addDivider(ulBooks);
+		addLi(ulBooks, "book.html", "Player's Handbook", {aHash: "PHB", date: "2014"});
+		addLi(ulBooks, "book.html", "Monster Manual", {aHash: "MM", date: null});
+		addLi(ulBooks, "book.html", "Dungeon Master's Guide", {aHash: "DMG", date: null});
+		addDivider(ulBooks);
+		addLi(ulBooks, "book.html", "Sword Coast Adventurer's Guide", {aHash: "SCAG", date: "2015"});
+		addLi(ulBooks, "book.html", "Volo's Guide to Monsters", {aHash: "VGM", date: "2016"});
+		addLi(ulBooks, "book.html", "Xanathar's Guide to Everything", {aHash: "XGE", date: "2017"});
+		addLi(ulBooks, "book.html", "Mordenkainen's Tome of Foes", {aHash: "MTF", date: "2018"});
+		addLi(ulBooks, "book.html", "Guildmasters' Guide to Ravnica", {aHash: "GGR", date: null});
+		addLi(ulBooks, "book.html", "Acquisitions Incorporated", {aHash: "AI", date: "2019"});
+		addLi(ulBooks, "book.html", "Eberron: Rising from the Last War", {aHash: "ERLW", date: null});
+		addLi(ulBooks, "book.html", "Dungeons & Dragons vs. Rick and Morty: Basic Rules", {aHash: "RMR", date: null});
+		addLi(ulBooks, "book.html", "Explorer's Guide to Wildemount", {aHash: "EGW", date: "2020"});
+		addLi(ulBooks, "book.html", "Mythic Odysseys of Theros", {aHash: "MOT", date: null});
+		addLi(ulBooks, "book.html", "Tasha's Cauldron of Everything", {aHash: "TCE", date: null});
+		addLi(ulBooks, "book.html", "Van Richten's Guide to Ravenloft", {aHash: "VRGR", date: "2021"});
+		addDivider(ulBooks);
+		addLi(ulBooks, "book.html", "Dungeon Master's Screen: Wilderness Kit", {aHash: "ScreenWildernessKit", date: "2020"});
+		addDivider(ulBooks);
+		addLi(ulBooks, "book.html", "Adventurers League", {aHash: "AL", date: "2016"});
+		addLi(ulBooks, "book.html", "Sage Advice Compendium", {aHash: "SAC", date: "2019"});
 
 		const ulPlayers = addDropdown(navBar, "Player");
 		addLi(ulPlayers, "classes.html", "Classes");
 		addLi(ulPlayers, "backgrounds.html", "Backgrounds");
 		addLi(ulPlayers, "feats.html", "Feats");
 		addLi(ulPlayers, "races.html", "Races");
+		addLi(ulPlayers, "charcreationoptions.html", "Other Character Creation Options");
+		addLi(ulPlayers, "optionalfeatures.html", "Other Options & Features");
 		addDivider(ulPlayers);
-		addLi(ulPlayers, "statgen.html", "Statgen");
+		addLi(ulPlayers, "statgen.html", "Stat Generator");
 		addDivider(ulPlayers);
 		addLi(ulPlayers, "lifegen.html", "This Is Your Life");
 		addLi(ulPlayers, "names.html", "Names");
@@ -72,40 +81,48 @@ class NavBar {
 		addLi(ulDms, "dmscreen.html", "DM Screen");
 		addDivider(ulDms);
 		const ulAdventures = addDropdown(ulDms, "Adventures", true);
-		addLi(ulAdventures, "adventure.html", "Lost Mines of Phandelver", {isSide: true, aHash: "LMoP"});
-		addLi(ulAdventures, "adventure.html", "Hoard of the Dragon Queen", {isSide: true, aHash: "HotDQ"});
-		addLi(ulAdventures, "adventure.html", "Rise of Tiamat", {isSide: true, aHash: "RoT"});
-		addLi(ulAdventures, "adventure.html", "Princes of the Apocalypse", {isSide: true, aHash: "PotA"});
-		addLi(ulAdventures, "adventure.html", "Out of the Abyss", {isSide: true, aHash: "OotA"});
-		addLi(ulAdventures, "adventure.html", "Curse of Strahd", {isSide: true, aHash: "CoS"});
-		addLi(ulAdventures, "adventure.html", "Storm King's Thunder", {isSide: true, aHash: "SKT"});
-		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: The Sunless Citadel", {isSide: true, aHash: "TftYP-TSC"});
-		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: The Forge of Fury", {isSide: true, aHash: "TftYP-TFoF"});
-		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: The Hidden Shrine of Tamoachan", {isSide: true, aHash: "TftYP-THSoT"});
-		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: White Plume Mountain", {isSide: true, aHash: "TftYP-WPM"});
-		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: Dead in Thay", {isSide: true, aHash: "TftYP-DiT"});
-		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: Against the Giants", {isSide: true, aHash: "TftYP-AtG"});
-		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: Tomb of Horrors", {isSide: true, aHash: "TftYP-ToH"});
-		addLi(ulAdventures, "adventure.html", "Tomb of Annihilation", {isSide: true, aHash: "ToA"});
-		addLi(ulAdventures, "adventure.html", "The Tortle Package", {isSide: true, aHash: "TTP"});
-		addLi(ulAdventures, "adventure.html", "Waterdeep: Dragon Heist", {isSide: true, aHash: "WDH"});
-		addLi(ulAdventures, "adventure.html", "Lost Laboratory of Kwalish", {isSide: true, aHash: "LLK"});
-		addLi(ulAdventures, "adventure.html", "Waterdeep: Dungeon of the Mad Mage", {isSide: true, aHash: "WDMM"});
-		addLi(ulAdventures, "adventure.html", "Krenko's Way", {isSide: true, aHash: "KKW"});
-		addLi(ulAdventures, "adventure.html", "Ghosts of Saltmarsh", {isSide: true, aHash: "GoS"});
-		addLi(ulAdventures, "adventure.html", "Hunt for the Thessalhydra", {isSide: true, aHash: "HftT"});
-		addLi(ulAdventures, "adventure.html", "The Orrery of the Wanderer", {isSide: true, aHash: "OoW"});
-		addLi(ulAdventures, "adventure.html", "Essentials Kit: Dragon of Icespire Peak", {isSide: true, aHash: "DIP"});
-		addLi(ulAdventures, "adventure.html", "Essentials Kit: Storm Lord's Wrath", {isSide: true, aHash: "SLW"});
-		addLi(ulAdventures, "adventure.html", "Essentials Kit: Sleeping Dragon's Wake", {isSide: true, aHash: "SDW"});
-		addLi(ulAdventures, "adventure.html", "Essentials Kit: Divine Contention", {isSide: true, aHash: "DC"});
-		addLi(ulAdventures, "adventure.html", "Baldur's Gate: Descent Into Avernus", {isSide: true, aHash: "BGDIA"});
-		addLi(ulAdventures, "adventure.html", "Locathah Rising", {isSide: true, aHash: "LR"});
-		addLi(ulAdventures, "adventure.html", "Eberron: Forgotten Relics", {isSide: true, aHash: "EFR"});
-		addLi(ulAdventures, "adventure.html", "Rick and Morty: Big Rick Energy", {isSide: true, aHash: "RMBRE"});
-		addLi(ulAdventures, "adventure.html", "Infernal Machine Rebuild", {isSide: true, aHash: "IMR"});
-		addDivider(ulAdventures);
 		addLi(ulAdventures, "adventures.html", "View All/Homebrew");
+		addDivider(ulAdventures);
+		addLi(ulAdventures, "adventure.html", "Lost Mine of Phandelver", {isSide: true, aHash: "LMoP", date: "2014"});
+		addLi(ulAdventures, "adventure.html", "Hoard of the Dragon Queen", {isSide: true, aHash: "HotDQ", date: null});
+		addLi(ulAdventures, "adventure.html", "Rise of Tiamat", {isSide: true, aHash: "RoT", date: null});
+		addLi(ulAdventures, "adventure.html", "Princes of the Apocalypse", {isSide: true, aHash: "PotA", date: "2015"});
+		addLi(ulAdventures, "adventure.html", "Out of the Abyss", {isSide: true, aHash: "OotA", date: null});
+		addLi(ulAdventures, "adventure.html", "Curse of Strahd", {isSide: true, aHash: "CoS", date: "2016"});
+		addLi(ulAdventures, "adventure.html", "Storm King's Thunder", {isSide: true, aHash: "SKT", date: null});
+		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: The Sunless Citadel", {isSide: true, aHash: "TftYP-TSC", date: "2017"});
+		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: The Forge of Fury", {isSide: true, aHash: "TftYP-TFoF", date: null});
+		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: The Hidden Shrine of Tamoachan", {isSide: true, aHash: "TftYP-THSoT", date: null});
+		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: White Plume Mountain", {isSide: true, aHash: "TftYP-WPM", date: null});
+		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: Dead in Thay", {isSide: true, aHash: "TftYP-DiT", date: null});
+		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: Against the Giants", {isSide: true, aHash: "TftYP-AtG", date: null});
+		addLi(ulAdventures, "adventure.html", "Tales from the Yawning Portal: Tomb of Horrors", {isSide: true, aHash: "TftYP-ToH", date: null});
+		addLi(ulAdventures, "adventure.html", "Tomb of Annihilation", {isSide: true, aHash: "ToA", date: null});
+		addLi(ulAdventures, "adventure.html", "The Tortle Package", {isSide: true, aHash: "TTP", date: null});
+		addLi(ulAdventures, "adventure.html", "Waterdeep: Dragon Heist", {isSide: true, aHash: "WDH", date: "2018"});
+		addLi(ulAdventures, "adventure.html", "Lost Laboratory of Kwalish", {isSide: true, aHash: "LLK", date: null});
+		addLi(ulAdventures, "adventure.html", "Waterdeep: Dungeon of the Mad Mage", {isSide: true, aHash: "WDMM", date: null});
+		addLi(ulAdventures, "adventure.html", "Krenko's Way", {isSide: true, aHash: "KKW", date: null});
+		addLi(ulAdventures, "adventure.html", "Ghosts of Saltmarsh", {isSide: true, aHash: "GoS", date: "2019"});
+		addLi(ulAdventures, "adventure.html", "Hunt for the Thessalhydra", {isSide: true, aHash: "HftT", date: null});
+		addLi(ulAdventures, "adventure.html", "The Orrery of the Wanderer", {isSide: true, aHash: "OoW", date: null});
+		addLi(ulAdventures, "adventure.html", "Essentials Kit: Dragon of Icespire Peak", {isSide: true, aHash: "DIP", date: null});
+		addLi(ulAdventures, "adventure.html", "Essentials Kit: Storm Lord's Wrath", {isSide: true, aHash: "SLW", date: null});
+		addLi(ulAdventures, "adventure.html", "Essentials Kit: Sleeping Dragon's Wake", {isSide: true, aHash: "SDW", date: null});
+		addLi(ulAdventures, "adventure.html", "Essentials Kit: Divine Contention", {isSide: true, aHash: "DC", date: null});
+		addLi(ulAdventures, "adventure.html", "Baldur's Gate: Descent Into Avernus", {isSide: true, aHash: "BGDIA", date: null});
+		addLi(ulAdventures, "adventure.html", "Locathah Rising", {isSide: true, aHash: "LR", date: null});
+		addLi(ulAdventures, "adventure.html", "Eberron: Forgotten Relics", {isSide: true, aHash: "EFR", date: null});
+		addLi(ulAdventures, "adventure.html", "Rick and Morty: Big Rick Energy", {isSide: true, aHash: "RMBRE", date: null});
+		addLi(ulAdventures, "adventure.html", "Infernal Machine Rebuild", {isSide: true, aHash: "IMR", date: null});
+		addLi(ulAdventures, "adventure.html", "Wildemount: Tide of Retribution", {isSide: true, aHash: "ToR", date: "2020"});
+		addLi(ulAdventures, "adventure.html", "Wildemount: Dangerous Designs", {isSide: true, aHash: "DD", date: null});
+		addLi(ulAdventures, "adventure.html", "Wildemount: Frozen Sick", {isSide: true, aHash: "FS", date: null});
+		addLi(ulAdventures, "adventure.html", "Wildemount: Unwelcome Spirits", {isSide: true, aHash: "US", date: null});
+		addLi(ulAdventures, "adventure.html", "Theros: No Silent Secret", {isSide: true, aHash: "MOT-NSS", date: null});
+		addLi(ulAdventures, "adventure.html", "Icewind Dale: Rime of the Frostmaiden", {isSide: true, aHash: "IDRotF", date: null});
+		addLi(ulAdventures, "adventure.html", "Candlekeep Mysteries", {isSide: true, aHash: "CM", date: "2021"});
+		addLi(ulAdventures, "adventure.html", "Ravenloft: The House of Lament", {isSide: true, aHash: "HoL", date: null});
 		addLi(ulDms, "cultsboons.html", "Cults & Supernatural Boons");
 		addLi(ulDms, "objects.html", "Objects");
 		addLi(ulDms, "trapshazards.html", "Traps & Hazards");
@@ -121,13 +138,16 @@ class NavBar {
 		addLi(ulReferences, "deities.html", "Deities");
 		addLi(ulReferences, "items.html", "Items");
 		addLi(ulReferences, "languages.html", "Languages");
-		addLi(ulReferences, "optionalfeatures.html", "Other Options and Features");
-		addLi(ulReferences, "rewards.html", "Other Rewards");
+		addLi(ulReferences, "rewards.html", "Supernatural Gifts & Rewards");
 		addLi(ulReferences, "psionics.html", "Psionics");
 		addLi(ulReferences, "spells.html", "Spells");
 		addLi(ulReferences, "vehicles.html", "Vehicles");
+		addDivider(ulReferences);
+		addLi(ulReferences, "recipes.html", "Recipes");
 
 		const ulUtils = addDropdown(navBar, "Utilities");
+		addLi(ulUtils, "search.html", "Search");
+		addDivider(ulUtils);
 		addLi(ulUtils, "blacklist.html", "Content Blacklist");
 		addLi(ulUtils, "makebrew.html", "Homebrew Builder");
 		addLi(ulUtils, "managebrew.html", "Homebrew Manager");
@@ -141,26 +161,41 @@ class NavBar {
 		addLi(ulUtils, "plutonium.html", "Plutonium (Foundry Module) Features");
 		addDivider(ulUtils);
 		addLi(ulUtils, "roll20.html", "Roll20 Script Help");
-		addLi(ulUtils, "makeshaped.html", "Roll20 Shaped Sheet JS Builder");
 		addDivider(ulUtils);
 		addLi(ulUtils, "changelog.html", "Changelog");
 		addLi(ulUtils, `https://wiki.5e.tools/index.php/Page:_${NavBar.getCurrentPage().replace(/.html$/i, "")}`, "Help", {isExternal: true});
 		addDivider(ulUtils);
 		addLi(ulUtils, "privacy-policy.html", "Privacy Policy");
 
-		// addLi(navBar, "donate.html", "Donate", {isRoot: true});
+		addLi(navBar, "donate.html", "Donate", {isRoot: true});
 
 		const ulSettings = addDropdown(navBar, "Settings");
 		addButton(
 			ulSettings,
 			{
-				html: styleSwitcher.getActiveStyleSheet() === StyleSwitcher.STYLE_DAY ? "Night Mode" : "Day Mode",
+				html: styleSwitcher.getDayNightButtonText(),
 				click: (evt) => {
 					evt.preventDefault();
-					styleSwitcher.toggleActiveStyleSheet();
+					styleSwitcher.cycleDayNightMode();
 				},
-				className: "nightModeToggle"
-			}
+				context: (evt) => {
+					evt.preventDefault();
+					styleSwitcher.cycleDayNightMode(-1);
+				},
+				className: "nightModeToggle",
+			},
+		);
+		addButton(
+			ulSettings,
+			{
+				html: styleSwitcher.getActiveWide() === true ? "Disable Wide Mode" : "Enable Wide Mode (Experimental)",
+				click: (evt) => {
+					evt.preventDefault();
+					styleSwitcher.toggleWide();
+				},
+				className: "wideModeToggle",
+				title: "This feature is unsupported. Expect bugs.",
+			},
 		);
 		addDivider(ulSettings);
 		addButton(
@@ -172,10 +207,10 @@ class NavBar {
 					const sync = StorageUtil.syncGetDump();
 					const async = await StorageUtil.pGetDump();
 					const dump = {sync, async};
-					DataUtil.userDownload("5etools", dump);
+					DataUtil.userDownload("5etools", dump, {fileType: "5etools"});
 				},
-				title: "Save any locally-stored data (loaded homebrew, active blacklists, DM Screen configuration,...) to a file."
-			}
+				title: "Save any locally-stored data (loaded homebrew, active blacklists, DM Screen configuration,...) to a file.",
+			},
 		);
 		addButton(
 			ulSettings,
@@ -183,14 +218,21 @@ class NavBar {
 				html: "Load State from File",
 				click: async (evt) => {
 					evt.preventDefault();
-					const dump = await DataUtil.pUserUpload();
+					const jsons = await DataUtil.pUserUpload({expectedFileType: "5etools"});
+					if (!jsons?.length) return;
+					const dump = jsons[0];
 
-					StorageUtil.syncSetFromDump(dump.sync);
-					await StorageUtil.pSetFromDump(dump.async);
-					location.reload();
+					try {
+						StorageUtil.syncSetFromDump(dump.sync);
+						await StorageUtil.pSetFromDump(dump.async);
+						location.reload();
+					} catch (e) {
+						JqueryUtil.doToast({type: "danger", content: `Failed to load state! ${VeCt.STR_SEE_CONSOLE}`});
+						throw e;
+					}
 				},
-				title: "Load previously-saved data (loaded homebrew, active blacklists, DM Screen configuration,...) from a file."
-			}
+				title: "Load previously-saved data (loaded homebrew, active blacklists, DM Screen configuration,...) from a file.",
+			},
 		);
 		addDivider(ulSettings);
 		addButton(
@@ -205,8 +247,8 @@ class NavBar {
 						// Ignore errors
 					}
 				},
-				title: "Add the site to your home screen. When used in conjunction with the Preload Offline Data option, this can create a functional offline copy off the site."
-			}
+				title: "Add the site to your home screen. When used in conjunction with the Preload Offline Data option, this can create a functional offline copy of the site.",
+			},
 		);
 		addButton(
 			ulSettings,
@@ -220,12 +262,23 @@ class NavBar {
 						return;
 					}
 
+					// a pipe with has "port1" and "port2" props; we'll send "port2" to the service worker so it can
+					//   send messages back down the pipe to us
 					const messageChannel = new MessageChannel();
+					let hasSentPort = false;
 					const sendMessage = (data) => {
 						try {
-							navigator.serviceWorker.controller.postMessage(data, [messageChannel.port2]);
-						} catch (ignored) {
+							// Only send the MessageChannel port once, as the first send will transfer ownership of the
+							//   port over to the service worker (and we can no longer access it to even send it)
+							if (!hasSentPort) {
+								hasSentPort = true;
+								navigator.serviceWorker.controller.postMessage(data, [messageChannel.port2]);
+							} else {
+								navigator.serviceWorker.controller.postMessage(data);
+							}
+						} catch (e) {
 							// Ignore errors
+							setTimeout(() => { throw e; })
 						}
 					};
 
@@ -280,7 +333,10 @@ class NavBar {
 									NavBar._downloadBarMeta.$wrpBar.addClass("page__wrp-download-bar--error");
 									NavBar._downloadBarMeta.$dispProgress.addClass("page__disp-download-progress-bar--error");
 									NavBar._downloadBarMeta.$dispPct.text("Error!");
+
+									JqueryUtil.doToast(`An error occurred. ${VeCt.STR_SEE_CONSOLE}`);
 								}
+								setTimeout(() => { throw new Error(msg.message); })
 								break;
 							}
 						}
@@ -288,8 +344,8 @@ class NavBar {
 
 					sendMessage({"type": "cache-start"});
 				},
-				title: "Preload the site data for offline use. Warning: slow. If it appears to freeze, cancel it and try again; progress will be saved."
-			}
+				title: "Preload the site data for offline use. Warning: slow. If it appears to freeze, cancel it and try again; progress will be saved.",
+			},
 		);
 
 		/**
@@ -302,6 +358,7 @@ class NavBar {
 		 * @param [opts.aHash] - Optional hash to be appended to the base href
 		 * @param [opts.isRoot] - If the item is a root navbar element.
 		 * @param [opts.isExternal] - If the item is an external link.
+		 * @param [opts.date] - A date to prefix the list item with.
 		 */
 		function addLi (appendTo, aHref, aText, opts) {
 			opts = opts || {};
@@ -309,7 +366,6 @@ class NavBar {
 
 			const li = document.createElement("li");
 			li.setAttribute("role", "presentation");
-			li.setAttribute("id", aText.toLowerCase().replace(/\s+/g, ""));
 			li.setAttribute("data-page", `${aHref}${hashPart}`);
 			if (opts.isRoot) {
 				li.classList.add("page__nav-hidden-mobile");
@@ -324,7 +380,7 @@ class NavBar {
 
 			const a = document.createElement("a");
 			a.href = `${aHref}${hashPart}`;
-			a.innerHTML = aText;
+			a.innerHTML = `${opts.date !== undefined ? `<span class="ve-muted ve-small mr-2 page__nav-date inline-block text-right">${opts.date || ""}</span>` : ""}${aText}`;
 			a.classList.add("nav__link");
 
 			if (opts.isExternal) {
@@ -374,7 +430,7 @@ class NavBar {
 			a.innerHTML = `${text} <span class="caret ${isSide ? "caret--right" : ""}"></span>`;
 
 			const ul = document.createElement("li");
-			ul.className = `dropdown-menu ${isSide ? "dropdown-menu--side" : ""}`;
+			ul.className = `dropdown-menu ${isSide ? "dropdown-menu--side" : "dropdown-menu--top"}`;
 			ul.onclick = function (event) { event.stopPropagation(); };
 
 			li.appendChild(a);
@@ -389,6 +445,7 @@ class NavBar {
 		 * @param options Options.
 		 * @param options.html Button text.
 		 * @param options.click Button click handler.
+		 * @param [options.context] Button context menu handler.
 		 * @param options.title Button title.
 		 * @param options.className Additional button classes.
 		 */
@@ -402,6 +459,8 @@ class NavBar {
 			a.onclick = options.click;
 			a.innerHTML = options.html;
 
+			if (options.context) a.oncontextmenu = options.context;
+
 			if (options.title) li.setAttribute("title", options.title);
 
 			li.appendChild(a);
@@ -413,7 +472,7 @@ class NavBar {
 		let currentPage = window.location.pathname;
 		currentPage = currentPage.substr(currentPage.lastIndexOf("/") + 1);
 
-		if (!currentPage) currentPage = "5etools.html";
+		if (!currentPage) currentPage = "index.html";
 		return currentPage.trim();
 	}
 
@@ -423,10 +482,10 @@ class NavBar {
 		let isSecondLevel = false;
 		if (currentPage.toLowerCase() === "book.html" || currentPage.toLowerCase() === "adventure.html") {
 			const hashPart = window.location.hash.split(",")[0];
-			if (currentPage.toLowerCase() === "adventure.html") isSecondLevel = true;
+			if (currentPage.toLowerCase() === "adventure.html" || currentPage.toLowerCase() === "book.html") isSecondLevel = true;
 			currentPage += hashPart.toLowerCase();
 		}
-		if (currentPage.toLowerCase() === "adventures.html") isSecondLevel = true;
+		if (currentPage.toLowerCase() === "adventures.html" || currentPage.toLowerCase() === "books.html") isSecondLevel = true;
 
 		if (typeof _SEO_PAGE !== "undefined") currentPage = `${_SEO_PAGE}.html`;
 
@@ -456,10 +515,6 @@ class NavBar {
 	static initHandlers () {
 		NavBar._dropdowns = [...document.getElementById("navbar").querySelectorAll(`li.dropdown--navbar`)];
 		document.addEventListener("click", () => NavBar._dropdowns.forEach(ele => ele.classList.remove("open")));
-		document.addEventListener("mousemove", evt => {
-			NavBar._mouseX = evt.clientX;
-			NavBar._mouseY = evt.clientY;
-		});
 
 		NavBar._clearAllTimers();
 	}
@@ -505,9 +560,9 @@ class NavBar {
 						const [xStart, yStart] = NavBar._timerMousePos[timerId];
 						// for generalised use, this should be made check against the bounding box for the side menu
 						// and possibly also check Y pos; e.g.
-						// || NavBar._mouseY > yStart + NavBar.MIN_MOVE_PX
-						if (NavBar._mouseX > xStart + NavBar.MIN_MOVE_PX) {
-							NavBar._timerMousePos[timerId] = [NavBar._mouseX, NavBar._mouseY];
+						// || EventUtil._mouseY > yStart + NavBar.MIN_MOVE_PX
+						if (EventUtil._mouseX > xStart + NavBar.MIN_MOVE_PX) {
+							NavBar._timerMousePos[timerId] = [EventUtil._mouseX, EventUtil._mouseY];
 							NavBar._timersClose[timerId] = setTimeout(() => getTimeoutFn(), NavBar.DROP_TIME / 2);
 						} else {
 							$ele.removeClass("open");
@@ -547,7 +602,7 @@ class NavBar {
 			NavBar._timersOpen[timerId] = setTimeout(() => {
 				NavBar._openDropdown(ele);
 				delete NavBar._timersOpen[timerId];
-				NavBar._timerMousePos[timerId] = [NavBar._mouseX, NavBar._mouseY];
+				NavBar._timerMousePos[timerId] = [EventUtil._mouseX, EventUtil._mouseY];
 			}, NavBar.DROP_TIME);
 		}
 	}
@@ -568,17 +623,15 @@ class NavBar {
 	}
 }
 NavBar.DROP_TIME = 250;
-NavBar.MIN_MOVE_PX = 7;
+NavBar.MIN_MOVE_PX = 3;
 NavBar.ALT_CHILD_PAGES = {
 	"book.html": "books.html",
-	"adventure.html": "adventures.html"
+	"adventure.html": "adventures.html",
 };
 NavBar._timerId = 1;
 NavBar._timersOpen = {};
 NavBar._timersClose = {};
 NavBar._timerMousePos = {};
-NavBar._mouseX = null;
-NavBar._mouseY = null;
 NavBar._cachedInstallEvent = null;
 NavBar._downloadBarMeta = null;
 NavBar.init();

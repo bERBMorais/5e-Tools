@@ -101,7 +101,8 @@
 								"Frightened of subterranean places, Eeyal won't voluntarily travel underground unless there's no other alternative.",
 								"Eeyal is trustworthy and charges 5 gp per day. She also offers a discount rate of 40 gp for a tenday, but the payment must be made up front and is non-refundable."
 							],
-							"prerequisite": "tortle guide (fort beluarian)"
+							"prerequisite": "tortle guide (fort beluarian)",
+							"id": "06b"
 						},
 						{
 							"type": "optfeature",
@@ -113,7 +114,8 @@
 								"Although he's an able and honest guide, Kwilgok won't stick his neck out for his employers. He gets steady work because of his easy-going demeanor and his willingness to lead an expedition to any corner of Chult. He has traveled up the River Soshenstar many times and knows the Aldani Basin and the surrounding region quite well. He's also led expeditions to Orolunga, though he's never encountered the elusive oracle rumored to dwell there. One place he'd rather not revisit is Dangwaru, the Typhoon Palace. When he was young, Kwilgok decided on a lark to explore the ruins and encountered evil shadows there. The shadows nearly spelled his doom, but he managed to flee the palace in a weakened state. The shadows still haunt Kwilgok's dreams, and he has no wish to face them again.",
 								"Kwilgok is 26 years old, stands just shy of 6 feet tall, and weighs 450 pounds."
 							],
-							"prerequisite": "tortle guide (port nyanzaru)"
+							"prerequisite": "tortle guide (port nyanzaru)",
+							"id": "06c"
 						},
 						{
 							"type": "optfeature",
@@ -123,7 +125,8 @@
 								"Mudgraw's only visit to Omu, three years ago, ended in disaster. He and a company of human treasure-hunters from the city of Athkatla were ambushed by yuan-ti, and Mudgraw was forced to abandon his companions. He hid in a ruin that was once a shrine to the god Ubtao, was transfixed by the maze-like imagery on the walls, and found a wooden holy symbol left behind by the shrine's previous inhabitants. He believes that Ubtao helped him escape the city and now wears the holy symbol around his neck. He regrets abandoning the expedition and prefers not to speak of it. One of his favorite new sayings is, \"Life is a maze.\" Mudgraw uses it whenever he's vexed or when he has information he'd rather not divulge.",
 								"Mudgraw is 44 years old, stands 6 feet tall, and weighs 480 pounds. He charges 5 gp per day but will waive his fee if he is given the chance to lead another expedition to Omu. Mudgraw sees any such expedition as an opportunity for atonement."
 							],
-							"prerequisite": "tortle druid guide (ahoyhoy)"
+							"prerequisite": "tortle druid guide (ahoyhoy)",
+							"id": "06d"
 						}
 					]
 				}
@@ -1150,7 +1153,7 @@
 							"id": "04c",
 							"entries": [
 								"Hanging by a chain from the ceiling of this dark, rectangular room is an old diver's cage with barnacles clinging to it. The cage is eight feet tall, five feet in diameter, and dangles two feet off the floor. Tattered rugs are splayed out before it. Other furnishings include bare shelves and painted clay urns, all covered in dust and cobwebs.",
-								"The largest rug is a {@creature rug of smothering} . It attacks the first creature that disturbs it. The urns contain the skulls and bones of six dead Umberlee worshipers.",
+								"The largest rug is a {@creature rug of smothering}. It attacks the first creature that disturbs it. The urns contain the skulls and bones of six dead Umberlee worshipers.",
 								"The cage was salvaged from the bitch queen (see \"High Horn,\"), where it was used for deep sea salvaging in shark-infested waters. It was also used by the captain to torture and drown prisoners. If a living creature touches the cage, a neutral merfolk {@creature ghost} materializes inside it. The ghost is all that remains of Siburrath, a male merfolk who was captured and tortured by the bitch queen 's captain over a century ago. Siburrath's ghost can't leave the cage unless it possesses someone, and it can't rest until its torturer is slain.",
 								"The ghost tries to possess the first character to come within 5 feet of it, with the intent of using the host to find and kill its torturer. If the ghost fails to possess someone, it tries to persuade the characters (in Aquan or Common) to help it find peace. The ghost can sense that its torturer is nearby, but can't discern the exact location. If the characters kill the slug creature in {@area 24|051}, the ghost is laid to rest, and the characters receive XP as though they had defeated the ghost in combat.",
 								{

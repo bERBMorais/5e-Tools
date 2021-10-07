@@ -1,8 +1,25 @@
 const fs = require("fs");
 require("../js/utils");
-const Ajv = require("ajv");
+const Ajv = require("ajv").default;
 
-const ajv = new Ajv();
+// region Set up validator
+const ajv = new Ajv({
+	allowUnionTypes: true,
+});
+
+ajv.addKeyword({
+	keyword: "version",
+	validate: false,
+});
+
+const DATE_REGEX = /^\d\d\d\d-\d\d-\d\d$/;
+ajv.addFormat(
+	"date",
+	{
+		validate: (str) => DATE_REGEX.test(str),
+	},
+);
+// endregion
 
 function loadJSON (file) {
 	const data = fs.readFileSync(file, "utf8")
@@ -115,8 +132,17 @@ async function main () {
 	const cacheDir = process.cwd();
 	process.chdir(`${cacheDir}/test/schema`);
 
+	const PRELOAD_SINGLE_FILE_SCHEMAS = [
+		"trapshazards.json",
+		"objects.json",
+		"items.json",
+	];
+
 	ajv.addSchema(preprocess(loadJSON("spells/spells.json", "utf8")), "spells.json");
 	ajv.addSchema(preprocess(loadJSON("bestiary/bestiary.json", "utf8")), "bestiary.json");
+	PRELOAD_SINGLE_FILE_SCHEMAS.forEach(schemaName => {
+		ajv.addSchema(preprocess(loadJSON(schemaName, "utf8")), schemaName);
+	})
 	ajv.addSchema(preprocess(loadJSON("entry.json", "utf8")), "entry.json");
 	ajv.addSchema(preprocess(loadJSON("util.json", "utf8")), "util.json");
 
@@ -134,8 +160,11 @@ async function main () {
 			console.log(`Testing data/${dataFile}`.padEnd(50), `against schema/${schemaFile}`);
 
 			const data = loadJSON(`${cacheDir}/data/${dataFile}`);
-			const schema = loadJSON(schemaFile, "utf8");
-			ajv.addSchema(preprocess(schema), schemaFile);
+			// Avoid re-adding schemas we have already loaded
+			if (!PRELOAD_SINGLE_FILE_SCHEMAS.includes(schemaFile)) {
+				const schema = loadJSON(schemaFile, "utf8");
+				ajv.addSchema(preprocess(schema), schemaFile);
+			}
 
 			addImplicits(data);
 			const valid = ajv.validate(schemaFile, data);

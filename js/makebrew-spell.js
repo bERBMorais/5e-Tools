@@ -6,7 +6,8 @@ class SpellBuilder extends Builder {
 			titleSidebarLoadExisting: "Load Existing Spell",
 			titleSidebarDownloadJson: "Download Spells as JSON",
 			prop: "spell",
-			titleSelectDefaultSource: "(Same as Spell)"
+			titleSelectDefaultSource: "(Same as Spell)",
+			typeRenderData: "dataSpell",
 		});
 
 		this._subclassLookup = {};
@@ -14,20 +15,41 @@ class SpellBuilder extends Builder {
 		this._renderOutputDebounced = MiscUtil.debounce(() => this._renderOutput(), 50);
 	}
 
+	static _getAsMarkdown (sp) {
+		return RendererMarkdown.get().render({entries: [{type: "dataSpell", dataSpell: sp}]});
+	}
+
 	async pHandleSidebarLoadExistingClick () {
 		const result = await SearchWidget.pGetUserSpellSearch();
 		if (result) {
 			const spell = MiscUtil.copy(await Renderer.hover.pCacheAndGet(result.page, result.source, result.hash));
-			spell.source = this._ui.source;
-			this.setStateFromLoaded({s: spell, m: this.getInitialMetaState()});
-
-			this.renderInput();
-			this.renderOutput();
+			return this.pHandleSidebarLoadExistingData(spell);
 		}
 	}
 
+	/**
+	 * @param spell
+	 * @param [opts]
+	 * @param [opts.meta]
+	 */
+	async pHandleSidebarLoadExistingData (spell, opts) {
+		opts = opts || {};
+
+		spell.source = this._ui.source;
+
+		delete spell.srd;
+		delete spell.uniqueId;
+
+		const meta = {...(opts.meta || {}), ...this.getInitialMetaState()};
+
+		this.setStateFromLoaded({s: spell, m: meta});
+
+		this.renderInput();
+		this.renderOutput();
+	}
+
 	async pInit () {
-		this._subclassLookup = await RenderSpells.pGetSubclassLookup();
+		this._subclassLookup = await DataUtil.class.pGetSubclassLookup();
 	}
 
 	_getInitialState () {
@@ -38,30 +60,30 @@ class SpellBuilder extends Builder {
 			time: [
 				{
 					number: 1,
-					unit: "action"
-				}
+					unit: "action",
+				},
 			],
 			range: {
 				type: "point",
 				distance: {
-					type: "self"
-				}
+					type: "self",
+				},
 			},
 			duration: [
 				{
-					type: "instant"
-				}
+					type: "instant",
+				},
 			],
 			classes: {
 				fromClassList: [
 					{
 						name: "Wizard",
-						source: SRC_PHB
-					}
-				]
+						source: SRC_PHB,
+					},
+				],
 			},
 			entries: [],
-			source: this._ui ? this._ui.source : ""
+			source: this._ui ? this._ui.source : "",
 		}
 	}
 
@@ -102,6 +124,12 @@ class SpellBuilder extends Builder {
 		this.doCreateProxies();
 
 		const _cb = () => {
+			// Prefer numerical pages if possible
+			if (!isNaN(this._state.page)) this._state.page = Number(this._state.page);
+
+			// do post-processing
+			TagCondition.tryTagConditions(this._state, true);
+
 			this.renderOutput();
 			this.doUiSave();
 			this.isEntrySaved = false;
@@ -111,8 +139,19 @@ class SpellBuilder extends Builder {
 		this._cbCache = cb; // cache for use when updating sources
 
 		// initialise tabs
-		this._resetTabs("input");
-		const tabs = ["Info", "Details", "Sources", "Misc"].map((it, ix) => this._getTab(ix, it, {hasBorder: true, tabGroup: "input", stateObj: this._meta, cbTabChange: this.doUiSave.bind(this)}));
+		this._resetTabs({tabGroup: "input"});
+		const tabs = this._renderTabs(
+			[
+				new TabUiUtil.TabMeta({name: "Info", hasBorder: true}),
+				new TabUiUtil.TabMeta({name: "Details", hasBorder: true}),
+				new TabUiUtil.TabMeta({name: "Sources", hasBorder: true}),
+				new TabUiUtil.TabMeta({name: "Flavor/Misc", hasBorder: true}),
+			],
+			{
+				tabGroup: "input",
+				cbTabChange: this.doUiSave.bind(this),
+			},
+		);
 		const [infoTab, detailsTab, sourcesTab, miscTab] = tabs;
 		$$`<div class="flex-v-center w-100 no-shrink ui-tab__wrp-tab-heads--border">${tabs.map(it => it.$btnTab)}</div>`.appendTo($wrp);
 		tabs.forEach(it => it.$wrpTab.appendTo($wrp));
@@ -121,7 +160,7 @@ class SpellBuilder extends Builder {
 		BuilderUi.$getStateIptString("Name", cb, this._state, {nullable: false, callback: () => this.renderSideMenu()}, "name").appendTo(infoTab.$wrpTab);
 		this._$selSource = this.$getSourceInput(cb).appendTo(infoTab.$wrpTab);
 		this.__$getOtherSourcesInput(cb).appendTo(infoTab.$wrpTab);
-		BuilderUi.$getStateIptNumber("Page", cb, this._state, {}, "page").appendTo(infoTab.$wrpTab);
+		BuilderUi.$getStateIptString("Page", cb, this._state, {}, "page").appendTo(infoTab.$wrpTab);
 		BuilderUi.$getStateIptEnum("Level", cb, this._state, {nullable: false, fnDisplay: (it) => Parser.spLevelToFull(it), vals: [...new Array(21)].map((_, i) => i)}, "level").appendTo(infoTab.$wrpTab);
 		BuilderUi.$getStateIptEnum("School", cb, this._state, {nullable: false, fnDisplay: (it) => Parser.spSchoolAbvToFull(it), vals: [...Parser.SKL_ABVS]}, "school").appendTo(infoTab.$wrpTab);
 		BuilderUi.$getStateIptStringArray(
@@ -130,9 +169,9 @@ class SpellBuilder extends Builder {
 			this._state,
 			{
 				shortName: "Subschool",
-				title: "Found in some homebrew, for example the 'Clockwork' sub-school."
+				title: "Found in some homebrew, for example the 'Clockwork' sub-school.",
 			},
-			"subschools"
+			"subschools",
 		).appendTo(infoTab.$wrpTab);
 
 		// TEXT
@@ -149,7 +188,8 @@ class SpellBuilder extends Builder {
 		this.__$getRaces(cb).appendTo(sourcesTab.$wrpTab);
 		this.__$getBackgrounds(cb).appendTo(sourcesTab.$wrpTab);
 
-		// MISC
+		// FLAVOR/MISC
+		this.$getFluffInput(cb).appendTo(miscTab.$wrpTab);
 		$(`<div class="flex-vh-center w-100 mb-2"><i>Note: the following data is used by filters on the Spells page.</i></div>`).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBooleanArray(
 			"Damage Inflicted",
@@ -158,9 +198,9 @@ class SpellBuilder extends Builder {
 			{
 				vals: MiscUtil.copy(Parser.DMG_TYPES),
 				nullable: true,
-				fnDisplay: StrUtil.uppercaseFirst
+				fnDisplay: StrUtil.uppercaseFirst,
 			},
-			"damageInflict"
+			"damageInflict",
 		).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBooleanArray(
 			"Conditions Inflicted",
@@ -169,9 +209,9 @@ class SpellBuilder extends Builder {
 			{
 				vals: MiscUtil.copy(Parser.CONDITIONS),
 				nullable: true,
-				fnDisplay: StrUtil.uppercaseFirst
+				fnDisplay: StrUtil.uppercaseFirst,
 			},
-			"conditionInflict"
+			"conditionInflict",
 		).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBooleanArray(
 			"Spell Attack Type",
@@ -180,9 +220,9 @@ class SpellBuilder extends Builder {
 			{
 				vals: ["M", "R", "O"],
 				nullable: true,
-				fnDisplay: Parser.spAttackTypeToFull
+				fnDisplay: Parser.spAttackTypeToFull,
 			},
-			"spellAttack"
+			"spellAttack",
 		).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBooleanArray(
 			"Saving Throw",
@@ -191,20 +231,20 @@ class SpellBuilder extends Builder {
 			{
 				vals: Object.values(Parser.ATB_ABV_TO_FULL).map(it => it.toLowerCase()),
 				nullable: true,
-				fnDisplay: StrUtil.uppercaseFirst
+				fnDisplay: StrUtil.uppercaseFirst,
 			},
-			"savingThrow"
+			"savingThrow",
 		).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBooleanArray(
-			"Opposed Check",
+			"Ability Check",
 			cb,
 			this._state,
 			{
 				vals: Object.values(Parser.ATB_ABV_TO_FULL).map(it => it.toLowerCase()),
 				nullable: true,
-				fnDisplay: StrUtil.uppercaseFirst
+				fnDisplay: StrUtil.uppercaseFirst,
 			},
-			"opposedCheck"
+			"abilityCheck",
 		).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBooleanArray(
 			"Area Type",
@@ -213,9 +253,9 @@ class SpellBuilder extends Builder {
 			{
 				vals: Object.keys(Parser.SPELL_AREA_TYPE_TO_FULL),
 				nullable: true,
-				fnDisplay: Parser.spAreaTypeToFull
+				fnDisplay: Parser.spAreaTypeToFull,
 			},
-			"areaTags"
+			"areaTags",
 		).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBooleanArray(
 			"Misc Tags",
@@ -224,9 +264,9 @@ class SpellBuilder extends Builder {
 			{
 				vals: Object.keys(Parser.SP_MISC_TAG_TO_FULL),
 				nullable: true,
-				fnDisplay: Parser.spMiscTagToFull
+				fnDisplay: Parser.spMiscTagToFull,
 			},
-			"miscTags"
+			"miscTags",
 		).appendTo(miscTab.$wrpTab);
 
 		// The following aren't included, as they are not used in the site:
@@ -266,10 +306,13 @@ class SpellBuilder extends Builder {
 	__$getOtherSourcesInput__getOtherSourceRow (doUpdateState, otherSourceRows, os) {
 		const getOtherSource = () => {
 			const out = {source: $selSource.val()};
-			const pageNum = UiUtil.strToInt($iptPage.val());
-			if (pageNum) {
-				out.page = pageNum;
-				$iptPage.val(pageNum);
+			const pageRaw = $iptPage.val();
+			if (pageRaw) {
+				const page = !isNaN(pageRaw) ? UiUtil.strToInt(pageRaw) : pageRaw;
+				if (page) {
+					out.page = page;
+					$iptPage.val(page);
+				}
 			}
 			return out;
 		};
@@ -343,7 +386,7 @@ class SpellBuilder extends Builder {
 			.val(~ixInitial ? `${ixInitial}` : "0")
 			.change(() => {
 				const isReaction = keys[$selUnit.val()] === Parser.SP_TM_REACTION;
-				$stageCond.toggle(isReaction);
+				$stageCond.toggleVe(isReaction);
 				doUpdateState();
 			});
 
@@ -355,7 +398,7 @@ class SpellBuilder extends Builder {
 
 		const $stageCond = $$`<div class="flex-v-center mb-2">
 			<span class="mr-2 mkbru__sub-name--33">Condition</span>${$iptCond}
-		</div>`.toggle(ixInitial === 2);
+		</div>`.toggleVe(ixInitial === 2);
 
 		const $wrpBtnRemove = $(`<div class="text-right mb-2"/>`);
 		const $wrp = $$`<div class="flex-col mkbru__wrp-rows mkbru__wrp-rows--removable">
@@ -399,7 +442,7 @@ class SpellBuilder extends Builder {
 			${RANGE_TYPES.map((it, i) => `<option value="${i}">${Parser.spRangeTypeToFull(it.type)}</option>`).join("")}
 		</select>`).val(~ixInitialRange ? `${ixInitialRange}` : "0").change(() => {
 			const meta = RANGE_TYPES[$selRange.val()];
-			$stageDistance.toggle(meta.hasDistance);
+			$stageDistance.toggleVe(meta.hasDistance);
 
 			if (meta.isRequireAmount && !DIST_TYPES[$selDistance.val()].hasAmount) {
 				$selDistance.val(`${DIST_TYPES.findIndex(it => it.hasAmount)}`).change();
@@ -416,7 +459,7 @@ class SpellBuilder extends Builder {
 			${DIST_TYPES.map((it, i) => `<option value="${i}">${Parser.spDistanceTypeToFull(it.type)}</option>`).join("")}
 		</select>`).val(~ixInitialDist ? `${ixInitialDist}` : "0").change(() => {
 			const meta = DIST_TYPES[$selDistance.val()];
-			$stageAmount.toggle(meta.hasAmount);
+			$stageAmount.toggleVe(meta.hasAmount);
 
 			if (!meta.hasAmount && RANGE_TYPES[$selRange.val()].isRequireAmount) {
 				$selDistance.val(`${DIST_TYPES.findIndex(it => it.hasAmount)}`).change();
@@ -425,7 +468,7 @@ class SpellBuilder extends Builder {
 		const $stageDistance = $$`<div class="flex-v-center mt-2">
 			<span class="mr-2 mkbru__sub-name--33">Distance Type</span>
 			${$selDistance}
-		</div>`.appendTo($rowInner).toggle(isInitialDistance);
+		</div>`.appendTo($rowInner).toggleVe(isInitialDistance);
 
 		// AMOUNT
 		const initialAmount = MiscUtil.get(this._state, "range", "distance", "amount");
@@ -435,7 +478,7 @@ class SpellBuilder extends Builder {
 		const $stageAmount = $$`<div class="flex-v-center mt-2">
 			<span class="mr-2 mkbru__sub-name--33">Distance Amount</span>
 			${$iptAmount}
-		</div>`.appendTo($rowInner).toggle(isInitialAmount);
+		</div>`.appendTo($rowInner).toggleVe(isInitialAmount);
 
 		return $row;
 	}
@@ -461,8 +504,9 @@ class SpellBuilder extends Builder {
 				case "1": out.m = $iptMaterial.val().trim() || true; break;
 				case "2": {
 					out.m = {
-						text: $iptMaterial.val().trim() || true
+						text: $iptMaterial.val().trim() || true,
 					};
+					// TODO add support for "optional" consume type
 					if ($cbConsumed.prop("checked")) out.m.consumed = true;
 					if ($iptCost.val().trim()) {
 						out.m.cost = UiUtil.strToInt($iptCost.val());
@@ -498,10 +542,10 @@ class SpellBuilder extends Builder {
 			<option value="3">Has Generic Material Component</option>
 		</select>`).val(initialMaterialMode).change(() => {
 			switch ($selMaterial.val()) {
-				case "0": $stageMaterial.hide(); $stageMaterialConsumable.hide(); break;
-				case "1": $stageMaterial.show(); $stageMaterialConsumable.hide(); break;
-				case "2": $stageMaterial.show(); $stageMaterialConsumable.show(); break;
-				case "3": $stageMaterial.hide(); $stageMaterialConsumable.hide(); break;
+				case "0": $stageMaterial.hideVe(); $stageMaterialConsumable.hideVe(); break;
+				case "1": $stageMaterial.showVe(); $stageMaterialConsumable.hideVe(); break;
+				case "2": $stageMaterial.showVe(); $stageMaterialConsumable.showVe(); break;
+				case "3": $stageMaterial.hideVe(); $stageMaterialConsumable.hideVe(); break;
 			}
 
 			doUpdateState();
@@ -516,7 +560,7 @@ class SpellBuilder extends Builder {
 		</div>`.appendTo($rowInner);
 
 		// BASIC MATERIAL
-		const $stageMaterial = $$`<div class="flex-v-center mt-2"><div class="mr-2 mkbru__sub-name--33">Materials</div>${$iptMaterial}</div>`.appendTo($rowInner).toggle(initialMaterialMode === "1" || initialMaterialMode === "2");
+		const $stageMaterial = $$`<div class="flex-v-center mt-2"><div class="mr-2 mkbru__sub-name--33">Materials</div>${$iptMaterial}</div>`.appendTo($rowInner).toggleVe(initialMaterialMode === "1" || initialMaterialMode === "2");
 
 		// CONSUMABLE MATERIAL
 		const $cbConsumed = $(`<input type="checkbox" class="mkbru__ipt-cb--plain">`)
@@ -529,7 +573,7 @@ class SpellBuilder extends Builder {
 		const $stageMaterialConsumable = $$`<div class="mt-2">
 			<div class="flex-v-center mb-2"><div class="mr-2 mkbru__sub-name--33 help" title="${TITLE_FILTERS_EXTERNAL}">Is Consumed</div>${$cbConsumed}</div>
 			<div class="flex-v-center"><div class="mr-2 mkbru__sub-name--33 help" title="${TITLE_FILTERS_EXTERNAL} Specified in copper pieces (1gp = 100cp).">Component Cost</div>${$iptCost}<div>cp</div></div>
-		</div>`.appendTo($rowInner).toggle(initialMaterialMode === "2");
+		</div>`.appendTo($rowInner).toggleVe(initialMaterialMode === "2");
 
 		return $row;
 	}
@@ -600,7 +644,7 @@ class SpellBuilder extends Builder {
 				case "1": {
 					out.duration = {
 						type: AMOUNT_TYPES[$selAmountType.val()],
-						amount: UiUtil.strToInt($iptAmount.val())
+						amount: UiUtil.strToInt($iptAmount.val()),
 					};
 					$iptAmount.val(out.duration.amount);
 					if ($cbConc.prop("checked")) out.concentration = true;
@@ -620,8 +664,8 @@ class SpellBuilder extends Builder {
 			${DURATION_TYPES.map((it, i) => `<option value="${i}">${it.full || it.type.toTitleCase()}</option>`).join("")}
 		</select>`).val(~ixInitialDuration ? `${ixInitialDuration}` : "0").change(() => {
 			const meta = DURATION_TYPES[$selDurationType.val()];
-			$stageAmount.toggle(!!meta.hasAmount);
-			$stageEnds.toggle(!!meta.hasEnds);
+			$stageAmount.toggleVe(!!meta.hasAmount);
+			$stageEnds.toggleVe(!!meta.hasEnds);
 			doUpdateState();
 		});
 
@@ -643,7 +687,7 @@ class SpellBuilder extends Builder {
 			<div class="flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33">Concentration</span>${$cbConc}</div>
 			<div class="flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33 help" title="For a spell with Concentration, this has no effect, as it is assumed that the spell can be ended at any time by ending concentration.">Up To...</span>${$cbUpTo}</div>
 			<div class="flex-v-center">${$iptAmount}${$selAmountType}</div>
-		</div>`.toggle(!!typeInitial.hasAmount);
+		</div>`.toggleVe(!!typeInitial.hasAmount);
 
 		// ENDS
 		const endRows = [];
@@ -656,7 +700,7 @@ class SpellBuilder extends Builder {
 		const $stageEnds = $$`<div class="mb-2">
 			${$wrpEndRows}
 			<div class="text-right">${$btnAddEnd}</div>
-		</div>`.toggle(!!typeInitial.hasEnds);
+		</div>`.toggleVe(!!typeInitial.hasEnds);
 		if (duration.ends) duration.ends.forEach(end => SpellBuilder.__$getDurationInput__getDurationRow__getEndRow(doUpdateState, endRows, end).$wrp.appendTo($wrpEndRows));
 
 		const out = {getDuration};
@@ -719,7 +763,7 @@ class SpellBuilder extends Builder {
 
 		// CLASSES
 		const $wrpRowsCls = $(`<div/>`).appendTo($rowInnerCls);
-		this._state.classes.fromClassList.forEach(cls => this.__$getClassesInputs__getClassRow(doUpdateState, classRows, cls).$wrp.appendTo($wrpRowsCls));
+		((this._state.classes || {}).fromClassList || []).forEach(cls => this.__$getClassesInputs__getClassRow(doUpdateState, classRows, cls).$wrp.appendTo($wrpRowsCls));
 
 		const $wrpBtnAddCls = $(`<div/>`).appendTo($rowInnerCls);
 		$(`<button class="btn btn-xs btn-default">Add Class</button>`)
@@ -731,7 +775,7 @@ class SpellBuilder extends Builder {
 
 		// SUBCLASSES
 		const $wrpRowsSc = $(`<div/>`).appendTo($rowInnerSc);
-		(this._state.classes.fromSubclass || []).forEach(sc => this.__$getClassesInputs__getSubclassRow(doUpdateState, subclassRows, sc).$wrp.appendTo($wrpRowsSc));
+		((this._state.classes || {}).fromSubclass || []).forEach(sc => this.__$getClassesInputs__getSubclassRow(doUpdateState, subclassRows, sc).$wrp.appendTo($wrpRowsSc));
 
 		const $wrpBtnAddSc = $(`<div/>`).appendTo($rowInnerSc);
 		$(`<button class="btn btn-xs btn-default">Add Subclass</button>`)
@@ -748,7 +792,7 @@ class SpellBuilder extends Builder {
 		const getClass = () => {
 			return {
 				name: $iptClass.val().trim(),
-				source: $selClassSource.val().unescapeQuotes()
+				source: $selClassSource.val().unescapeQuotes(),
 			}
 		};
 
@@ -780,12 +824,12 @@ class SpellBuilder extends Builder {
 			const out = {
 				class: {
 					name: className,
-					source: $selClassSource.val().unescapeQuotes()
+					source: $selClassSource.val().unescapeQuotes(),
 				},
 				subclass: {
 					name: $iptSubclass.val(),
-					source: $selSubclassSource.val().unescapeQuotes()
-				}
+					source: $selSubclassSource.val().unescapeQuotes(),
+				},
 			};
 			const subSubclassName = $iptSubSubclass.val().trim();
 			if (subSubclassName) out.subclass.subSubclass = subSubclassName;
@@ -856,7 +900,7 @@ class SpellBuilder extends Builder {
 			if (raceName) {
 				const out = {
 					name: raceName,
-					source: $selSource.val().unescapeQuotes()
+					source: $selSource.val().unescapeQuotes(),
 				};
 				const baseRaceName = $iptBaseRace.val().trim();
 				if (baseRaceName) {
@@ -925,7 +969,7 @@ class SpellBuilder extends Builder {
 			if (bgName) {
 				return {
 					name: bgName,
-					source: $selSource.val().unescapeQuotes()
+					source: $selSource.val().unescapeQuotes(),
 				};
 			} else return null;
 		};
@@ -971,9 +1015,22 @@ class SpellBuilder extends Builder {
 		const $wrp = this._ui.$wrpOutput.empty();
 
 		// initialise tabs
-		this._resetTabs("output");
-		const tabs = ["Spell", "Data"].map((it, ix) => this._getTab(ix, it, {tabGroup: "output", stateObj: this._meta, cbTabChange: this.doUiSave.bind(this)}));
-		const [spellTab, dataTab] = tabs;
+		this._resetTabs({tabGroup: "output"});
+
+		const tabs = this._renderTabs(
+			[
+				new TabUiUtil.TabMeta({name: "Spell"}),
+				new TabUiUtil.TabMeta({name: "Info"}),
+				new TabUiUtil.TabMeta({name: "Images"}),
+				new TabUiUtil.TabMeta({name: "Data"}),
+				new TabUiUtil.TabMeta({name: "Markdown"}),
+			],
+			{
+				tabGroup: "output",
+				cbTabChange: this.doUiSave.bind(this),
+			},
+		);
+		const [spellTab, infoTab, imageTab, dataTab, markdownTab] = tabs;
 		$$`<div class="flex-v-center w-100 no-shrink">${tabs.map(it => it.$btnTab)}</div>`.appendTo($wrp);
 		tabs.forEach(it => it.$wrpTab.appendTo($wrp));
 
@@ -984,6 +1041,24 @@ class SpellBuilder extends Builder {
 		Renderer.spell.initClasses(procSpell);
 		RenderSpells.$getRenderedSpell(procSpell, this._subclassLookup).appendTo($tblSpell);
 
+		// Info
+		const $tblInfo = $(`<table class="stats"/>`).appendTo(infoTab.$wrpTab);
+		Renderer.utils.pBuildFluffTab({
+			isImageTab: false,
+			$content: $tblInfo,
+			entity: this._state,
+			pFnGetFluff: Renderer.spell.pGetFluff,
+		});
+
+		// Images
+		const $tblImages = $(`<table class="stats"/>`).appendTo(imageTab.$wrpTab);
+		Renderer.utils.pBuildFluffTab({
+			isImageTab: true,
+			$content: $tblImages,
+			entity: this._state,
+			pFnGetFluff: Renderer.spell.pGetFluff,
+		});
+
 		// Data
 		const $tblData = $(`<table class="stats stats--book mkbru__wrp-output-tab-data"/>`).appendTo(dataTab.$wrpTab);
 		const asCode = Renderer.get().render({
@@ -992,13 +1067,19 @@ class SpellBuilder extends Builder {
 				{
 					type: "code",
 					name: `Data`,
-					preformatted: JSON.stringify(DataUtil.cleanJson(MiscUtil.copy(this._state)), null, "\t")
-				}
-			]
+					preformatted: JSON.stringify(DataUtil.cleanJson(MiscUtil.copy(this._state)), null, "\t"),
+				},
+			],
 		});
 		$tblData.append(Renderer.utils.getBorderTr());
 		$tblData.append(`<tr><td colspan="6">${asCode}</td></tr>`);
 		$tblData.append(Renderer.utils.getBorderTr());
+
+		// Markdown
+		const $tblMarkdown = $(`<table class="stats stats--book mkbru__wrp-output-tab-data"/>`).appendTo(markdownTab.$wrpTab);
+		$tblMarkdown.append(Renderer.utils.getBorderTr());
+		$tblMarkdown.append(`<tr><td colspan="6">${this._getRenderedMarkdownCode()}</td></tr>`);
+		$tblMarkdown.append(Renderer.utils.getBorderTr());
 	}
 }
 

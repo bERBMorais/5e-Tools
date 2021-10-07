@@ -22,10 +22,10 @@ const booksList = new BooksList({
 	rowBuilderFn: (bk) => {
 		return `<span class="col-10 bold">${bk.name}</span>
 		<span class="col-2">${BooksList.getDateStr(bk)}</span>`;
-	}
+	},
 });
 
-window.onload = booksList.pOnPageLoad.bind(booksList);
+window.addEventListener("load", () => booksList.pOnPageLoad());
 
 function handleBrew (homebrew) {
 	booksList.addData(homebrew);

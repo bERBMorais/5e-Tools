@@ -5,11 +5,11 @@ const JSON_URL = "data/generated/bookref-quick.json";
 
 let reference;
 
-window.onload = function load () {
-	BookUtil.renderArea = $(`#pagecontent`);
+window.addEventListener("load", () => {
+	BookUtil.$dispBook = $(`#pagecontent`);
 
 	if (!window.location.hash.length) {
-		BookUtil.renderArea
+		BookUtil.$dispBook
 			.empty()
 			.append(Renderer.utils.getBorderTr())
 			.append(`<tr><td colspan="6" class="initial-message">Select a section to begin</td></tr>`)
@@ -18,30 +18,20 @@ window.onload = function load () {
 
 	ExcludeUtil.pInitialise(); // don't await, as this is only used for search
 	DataUtil.loadJSON(JSON_URL).then(onJsonLoad);
-};
+});
 
 function onJsonLoad (data) {
 	reference = [data.reference["bookref-quick"]];
 	BookUtil.contentType = "document";
 
-	const allContents = $("ul.contents");
-	let tempString = "";
-	for (let i = 0; i < reference.length; i++) {
-		const book = reference[i];
-
-		tempString += BookUtil.getContentsItem(i, book, {book, addOnclick: true});
-	}
-	allContents.append(tempString);
-
-	BookUtil.addHeaderHandles(false);
-
+	BookUtil.isDefaultExpandedContents = true;
 	BookUtil.baseDataUrl = "data/generated/";
 	BookUtil.bookIndex = reference;
 	BookUtil.referenceId = "bookref-quick";
 	BookUtil.initLinkGrabbers();
 	BookUtil.initScrollTopFloat();
 
-	window.onhashchange = BookUtil.booksHashChange;
+	window.onhashchange = BookUtil.booksHashChange.bind(BookUtil);
 	if (window.location.hash.length) {
 		BookUtil.booksHashChange();
 	} else {

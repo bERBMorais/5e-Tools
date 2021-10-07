@@ -1,42 +1,18 @@
 ## 5e.tools
 
-Visit the [main site](https://5e.tools/5etools.html) or go to the unofficial GitHub [mirror](5etools.html).
+Visit the [main site](https://5e.tools/index.html) or go to the unofficial GitHub [mirror](index.html).
 
 [Join the 5etools Discord here!](https://discord.gg/nGvRCDs)
 
-[Support us Patreon](https://www.patreon.com/bePatron?u=22018559)
+[Support us on Patreon](https://www.patreon.com/bePatron?u=22018559)
 
-## Running 5etools Locally (Offline Copy)
-There are several options for running a local/offline copy of 5etools, including:
+## Help and Support
 
-**Option 1** When using Chrome (or similar), a command-line switch is required to load some pages locally. On Windows, this can be accomplished by creating a Chrome shortcut and editing the properties of the shortcut to add `--allow-file-access-from-files` to the shortcut `Target`:
+Please see [our wiki](https://wiki.5e.tools/) for FAQs, installation guides, supported integrations, and more.
 
-![Chrome tutorial](https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/chrome-tutorial.png "Chrome tutorial")
+---
 
-Be sure to close any running Chrome instances (and kill any remaining Chrome processes as required) before opening the shortcut. A summary of the security implications can be found [here](https://superuser.com/a/873527).
-
-**Option 2** Install [Node.js](https://nodejs.org/), open a command line prompt in this directory, and `npm i && npm run serve:dev`. Then access the site on `http://localhost:8080/`
-
-**Option 3** Host the project locally on a dev webserver, using e.g. [devd](https://github.com/cortesi/devd) or [Python3](https://www.python.org/downloads/) `python3 -m http.server .`.
-
-## How to import 5etools creatures/spells/items into Roll20
-1. Get Tampermonkey for [Firefox](https://tampermonkey.net/?ext=dhdg&browser=firefox) or [Chrome](https://tampermonkey.net/).
-
-2. Click [here](https://get.5e.tools/script/betteR20-5etools.user.js) and install the script.
-
-3. Open the Roll20 game where you want the stuff imported.
-
-4. Go to the gear icon and click within the Import by Category on the thing you want imported.
-
-5. Follow the prompts and make selections as are needed.
-
-6. Let it run. The journal will start fill up with the stuff you selected. It's not too laggy but can take a long time depending on the amount of stuff you selected.
-
-7. Bam. Done. If you are using the Shaped sheet, be sure to open up the NPC sheets and let them convert before using it.
-
-You can convert stat blocks to JSON for importing via [this converter](converter.html).
-
-## Dev Notes
+## Developer Notes
 ### Data Sources and Versioning
 Only "official" (that is, published by WotC) data is to be included in the site. Anything else should be added to the homebrew repository.
 
@@ -73,7 +49,7 @@ Targeting ES6 was the original intent, but more modern features have long since 
 
 - When "tagging" references in data (e.g. `{@creature goblin}`), the following rules apply:
 	- Only tag references which are _intended as references_. For example, the Wizard class in `You gain one cantrip of your choice from the wizard spell list` should be tagged, whereas the Wizard class in `Together, a group of seven powerful wizards sought to contain the demon` should not be tagged. One is a reference to the mechanical class, one is merely the casual usage of the word "wizard."
-	- In a similar vein, never tag anything within a `quote`-type block. Even if the quote directly refers to a specific creature, we can assume the quote is from a universe/perspective in which (for example) statblocks don't exist, and therefore the tag should be omitted to maintain the flavour of the quote.
+	- In a similar vein, never tag anything within a `quote`-type block. Even if the quote directly refers to a specific creature, we can assume the quote is from a universe/perspective in which (for example) statblocks don't exist, and therefore the tag should be omitted to maintain the flavor of the quote.
 	- Within data from a source, avoid referencing content from a source printed after the publication of that source. For example, MTF content might reference SCAG deities, but SCAG deities should refrain from referencing MTF content.
 
 ### JSON Cleaning
@@ -116,7 +92,7 @@ Avoid binding ALT-modified events, as these are not available under MacOS or var
 
 ### Dev Server
 
-Do `npm run serve:dev` to launch a local dev server that serves the project files on [`http://localhost:8080/5etools.html`](http://localhost:8080/5etools.html).
+Do `npm run serve:dev` to launch a local dev server that serves the project files on [`http://localhost:5000/index.html`](http://localhost:8080/index.html).
 
 ### Version bump
 
@@ -130,6 +106,8 @@ Do `npm run version-bump -- [OPTION]`, where `[OPTION]` is one of the following:
 It will first run the tests and fail to increase the version if the tests fail.
 It will then automatically replace the version in the files where it needs to be replaced, create a commit with the message `chore(version): bump` and create a tag (in the form `v1.2.3`) at the commit.
 This feature can be easily disabled by doing `npm config set git-tag-version false`.
+
+---
 
 ## License
 

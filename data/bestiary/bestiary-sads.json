@@ -153,7 +153,7 @@
 				{
 					"name": "Teleport (Costs 2 Actions)",
 					"entries": [
-						"THe dragon magically teleports to an unoccupied space it can see within 30 feet of it."
+						"The dragon magically teleports to an unoccupied space it can see within 30 feet of it."
 					]
 				}
 			],
@@ -161,8 +161,10 @@
 				"name": "Sapphire Dragon",
 				"source": "SADS"
 			},
+			"hasToken": true,
 			"traitTags": [
-				"Legendary Resistances"
+				"Legendary Resistances",
+				"Spider Climb"
 			],
 			"senseTags": [
 				"B",
@@ -183,11 +185,27 @@
 				"S",
 				"T"
 			],
+			"spellcastingTags": [
+				"I",
+				"P"
+			],
 			"miscTags": [
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"incapacitated"
+			],
+			"conditionInflictLegendary": [
+				"charmed"
+			],
+			"conditionInflictSpell": [
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

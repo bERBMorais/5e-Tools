@@ -36,7 +36,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Animated Ballista",
@@ -88,6 +89,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -96,7 +98,8 @@
 			],
 			"miscTags": [
 				"RW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Animated Jade Serpent",
@@ -112,7 +115,8 @@
 			],
 			"conditionImmune": [
 				"poisoned"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Animated Staff",
@@ -185,6 +189,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -197,6 +202,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"conditionInflict": [
+				"charmed"
 			]
 		},
 		{
@@ -287,6 +295,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -297,7 +306,8 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Animated Wand",
@@ -323,7 +333,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Arcturia",
@@ -441,11 +452,15 @@
 					],
 					"ability": "int"
 				}
-			]
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ashtyrranthor",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDMM",
 			"page": 210,
 			"_copy": {
@@ -479,6 +494,7 @@
 					"ability": "cha"
 				}
 			],
+			"hasToken": true,
 			"spellcastingTags": [
 				"I"
 			]
@@ -494,7 +510,8 @@
 					"name": "Awakened",
 					"source": "PHB"
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Awakened Elk",
@@ -507,7 +524,8 @@
 					"name": "Awakened",
 					"source": "PHB"
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Awakened Giant Wasp",
@@ -520,7 +538,8 @@
 					"name": "Awakened",
 					"source": "PHB"
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Berlain Shadowdusk",
@@ -647,12 +666,14 @@
 					"ability": "int"
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"DS",
 				"OTH",
 				"U"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Big Xorn",
@@ -689,6 +710,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -744,7 +766,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks that aren't adamantine"
+					"note": "from nonmagical attacks that aren't adamantine",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -793,6 +816,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Regeneration"
 			],
@@ -811,7 +835,8 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Captain N'ghathrod",
@@ -833,7 +858,8 @@
 			"hp": {
 				"average": 111,
 				"formula": "13d8 + 13"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Carrion Ogre",
@@ -876,6 +902,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack",
 				"Tentacles"
@@ -887,7 +914,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed",
+				"poisoned"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Cassiok Shadowdusk",
@@ -1031,13 +1063,15 @@
 					"ability": "int"
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"DS",
 				"I",
 				"U"
 			],
-			"miscTags": []
+			"miscTags": [],
+			"hasFluff": true
 		},
 		{
 			"name": "Copper Stormforge",
@@ -1064,6 +1098,7 @@
 				"N",
 				"E"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1071,7 +1106,8 @@
 				"C",
 				"D",
 				"X"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Crow",
@@ -1088,7 +1124,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Crystal Battleaxe",
@@ -1105,7 +1142,16 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"action": [
+				{
+					"name": "Battleaxe",
+					"entries": [
+						"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d8 + 1}) slashing damage."
+					]
+				}
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Crystal Golem",
@@ -1135,6 +1181,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Illumination",
 				"Immutable Form",
@@ -1144,7 +1191,8 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Deformed Duergar",
@@ -1178,12 +1226,14 @@
 				"average": 40,
 				"formula": "4d8 + 4"
 			},
+			"hasToken": true,
 			"miscTags": [
 				"MW",
 				"RCH",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Dezmyr Shadowdusk",
@@ -1258,7 +1308,9 @@
 					},
 					"ability": "cha"
 				}
-			]
+			],
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Drivvin Freth",
@@ -1298,6 +1350,7 @@
 				"Goblin",
 				"Undercommon"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Magic Resistance",
@@ -1346,10 +1399,12 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"damageTags": [
 				"F",
 				"S"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Ezzat",
@@ -1471,6 +1526,7 @@
 					"ability": "int"
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"D",
@@ -1509,10 +1565,12 @@
 				"name": "Fazrian",
 				"source": "WDMM"
 			},
+			"hasToken": true,
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Fidelio",
@@ -1534,7 +1592,8 @@
 			"hp": {
 				"average": 80,
 				"formula": "10d8"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Five-Armed Troll",
@@ -1555,7 +1614,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Flying Trident",
@@ -1583,13 +1643,12 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"damageTags": [
 				"P"
 			],
 			"miscTags": [
-				"MW",
-				"RCH",
-				"THW"
+				"MW"
 			]
 		},
 		{
@@ -1604,7 +1663,8 @@
 				"walk": 30,
 				"climb": 30,
 				"fly": 40
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Giant Mutated Drow",
@@ -1630,6 +1690,7 @@
 				"N",
 				"E"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Keen Senses",
@@ -1647,6 +1708,7 @@
 		{
 			"name": "Glyster",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDMM",
 			"page": 241,
 			"_copy": {
@@ -1664,7 +1726,8 @@
 			"alignment": [
 				"L",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Gorka Tharn",
@@ -1760,10 +1823,12 @@
 					"ability": "wis"
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"D",
 				"U"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gorzil's Gang Troglodyte",
@@ -1808,6 +1873,7 @@
 			"languages": [
 				"understands Undercommon but can't speak"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"CS",
 				"U"
@@ -1886,26 +1952,9 @@
 			"cr": "23",
 			"spellcasting": [
 				{
-					"name": "Innate Spellcasting",
-					"headerEntries": [
-						"Halaster's spellcasting ability is Intelligence (spell save {@dc 22}). He can innately cast the following spells, requiring no material components:"
-					],
-					"will": [
-						"{@spell disguise self}",
-						"{@spell invisibility}"
-					],
-					"daily": {
-						"1": [
-							"{@spell fly}",
-							"{@spell lightning bolt}"
-						]
-					},
-					"ability": "int"
-				},
-				{
 					"name": "Spellcasting",
 					"headerEntries": [
-						"Halaster is a 20th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 22}, {@hit 14} to hit with spell attacks). He can cast disguise self and invisibility at will. He can cast fly and lightning bolt once each without expending a spell slot, but can't do so again until he finishes a short or long rest. Halaster has the following wizard spells prepared:"
+						"Halaster is a 20th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 22}, {@hit 14} to hit with spell attacks). He can cast {@spell disguise self} and {@spell invisibility} at will. He can cast {@spell fly} and {@spell lightning bolt} once each without expending a spell slot, but can't do so again until he finishes a short or long rest. Halaster has the following wizard spells prepared:"
 					],
 					"spells": {
 						"0": {
@@ -1990,6 +2039,20 @@
 							]
 						}
 					},
+					"will": [
+						"{@spell disguise self}",
+						"{@spell invisibility}"
+					],
+					"daily": {
+						"1": [
+							"{@spell fly}",
+							"{@spell lightning bolt}"
+						]
+					},
+					"hidden": [
+						"will",
+						"daily"
+					],
 					"ability": "int"
 				}
 			],
@@ -2047,6 +2110,7 @@
 				"name": "Halaster Blackcloak",
 				"source": "WDMM"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Rejuvenation"
@@ -2064,13 +2128,25 @@
 				"I",
 				"U"
 			],
+			"damageTags": [
+				"T"
+			],
 			"spellcastingTags": [
-				"CW",
-				"I"
+				"CW"
 			],
 			"miscTags": [
 				"AOE"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"frightened",
+				"incapacitated",
+				"invisible",
+				"stunned",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Halaster Horror",
@@ -2111,6 +2187,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"B"
 			]
@@ -2160,6 +2237,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Antimagic Susceptibility"
 			],
@@ -2193,7 +2271,7 @@
 			"con": 13,
 			"int": 3,
 			"wis": 10,
-			"cha": 10,
+			"cha": 3,
 			"passive": 10,
 			"cr": "0",
 			"trait": [
@@ -2208,8 +2286,19 @@
 					"entries": [
 						"A creature that uses an action to touch the living snail gains 6 temporary hit points that last for 24 hours. Any creature or object that touches the living snail also gains the benefit of a {@spell remove curse} spell. The snail loses these magical properties if it dies."
 					]
+				},
+				{
+					"name": "Spider Climb",
+					"entries": [
+						"The snail can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+					]
 				}
-			]
+			],
+			"hasToken": true,
+			"traitTags": [
+				"Spider Climb"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Horned Sister",
@@ -2226,8 +2315,8 @@
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
-						"replace": "mage",
-						"with": "sister"
+						"replace": "(^| )mage",
+						"with": "$1horned sister"
 					}
 				}
 			},
@@ -2235,12 +2324,21 @@
 				"L",
 				"E"
 			],
+			"languages": [
+				"Common",
+				"Draconic",
+				"Infernal",
+				"Undercommon"
+			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
 			"languageTags": [
+				"C",
+				"DR",
 				"I",
-				"X"
+				"U"
 			],
 			"spellcastingTags": [
 				"CW",
@@ -2272,7 +2370,7 @@
 				{
 					"name": "Pseudopod",
 					"entries": [
-						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d6 + 1}) bludgeoning damage plus 21 ({@damage 6d6}) acid damage, or 42 ({@damage 12d6}) acid damage while the ooze is enlarged. If the target is wearing nonmagical metal armor, its armor is partly corroded and takes a permanent and cumulative \u22121 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10."
+						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}21 ({@damage 6d6}) acid damage, or 42 ({@damage 12d6}) acid damage while the ooze is enlarged. If the target is wearing nonmagical metal armor, its armor is partly corroded and takes a permanent and cumulative \u22121 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10."
 					]
 				},
 				{
@@ -2288,12 +2386,12 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
 			"damageTags": [
-				"A",
-				"B"
+				"A"
 			]
 		},
 		{
@@ -2331,6 +2429,7 @@
 					"ability": "int"
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"CS",
 				"E",
@@ -2382,6 +2481,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			]
@@ -2409,6 +2509,7 @@
 				"N",
 				"E"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -2441,6 +2542,12 @@
 						"flags": "i"
 					}
 				}
+			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
 			},
 			"alignment": [
 				"N",
@@ -2491,7 +2598,7 @@
 				{
 					"name": "Spellcasting",
 					"headerEntries": [
-						"Keresta is a 9th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 16}, {@hit 8} to hit with spell attacks). She has the following wizard spells prepared:"
+						"Keresta is a 9th-level spellcaster. Her spellcasting ability is Wisdom (spell save {@dc 15}, {@hit 7} to hit with spell attacks). She has the following cleric spells prepared:"
 					],
 					"spells": {
 						"0": {
@@ -2551,9 +2658,11 @@
 				"name": "Keresta Delvingstone",
 				"source": "WDMM"
 			},
+			"hasToken": true,
 			"spellcastingTags": [
-				"CW"
-			]
+				"CC"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Kol'daan",
@@ -2593,6 +2702,11 @@
 					]
 				}
 			},
+			"hp": {
+				"average": 20,
+				"formula": "2d8 + 4"
+			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"P",
@@ -2611,7 +2725,8 @@
 			"hp": {
 				"average": 67,
 				"formula": "9d10 + 18"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Lava Child",
@@ -2660,7 +2775,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from metal weapons"
+					"note": "from metal weapons",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -2696,6 +2812,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -2712,7 +2829,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Living Unseen Servant",
@@ -2777,6 +2896,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -2789,7 +2909,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Mad Golem",
@@ -2829,6 +2950,7 @@
 				"and Undercommon but can't speak"
 			],
 			"cr": "12",
+			"hasToken": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -2839,7 +2961,8 @@
 				"E",
 				"I",
 				"U"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Maddgoth's Homunculus",
@@ -2875,6 +2998,7 @@
 				"Gnomish but can't speak"
 			],
 			"cr": "2",
+			"hasToken": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -2882,7 +3006,9 @@
 				"DR",
 				"G"
 			],
-			"damageTags": []
+			"damageTags": [
+				"P"
+			]
 		},
 		{
 			"name": "Marta Moonshadow",
@@ -2892,6 +3018,10 @@
 			"_copy": {
 				"name": "Mage",
 				"source": "MM",
+				"_trait": {
+					"name": "High Elf",
+					"source": "PHB"
+				},
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -2931,6 +3061,7 @@
 				"Elvish",
 				"Undercommon"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -2940,7 +3071,8 @@
 				"DR",
 				"E",
 				"U"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Melissara Shadowdusk",
@@ -2970,6 +3102,12 @@
 					}
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"alignment": [
 				"N"
 			],
@@ -2979,6 +3117,7 @@
 				"Draconic",
 				"Dwarvish"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"D",
@@ -3017,6 +3156,7 @@
 				"petrified",
 				"poisoned"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			]
@@ -3050,7 +3190,8 @@
 			"hp": {
 				"average": 42,
 				"formula": "7d6"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Muiral",
@@ -3228,6 +3369,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -3255,7 +3397,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Nerozar the Defeated",
@@ -3279,15 +3423,42 @@
 							"name": "Eye Ray",
 							"entries": [
 								"The zombie uses a random magical eye ray, choosing a target that it can see within 60 feet of it.",
-								"1. Paralyzing Ray. The targeted creature must succeed on a {@dc 14} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-								"2. Fear Ray. The targeted creature must succeed on a {@dc 14} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-								"3. Enervation Ray. The targeted creature must make a {@dc 14} Constitution saving throw, taking 36 ({@damage 8d8}) necrotic damage on a failed save, or half as much damage on a successful one.",
-								"4. Telekinetic Ray. If the target is a creature, it must succeed on a DC 14 Strength saving throw, or the zombie moves it up to 30 feet in any direction. It is restrained by the ray's telekinetic grip until the start of the zombie's next turn or until the zombie is incapacitated. If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is moved up to 30 feet in any direction. The zombie can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or container."
+								{
+									"type": "list",
+									"style": "list-hang-notitle",
+									"items": [
+										{
+											"type": "item",
+											"name": "1. Paralyzing Ray.",
+											"style": "italic",
+											"entry": "The targeted creature must succeed on a {@dc 14} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+										},
+										{
+											"type": "item",
+											"name": "2. Fear Ray.",
+											"style": "italic",
+											"entry": "The targeted creature must succeed on a {@dc 14} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+										},
+										{
+											"type": "item",
+											"name": "3. Enervation Ray.",
+											"style": "italic",
+											"entry": "The targeted creature must make a {@dc 14} Constitution saving throw, taking 36 ({@damage 8d8}) necrotic damage on a failed save, or half as much damage on a successful one."
+										},
+										{
+											"type": "item",
+											"name": "4. Telekinetic Ray.",
+											"style": "italic",
+											"entry": "If the target is a creature, it must succeed on a DC 14 Strength saving throw, or the zombie moves it up to 30 feet in any direction. It is restrained by the ray's telekinetic grip until the start of the zombie's next turn or until the zombie is incapacitated. If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is moved up to 30 feet in any direction. The zombie can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or container."
+										}
+									]
+								}
 							]
 						}
 					}
 				}
 			},
+			"hasToken": true,
 			"damageTags": [
 				"N",
 				"P"
@@ -3336,6 +3507,7 @@
 					}
 				}
 			},
+			"type": "undead",
 			"senses": [
 				"darkvision 60 ft."
 			],
@@ -3347,6 +3519,7 @@
 				"Giant",
 				"Terran"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3357,7 +3530,8 @@
 				"DR",
 				"GI",
 				"T"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Old Troglodyte",
@@ -3386,6 +3560,7 @@
 				}
 			},
 			"cr": "1/8",
+			"hasToken": true,
 			"damageTags": [
 				"S"
 			]
@@ -3418,7 +3593,10 @@
 			},
 			"str": 18,
 			"cr": "3",
-			"damageTags": []
+			"hasToken": true,
+			"damageTags": [
+				"P"
+			]
 		},
 		{
 			"name": "Play-by-Play Generator",
@@ -3466,6 +3644,7 @@
 			"languages": [
 				"Common"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			],
@@ -3513,6 +3692,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"I"
@@ -3553,6 +3733,7 @@
 			"languages": [
 				"Common"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			]
@@ -3573,6 +3754,12 @@
 						"flags": "i"
 					}
 				}
+			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
 			},
 			"alignment": [
 				"C",
@@ -3611,6 +3798,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -3619,7 +3807,12 @@
 				"D",
 				"GO",
 				"U"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"paralyzed"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Rabbithead",
@@ -3630,15 +3823,21 @@
 				"name": "Commoner",
 				"source": "MM"
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"alignment": [
 				"U"
 			],
 			"languages": null,
+			"hasToken": true,
 			"languageTags": []
 		},
 		{
 			"name": "Rowboat Mimic",
-			"isNpc": true,
 			"source": "WDMM",
 			"page": 76,
 			"_copy": {
@@ -3649,7 +3848,8 @@
 			"hp": {
 				"average": 67,
 				"formula": "9d10 + 18"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Runed Behir",
@@ -3672,7 +3872,8 @@
 						"The behir casts {@spell invisibility} or {@spell misty step}, requiring no components."
 					]
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Scaladar",
@@ -3717,7 +3918,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3765,6 +3967,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Damage Absorption"
 			],
@@ -3782,7 +3985,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shadow Assassin",
@@ -3834,7 +4042,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3892,6 +4101,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amorphous"
 			],
@@ -3911,7 +4121,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Shapechanged Roper",
@@ -3932,6 +4143,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"traitTags": [
 				"False Appearance",
 				"Shapechanger",
@@ -4033,6 +4245,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Immutable Form"
 			],
@@ -4080,7 +4293,9 @@
 			"alignment": [
 				"L",
 				"E"
-			]
+			],
+			"hasToken": true,
+			"hasFluff": true
 		},
 		{
 			"name": "Sing-Along",
@@ -4107,6 +4322,7 @@
 				"Common",
 				"Halfling"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"H"
@@ -4129,6 +4345,7 @@
 				}
 			},
 			"action": null,
+			"hasToken": true,
 			"damageTags": [],
 			"miscTags": []
 		},
@@ -4179,6 +4396,7 @@
 				"Dwarvish",
 				"Terran"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"D",
 				"DR",
@@ -4215,7 +4433,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Stonecloak",
@@ -4245,6 +4464,7 @@
 				"Infernal",
 				"and Undercommon but can't speak"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -4255,7 +4475,8 @@
 				"E",
 				"I",
 				"U"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sundeth",
@@ -4287,13 +4508,15 @@
 				"Common",
 				"Giant"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
 			"languageTags": [
 				"C",
 				"GI"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Thwad Underbrew",
@@ -4342,6 +4565,7 @@
 				"N",
 				"E"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -4353,7 +4577,8 @@
 			"damageTags": [
 				"B",
 				"P"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Torbit",
@@ -4380,6 +4605,7 @@
 				"C",
 				"E"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Sneak Attack"
@@ -4388,7 +4614,8 @@
 				"OTH",
 				"TC",
 				"X"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Trenzia",
@@ -4402,7 +4629,7 @@
 					"*": {
 						"mode": "replaceTxt",
 						"replace": "the flameskull",
-						"with": "Nester",
+						"with": "Trenzia",
 						"flags": "i"
 					}
 				}
@@ -4467,9 +4694,11 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"L"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Trobriand",
@@ -4576,13 +4805,16 @@
 					"ability": "int"
 				}
 			],
+			"hasToken": true,
 			"spellcastingTags": [
 				"CW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Umbraxakar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDMM",
 			"page": 241,
 			"_copy": {
@@ -4597,6 +4829,7 @@
 				"N",
 				"E"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances",
@@ -4633,7 +4866,8 @@
 			],
 			"conditionImmune": [
 				"poisoned"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Undead Shambling Mound",
@@ -4661,7 +4895,9 @@
 						"Whenever the shambling mound is subjected to necrotic damage, it takes no damage and regains a number of hit points equal to the necrotic damage dealt."
 					]
 				}
-			]
+			],
+			"hasToken": true,
+			"hasFluff": true
 		},
 		{
 			"name": "Valtagar Steelshadow",
@@ -4707,6 +4943,7 @@
 				"Troglodyte",
 				"Undercommon"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -4717,7 +4954,8 @@
 				"OTH",
 				"T",
 				"U"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Vertrand Shadowdusk",
@@ -4747,6 +4985,12 @@
 					}
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"alignment": [
 				"C",
 				"E"
@@ -4760,6 +5004,7 @@
 				"Deep Speech",
 				"Undercommon"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -4772,6 +5017,7 @@
 		},
 		{
 			"name": "Werebat",
+			"group": "Lycanthropes",
 			"source": "WDMM",
 			"page": 317,
 			"size": "S",
@@ -4820,7 +5066,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks that aren't silvered"
+					"note": "from nonmagical attacks that aren't silvered",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -4885,6 +5132,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses",
 				"Shapechanger",
@@ -4892,6 +5140,9 @@
 			],
 			"senseTags": [
 				"D"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"CS",
@@ -4905,7 +5156,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Wooden Donkey",
@@ -4938,9 +5191,11 @@
 				"petrified",
 				"poisoned"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Wyllow",
@@ -4972,6 +5227,7 @@
 				"Druidic",
 				"Elvish"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -4982,7 +5238,8 @@
 				"C",
 				"DU",
 				"E"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Zalthar Shadowdusk",
@@ -5025,7 +5282,7 @@
 						"items": {
 							"name": "Nine Lives Stealer Longsword",
 							"entries": [
-								"{@atk mw} {@hit 13} to hit, reach 5 ft., one target. {@h}11 ({@damage 1d8 + 7}) slashing damage, or 12 ({@damage 1d10 + 7}) slashing damage if used with two hands, plus 18 ({@damage 4d8}) necrotic damage, plus 18 ({@dice 4d8}) necrotic damage."
+								"{@atk mw} {@hit 13} to hit, reach 5 ft., one target. {@h}11 ({@damage 1d8 + 7}) slashing damage, or 12 ({@damage 1d10 + 7}) slashing damage if used with two hands, plus 18 ({@damage 4d8}) necrotic damage."
 							]
 						}
 					}
@@ -5036,6 +5293,7 @@
 				"Common",
 				"Deep Speech"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -5102,7 +5360,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -5189,7 +5448,7 @@
 				{
 					"name": "Bite (Bat or Vampire Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 9} to hit, reach 5 ft., one willing creature, or a creature that is {@condition grappled} by Zorak, {@condition incapacitated}, or {@condition restrained}. {@h}7 ({@damage 1d6 + 4}) piercing damage plus 10 ({@damage 3d6}) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and Zorak regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces his hit point maximum to 0. A humanoid slain in this way and then buried in the ground rises the following night as a vampire spawn under Zorak's control."
+						"{@atk mw} {@hit 9} to hit, reach 5 ft., one willing creature, or a creature that is {@condition grappled} by Zorak, {@condition incapacitated}, or {@condition restrained}. {@h}7 ({@damage 1d6 + 4}) piercing damage plus 10 ({@damage 3d6}) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and Zorak regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces his hit point maximum to 0. A humanoid slain in this way and then buried in the ground rises the following night as a {@creature vampire spawn} under Zorak's control."
 					]
 				},
 				{
@@ -5230,6 +5489,7 @@
 				"name": "Vampire",
 				"source": "MM"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Regeneration",
@@ -5254,6 +5514,9 @@
 			"miscTags": [
 				"MW",
 				"RW"
+			],
+			"conditionInflict": [
+				"charmed"
 			]
 		},
 		{
@@ -5296,6 +5559,7 @@
 				"Ignan",
 				"Terran"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -5324,7 +5588,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		}
 	]
 }

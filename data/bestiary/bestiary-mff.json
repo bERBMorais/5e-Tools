@@ -53,8 +53,7 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The assassin bug has advantage on Wisdom",
-						"(Perception) checks that rely on smell."
+						"The assassin bug has advantage on Wisdom (Perception) checks that rely on smell."
 					]
 				}
 			],
@@ -79,6 +78,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -98,7 +98,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed",
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Blindheim",
@@ -157,7 +163,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Melee weapon attack: {@hit 4} to hit, reach 5 ft., one target. Hit: 5 ({@damage 1d6 + 2}) piercing damage."
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. Hit: 5 ({@damage 1d6 + 2}) piercing damage."
 					]
 				},
 				{
@@ -167,6 +173,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"U"
 			],
@@ -175,8 +182,14 @@
 				"R"
 			],
 			"miscTags": [
-				"AOE"
-			]
+				"AOE",
+				"MW"
+			],
+			"conditionInflict": [
+				"blinded"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Crab Folk",
@@ -237,6 +250,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -250,7 +264,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dire Corby",
@@ -293,6 +312,9 @@
 				"acrobatics": "+4",
 				"perception": "+3"
 			},
+			"senses": [
+				"darkvision 60 ft."
+			],
 			"passive": 13,
 			"vulnerable": [
 				"thunder"
@@ -332,8 +354,12 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
+			],
+			"senseTags": [
+				"D"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -346,7 +372,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Eye of Fear and Flame",
@@ -481,6 +509,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Turn Immunity"
 			],
@@ -503,7 +532,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Fog Giant",
@@ -612,6 +643,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -633,7 +665,9 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Forlarren",
@@ -671,6 +705,9 @@
 				"deception": "+8",
 				"stealth": "+5"
 			},
+			"senses": [
+				"darkvision 30 ft."
+			],
 			"passive": 10,
 			"languages": [
 				"Common",
@@ -722,13 +759,13 @@
 				{
 					"name": "Claw",
 					"entries": [
-						"Melee weapon attack: {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage."
 					]
 				},
 				{
 					"name": "Gore",
 					"entries": [
-						"Melee weapon attack: {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) piercing damage."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) piercing damage."
 					]
 				},
 				{
@@ -738,8 +775,12 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
+			],
+			"senseTags": [
+				"D"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -757,7 +798,12 @@
 			],
 			"spellcastingTags": [
 				"I"
-			]
+			],
+			"miscTags": [
+				"MW"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Jermlaine",
@@ -831,16 +877,17 @@
 				{
 					"name": "Club",
 					"entries": [
-						"Melee weapon attack: {@hit -1} to hit, reach 5 ft., one target. {@h}1 ({@damage 1d4 - 3}) bludgeoning damage."
+						"{@atk mw} {@hit -1} to hit, reach 5 ft., one target. {@h}1 ({@damage 1d4 - 3}) bludgeoning damage."
 					]
 				},
 				{
 					"name": "Dart",
 					"entries": [
-						"Ranged weapon attack: {@hit 3} to hit, range 20/60 ft., one target. {@h}3 ({@damage 1d4 + 1}) piercing damage."
+						"{@atk rw} {@hit 3} to hit, range 20/60 ft., one target. {@h}3 ({@damage 1d4 + 1}) piercing damage."
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -853,7 +900,14 @@
 			"damageTags": [
 				"B",
 				"P"
-			]
+			],
+			"miscTags": [
+				"MW",
+				"RW",
+				"THW"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Khargra",
@@ -929,6 +983,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -941,7 +996,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Killmoulis",
@@ -974,6 +1031,9 @@
 				"perception": "+4",
 				"stealth": "+8"
 			},
+			"senses": [
+				"darkvision 30 ft."
+			],
 			"passive": 14,
 			"languages": [
 				"Common",
@@ -985,21 +1045,25 @@
 				{
 					"name": "Slam",
 					"entries": [
-						"Melee weapon attack: {@hit -1} to hit, reach 5 ft., one target. {@h}1 bludgeoning damage."
+						"{@atk mw} {@hit -1} to hit, reach 5 ft., one target. {@h}1 bludgeoning damage."
 					]
 				},
 				{
-					"name": "Blessing of Bountiful Generosity (1/day)",
+					"name": "Blessing of Bountiful Generosity (1/Day)",
 					"entries": [
 						"The killmoulis targets up to eight creatures within 100 feet of it that it can see. The next time a target finishes a long rest, it regains all spent Hit Dice and gains 10 temporary hit points."
 					]
 				},
 				{
-					"name": "Curse of Poor Hospitality (1/day)",
+					"name": "Curse of Poor Hospitality (1/Day)",
 					"entries": [
 						"The killmoulis targets up to eight creatures within 100 feet of it that it can see. The next time a target completes a long rest, it does not regain spent Hit Dice."
 					]
 				}
+			],
+			"hasToken": true,
+			"senseTags": [
+				"D"
 			],
 			"languageTags": [
 				"C",
@@ -1008,7 +1072,12 @@
 			],
 			"damageTags": [
 				"B"
-			]
+			],
+			"miscTags": [
+				"MW"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mite",
@@ -1042,6 +1111,9 @@
 				"deception": "+3",
 				"stealth": "+6"
 			},
+			"senses": [
+				"darkvision 60 ft."
+			],
 			"passive": 9,
 			"languages": [
 				"Sylvan",
@@ -1052,8 +1124,7 @@
 				{
 					"name": "Vexing Presence",
 					"entries": [
-						"While within 30 feet of a mite that can see it, a non-fey creature has disadvantage on Dexterity checks and",
-						"Dexterity saving throws."
+						"While within 30 feet of a mite that can see it, a non-fey creature has disadvantage on Dexterity checks and Dexterity saving throws."
 					]
 				}
 			],
@@ -1061,7 +1132,7 @@
 				{
 					"name": "Dagger",
 					"entries": [
-						"Melee or Ranged weapon attack: {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
+						"{@atk mw,rw} {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
 					]
 				},
 				{
@@ -1071,13 +1142,24 @@
 					]
 				}
 			],
+			"hasToken": true,
+			"senseTags": [
+				"D"
+			],
 			"languageTags": [
 				"S",
 				"U"
 			],
 			"damageTags": [
 				"P"
-			]
+			],
+			"miscTags": [
+				"MW",
+				"RW",
+				"THW"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Needle Lord",
@@ -1162,6 +1244,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -1178,7 +1261,12 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Needle Spawn",
@@ -1241,7 +1329,7 @@
 				{
 					"name": "Claw",
 					"entries": [
-						"Melee weapon attack: {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage."
 					]
 				},
 				{
@@ -1251,6 +1339,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -1262,8 +1351,11 @@
 				"S"
 			],
 			"miscTags": [
+				"MW",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Norker",
@@ -1304,6 +1396,9 @@
 			"skill": {
 				"athletics": "+3"
 			},
+			"senses": [
+				"darkvision 60 ft."
+			],
 			"passive": 9,
 			"languages": [
 				"Common",
@@ -1320,13 +1415,13 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Melee weapon attack: {@hit 3} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d6 + 1}) piercing damage."
+						"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d6 + 1}) piercing damage."
 					]
 				},
 				{
 					"name": "Mace",
 					"entries": [
-						"Melee weapon attack: {@hit 3} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d6 + 1}) bludgeoning damage."
+						"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d6 + 1}) bludgeoning damage."
 					]
 				}
 			],
@@ -1338,6 +1433,10 @@
 					]
 				}
 			],
+			"hasToken": true,
+			"senseTags": [
+				"D"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1348,7 +1447,12 @@
 			"damageTags": [
 				"B",
 				"P"
-			]
+			],
+			"miscTags": [
+				"MW"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Norker War Leader",
@@ -1391,6 +1495,9 @@
 				"intimidation": "+3",
 				"perception": "+2"
 			},
+			"senses": [
+				"darkvision 60 ft."
+			],
 			"passive": 12,
 			"languages": [
 				"Common",
@@ -1407,13 +1514,13 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Melee weapon attack: {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage."
 					]
 				},
 				{
 					"name": "Greataxe",
 					"entries": [
-						"Melee weapon attack: {@hit 5} to hit, reach 5 ft., one target. {@h}9 ({@damage 1d12 + 3}) slashing damage."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}9 ({@damage 1d12 + 3}) slashing damage."
 					]
 				},
 				{
@@ -1431,6 +1538,10 @@
 					]
 				}
 			],
+			"hasToken": true,
+			"senseTags": [
+				"D"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1441,7 +1552,12 @@
 			"damageTags": [
 				"P",
 				"S"
-			]
+			],
+			"miscTags": [
+				"MW"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Screaming Devilkin",
@@ -1475,6 +1591,9 @@
 			"int": 5,
 			"wis": 8,
 			"cha": 11,
+			"senses": [
+				"darkvision 30 ft."
+			],
 			"passive": 9,
 			"languages": [
 				"Sylvan"
@@ -1505,16 +1624,28 @@
 				{
 					"name": "Barbed Tail",
 					"entries": [
-						"Melee weapon attack: {@hit 5} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage."
 					]
 				}
+			],
+			"hasToken": true,
+			"senseTags": [
+				"D"
 			],
 			"languageTags": [
 				"S"
 			],
 			"damageTags": [
 				"P"
-			]
+			],
+			"miscTags": [
+				"MW"
+			],
+			"conditionInflict": [
+				"incapacitated"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Xill",
@@ -1552,6 +1683,9 @@
 				"athletics": "+4",
 				"perception": "+4"
 			},
+			"senses": [
+				"darkvision 60 ft."
+			],
 			"passive": 14,
 			"languages": [
 				"Common"
@@ -1581,9 +1715,13 @@
 				{
 					"name": "Claw",
 					"entries": [
-						"Melee weapon attack: {@hit 6} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d4 + 4}) piercing damage."
+						"{@atk mw} {@hit 6} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d4 + 4}) piercing damage."
 					]
 				}
+			],
+			"hasToken": true,
+			"senseTags": [
+				"D"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -1594,7 +1732,16 @@
 			"damageTags": [
 				"I",
 				"P"
-			]
+			],
+			"miscTags": [
+				"MW"
+			],
+			"conditionInflict": [
+				"paralyzed",
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ygorl, Lord of Entropy",
@@ -1661,7 +1808,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -1755,7 +1903,7 @@
 				{
 					"name": "Summon Slaadi (1/Day)",
 					"entries": [
-						"Ygorl summons {@dice 1d4 + 1} death slaadi. A summoned slaad appears in an unoccupied space within 60 feet of Ygorl, acts as an ally of Ygorl, and can't summon other slaadi. It remains for 1 minute, until it or Ygorl dies, or until Ygorl dismisses it as an action."
+						"Ygorl summons {@dice 1d4 + 1} {@creature death slaad||death slaadi}. A summoned slaad appears in an unoccupied space within 60 feet of Ygorl, acts as an ally of Ygorl, and can't summon other slaadi. It remains for 1 minute, until it or Ygorl dies, or until Ygorl dismisses it as an action."
 					]
 				},
 				{
@@ -1785,6 +1933,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -1810,7 +1959,18 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"exhaustion"
+			],
+			"conditionInflictSpell": [
+				"frightened",
+				"incapacitated",
+				"stunned",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

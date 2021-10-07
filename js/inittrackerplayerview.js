@@ -13,21 +13,27 @@ window.addEventListener("load", () => {
 		.change(() => $iptPlayerName.removeClass("form-control--error"))
 		.disableSpellcheck();
 
-	$(`#initp__btn_gen_client_token`)
+	const $btnConnect = $(`#initp__btn_connect`)
 		.click(async () => {
 			if (!$iptPlayerName.val().trim()) return $iptPlayerName.addClass("form-control--error");
 			if (!$iptServerToken.val().trim()) return $iptServerToken.addClass("form-control--error");
 
-			const ui = new InitiativeTrackerPlayerUi(view, $iptPlayerName.val(), $iptServerToken.val());
-			await ui.pInit();
-			InitiativeTrackerPlayerMessageHandlerPage.initUnloadMessage();
-			view.initUi();
+			try {
+				$btnConnect.attr("disabled", true);
+				const ui = new InitiativeTrackerPlayerUi(view, $iptPlayerName.val(), $iptServerToken.val());
+				await ui.pInit();
+				InitiativeTrackerPlayerMessageHandlerPage.initUnloadMessage();
+				view.initUi();
+			} catch (e) {
+				$btnConnect.attr("disabled", false);
+				throw e;
+			}
 		});
 
 	const $body = $(`body`);
 	$body.on("keypress", (e) => {
-		if (((e.key === "f") && noModifierKeys(e))) {
-			if (MiscUtil.isInInput(e)) return;
+		if (((e.key === "f") && EventUtil.noModifierKeys(e))) {
+			if (EventUtil.isInInput(e)) return;
 			e.preventDefault();
 
 			if (view.isActive) $body.toggleClass("is-fullscreen");
