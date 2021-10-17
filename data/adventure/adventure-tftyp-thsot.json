@@ -449,7 +449,7 @@
 										],
 										[
 											"2",
-											"Bored, retired adventurer, claims to have explored dungeon of note and can describe first few areas (20 percent chance of an accurate description)"
+											"Bored, retired adventurer, claims to have explored dungeon of note and can describe first few areas ({@chance 20|20 percent} chance of an accurate description)"
 										],
 										[
 											"3",
@@ -457,7 +457,7 @@
 										],
 										[
 											"4",
-											"Con artist, selling fake treasure maps (but a 10 percent chance that a map is genuine)"
+											"Con artist, selling fake treasure maps (but a {@chance 10|10 percent} chance that a map is genuine)"
 										],
 										[
 											"5",
@@ -481,7 +481,7 @@
 										],
 										[
 											"10",
-											"Elminster, incognito; 10 percent chance he is on an errand of cosmic importance; otherwise, he's pressing Durnan for gossip"
+											"Elminster, incognito; {@chance 10|10 percent} chance he is on an errand of cosmic importance; otherwise, he's pressing Durnan for gossip"
 										]
 									]
 								}
@@ -591,7 +591,7 @@
 									"name": "Unsafe Stonework",
 									"id": "021",
 									"entries": [
-										"In some places, the corbel arches that hold up the ceiling aren't structurally sound. As a result, some spells might have disastrous effects. A spell like fireball (an explosion) or thunderwave (an area of thunder damage) has a 25 percent chance to cause a ceiling collapse within the spell's area, dealing 16 (3d10) bludgeoning damage to creatures in the area. This collapse might block or bury objects or exits."
+										"In some places, the corbel arches that hold up the ceiling aren't structurally sound. As a result, some spells might have disastrous effects. A spell like fireball (an explosion) or thunderwave (an area of thunder damage) has a {@chance 25|25 percent} chance to cause a ceiling collapse within the spell's area, dealing 16 (3d10) bludgeoning damage to creatures in the area. This collapse might block or bury objects or exits."
 									]
 								},
 								{
@@ -599,7 +599,7 @@
 									"name": "Poisonous Gas",
 									"id": "022",
 									"entries": [
-										"The lower levels of the ruins, including the rooms and passages of encounter areas 1 through 38, are filled with poisonous gas. The gas is an amber color, and its area is lightly obscured. Anyone can tell that the gas is irritating, but it takes a successful DC 15 Intelligence (Nature) check to discern the gas's toxicity. Flames in the gas sputter and glow redly, and any attempt to use natural means to ignite a fire has only a 50 percent chance of success. Fire used as a light source has an effective radius only half normal."
+										"The lower levels of the ruins, including the rooms and passages of encounter areas 1 through 38, are filled with poisonous gas. The gas is an amber color, and its area is lightly obscured. Anyone can tell that the gas is irritating, but it takes a successful DC 15 Intelligence (Nature) check to discern the gas's toxicity. Flames in the gas sputter and glow redly, and any attempt to use natural means to ignite a fire has only a {@chance 50|50 percent} chance of success. Fire used as a light source has an effective radius only half normal."
 									]
 								},
 								"A creature takes 3 (1d6) poison damage every hour it spends in the gas. The gas is light, so it accumulates closer to the ceiling. Inhabitants of the dungeon have immunity to the poisonous effect of the gas.",
@@ -1118,7 +1118,7 @@
 						},
 						"If the characters examine the contents of the tomb, see \"Treasure\" for details. Any of the items can be lifted off or out if the characters so desire. If the mask and the pendant are both removed, Tloques starts to awaken. Dust is stirred up into clouds and begins to gather on the bones as they knit back together. His wasted form then sits up and gazes about. This part of the regeneration process requires 2 rounds, during which time the corpse has AC 12 and 27 hit points. (If they have not been removed, the corpse benefits from the {@item bracers of defense} and the {@item ring of protection} he is wearing; see \"Treasure.\") If either the mask or the pendant is forced back upon him before the 2 rounds elapse, he returns to death. If not, he then sits for 2 more rounds, while his flesh knits and swells out with the apparent vigor of the living. He gains 27 hit points in the first round and 28 hit points in the second round, and he has his normal AC of 17 but remains prone. He can use Multiattack to make two claw attacks in either of these rounds, but being prone, he does so with disadvantage. Within this period, if both the mask and the pendant are forced back on him, he can resist returning to death with a successful DC 10 Wisdom saving throw. When he is whole again, he attacks.",
 						"Tloques, having gained his power from his allegiance to Zotzilaha, isn't a typical vampire and doesn't bite. He has the Shapechanger trait of a true vampire, except he can't change into mist. Tloques also has the Children of the Night action option of a true vampire, but he calls only bats. He can innately cast the {@spell hold person} spell at will, requiring no components, but his target must be able to see him. When he has a chance to do so, Tloques pulls his axe from the wall and then uses it for each of his two attacks per round.",
-						"He is a blood-drinker and attempts to subdue opponents, if not vastly outnumbered, so as to assure himself a constant supply of blood. To drink blood, Tloques must first drain it into a receptacle and then drink it, which can reduce the target's hit point maximum as a normal vampire spawn bite does.",
+						"He is a blood-drinker and attempts to subdue opponents, if not vastly outnumbered, so as to assure himself a constant supply of blood. To drink blood, Tloques must first drain it into a receptacle and then drink it, which can reduce the target's hit point maximum as a normal{@creature vampire spawn} bite does.",
 						"Tloques will not pursue fleeing grave robbers from his tomb immediately, but instead will seek to regain his bearings in the world of the living for several days. He can track down cursed thieves later, or invoke the power of Zotzilaha to locate any treasure stolen from this place. In the intervening time, he might regain some of his former power.",
 						{
 							"type": "entries",
@@ -1217,7 +1217,7 @@
 							"name": "Treasure",
 							"id": "05e",
 							"entries": [
-								"The eyes of the statue are pieces of polished obsidian worth 10 gp each. The sword is a {@item longsword +1||+1 longsword} in fine condition, made of laminated wood, inset with jagged teeth of obsidian. It deals an extra 2d6 damage to any creature of the plant type. The sword comes free easily, if any character pulls it up and out."
+								"The eyes of the statue are pieces of polished obsidian worth 10 gp each. The sword is a {@item +1 longsword} in fine condition, made of laminated wood, inset with jagged teeth of obsidian. It deals an extra 2d6 damage to any creature of the plant type. The sword comes free easily, if any character pulls it up and out."
 							]
 						}
 					]
@@ -1799,7 +1799,7 @@
 							"name": "Treasure",
 							"id": "0a1",
 							"entries": [
-								"The shiny objects in the beetles' nest are odd pieces of metal, polished rocks, broken crystal, three large turquoises (worth 20 gp each), and a {@item dagger +1||+1 dagger} that looks like junk. When it is used, its grip frays, its blade chips, and it flakes rust. If a character wielding this weapon gets a natural 1 on an attack roll, the dagger breaks and becomes nonmagical."
+								"The shiny objects in the beetles' nest are odd pieces of metal, polished rocks, broken crystal, three large turquoises (worth 20 gp each), and a {@item +1 dagger} that looks like junk. When it is used, its grip frays, its blade chips, and it flakes rust. If a character wielding this weapon gets a natural 1 on an attack roll, the dagger breaks and becomes nonmagical."
 							]
 						}
 					]
@@ -1847,7 +1847,7 @@
 							"name": "Rolling Stone Trap",
 							"id": "0a7",
 							"entries": [
-								"A millstone, concealed in the wall behind a layer of stucco, lies at the top of the steps. No nonmagical means can detect the hidden stone. If the trap is triggered, the mechanism pushes the millstone through the wall and sends it rolling down the stairs. When this occurs, anyone who has a passive Perception score of 14 or lower is surprised. Everyone rolls initiative, including the stone, which has a +10 bonus to the roll. On its turn, the stone moves 60 feet. Anyone in its path must succeed on a DC 15 Dexterity saving throw or take 27 (5d10) bludgeoning damage and have a 50 percent chance to drop anything carried in hand. A character whose saving throw fails by 5 or more takes maximum damage, is knocked prone, and drops anything held in hand. Dropped objects take damage from hitting the stone and end up somewhere on the stairs."
+								"A millstone, concealed in the wall behind a layer of stucco, lies at the top of the steps. No nonmagical means can detect the hidden stone. If the trap is triggered, the mechanism pushes the millstone through the wall and sends it rolling down the stairs. When this occurs, anyone who has a passive Perception score of 14 or lower is surprised. Everyone rolls initiative, including the stone, which has a +10 bonus to the roll. On its turn, the stone moves 60 feet. Anyone in its path must succeed on a DC 15 Dexterity saving throw or take 27 (5d10) bludgeoning damage and have a {@chance 50|50 percent} chance to drop anything carried in hand. A character whose saving throw fails by 5 or more takes maximum damage, is knocked prone, and drops anything held in hand. Dropped objects take damage from hitting the stone and end up somewhere on the stairs."
 							]
 						},
 						"The stone ultimately crashes into the doors to {@area 25|09e}, breaking them open and destroying them. If beetles remain in the room, some or all of them come into the stairway agitated and looking for a fight."
@@ -2053,7 +2053,7 @@
 							"name": "Treasure",
 							"id": "0bd",
 							"entries": [
-								"The sacrificial knife on the table is a {@item dagger +1||+1 dagger}. The jade statue is worth 200 gp and weighs 9 pounds. In the tail of the stuffed cat is a {@i scroll of protection} (feline beasts and feline lycanthropes)."
+								"The sacrificial knife on the table is a {@item +1 dagger}. The jade statue is worth 200 gp and weighs 9 pounds. In the tail of the stuffed cat is a {@i scroll of protection} (feline beasts and feline lycanthropes)."
 							]
 						}
 					]
@@ -2915,7 +2915,7 @@
 							"name": "Treasure",
 							"id": "11d",
 							"entries": [
-								"The flask contains a dried {@item potion of hill giant strength}. The stone cylinder is a {@i +1 rod of the pact keeper}."
+								"The flask contains a dried {@item potion of hill giant strength}. The stone cylinder is a {@item +1 rod of the pact keeper}."
 							]
 						},
 						"The urn holds the dried heart of a mighty yuan-ti that radiates transmutation magic if {@spell detect magic} is used on it. Any character who eats the entire thing gains the permanent ability to understand the speech of snakes and yuan-ti."
@@ -3216,7 +3216,7 @@
 							"name": "Fragile Roof",
 							"id": "13d",
 							"entries": [
-								"Each time a creature ends its turn on the portion of the roof that remains standing, there is a 20 percent chance that the roof beneath its feet gives way. The creature falls 35 feet, to the rubble below, taking 14 (4d6) bludgeoning damage."
+								"Each time a creature ends its turn on the portion of the roof that remains standing, there is a {@chance 20|20 percent} chance that the roof beneath its feet gives way. The creature falls 35 feet, to the rubble below, taking 14 (4d6) bludgeoning damage."
 							]
 						},
 						{

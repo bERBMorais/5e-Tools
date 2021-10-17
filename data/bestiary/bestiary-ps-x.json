@@ -53,7 +53,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical weapons"
+					"note": "from nonmagical weapons",
+					"cond": true
 				}
 			],
 			"cr": "3",
@@ -87,6 +88,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -99,6 +101,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"conditionInflict": [
+				"prone"
 			]
 		},
 		{
@@ -154,7 +159,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -224,6 +230,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -238,6 +245,11 @@
 			],
 			"damageTags": [
 				"A"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"restrained"
 			]
 		},
 		{
@@ -293,7 +305,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -381,6 +394,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -404,6 +418,12 @@
 				"AOE",
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"grappled",
+				"restrained"
 			]
 		},
 		{
@@ -459,7 +479,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -547,6 +568,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -568,6 +590,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"grappled",
+				"prone",
+				"restrained"
 			]
 		},
 		{
@@ -624,7 +653,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -712,6 +742,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath",
 				"Legendary Resistances",
@@ -734,6 +765,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"grappled",
+				"restrained"
 			]
 		},
 		{
@@ -789,7 +826,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -901,6 +939,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -923,6 +962,13 @@
 				"MW",
 				"RCH",
 				"RW"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"grappled",
+				"prone",
+				"restrained"
 			]
 		},
 		{
@@ -978,7 +1024,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -1066,6 +1113,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -1087,6 +1135,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"grappled",
+				"prone",
+				"restrained"
 			]
 		},
 		{
@@ -1146,7 +1201,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -1240,6 +1296,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -1262,6 +1319,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"grappled",
+				"restrained"
 			]
 		},
 		{
@@ -1325,6 +1388,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1336,6 +1400,9 @@
 			"miscTags": [
 				"MW",
 				"RW"
+			],
+			"conditionInflict": [
+				"blinded"
 			]
 		},
 		{
@@ -1435,6 +1502,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -1450,6 +1518,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"blinded",
+				"frightened",
+				"grappled",
+				"prone",
+				"restrained"
 			]
 		},
 		{
@@ -1539,7 +1614,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -1590,6 +1666,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Death Burst",
 				"Flyby",
@@ -1614,6 +1691,10 @@
 			"miscTags": [
 				"AOE",
 				"MW"
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
 			]
 		}
 	]

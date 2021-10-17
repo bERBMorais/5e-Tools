@@ -73,6 +73,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -90,6 +91,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"conditionInflict": [
+				"grappled"
 			]
 		},
 		{
@@ -163,6 +167,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pounce"
 			],
@@ -181,6 +186,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"conditionInflict": [
+				"prone"
 			]
 		},
 		{
@@ -246,6 +254,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -258,6 +267,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"conditionInflict": [
+				"prone"
 			]
 		},
 		{

@@ -1,66 +1,36 @@
 "use strict";
 
 function filterTypeSort (a, b) {
-	a = a.item;
-	b = b.item;
-	return SortUtil.ascSortLower(Parser.trapHazTypeToFull(a), Parser.trapHazTypeToFull(b));
+	return SortUtil.ascSortLower(Parser.trapHazTypeToFull(a.item), Parser.trapHazTypeToFull(b.item));
 }
 
 class TrapsHazardsPage extends ListPage {
 	constructor () {
-		const sourceFilter = SourceFilter.getInstance();
-		const typeFilter = new Filter({
-			header: "Type",
-			items: [
-				"MECH",
-				"MAG",
-				"SMPL",
-				"CMPX",
-				"HAZ",
-				"WTH",
-				"ENV",
-				"WLD",
-				"GEN"
-			],
-			displayFn: Parser.trapHazTypeToFull,
-			itemSortFn: filterTypeSort
-		});
-
+		const pageFilter = new PageFilterTrapsHazards();
 		super({
 			dataSource: "data/trapshazards.json",
 
-			filters: [
-				sourceFilter,
-				typeFilter
-			],
-			filterSource: sourceFilter,
+			pageFilter,
 
 			listClass: "trapshazards",
 
 			sublistClass: "subtrapshazards",
 
-			dataProps: ["trap", "hazard"]
+			dataProps: ["trap", "hazard"],
 		});
-
-		this._sourceFilter = sourceFilter;
 	}
 
 	getListItem (it, thI, isExcluded) {
-		it.trapHazType = it.trapHazType || "HAZ";
+		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
-		if (!isExcluded) {
-			// populate filters
-			this._sourceFilter.addItem(it.source);
-		}
-
-		const eleLi = document.createElement("li");
-		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
+		const eleLi = document.createElement("div");
+		eleLi.className = `lst__row flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
 		const trapType = Parser.trapHazTypeToFull(it.trapHazType);
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst--border">
+		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
 			<span class="col-3 pl-0 text-center">${trapType}</span>
 			<span class="bold col-7">${it.name}</span>
 			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${BrewUtil.sourceJsonToStyle(it.source)}>${source}</span>
@@ -73,12 +43,12 @@ class TrapsHazardsPage extends ListPage {
 			{
 				hash,
 				source,
-				trapType
+				trapType,
 			},
 			{
 				uniqueId: it.uniqueId ? it.uniqueId : thI,
-				isExcluded
-			}
+				isExcluded,
+			},
 		);
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
@@ -89,14 +59,7 @@ class TrapsHazardsPage extends ListPage {
 
 	handleFilterChange () {
 		const f = this._filterBox.getValues();
-		this._list.filter((item) => {
-			const it = this._dataList[item.ix];
-			return this._filterBox.toDisplay(
-				f,
-				it.source,
-				it.trapHazType
-			);
-		});
+		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
 		FilterBox.selectFirstVisible(this._dataList);
 	}
 
@@ -104,13 +67,14 @@ class TrapsHazardsPage extends ListPage {
 		const hash = UrlUtil.autoEncodeHash(it);
 		const trapType = Parser.trapHazTypeToFull(it.trapHazType);
 
-		const $ele = $(`<li class="row">
-			<a href="#${hash}" class="lst--border">
-				<span class="col-4 pr-0">${trapType}</span>
-				<span class="bold col-8 pl-0">${it.name}</span>
+		const $ele = $(`<div class="lst__row lst__row--sublist flex-col">
+			<a href="#${hash}" class="lst--border lst__row-inner">
+				<span class="col-4 text-center pl-0">${trapType}</span>
+				<span class="bold col-8 pr-0">${it.name}</span>
 			</a>
-		</li>`)
-			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem));
+		</div>`)
+			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem))
+			.click(evt => ListUtil.sublist.doSelect(listItem, evt));
 
 		const listItem = new ListItem(
 			pinId,
@@ -118,8 +82,8 @@ class TrapsHazardsPage extends ListPage {
 			it.name,
 			{
 				hash,
-				trapType
-			}
+				trapType,
+			},
 		);
 		return listItem;
 	}
@@ -136,6 +100,16 @@ class TrapsHazardsPage extends ListPage {
 	async pDoLoadSubHash (sub) {
 		sub = this._filterBox.setFromSubHashes(sub);
 		await ListUtil.pSetFromSubHashes(sub);
+	}
+
+	_getSearchCache (entity) {
+		if (!entity.effect && !entity.trigger && !entity.countermeasures && !entity.entries) return "";
+		const ptrOut = {_: ""};
+		this._getSearchCache_handleEntryProp(entity, "effect", ptrOut);
+		this._getSearchCache_handleEntryProp(entity, "trigger", ptrOut);
+		this._getSearchCache_handleEntryProp(entity, "countermeasures", ptrOut);
+		this._getSearchCache_handleEntryProp(entity, "entries", ptrOut);
+		return ptrOut._;
 	}
 }
 

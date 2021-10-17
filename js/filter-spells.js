@@ -5,15 +5,89 @@ if (typeof module !== "undefined") {
 	Object.assign(global, imports);
 }
 
+class VariantClassFilter extends Filter {
+	constructor (opts) {
+		super({
+			header: "Optional/Variant Class",
+			nests: {},
+			groupFn: it => it.userData.group,
+			...opts,
+		});
+
+		this._parent = null;
+	}
+
+	set parent (multiFilterClasses) { this._parent = multiFilterClasses; }
+
+	handleVariantSplit (isVariantSplit) {
+		this.__$wrpFilter.toggleVe(isVariantSplit)
+	}
+}
+
+class MultiFilterClasses extends MultiFilter {
+	constructor (opts) {
+		super({header: "Classes", mode: "or", filters: [opts.classFilter, opts.subclassFilter, opts.variantClassFilter], ...opts});
+
+		this._classFilter = opts.classFilter;
+		this._subclassFilter = opts.subclassFilter;
+		this._variantClassFilter = opts.variantClassFilter;
+
+		this._variantClassFilter.parent = this;
+	}
+
+	get classFilter_ () { return this._classFilter; }
+	get isVariantSplit () { return this._meta.isVariantSplit; }
+
+	$render (opts) {
+		const $out = super.$render(opts);
+
+		const hkVariantSplit = () => this._variantClassFilter.handleVariantSplit(this._meta.isVariantSplit);
+		this._addHook("meta", "isVariantSplit", hkVariantSplit)
+		hkVariantSplit();
+
+		return $out;
+	}
+
+	_getHeaderControls_addExtraStateBtns (opts, wrpStateBtnsOuter) {
+		const btnToggleVariantSplit = ComponentUiUtil.getBtnBool(
+			this,
+			"isVariantSplit",
+			{
+				ele: e_({tag: "button", clazz: "btn btn-default btn-xs", text: "Include Variants"}),
+				isInverted: true,
+				stateName: "meta",
+				stateProp: "_meta",
+				title: `If "Optional/Variant Class" spell lists should be treated as part of the "Class" filter.`,
+			},
+		)
+
+		e_({
+			tag: "div",
+			clazz: `btn-group w-100 flex-v-center mobile__m-1 mobile__mb-2`,
+			children: [
+				btnToggleVariantSplit,
+			],
+		}).prependTo(wrpStateBtnsOuter);
+	}
+
+	getDefaultMeta () {
+		return {...MultiFilterClasses._DEFAULT_META, ...super.getDefaultMeta()};
+	}
+}
+MultiFilterClasses._DEFAULT_META = {
+	isVariantSplit: false,
+};
+
 class PageFilterSpells extends PageFilter {
 	// region static
 	static sortSpells (a, b, o) {
 		switch (o.sortBy) {
 			case "name": return SortUtil.compareListNames(a, b);
-			case "source": return SortUtil.ascSort(a.values.source, b.values.source) || SortUtil.compareListNames(a, b);
-			case "level": return SortUtil.ascSort(a.values.level, b.values.level) || SortUtil.compareListNames(a, b);
-			case "school": return SortUtil.ascSort(a.values.school, b.values.school) || SortUtil.compareListNames(a, b);
-			case "concentration": return SortUtil.ascSort(a.values.concentration, b.values.concentration) || SortUtil.compareListNames(a, b);
+			case "source":
+			case "level":
+			case "school":
+			case "concentration":
+			case "ritual": return SortUtil.ascSort(a.values[o.sortBy], b.values[o.sortBy]) || SortUtil.compareListNames(a, b);
 			case "time": return SortUtil.ascSort(a.values.normalisedTime, b.values.normalisedTime) || SortUtil.compareListNames(a, b);
 			case "range": return SortUtil.ascSort(a.values.normalisedRange, b.values.normalisedRange) || SortUtil.compareListNames(a, b);
 		}
@@ -56,13 +130,16 @@ class PageFilterSpells extends PageFilter {
 		if (s.components && s.components.m) out.push(PageFilterSpells._META_ADD_M);
 		if (s.components && s.components.r) out.push(PageFilterSpells._META_ADD_R);
 		if (s.components && s.components.m && s.components.m.cost) out.push(PageFilterSpells._META_ADD_M_COST);
-		if (s.components && s.components.m && s.components.m.consume) out.push(PageFilterSpells._META_ADD_M_CONSUMED);
-		if ((s.miscTags && s.miscTags.includes("PRM")) || s.duration.filter(it => it.type === "permanent").length) out.push(Parser.spMiscTagToFull("PRM"));
-		if ((s.miscTags && s.miscTags.includes("SCL")) || s.entriesHigherLevel) out.push(Parser.spMiscTagToFull("SCL"));
-		if (s.miscTags && s.miscTags.includes("HL")) out.push(Parser.spMiscTagToFull("HL"));
-		if (s.miscTags && s.miscTags.includes("SMN")) out.push(Parser.spMiscTagToFull("SMN"));
-		if (s.miscTags && s.miscTags.includes("SGT")) out.push(Parser.spMiscTagToFull("SGT"));
+		if (s.components && s.components.m && s.components.m.consume) {
+			if (s.components.m.consume === "optional") out.push(PageFilterSpells._META_ADD_M_CONSUMED_OPTIONAL);
+			else out.push(PageFilterSpells._META_ADD_M_CONSUMED);
+		}
+		if (s.miscTags) out.push(...s.miscTags);
+		if ((!s.miscTags || (s.miscTags && !s.miscTags.includes("PRM"))) && s.duration.filter(it => it.type === "permanent").length) out.push("PRM");
+		if ((!s.miscTags || (s.miscTags && !s.miscTags.includes("SCL"))) && s.entriesHigherLevel) out.push("SCL");
 		if (s.srd) out.push("SRD");
+		if (s.hasFluff) out.push("Has Info");
+		if (s.hasFluffImages) out.push("Has Images");
 		return out;
 	}
 
@@ -193,89 +270,99 @@ class PageFilterSpells extends PageFilter {
 
 	static getTblTimeStr (time) {
 		return (time.number === 1 && Parser.SP_TIME_SINGLETONS.includes(time.unit))
-			? `${time.unit.uppercaseFirst()}${time.unit === Parser.SP_TM_B_ACTION ? " acn." : ""}`
-			: `${time.number} ${time.unit === Parser.SP_TM_B_ACTION ? "Bonus acn." : time.unit.uppercaseFirst()}${time.number > 1 ? "s" : ""}`;
+			? `${time.unit.uppercaseFirst()}`
+			: `${time.number ? `${time.number} ` : ""}${Parser.spTimeUnitToShort(time.unit).uppercaseFirst()}`;
 	}
 
-	static getClassFilterItem (c) {
-		const nm = c.name.split("(")[0].trim();
-		const addSuffix = SourceUtil.isNonstandardSource(c.source || SRC_PHB) || BrewUtil.hasSourceJson(c.source || SRC_PHB);
-		const name = `${nm}${addSuffix ? ` (${Parser.sourceJsonToAbv(c.source)})` : ""}`;
-		return new FilterItem({
+	static getTblLevelStr (spell) { return `${Parser.spLevelToFull(spell.level)}${spell.meta && spell.meta.ritual ? " (rit.)" : ""}${spell.meta && spell.meta.technomagic ? " (tec.)" : ""}`; }
+
+	static getRaceFilterItem (r) {
+		const addSuffix = (r.source === SRC_DMG || SourceUtil.isNonstandardSource(r.source || SRC_PHB) || BrewUtil.hasSourceJson(r.source || SRC_PHB)) && !r.name.includes(Parser.sourceJsonToAbv(r.source));
+		const name = `${r.name}${addSuffix ? ` (${Parser.sourceJsonToAbv(r.source)})` : ""}`;
+		const opts = {
 			item: name,
-			userData: SourceUtil.getFilterGroup(c.source || SRC_PHB)
-		});
+			userData: {
+				group: SourceUtil.getFilterGroup(r.source || SRC_PHB),
+			},
+		};
+		if (r.baseName) opts.nest = r.baseName;
+		else opts.nest = "(No Subraces)"
+		return new FilterItem(opts);
 	}
 	// endregion
 
 	constructor () {
 		super();
 
-		this._brewSpellClasses = {};
-
 		const levelFilter = new Filter({
 			header: "Level",
 			items: [
-				0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+				0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 			],
-			displayFn: PageFilterSpells.getFltrSpellLevelStr
+			displayFn: PageFilterSpells.getFltrSpellLevelStr,
 		});
 		const classFilter = new Filter({
 			header: "Class",
-			groupFn: it => it.userData
+			groupFn: it => it.userData.group,
 		});
 		const subclassFilter = new Filter({
 			header: "Subclass",
 			nests: {},
-			groupFn: (it) => SourceUtil.isSubclassReprinted(it.userData.class.name, it.userData.class.source, it.userData.subClass.name, it.userData.subClass.source) || Parser.sourceJsonToFull(it.userData.subClass.source).startsWith(UA_PREFIX) || Parser.sourceJsonToFull(it.userData.subClass.source).startsWith(PS_PREFIX)
+			groupFn: it => it.userData.group,
 		});
-		const variantClassFilter = new Filter({header: "Variant Class"});
-		const classAndSubclassFilter = new MultiFilter({header: "Classes", filters: [classFilter, subclassFilter, variantClassFilter]});
-		const raceFilter = new Filter({header: "Race"});
+		const variantClassFilter = new VariantClassFilter();
+		const classAndSubclassFilter = new MultiFilterClasses({classFilter, subclassFilter, variantClassFilter});
+		const raceFilter = new Filter({
+			header: "Race",
+			nests: {},
+			groupFn: it => it.userData.group,
+		});
 		const backgroundFilter = new Filter({header: "Background"});
 		const metaFilter = new Filter({
 			header: "Components & Miscellaneous",
-			items: [...PageFilterSpells._META_FILTER_BASE_ITEMS, "Ritual", "Technomagic", "SRD"],
-			itemSortFn: PageFilterSpells.sortMetaFilter
+			items: [...PageFilterSpells._META_FILTER_BASE_ITEMS, "Ritual", "SRD", "Has Images", "Has Token"],
+			itemSortFn: PageFilterSpells.sortMetaFilter,
+			isSrdFilter: true,
+			displayFn: it => Parser.spMiscTagToFull(it),
 		});
 		const schoolFilter = new Filter({
 			header: "School",
 			items: [...Parser.SKL_ABVS],
 			displayFn: Parser.spSchoolAbvToFull,
-			itemSortFn: (a, b) => SortUtil.ascSortLower(Parser.spSchoolAbvToFull(a.item), Parser.spSchoolAbvToFull(b.item))
+			itemSortFn: (a, b) => SortUtil.ascSortLower(Parser.spSchoolAbvToFull(a.item), Parser.spSchoolAbvToFull(b.item)),
 		});
 		const subSchoolFilter = new Filter({
 			header: "Subschool",
 			items: [],
-			displayFn: Parser.spSchoolAbvToFull
+			displayFn: Parser.spSchoolAbvToFull,
 		});
 		const damageFilter = new Filter({
 			header: "Damage Type",
 			items: MiscUtil.copy(Parser.DMG_TYPES),
-			displayFn: StrUtil.uppercaseFirst
+			displayFn: StrUtil.uppercaseFirst,
 		});
 		const conditionFilter = new Filter({
 			header: "Conditions Inflicted",
 			items: MiscUtil.copy(Parser.CONDITIONS),
-			displayFn: StrUtil.uppercaseFirst
+			displayFn: StrUtil.uppercaseFirst,
 		});
 		const spellAttackFilter = new Filter({
 			header: "Spell Attack",
 			items: ["M", "R", "O"],
 			displayFn: Parser.spAttackTypeToFull,
-			itemSortFn: null
+			itemSortFn: null,
 		});
 		const saveFilter = new Filter({
 			header: "Saving Throw",
 			items: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
 			displayFn: PageFilterSpells.getFilterAbilitySave,
-			itemSortFn: null
+			itemSortFn: null,
 		});
 		const checkFilter = new Filter({
-			header: "Opposed Ability Check",
+			header: "Ability Check",
 			items: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
 			displayFn: PageFilterSpells.getFilterAbilityCheck,
-			itemSortFn: null
+			itemSortFn: null,
 		});
 		const timeFilter = new Filter({
 			header: "Cast Time",
@@ -285,16 +372,16 @@ class PageFilterSpells extends PageFilter {
 				Parser.SP_TM_REACTION,
 				Parser.SP_TM_ROUND,
 				Parser.SP_TM_MINS,
-				Parser.SP_TM_HRS
+				Parser.SP_TM_HRS,
 			],
 			displayFn: Parser.spTimeUnitToFull,
-			itemSortFn: null
+			itemSortFn: null,
 		});
 		const durationFilter = new RangeFilter({
 			header: "Duration",
 			isLabelled: true,
 			labelSortFn: null,
-			labels: ["Instant", "1 Round", "1 Minute", "10 Minutes", "1 Hour", "8 Hours", "24+ Hours", "Permanent", "Special"]
+			labels: ["Instant", "1 Round", "1 Minute", "10 Minutes", "1 Hour", "8 Hours", "24+ Hours", "Permanent", "Special"],
 		});
 		const rangeFilter = new Filter({
 			header: "Range",
@@ -303,15 +390,15 @@ class PageFilterSpells extends PageFilter {
 				PageFilterSpells.F_RNG_TOUCH,
 				PageFilterSpells.F_RNG_POINT,
 				PageFilterSpells.F_RNG_SELF_AREA,
-				PageFilterSpells.F_RNG_SPECIAL
+				PageFilterSpells.F_RNG_SPECIAL,
 			],
-			itemSortFn: null
+			itemSortFn: null,
 		});
 		const areaTypeFilter = new Filter({
 			header: "Area Style",
 			items: ["ST", "MT", "R", "N", "C", "Y", "H", "L", "S", "Q", "W"],
 			displayFn: Parser.spAreaTypeToFull,
-			itemSortFn: null
+			itemSortFn: null,
 		});
 
 		this._classFilter = classFilter;
@@ -321,6 +408,7 @@ class PageFilterSpells extends PageFilter {
 		this._classAndSubclassFilter = classAndSubclassFilter;
 		this._raceFilter = raceFilter;
 		this._backgroundFilter = backgroundFilter;
+		this._eldritchInvocationFilter = new Filter({header: "Eldritch Invocation"});
 		this._metaFilter = metaFilter;
 		this._schoolFilter = schoolFilter;
 		this._subSchoolFilter = subSchoolFilter;
@@ -335,116 +423,57 @@ class PageFilterSpells extends PageFilter {
 		this._areaTypeFilter = areaTypeFilter;
 	}
 
-	populateHomebrewClassLookup (homebrew) {
-		// load homebrew class spell list addons
-		// Three formats are available. A string (shorthand for "spell" format with source "PHB"), "spell" format (object
-		//   with a `name` and a `source`), and "class" format (object with a `class` and a `source`).
-
-		const handleSpellListItem = (it, className, classSource, subclassShortName, subclassSource, subSubclassName) => {
-			const doAdd = (target) => {
-				if (subclassShortName) {
-					const toAdd = {
-						class: {name: className, source: classSource},
-						subclass: {name: subclassShortName, source: subclassSource}
-					};
-					if (subSubclassName) toAdd.subclass.subSubclass = subSubclassName;
-
-					target.fromSubclass = target.fromSubclass || [];
-					target.fromSubclass.push(toAdd);
-				} else {
-					const toAdd = {name: className, source: classSource};
-
-					target.fromClassList = target.fromClassList || [];
-					target.fromClassList.push(toAdd);
-				}
-			};
-
-			if (it.class) {
-				if (!it.class) return;
-
-				this._brewSpellClasses.class = this._brewSpellClasses.class || {};
-
-				const cls = it.class.toLowerCase();
-				const source = it.source || SRC_PHB;
-
-				this._brewSpellClasses.class[source] = this._brewSpellClasses.class[source] || {};
-				this._brewSpellClasses.class[source][cls] = this._brewSpellClasses.class[source][cls] || {};
-
-				doAdd(this._brewSpellClasses.class[source][cls]);
-			} else {
-				this._brewSpellClasses.spell = this._brewSpellClasses.spell || {};
-
-				const name = (typeof it === "string" ? it : it.name).toLowerCase();
-				const source = typeof it === "string" ? "PHB" : it.source;
-				this._brewSpellClasses.spell[source] = this._brewSpellClasses.spell[source] || {};
-				this._brewSpellClasses.spell[source][name] = this._brewSpellClasses.spell[source][name] || {fromClassList: [], fromSubclass: []};
-
-				doAdd(this._brewSpellClasses.spell[source][name]);
-			}
-		};
-
-		if (homebrew.class) {
-			homebrew.class.forEach(c => {
-				c.source = c.source || SRC_PHB;
-
-				if (c.classSpells) c.classSpells.forEach(it => handleSpellListItem(it, c.name, c.source));
-				if (c.subclasses) {
-					c.subclasses.forEach(sc => {
-						sc.shortName = sc.shortName || sc.name;
-						sc.source = sc.source || c.source;
-
-						if (sc.subclassSpells) sc.subclassSpells.forEach(it => handleSpellListItem(it, c.name, c.source, sc.shortName, sc.source));
-						if (sc.subSubclassSpells) Object.entries(sc.subSubclassSpells).forEach(([ssC, arr]) => arr.forEach(it => handleSpellListItem(it, c.name, c.source, sc.shortName, sc.source, ssC)));
-					});
-				}
-			})
-		}
-
-		if (homebrew.subclass) {
-			homebrew.subclass.forEach(sc => {
-				sc.classSource = sc.classSource || SRC_PHB;
-				sc.shortName = sc.shortName || sc.name;
-				sc.source = sc.source || sc.classSource;
-
-				if (sc.subclassSpells) sc.subclassSpells.forEach(it => handleSpellListItem(it, sc.class, sc.classSource, sc.shortName, sc.source));
-				if (sc.subSubclassSpells) Object.entries(sc.subSubclassSpells).forEach(([ssC, arr]) => arr.forEach(it => handleSpellListItem(it, sc.class, sc.classSource, sc.shortName, sc.source, ssC)));
-			});
-		}
-	}
-
-	mutateForFilters (spell) {
-		Renderer.spell.initClasses(spell, this._brewSpellClasses);
+	static mutateForFilters (spell) {
+		Renderer.spell.initClasses(spell);
 
 		// used for sorting
 		spell._normalisedTime = PageFilterSpells.getNormalisedTime(spell.time);
 		spell._normalisedRange = PageFilterSpells.getNormalisedRange(spell.range);
 
 		// used for filtering
-		spell._fSources = ListUtil.getCompleteFilterSources(spell);
+		spell._fSources = SourceFilter.getCompleteFilterSources(spell);
 		spell._fMeta = PageFilterSpells.getMetaFilterObj(spell);
-		spell._fClasses = spell.classes && spell.classes.fromClassList ? spell.classes.fromClassList.map(PageFilterSpells.getClassFilterItem) : [];
-		spell._fSubclasses = spell.classes && spell.classes.fromSubclass
-			? spell.classes.fromSubclass.map(c => new FilterItem({
-				item: `${c.class.name}: ${PageFilterSpells.getClassFilterItem(c.subclass).item}`,
-				nest: c.class.name,
-				userData: {
-					subClass: {
-						name: c.subclass.name,
-						source: c.subclass.source
-					},
-					class: {
-						name: c.class.name,
-						source: c.class.source
-					}
-				}
-			}))
-			: [];
-		spell._fVariantClasses = spell.classes && spell.classes.fromClassListVariant ? spell.classes.fromClassListVariant.map(PageFilterSpells.getClassFilterItem) : [];
-		spell._fRaces = spell.races ? spell.races.map(r => r.baseName || r.name) : [];
-		spell._fBackgrounds = spell.backgrounds ? spell.backgrounds.map(bg => bg.name) : [];
+		spell._fClasses = Renderer.spell.getCombinedClasses(spell, "fromClassList").map(c => {
+			return this._getClassFilterItem({
+				className: c.name,
+				definedInSource: c.definedInSource,
+				classSource: c.source,
+				isVariantClass: false,
+			});
+		});
+		spell._fSubclasses = Renderer.spell.getCombinedClasses(spell, "fromSubclass")
+			.map(c => {
+				return this._getSubclassFilterItem({
+					className: c.class.name,
+					classSource: c.class.source,
+					subclassShortName: c.subclass.name,
+					subclassSource: c.subclass.source,
+					subSubclassName: c.subclass.subSubclass,
+				})
+			});
+		spell._fVariantClasses = Renderer.spell.getCombinedClasses(spell, "fromClassListVariant").map(c => {
+			return this._getClassFilterItem({
+				className: c.name,
+				definedInSource: c.definedInSource,
+				classSource: c.source,
+				isVariantClass: true,
+			});
+		});
+		spell._fClassesAndVariantClasses = [
+			...spell._fClasses,
+			...spell._fVariantClasses
+				.map(it => (it.userData.definedInSource && !SourceUtil.isNonstandardSource(it.userData.definedInSource)) ? new FilterItem({item: it.userData.equivalentClassName}) : null)
+				.filter(Boolean),
+		];
+		spell._fRaces = Renderer.spell.getCombinedRaces(spell).map(PageFilterSpells.getRaceFilterItem);
+		spell._fBackgrounds = Renderer.spell.getCombinedBackgrounds(spell).map(bg => bg.name);
+		spell._fEldritchInvocations = spell.eldritchInvocations ? spell.eldritchInvocations.map(ei => ei.name) : [];
 		spell._fTimeType = spell.time.map(t => t.unit);
 		spell._fDurationType = PageFilterSpells.getFilterDuration(spell);
 		spell._fRangeType = PageFilterSpells.getRangeType(spell.range);
+
+		spell._fAreaTags = [...(spell.areaTags || [])];
+		if (spell.range.type === "line" && !spell._fAreaTags.includes("L")) spell._fAreaTags.push("L");
 	}
 
 	addToFilters (spell, isExcluded) {
@@ -454,14 +483,21 @@ class PageFilterSpells extends PageFilter {
 		this._schoolFilter.addItem(spell.school);
 		this._sourceFilter.addItem(spell._fSources);
 		this._metaFilter.addItem(spell._fMeta);
-		this._raceFilter.addItem(spell._fRaces);
 		this._backgroundFilter.addItem(spell._fBackgrounds);
+		this._eldritchInvocationFilter.addItem(spell._fEldritchInvocations);
 		spell._fClasses.forEach(c => this._classFilter.addItem(c));
 		spell._fSubclasses.forEach(sc => {
-			this._subclassFilter.addNest(sc.userData.class.name, {isHidden: true});
+			this._subclassFilter.addNest(sc.nest, {isHidden: true});
 			this._subclassFilter.addItem(sc);
 		});
-		spell._fVariantClasses.forEach(c => this._variantClassFilter.addItem(c));
+		spell._fRaces.forEach(r => {
+			if (r.nest) this._raceFilter.addNest(r.nest, {isHidden: true});
+			this._raceFilter.addItem(r);
+		});
+		spell._fVariantClasses.forEach(c => {
+			this._variantClassFilter.addNest(c.nest, {isHidden: true});
+			this._variantClassFilter.addItem(c)
+		});
 		this._subSchoolFilter.addItem(spell.subschools);
 	}
 
@@ -474,6 +510,7 @@ class PageFilterSpells extends PageFilter {
 			this._classAndSubclassFilter,
 			this._raceFilter,
 			this._backgroundFilter,
+			this._eldritchInvocationFilter,
 			this._metaFilter,
 			this._schoolFilter,
 			this._subSchoolFilter,
@@ -485,7 +522,7 @@ class PageFilterSpells extends PageFilter {
 			this._timeFilter,
 			this._durationFilter,
 			this._rangeFilter,
-			this._areaTypeFilter
+			this._areaTypeFilter,
 		];
 	}
 
@@ -494,9 +531,14 @@ class PageFilterSpells extends PageFilter {
 			values,
 			s._fSources,
 			s.level,
-			[s._fClasses, s._fSubclasses, s._fVariantClasses],
+			[
+				this._classAndSubclassFilter.isVariantSplit ? s._fClasses : s._fClassesAndVariantClasses,
+				s._fSubclasses,
+				this._classAndSubclassFilter.isVariantSplit ? s._fVariantClasses : null,
+			],
 			s._fRaces,
 			s._fBackgrounds,
+			s._fEldritchInvocations,
 			s._fMeta,
 			s.school,
 			s.subschools,
@@ -504,11 +546,11 @@ class PageFilterSpells extends PageFilter {
 			s.conditionInflict,
 			s.spellAttack,
 			s.savingThrow,
-			s.opposedCheck,
+			s.abilityCheck,
 			s._fTimeType,
 			s._fDurationType,
 			s._fRangeType,
-			s.areaTags
+			s._fAreaTags,
 		)
 	}
 }
@@ -520,6 +562,7 @@ PageFilterSpells._META_ADD_M = "Material";
 PageFilterSpells._META_ADD_R = "Royalty";
 PageFilterSpells._META_ADD_M_COST = "Material with Cost";
 PageFilterSpells._META_ADD_M_CONSUMED = "Material is Consumed";
+PageFilterSpells._META_ADD_M_CONSUMED_OPTIONAL = "Material is Optionally Consumed";
 
 PageFilterSpells.F_RNG_POINT = "Point";
 PageFilterSpells.F_RNG_SELF_AREA = "Self (Area)";
@@ -527,18 +570,25 @@ PageFilterSpells.F_RNG_SELF = "Self";
 PageFilterSpells.F_RNG_TOUCH = "Touch";
 PageFilterSpells.F_RNG_SPECIAL = "Special";
 
-PageFilterSpells._META_FILTER_BASE_ITEMS = [PageFilterSpells._META_ADD_CONC, PageFilterSpells._META_ADD_V, PageFilterSpells._META_ADD_S, PageFilterSpells._META_ADD_M, PageFilterSpells._META_ADD_R, PageFilterSpells._META_ADD_M_COST, PageFilterSpells._META_ADD_M_CONSUMED, ...Object.values(Parser.SP_MISC_TAG_TO_FULL)];
+PageFilterSpells._META_FILTER_BASE_ITEMS = [PageFilterSpells._META_ADD_CONC, PageFilterSpells._META_ADD_V, PageFilterSpells._META_ADD_S, PageFilterSpells._META_ADD_M, PageFilterSpells._META_ADD_R, PageFilterSpells._META_ADD_M_COST, PageFilterSpells._META_ADD_M_CONSUMED, PageFilterSpells._META_ADD_M_CONSUMED_OPTIONAL, ...Object.keys(Parser.SP_MISC_TAG_TO_FULL)];
 
 PageFilterSpells.INCHES_PER_FOOT = 12;
 PageFilterSpells.FEET_PER_MILE = 5280;
 
 class ModalFilterSpells extends ModalFilter {
-	constructor (namespace) {
+	/**
+	 * @param opts
+	 * @param opts.namespace
+	 * @param [opts.isRadio]
+	 * @param [opts.allData]
+	 */
+	constructor (opts) {
+		opts = opts || {};
 		super({
-			modalTitle: "Spells",
+			...opts,
+			modalTitle: `Spell${opts.isRadio ? "" : "s"}`,
 			pageFilter: new PageFilterSpells(),
 			fnSort: PageFilterSpells.sortSpells,
-			namespace: namespace
 		});
 	}
 
@@ -550,13 +600,13 @@ class ModalFilterSpells extends ModalFilter {
 			{sort: "school", text: "School", width: "1"},
 			{sort: "concentration", text: "C.", title: "Concentration", width: "0-5"},
 			{sort: "range", text: "Range", width: "2"},
-			{sort: "source", text: "Source", width: "1"}
+			{sort: "source", text: "Source", width: "1"},
 		];
 		return ModalFilter._$getFilterColumnHeaders(btnMeta);
 	}
 
 	async _pInit () {
-		this._pageFilter.populateHomebrewClassLookup(BrewUtil.homebrew);
+		Renderer.spell.populateHomebrewClassLookup(BrewUtil.homebrew);
 	}
 
 	async _pLoadAllData () {
@@ -567,33 +617,38 @@ class ModalFilterSpells extends ModalFilter {
 	}
 
 	_getListItem (pageFilter, spell, spI) {
-		const eleLi = document.createElement("li");
-		eleLi.className = "row";
+		const eleRow = document.createElement("div");
+		eleRow.className = "px-0 w-100 flex-col no-shrink";
 
 		const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_SPELLS](spell);
 		const source = Parser.sourceJsonToAbv(spell.source);
-		const levelText = `${Parser.spLevelToFull(spell.level)}${spell.meta && spell.meta.ritual ? " (rit.)" : ""}${spell.meta && spell.meta.technomagic ? " (tec.)" : ""}`;
+		const levelText = PageFilterSpells.getTblLevelStr(spell);
 		const time = PageFilterSpells.getTblTimeStr(spell.time[0]);
 		const school = Parser.spSchoolAndSubschoolsAbvsShort(spell.school, spell.subschools);
 		const concentration = spell._isConc ? "×" : "";
 		const range = Parser.spRangeToFull(spell.range);
 
-		eleLi.innerHTML = `<label class="lst--border unselectable">
-			<div class="lst__wrp-cells">
-				<div class="col-1 pl-0 flex-vh-center"><input type="checkbox" class="no-events"></div>
-				<div class="bold col-3">${spell.name}</div>
-				<div class="col-1-5 text-center">${levelText}</div>
-				<div class="col-2 text-center">${time}</div>
-				<div class="col-1 school_${spell.school} text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</div>
-				<div class="col-0-5 text-center" title="Concentration">${concentration}</div>
-				<div class="col-2 text-right">${range}</div>
-				<div class="col-1 pr-0 text-center ${Parser.sourceJsonToColor(spell.source)}" title="${Parser.sourceJsonToFull(spell.source)}" ${BrewUtil.sourceJsonToStyle(spell.source)}>${source}</div>
-			</div>
-		</label>`;
+		eleRow.innerHTML = `<div class="w-100 flex-vh-center lst--border no-select lst__wrp-cells">
+			<div class="col-0-5 pl-0 flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
 
-		return new ListItem(
+			<div class="col-0-5 px-1 flex-vh-center">
+				<div class="ui-list__btn-inline px-2" title="Toggle Preview">[+]</div>
+			</div>
+
+			<div class="col-3 ${this._getNameStyle()}">${spell.name}</div>
+			<div class="col-1-5 text-center">${levelText}</div>
+			<div class="col-2 text-center">${time}</div>
+			<div class="col-1 sp__school-${spell.school} text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</div>
+			<div class="col-0-5 text-center" title="Concentration">${concentration}</div>
+			<div class="col-2 text-right">${range}</div>
+			<div class="col-1 pr-0 text-center ${Parser.sourceJsonToColor(spell.source)}" title="${Parser.sourceJsonToFull(spell.source)}" ${BrewUtil.sourceJsonToStyle(spell.source)}>${source}</div>
+		</div>`;
+
+		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
+
+		const listItem = new ListItem(
 			spI,
-			eleLi,
+			eleRow,
 			spell.name,
 			{
 				hash,
@@ -602,15 +657,20 @@ class ModalFilterSpells extends ModalFilter {
 				level: spell.level,
 				time,
 				school: Parser.spSchoolAbvToFull(spell.school),
-				classes: Parser.spClassesToFull(spell.classes, true),
+				classes: Parser.spClassesToFull(spell, true),
 				concentration,
 				normalisedTime: spell._normalisedTime,
-				normalisedRange: spell._normalisedRange
+				normalisedRange: spell._normalisedRange,
 			},
 			{
-				cbSel: eleLi.firstElementChild.firstElementChild.firstElementChild.firstElementChild
-			}
+				cbSel: eleRow.firstElementChild.firstElementChild.firstElementChild,
+				btnShowHidePreview,
+			},
 		);
+
+		ListUiUtil.bindPreviewButton(UrlUtil.PG_SPELLS, this._allData, listItem, btnShowHidePreview);
+
+		return listItem;
 	}
 }
 

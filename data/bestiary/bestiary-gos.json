@@ -20,6 +20,11 @@
 			"name": "Amphisbaena",
 			"source": "GoS",
 			"page": 230,
+			"otherSources": [
+				{
+					"source": "MOT"
+				}
+			],
 			"size": "M",
 			"type": "monstrosity",
 			"alignment": [
@@ -72,6 +77,13 @@
 					]
 				}
 			],
+			"hasToken": true,
+			"altArt": [
+				{
+					"name": "Amphisbaena",
+					"source": "MOT"
+				}
+			],
 			"senseTags": [
 				"B"
 			],
@@ -84,7 +96,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Barnacle Bess",
@@ -111,6 +124,7 @@
 			"languages": [
 				"Common"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			]
@@ -217,6 +231,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -231,7 +246,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Bullywug Royal",
@@ -349,6 +365,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Brute"
@@ -367,7 +384,11 @@
 				"RCH",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Captain Xendros",
@@ -394,6 +415,7 @@
 				"C",
 				"E"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -484,7 +506,7 @@
 				{
 					"name": "Unarmed Strike",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) bludgeoning damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract bluerot (see the \"Bluerot\" in notes)."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) bludgeoning damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract {@disease bluerot|GoS} (see the \"Bluerot\" in notes)."
 					]
 				}
 			],
@@ -496,6 +518,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Undead Fortitude"
 			],
@@ -514,7 +537,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Drowned Assassin",
@@ -604,13 +629,13 @@
 				{
 					"name": "Hand Crossbow",
 					"entries": [
-						"{@atk rw} {@hit 5} to hit, range 30/120 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage plus 3 ({@damage 1d6}) poison damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract bluerot (see the \"Bluerot\" in notes)."
+						"{@atk rw} {@hit 5} to hit, range 30/120 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage plus 3 ({@damage 1d6}) poison damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract {@disease bluerot|GoS} (see the \"Bluerot\" in notes)."
 					]
 				},
 				{
 					"name": "Dagger",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage plus 9 ({@damage 2d8}) poison damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract bluerot (see the \"Bluerot\" in notes)."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage plus 9 ({@damage 2d8}) poison damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract {@disease bluerot|GoS} (see the \"Bluerot\" in notes)."
 					]
 				},
 				{
@@ -620,6 +645,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Undead Fortitude"
 			],
@@ -641,7 +667,12 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Drowned Blade",
@@ -723,10 +754,11 @@
 				{
 					"name": "Rusted Longsword",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) slashing damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract bluerot (see the \"Bluerot\" in notes)."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) slashing damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract {@disease bluerot|GoS} (see the \"Bluerot\" in notes)."
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Undead Fortitude"
 			],
@@ -745,7 +777,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Drowned Master",
@@ -834,7 +868,7 @@
 				{
 					"name": "Greatsword",
 					"entries": [
-						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}10 ({@damage 2d6 + 3}) slashing damage plus 14 ({@damage 4d6}) cold damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract bluerot (see the \"Bluerot\" in notes)."
+						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}10 ({@damage 2d6 + 3}) slashing damage plus 14 ({@damage 4d6}) cold damage, and the target must succeed on a {@dc 12} Constitution saving throw or contract {@disease bluerot|GoS} (see the \"Bluerot\" in notes)."
 					]
 				},
 				{
@@ -850,6 +884,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Undead Fortitude"
 			],
@@ -872,7 +907,12 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Fish",
@@ -895,6 +935,7 @@
 				}
 			},
 			"action": null,
+			"hasToken": true,
 			"damageTags": [],
 			"miscTags": []
 		},
@@ -936,10 +977,11 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}8 ({@damage 2d4 + 3}) piercing damage, and the target must succeed on a {@dc 12} Constitution saving throw or be {@condition stunned} until the end of its next turn. On a failed save, the target begins to hallucinate and is afflicted with a short-term madness effect (determined randomly or by the DM; see \"Madness\" in chapter 8 of the {@book Dungeon Master's Guide|dmg|8|madness}). The effect lasts 10 minutes."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}8 ({@damage 2d4 + 3}) piercing damage, and the target must succeed on a {@dc 12} Constitution saving throw or be {@condition stunned} until the end of its next turn. On a failed save, the target begins to hallucinate and is afflicted with a {@table short-term madness|DMG} effect (determined randomly or by the DM; see \"Madness\" in chapter 8 of the {@book Dungeon Master's Guide|dmg|8|madness}). The effect lasts 10 minutes."
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -948,7 +990,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"stunned"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Giant Sea Eel",
@@ -1009,6 +1055,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Water Breathing"
 			],
@@ -1020,7 +1067,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Giant White Moray Eel",
@@ -1059,6 +1107,7 @@
 				"perception": "+2",
 				"stealth": "+4"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Water Breathing"
 			],
@@ -1117,7 +1166,7 @@
 				{
 					"name": "Luring Maestro",
 					"entries": [
-						"While within 60 feet of the matriarch, creatures have disadvantage on saving throws against the matriarch's"
+						"While within 60 feet of the matriarch, creatures have disadvantage on saving throws against the matriarch's Luring Song."
 					]
 				},
 				{
@@ -1161,6 +1210,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -1178,7 +1228,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"incapacitated"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Juvenile Kraken",
@@ -1235,7 +1290,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -1320,6 +1376,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1350,7 +1407,15 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"grappled",
+				"prone",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Koalinth",
@@ -1427,6 +1492,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1444,7 +1510,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Koalinth Sergeant",
@@ -1542,6 +1610,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1556,13 +1625,19 @@
 				"GO"
 			],
 			"damageTags": [
-				"P"
+				"P",
+				"S"
 			],
 			"miscTags": [
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Krell Grohlg",
@@ -1605,6 +1680,7 @@
 				"Common",
 				"Orc"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1701,6 +1777,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1724,7 +1801,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Living Iron Statue",
@@ -1813,6 +1891,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Immutable Form"
 			],
@@ -1831,7 +1910,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Lizardfolk Commoner",
@@ -1895,6 +1978,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -1906,7 +1990,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Lizardfolk Render",
@@ -2002,6 +2087,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -2018,7 +2104,11 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Lizardfolk Scaleshield",
@@ -2109,6 +2199,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -2123,7 +2214,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Lizardfolk Subchief",
@@ -2243,6 +2335,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -2257,7 +2350,16 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"conditionInflictSpell": [
+				"deafened",
+				"paralyzed",
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Locathah",
@@ -2341,6 +2443,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2355,7 +2458,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Locathah Hunter",
@@ -2441,6 +2546,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2455,7 +2561,12 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Master Refrum",
@@ -2483,7 +2594,8 @@
 			"alignment": [
 				"L",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Maw of Sekolah",
@@ -2589,6 +2701,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Water Breathing"
@@ -2611,7 +2724,8 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Merfolk Salvager",
@@ -2685,6 +2799,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -2697,7 +2812,11 @@
 			],
 			"damageTags": [
 				"P"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Merfolk Scout",
@@ -2727,6 +2846,7 @@
 				"C",
 				"E"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Keen Senses"
@@ -2829,6 +2949,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Immutable Form"
 			],
@@ -2847,7 +2968,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Monstrous Peryton",
@@ -2882,7 +3004,7 @@
 			"wis": 14,
 			"cha": 10,
 			"save": {
-				"str": "+9",
+				"str": "+8",
 				"dex": "+6",
 				"wis": "+6"
 			},
@@ -2963,6 +3085,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Flyby",
 				"Keen Senses",
@@ -2985,7 +3108,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mr. Dory",
@@ -3102,6 +3227,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -3128,7 +3254,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Oceanus",
@@ -3212,6 +3340,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -3230,7 +3359,8 @@
 				"RNG",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Othokent",
@@ -3336,6 +3466,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -3348,7 +3479,11 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Pirate Captain",
@@ -3430,12 +3565,13 @@
 			],
 			"reaction": [
 				{
-					"name": "Shape Up, Ye Dog (2/day)",
+					"name": "Shape Up, Ye Dog (2/Day)",
 					"entries": [
 						"Whenever a friendly creature within 30 feet of the captain that can hear it misses with an attack, the captain can yell perilous threats to allow that creature to reroll the attack roll."
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3451,7 +3587,8 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Pirate Deck Wizard",
@@ -3549,6 +3686,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -3561,7 +3699,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Pirate First Mate",
@@ -3629,6 +3768,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3641,7 +3781,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Rip Tide Priest",
@@ -3739,6 +3880,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AQ",
 				"C"
@@ -3751,7 +3893,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sahuagin Blademaster",
@@ -3861,6 +4004,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -3876,7 +4020,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sahuagin Champion",
@@ -3972,6 +4117,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -3989,7 +4135,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sahuagin Coral Smasher",
@@ -4091,6 +4238,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Siege Monster"
 			],
@@ -4110,7 +4258,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sahuagin Deep Diver",
@@ -4234,6 +4383,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -4251,7 +4401,11 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"charmed"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sahuagin Hatchling Swarm",
@@ -4342,6 +4496,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Water Breathing"
 			],
@@ -4349,11 +4504,13 @@
 				"SD"
 			],
 			"damageTags": [
-				"P"
+				"P",
+				"S"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sahuagin High Priestess",
@@ -4507,6 +4664,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -4525,7 +4683,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sahuagin Wave Shaper",
@@ -4637,7 +4796,7 @@
 					]
 				},
 				{
-					"name": "Whirlpool (1/day)",
+					"name": "Whirlpool (1/Day)",
 					"entries": [
 						"The wave shaper targets a body of water at least 50 feet square and 25 feet deep, causing a whirlpool to form in the center of the area. The whirlpool forms a vortex that is 5 feet wide at the base, up to 50 feet wide at the top, 25 feet tall, and lasts for 1 minute or until the wave shaper is {@condition incapacitated}. Any creature or object in the water and within 25 feet of the vortex is pulled 10 feet toward it. A creature can swim away from the vortex by succeeding on a {@dc 14} Strength (Athletics) check.",
 						"When a creature enters the vortex for the first time on a turn or starts its turn there, it must make a {@dc 14} Strength saving throw. On a failed save, the creature takes 9 ({@damage 2d8}) bludgeoning damage and is caught in the vortex until it ends. On a success, the creature takes half damage and isn't caught in the vortex. A creature caught in the vortex can use its action to try to swim away from the vortex as described above, but it has disadvantage on the Strength (Athletics) check to do so.",
@@ -4645,6 +4804,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -4665,7 +4825,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sanbalet",
@@ -4749,6 +4910,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			],
@@ -4762,7 +4924,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sauriv",
@@ -4882,10 +5045,17 @@
 				{
 					"name": "Multiattack",
 					"entries": [
-						"The shark makes two bite attacks. Bite. Melee Weapon Attack: {@hit 4} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d10 + 2}) piercing damage."
+						"The shark makes two bite attacks."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d10 + 2}) piercing damage."
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance",
 				"Water Breathing"
@@ -4898,7 +5068,11 @@
 			],
 			"damageTags": [
 				"P"
-			]
+			],
+			"miscTags": [
+				"MW"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Skeletal Alchemist",
@@ -4975,6 +5149,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -4995,7 +5170,9 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Skeletal Juggernaut",
@@ -5082,6 +5259,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -5095,7 +5273,8 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Skeletal Swarm",
@@ -5187,6 +5366,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -5195,7 +5375,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Skum",
@@ -5291,6 +5472,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -5312,11 +5494,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Thousand Teeth",
-			"shortName": "Thousand Teeth",
+			"shortName": true,
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "GoS",
@@ -5413,6 +5597,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath",
 				"Legendary Resistances"
@@ -5427,7 +5612,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Vampiric Jade Statue",
@@ -5536,6 +5726,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Immutable Form",
 				"Legendary Resistances"
@@ -5550,12 +5741,14 @@
 				"CS"
 			],
 			"damageTags": [
+				"N",
 				"P",
 				"S"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Yalaga Maladwyn",

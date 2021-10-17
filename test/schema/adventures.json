@@ -1,6 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"version": "1.0.2",
+	"$id": "adventures.json",
+	"version": "1.1.4",
 	"type": "object",
 	"properties": {
 		"adventure": {
@@ -65,10 +66,14 @@
 													},
 													"header": {
 														"type": "string"
+													},
+													"index": {
+														"description": "The relative index of this header in the current chapter, i.e. if \"Treasure\" appears twice and you wish the contents entry to link to the second instance, set the \"index\" to 1.",
+														"type": "integer"
 													}
 												},
 												"required": [
-													"depth", "header"
+													"header"
 												]
 											}
 										]
@@ -134,6 +139,13 @@
 						"type": "string",
 						"format": "date"
 					},
+					"publishedOrder": {
+						"description": "A sorting order for adventures within a single source.",
+						"type": "integer"
+					},
+					"coverUrl": {
+						"type": "string"
+					},
 					"storyline": {
 						"type": "string",
 						"enum": [
@@ -141,7 +153,7 @@
 							"Tyranny of Dragons",
 							"Elemental Evil",
 							"Rage of Demons",
-							"Curse of Strahd",
+							"Ravenloft",
 							"Storm King's Thunder",
 							"Tales from the Yawning Portal",
 							"Tomb of Annihilation",
@@ -154,7 +166,11 @@
 							"Stranger Things",
 							"Baldur's Gate",
 							"Eberron",
-							"Rick and Morty"
+							"Rick and Morty",
+							"Wildemount",
+							"Icewind Dale",
+							"Mythic Odysseys of Theros",
+							"Candlekeep Mysteries"
 						]
 					}
 				},

@@ -8,6 +8,13 @@
 			"dateLastModified": 1568753729
 		},
 		{
+			"id": "CM",
+			"name": "Candlekeep Mysteries",
+			"size": 19004631,
+			"version": "1.0",
+			"dateLastModified": 1616097594
+		},
+		{
 			"id": "CoS",
 			"name": "Curse of Strahd",
 			"size": 19892865,
@@ -20,6 +27,13 @@
 			"size": 16746559,
 			"version": "1.0",
 			"dateLastModified": 1567862109
+		},
+		{
+			"id": "EGW",
+			"name": "Explorer's Guide to Wildemount",
+			"size": 14806900,
+			"version": "1.0",
+			"dateLastModified": 1585160628
 		},
         {
 			"id": "ERLW",
@@ -48,6 +62,27 @@
 			"size": 3474873,
 			"version": "1.5",
 			"dateLastModified": 1543605262
+		},
+		{
+			"id": "IDRotF",
+			"name": "Icewind Dale: Rime of the Frostmaiden",
+			"size": 23813901,
+			"version": "1.0",
+			"dateLastModified": 1600193295
+		},
+		{
+			"id": "MOT",
+			"name": "Mythic Odysseys of Theros",
+			"size": 12978753,
+			"version": "1.0",
+			"dateLastModified": 1591307071
+		},
+		{
+			"id": "OotA",
+			"name": "Out of the Abyss",
+			"size": 20717393,
+			"version": "1.0",
+			"dateLastModified": 1589562120
 		},
 		{
 			"id": "OotW",
@@ -160,6 +195,13 @@
 			"size": 19377282,
 			"version": "1",
 			"dateLastModified": 1571941394
+		},
+		{
+			"id": "HoL",
+			"name": "The House of Lament",
+			"size": 16286262,
+			"version": "1",
+			"dateLastModified": 1622393622
 		},
 		{
 			"id": "WDMM",

@@ -6,54 +6,42 @@ class ActionsPage extends ListPage {
 	}
 
 	constructor () {
-		const sourceFilter = SourceFilter.getInstance();
-		const timeFilter = new Filter({
-			header: "Type",
-			displayFn: StrUtil.uppercaseFirst,
-			itemSortFn: SortUtil.ascSortLower
-		});
-
+		const pageFilter = new PageFilterActions();
 		super({
 			dataSource: "data/actions.json",
 
-			filters: [
-				sourceFilter,
-				timeFilter
-			],
-			filterSource: sourceFilter,
+			pageFilter,
 
 			listClass: "actions",
 
 			sublistClass: "subactions",
 
-			dataProps: ["action"]
-		});
+			dataProps: ["action"],
 
-		this._sourceFilter = sourceFilter;
-		this._timeFilter = timeFilter;
+			isPreviewable: true,
+		});
 	}
 
 	getListItem (it, anI, isExcluded) {
-		it._fTime = it.time ? it.time.map(it => it.unit || it) : null;
+		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
-		if (!isExcluded) {
-			// populate filters
-			this._sourceFilter.addItem(it.source);
-			this._timeFilter.addItem(it._fTime);
-		}
-
-		const eleLi = document.createElement("li");
-		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
+		const eleLi = document.createElement("div");
+		eleLi.className = `lst__row flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
 		const time = it.time ? it.time.map(tm => ActionsPage._getTimeText(tm)).join("/") : "\u2014";
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst--border">
-			<span class="col-6 bold pl-0">${it.name}</span>
+		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
+			<span class="col-0-3 px-0 flex-vh-center lst__btn-toggle-expand self-flex-stretch">[+]</span>
+			<span class="col-5-7 px-1 bold">${it.name}</span>
 			<span class="col-4 bold">${time}</span>
 			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${BrewUtil.sourceJsonToStyle(it.source)}>${source}</span>
-		</a>`;
+		</a>
+		<div class="flex ve-hidden relative lst__wrp-preview">
+			<div class="vr-0 absolute lst__vr-preview"></div>
+			<div class="flex-col py-3 ml-4 lst__wrp-preview-inner"></div>
+		</div>`;
 
 		const listItem = new ListItem(
 			anI,
@@ -62,12 +50,12 @@ class ActionsPage extends ListPage {
 			{
 				hash,
 				source,
-				time
+				time,
 			},
 			{
 				uniqueId: it.uniqueId ? it.uniqueId : anI,
-				isExcluded
-			}
+				isExcluded,
+			},
 		);
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
@@ -78,14 +66,7 @@ class ActionsPage extends ListPage {
 
 	handleFilterChange () {
 		const f = this._filterBox.getValues();
-		this._list.filter(li => {
-			const it = this._dataList[li.ix];
-			return this._filterBox.toDisplay(
-				f,
-				it.source,
-				it._fTime
-			);
-		});
+		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
 		FilterBox.selectFirstVisible(this._dataList);
 	}
 
@@ -94,13 +75,14 @@ class ActionsPage extends ListPage {
 
 		const time = it.time ? it.time.map(tm => ActionsPage._getTimeText(tm)).join("/") : "\u2014";
 
-		const $ele = $(`<li class="row">
-			<a href="#${hash}" class="lst--border">
+		const $ele = $(`<div class="lst__row lst__row--sublist flex-col">
+			<a href="#${hash}" class="lst--border lst__row-inner">
 				<span class="bold col-8 pl-0">${it.name}</span>
 				<span class="bold col-4 pr-0">${time}</span>
 			</a>
-		</li>`)
-			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem));
+		</div>`)
+			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem))
+			.click(evt => ListUtil.sublist.doSelect(listItem, evt));
 
 		const listItem = new ListItem(
 			pinId,
@@ -108,8 +90,8 @@ class ActionsPage extends ListPage {
 			it.name,
 			{
 				hash,
-				time
-			}
+				time,
+			},
 		);
 		return listItem;
 	}

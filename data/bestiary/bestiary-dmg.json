@@ -5,6 +5,11 @@
 			"source": "DMG",
 			"page": 164,
 			"srd": true,
+			"otherSources": [
+				{
+					"source": "TCE"
+				}
+			],
 			"size": "M",
 			"type": "undead",
 			"alignment": [
@@ -73,6 +78,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement",
 				"Turn Immunity"
@@ -88,7 +94,8 @@
 				"N",
 				"O",
 				"S"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Giant Fly",
@@ -120,7 +127,7 @@
 				"darkvision 60 ft."
 			],
 			"passive": 10,
-			"cr": "0",
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			]
@@ -169,6 +176,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"CS",
 				"LF"

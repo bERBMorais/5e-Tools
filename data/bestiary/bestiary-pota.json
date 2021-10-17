@@ -171,6 +171,7 @@
 				"name": "Aerisi Kalinoth",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Legendary Resistances"
@@ -193,7 +194,13 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"invisible"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Aquatic Ghoul",
@@ -206,7 +213,8 @@
 			"speed": {
 				"walk": 30,
 				"swim": 30
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Bastian Thermandar",
@@ -339,6 +347,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -357,7 +366,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Black Earth Guard",
@@ -426,6 +436,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -437,7 +448,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Black Earth Priest",
@@ -549,6 +562,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -565,7 +579,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflictSpell": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Braelen Hatherhand",
@@ -587,6 +606,7 @@
 				"formula": "1d8"
 			},
 			"action": null,
+			"hasToken": true,
 			"miscTags": []
 		},
 		{
@@ -602,7 +622,8 @@
 				"average": 220,
 				"formula": "22d20 + 110"
 			},
-			"cr": "13"
+			"cr": "13",
+			"hasToken": true
 		},
 		{
 			"name": "Burrowshark",
@@ -681,6 +702,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -694,7 +716,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Cavil Zaltobar",
@@ -718,7 +742,8 @@
 				"tags": [
 					"human"
 				]
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Crushing Wave Priest",
@@ -817,6 +842,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AQ",
 				"C"
@@ -829,7 +855,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Crushing Wave Reaver",
@@ -890,6 +918,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			],
@@ -901,7 +930,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Darathra Shendrel",
@@ -925,7 +956,8 @@
 				"tags": [
 					"human"
 				]
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Dark Tide Knight",
@@ -1014,6 +1046,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -1029,7 +1062,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Deseyna Majarra",
@@ -1055,6 +1090,7 @@
 				]
 			},
 			"action": null,
+			"hasToken": true,
 			"miscTags": []
 		},
 		{
@@ -1163,6 +1199,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Brute"
 			],
@@ -1181,7 +1218,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Elizar Dryflagon",
@@ -1296,6 +1334,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"DU"
@@ -1310,7 +1349,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Emberhorn Minotaur",
@@ -1334,6 +1374,7 @@
 			"immune": [
 				"fire"
 			],
+			"hasToken": true,
 			"damageTags": [
 				"F",
 				"P",
@@ -1425,6 +1466,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1440,7 +1482,8 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Eternal Flame Priest",
@@ -1541,6 +1584,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"IG"
@@ -1555,7 +1599,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Fathomer",
@@ -1667,6 +1713,10 @@
 					]
 				}
 			],
+			"hasToken": true,
+			"traitTags": [
+				"Shapechanger"
+			],
 			"languageTags": [
 				"AQ",
 				"C"
@@ -1683,7 +1733,16 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"invisible"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Feathergale Knight",
@@ -1777,6 +1836,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1795,7 +1855,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Fennor",
@@ -1813,6 +1875,12 @@
 						"flags": "i"
 					}
 				}
+			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
 			},
 			"ac": [
 				{
@@ -1837,6 +1905,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			]
@@ -1954,6 +2023,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"IG"
@@ -1968,7 +2038,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gar Shatterkeel",
@@ -2009,7 +2081,7 @@
 			"wis": 18,
 			"cha": 13,
 			"skill": {
-				"nature": "+8",
+				"nature": "+9",
 				"survival": "+8"
 			},
 			"passive": 14,
@@ -2127,6 +2199,7 @@
 				"name": "Gar Shatterkeel",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -2149,7 +2222,16 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"conditionInflictSpell": [
+				"paralyzed",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ghald",
@@ -2260,6 +2342,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -2279,7 +2362,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Grumink the Renegade",
@@ -2311,6 +2399,7 @@
 			"senses": [
 				"darkvision 60 ft."
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			]
@@ -2417,6 +2506,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B"
 			],
@@ -2432,7 +2522,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"stunned"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Howling Hatred Initiate",
@@ -2502,6 +2596,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -2515,7 +2610,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Howling Hatred Priest",
@@ -2633,6 +2729,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -2654,7 +2751,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hurricane",
@@ -2765,6 +2864,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2780,7 +2880,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Imix",
@@ -2812,9 +2913,9 @@
 			"wis": 16,
 			"cha": 23,
 			"save": {
-				"dex": "+14",
-				"con": "+13",
-				"cha": "+13"
+				"dex": "+13",
+				"con": "+12",
+				"cha": "+12"
 			},
 			"senses": [
 				"blindsight 120 ft."
@@ -2827,7 +2928,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -2956,6 +3058,7 @@
 				"name": "Imix",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Illumination",
 				"Legendary Resistances",
@@ -2982,7 +3085,12 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflictLegendary": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lyzandra \"Lyzzie\" Calderos",
@@ -3062,7 +3170,8 @@
 					},
 					"ability": "int"
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Maegla Tarnlar",
@@ -3078,7 +3187,8 @@
 				"tags": [
 					"human"
 				]
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Marlos Urnrayle",
@@ -3182,6 +3292,7 @@
 				"name": "Marlos Urnrayle",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -3203,7 +3314,13 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"petrified",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Miraj Vizann",
@@ -3343,6 +3460,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"P"
@@ -3356,7 +3474,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Molten Magma Roper",
@@ -3396,6 +3515,7 @@
 			"vulnerable": [
 				"cold"
 			],
+			"hasToken": true,
 			"damageTags": [
 				"F"
 			]
@@ -3422,6 +3542,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances",
@@ -3485,7 +3606,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3594,6 +3716,7 @@
 				"name": "Ogrémoch",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -3621,7 +3744,18 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"conditionInflictLegendary": [
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Olhydra",
@@ -3674,7 +3808,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3791,6 +3926,7 @@
 				"name": "Olhydra",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -3815,7 +3951,20 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"prone"
+			],
+			"conditionInflictLegendary": [
+				"frightened",
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"deafened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "One-Eyed Shiver",
@@ -3926,6 +4075,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			],
@@ -3938,7 +4088,15 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Oreioth",
@@ -4055,6 +4213,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AB",
 				"C"
@@ -4067,7 +4226,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Padraich",
@@ -4086,6 +4247,12 @@
 					}
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"action": [
 				{
 					"name": "Maul",
@@ -4094,6 +4261,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"B"
 			]
@@ -4175,6 +4343,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4190,7 +4359,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Renwick",
@@ -4295,7 +4466,8 @@
 					},
 					"ability": "int"
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Rhundorth",
@@ -4326,6 +4498,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"B"
 			],
@@ -4413,6 +4586,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"T"
 			],
@@ -4428,7 +4602,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Shoalar Quanderil",
@@ -4555,6 +4730,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -4573,7 +4749,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Skyweaver",
@@ -4671,6 +4848,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AU",
 				"C"
@@ -4685,7 +4863,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Stone Warrior",
@@ -4706,6 +4885,7 @@
 				"formula": "17d10 + 85"
 			},
 			"cr": "4",
+			"hasToken": true,
 			"actionTags": []
 		},
 		{
@@ -4821,6 +5001,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Death Burst"
 			],
@@ -4839,7 +5020,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Thurl Merosska",
@@ -4959,6 +5141,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack",
 				"Parry"
@@ -4977,7 +5160,8 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Tornscale",
@@ -4999,7 +5183,8 @@
 			"hp": {
 				"average": 36,
 				"formula": "4d8 + 4"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Vanifer",
@@ -5148,6 +5333,7 @@
 				"name": "Vanifer",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -5172,7 +5358,9 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Wiggan Nettlebee",
@@ -5281,6 +5469,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -5296,7 +5485,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Windharrow",
@@ -5423,6 +5617,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -5445,7 +5640,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"deafened",
+				"invisible"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Yan-C-Bin",
@@ -5499,7 +5699,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -5623,6 +5824,7 @@
 				"name": "Yan-C-Bin",
 				"source": "PotA"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -5648,7 +5850,18 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"deafened"
+			],
+			"conditionInflictLegendary": [
+				"blinded"
+			],
+			"conditionInflictSpell": [
+				"invisible"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Young Bulette",
@@ -5677,6 +5890,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"P"
@@ -5694,7 +5908,8 @@
 				"average": 184,
 				"formula": "15d20 + 90"
 			},
-			"cr": "13"
+			"cr": "13",
+			"hasToken": true
 		},
 		{
 			"name": "Zegdar",
@@ -5725,7 +5940,8 @@
 				"average": 117,
 				"formula": "9d10 + 27"
 			},
-			"int": 11
+			"int": 11,
+			"hasToken": true
 		}
 	]
 }

@@ -2,50 +2,36 @@
 
 class CultsBoonsPage extends ListPage {
 	constructor () {
-		const sourceFilter = SourceFilter.getInstance();
-		const typeFilter = new Filter({
-			header: "Type",
-			items: ["Cult", "Demonic Boon"]
-		});
-
+		const pageFilter = new PageFilterCultsBoons();
 		super({
 			dataSource: "data/cultsboons.json",
 
-			filters: [
-				sourceFilter,
-				typeFilter
-			],
-			filterSource: sourceFilter,
+			pageFilter,
 
 			listClass: "cultsboons",
 
 			sublistClass: "subcultsboons",
 
-			dataProps: ["cult", "boon"]
+			dataProps: ["cult", "boon"],
 		});
-
-		this._sourceFilter = sourceFilter;
-		this._typeFilter = typeFilter;
 	}
 
 	getListItem (it, bcI, isExcluded) {
-		it.type = it.type || (it.__prop === "cult" ? "Cult" : "Demonic Boon");
+		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
-		if (!isExcluded) {
-			// populate filters
-			this._sourceFilter.addItem(it.source);
-			this._typeFilter.addItem(it.type);
-		}
+		it._lType = it.__prop === "cult" ? "Cult" : "Boon";
+		it._lSubType = it.type || "\u2014";
 
-		const eleLi = document.createElement("li");
-		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
+		const eleLi = document.createElement("div");
+		eleLi.className = `lst__row flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst--border">
-			<span class="col-3 text-center pl-0">${it.type}</span>
-			<span class="bold col-7">${it.name}</span>
+		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
+			<span class="col-2 text-center pl-0">${it._lType}</span>
+			<span class="col-2 text-center">${it._lSubType}</span>
+			<span class="bold col-6">${it.name}</span>
 			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${BrewUtil.sourceJsonToStyle(it.source)}>${source}</span>
 		</a>`;
 
@@ -56,12 +42,13 @@ class CultsBoonsPage extends ListPage {
 			{
 				hash,
 				source,
-				type: it.type
+				type: it._lType,
+				subType: it._lSubType,
 			},
 			{
 				uniqueId: it.uniqueId ? it.uniqueId : bcI,
-				isExcluded
-			}
+				isExcluded,
+			},
 		);
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
@@ -72,27 +59,22 @@ class CultsBoonsPage extends ListPage {
 
 	handleFilterChange () {
 		const f = this._filterBox.getValues();
-		this._list.filter(item => {
-			const cb = this._dataList[item.ix];
-			return this._filterBox.toDisplay(
-				f,
-				cb.source,
-				cb.type
-			);
-		});
+		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
 		FilterBox.selectFirstVisible(this._dataList);
 	}
 
 	getSublistItem (it, pinId) {
 		const hash = UrlUtil.autoEncodeHash(it);
 
-		const $ele = $(`<li class="row">
-			<a href="#${hash}" class="lst--border">
-				<span class="col-3 text-center pl-0">${it.type}</span>
-				<span class="bold col-9 pr-0">${it.name}</span>
+		const $ele = $(`<div class="lst__row lst__row--sublist flex-col">
+			<a href="#${hash}" class="lst--border lst__row-inner">
+				<span class="col-2 text-center pl-0">${it._lType}</span>
+				<span class="col-2 text-center">${it._lSubType}</span>
+				<span class="bold col-8 pr-0">${it.name}</span>
 			</a>
-		</li>`)
-			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem));
+		</div>`)
+			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem))
+			.click(evt => ListUtil.sublist.doSelect(listItem, evt));
 
 		const listItem = new ListItem(
 			pinId,
@@ -100,8 +82,9 @@ class CultsBoonsPage extends ListPage {
 			it.name,
 			{
 				hash,
-				type: it.__prop
-			}
+				type: it._lType,
+				subType: it._lSubType,
+			},
 		);
 		return listItem;
 	}

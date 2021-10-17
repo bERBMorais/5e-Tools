@@ -11,7 +11,7 @@ const CHALLENGE_RATING_RANGE = {
 	1: "1\u20144",
 	5: "5\u201410",
 	11: "11\u201416",
-	17: "17\u201420"
+	17: "17\u201420",
 };
 
 const STORAGE_BASIC_CR = "lootgen-basic-cr";
@@ -67,6 +67,7 @@ class LootGen {
 			$selTables.append(`<option value="${i}">${t.name}</option>`);
 		});
 		$selTables.on("change", () => {
+			if ($(`#container-dmg-loot-table`).hasClass("hidden")) return;
 			const v = $selTables.val();
 			if (v) $("#table-sel").removeClass("form-control--error");
 			this.pDisplayTable(v, !$(`#container-loot-table`).hasClass("hidden") && $(".id-showLootTable").prop("checked"));
@@ -84,7 +85,7 @@ class LootGen {
 		else {
 			const $table = $(`
 				<hr/>
-				<table id="stats">
+				<table id="stats" class="w-100 stripe-odd-table">
 					<caption>${itemsTable.name}</caption>
 					<tbody>
 					<tr>
@@ -198,7 +199,10 @@ class LootGen {
 
 		if (hoard) {
 			const treasure = [];
-			treasure.push(lootGen.getFormattedCoinsForDisplay(curTable.coins));
+			const formattedCoinMeta = lootGen.getFormattedCoinsMeta(curTable.coins);
+			treasure.push(formattedCoinMeta.html);
+
+			let worthOfArtAndGems = 0;
 			const artAndGems = loot.gems ? loot.gems : (loot.artobjects ? loot.artobjects : null);
 			if (artAndGems) {
 				let artAndGemsTable = loot.artobjects ? lootList.artobjects : lootList.gemstones;
@@ -211,7 +215,16 @@ class LootGen {
 					${lootGen.$getSortedDeduplicatedList(gems)}
 					</li>
 				`.appendTo($el);
+
+				worthOfArtAndGems = (artAndGems.type * roll);
 			}
+
+			// region Add a display for coinage + art/gem objects, combined
+			const totalCoinValue = formattedCoinMeta.gpTotal + worthOfArtAndGems;
+			if (totalCoinValue) {
+				treasure.push(`<i class="ve-muted">${totalCoinValue} gp of coins, art objects, and/or gems, divided as follows:</i>`)
+			}
+			// endregion
 
 			if (loot.magicitems) {
 				const magicItemTableType = [];
@@ -242,7 +255,7 @@ class LootGen {
 							rolled: rolled,
 							$render: LootGen.p$ParseLink(rolled, {rollSpellScroll: true, rollChoices: true}),
 							roll: itemRoll,
-							table: magicItemsTable
+							table: magicItemsTable,
 						});
 					}
 					const magicItemResults = await Promise.all(magicItems.map(it => it.$render));
@@ -259,7 +272,8 @@ class LootGen {
 			}
 			for (let i = 0; i < treasure.length; i++) $el.prepend(`<li>${treasure[i]}</li>`);
 		} else {
-			$el.prepend(`<li>${lootGen.getFormattedCoinsForDisplay(loot.coins)}</li>`);
+			const formattedCoinMeta = lootGen.getFormattedCoinsMeta(loot.coins)
+			$el.prepend(`<li>${formattedCoinMeta.html}</li>`);
 		}
 		let title = hoard
 			? `<strong>Hoard</strong> for challenge rating: <strong>${CHALLENGE_RATING_RANGE[cr]}</strong>`
@@ -276,7 +290,7 @@ class LootGen {
 		const $ulOut = $(`<ul/>`);
 		let current = null;
 		let count = 0;
-		const addToOutput = () => $(`<li><span>${current}${count > 1 ? `, ${MULT_SIGN}${count} ` : ""}</span></li>`)
+		const addToOutput = () => $(`<li><span>${Renderer.get().render(current)}${count > 1 ? `, ${MULT_SIGN}${count} ` : ""}</span></li>`)
 			.appendTo($ulOut);
 		sorted.forEach(r => {
 			if (current == null || r !== current) {
@@ -335,15 +349,18 @@ class LootGen {
 		return {itemRoll, rolled};
 	}
 
-	getFormattedCoinsForDisplay (loot) {
+	getFormattedCoinsMeta (loot) {
 		const generatedCoins = LootGen.generateCoinsFromLoot(loot);
 		const individuallyFormattedCoins = [];
 		generatedCoins.forEach((coin) => {
 			individuallyFormattedCoins.unshift(`<li>${Parser._addCommas(coin.value)} ${coin.denomination}</li>`);
 		});
-		const totalValueGP = Parser._addCommas(LootGen.getGPValueFromCoins(generatedCoins));
+		const totalValueGp = LootGen.getGPValueFromCoins(generatedCoins);
 		const combinedFormattedCoins = individuallyFormattedCoins.reduce((total, formattedCoin) => total + formattedCoin, "");
-		return `${totalValueGP} gp total:<ul> ${combinedFormattedCoins}</ul>`;
+		return {
+			html: `${Parser._addCommas(totalValueGp)} gp in coinage:<ul> ${combinedFormattedCoins}</ul>`,
+			gpTotal: totalValueGp,
+		};
 	}
 
 	static generateCoinsFromLoot (loot) {
@@ -423,7 +440,7 @@ class LootGen {
 					.flat()
 					.map(it => it.items.map(x => {
 						const [name, source] = [...x.split("|")];
-						return Renderer.hover._getFromCache(UrlUtil.PG_ITEMS, source || SRC_DMG, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ITEMS]({name, source: source || SRC_DMG}));
+						return Renderer.hover.getFromCache(UrlUtil.PG_ITEMS, source || SRC_DMG, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ITEMS]({name, source: source || SRC_DMG}));
 					}))
 					.flat());
 			}
@@ -478,13 +495,13 @@ class LootGen {
 		const $roll = $(`<span class="roller" onmousedown="event.preventDefault()">[reroll]</span>`).click(() => handleReroll());
 		const $wrpItem = $(`<span/>`).append(renderer.render(getRandomItem()));
 
-		return $$`<em>(<span>${$wrpItem} ${$roll}</span>)</em>`;
+		return $$`<em>(<span>${$roll} ${$wrpItem}</span>)</em>`;
 	}
 
 	getSpell$ele (level) {
 		if (this.hasLoadedSpells()) {
 			const $roll = $(`<span class="roller" onmousedown="event.preventDefault()">[reroll]</span>`).click(() => this.loadRollSpell($roll.parent(), level));
-			return $$`<em>(<span>${renderer.render(this.getRandomSpell(level))} ${$roll}</span> or ${LootGen._getOrViewSpellsPart(level)})</em>`;
+			return $$`<em>(<span>${$roll} ${renderer.render(this.getRandomSpell(level))}</span> or ${LootGen._getOrViewSpellsPart(level)})</em>`;
 		}
 		const $spnRoll = $(`<span class="roller">roll</span>`).click(() => this.loadRollSpell($spnRoll.parent(), level));
 		return $$`<em>(${$spnRoll} or ${LootGen._getOrViewSpellsPart(level)})</em>`;
@@ -496,8 +513,8 @@ class LootGen {
 				.click(() => this.loadRollSpell($roll.parent(), level));
 			$ele
 				.removeClass("roller").attr("onclick", "")
-				.html(`${renderer.render(this.getRandomSpell(level))} `)
-				.append($roll);
+				.html(` ${renderer.render(this.getRandomSpell(level))}`)
+				.prepend($roll);
 		};
 
 		if (!this.hasLoadedSpells()) {
@@ -519,93 +536,93 @@ const randomLootTables = {
 	_items: {
 		Major: {},
 		Minor: {},
-		Other: {}
+		Other: {},
 	},
-	_rarityOrder: ["Common", "Uncommon", "Rare", "Very Rare", "Legendary"],
+	_rarityOrder: ["common", "uncommon", "rare", "very rare", "legendary"],
 	_tableItemCountPerLevelTier: {
 		1: {
-			"Major": {
-				"Uncommon": 0,
-				"Rare": 0,
-				"Very Rare": 0,
-				"Legendary": 0
+			"major": {
+				"uncommon": 0,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
 			},
-			"Minor": {
-				"Common": 0,
-				"Uncommon": 0,
-				"Rare": 0,
-				"Very Rare": 0,
-				"Legendary": 0
-			}
+			"minor": {
+				"common": 0,
+				"uncommon": 0,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
+			},
 		},
 		4: {
-			"Major": {
-				"Uncommon": 2,
-				"Rare": 0,
-				"Very Rare": 0,
-				"Legendary": 0
+			"major": {
+				"uncommon": 2,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
 			},
-			"Minor": {
-				"Common": 6,
-				"Uncommon": 2,
-				"Rare": 1,
-				"Very Rare": 0,
-				"Legendary": 0
-			}
+			"minor": {
+				"common": 6,
+				"uncommon": 2,
+				"rare": 1,
+				"very rare": 0,
+				"legendary": 0,
+			},
 		},
 		10: {
-			"Major": {
-				"Uncommon": 5,
-				"Rare": 1,
-				"Very Rare": 0,
-				"Legendary": 0
+			"major": {
+				"uncommon": 5,
+				"rare": 1,
+				"very rare": 0,
+				"legendary": 0,
 			},
-			"Minor": {
-				"Common": 10,
-				"Uncommon": 12,
-				"Rare": 5,
-				"Very Rare": 1,
-				"Legendary": 0
-			}
+			"minor": {
+				"common": 10,
+				"uncommon": 12,
+				"rare": 5,
+				"very rare": 1,
+				"legendary": 0,
+			},
 		},
 		16: {
-			"Major": {
-				"Uncommon": 1,
-				"Rare": 2,
-				"Very Rare": 2,
-				"Legendary": 1
+			"major": {
+				"uncommon": 1,
+				"rare": 2,
+				"very rare": 2,
+				"legendary": 1,
 			},
-			"Minor": {
-				"Common": 3,
-				"Uncommon": 6,
-				"Rare": 9,
-				"Very Rare": 5,
-				"Legendary": 1
-			}
+			"minor": {
+				"common": 3,
+				"uncommon": 6,
+				"rare": 9,
+				"very rare": 5,
+				"legendary": 1,
+			},
 		},
 		20: {
-			"Major": {
-				"Uncommon": 0,
-				"Rare": 1,
-				"Very Rare": 2,
-				"Legendary": 3
+			"major": {
+				"uncommon": 0,
+				"rare": 1,
+				"very rare": 2,
+				"legendary": 3,
 			},
-			"Minor": {
-				"Common": 0,
-				"Uncommon": 0,
-				"Rare": 4,
-				"Very Rare": 9,
-				"Legendary": 6
-			}
-		}
+			"minor": {
+				"common": 0,
+				"uncommon": 0,
+				"rare": 4,
+				"very rare": 9,
+				"legendary": 6,
+			},
+		},
 	},
 
 	async init () {
 		const stockItems = await Renderer.item.pBuildList({
-			isBlacklistVariants: true
+			isBlacklistVariants: true,
 		});
 		const homebrew = await BrewUtil.pAddBrewData();
-		const brewItems = await Renderer.item.getItemsFromHomebrew(homebrew);
+		const brewItems = await Renderer.item.pGetItemsFromHomebrew(homebrew);
 		const allItems = stockItems.concat(brewItems);
 
 		for (const item of allItems) {
@@ -629,7 +646,7 @@ const randomLootTables = {
 			let keys = Object.keys(itemList[nameTier]).sort((a, b) => randomLootTables._rarityOrder.findIndex(val => val === a) - randomLootTables._rarityOrder.findIndex((val) => val === b));
 			for (let nameRarity of keys) {
 				if (nameRarity !== undefined && nameRarity !== "None" && nameTier && nameTier !== "undefined") {
-					$selector.append(`<option value="${nameTier}-${nameRarity}">${nameTier} ${nameRarity}</option>`);
+					$selector.append(`<option value="${nameTier}-${nameRarity}">Tier: ${nameTier.toTitleCase()}, Rarity: ${nameRarity.toTitleCase()}</option>`);
 				}
 			}
 		}
@@ -647,11 +664,20 @@ const randomLootTables = {
 		const $charLevel = $(`#charLevel`);
 		const $randomFromLootTable = $("#random-from-loot-table");
 
-		$(".slider")
-			.toggle($closestTier.prop("checked"))
-			.slider({min: 1, max: 20})
-			.slider("pips", {rest: "label"})
-			.slider("float");
+		const comp = BaseComponent.fromObject({
+			min: 1,
+			max: 20,
+			cur: 1,
+		})
+		const $slider = ComponentUiUtil.$getSliderRange(
+			comp,
+			{
+				propMin: "min",
+				propMax: "max",
+				propCurMin: "cur",
+			},
+		).appendTo($(`.slider`));
+		$slider.toggleVe($closestTier.prop("checked"));
 
 		$cumulative.change((evt) => {
 			const toggled = evt.currentTarget.checked;
@@ -660,7 +686,7 @@ const randomLootTables = {
 
 		$closestTier.change((evt) => {
 			const toggled = evt.currentTarget.checked;
-			$(".slider").toggle(toggled);
+			$slider.toggleVe(toggled);
 			$("#random-magic-item-select-tier").toggle(!toggled);
 			SessionStorageUtil.set(STORAGE_PARTY_CLOSEST_TIER, toggled);
 		});
@@ -671,12 +697,12 @@ const randomLootTables = {
 			if (isBase) {
 				$charLevel.css({
 					borderTopRightRadius: 3,
-					borderBottomRightRadius: 3
+					borderBottomRightRadius: 3,
 				});
 			} else {
 				$charLevel.css({
 					borderTopRightRadius: "",
-					borderBottomRightRadius: ""
+					borderBottomRightRadius: "",
 				});
 			}
 		});
@@ -713,7 +739,7 @@ const randomLootTables = {
 			const useClosestTier = $("#closest-tier").prop("checked");
 			const accumulateTiers = $("#char-cumulative").prop("checked") && !useClosestTier; // ignored if slider is used
 
-			if (useClosestTier) level = $(".slider").slider("value");
+			if (useClosestTier) level = comp._state.cur;
 			else level = $("#charLevel").val();
 
 			const text = useClosestTier ? `level ${level}` : `level ${$(`#charLevel option[value=${level}]`).text()}`;
@@ -726,11 +752,11 @@ const randomLootTables = {
 				itemsNeeded,
 				async function (rarityValues, path) {
 					let tier = path[0];
-					let $tier = $(`<ul data-tier="${tier}"><li>${tier} items</li></ul>`);
+					let $tier = $(`<ul data-tier="${tier}"><li>${tier.toTitleCase()} items</li></ul>`);
 
 					await Promise.all(Object.keys(rarityValues).map(async rarity => {
 						let count = rarityValues[rarity];
-						let $rarity = $(`<ul data-rarity="${rarity}"><li>${rarity} items(${count})</li></ul>`);
+						let $rarity = $(`<ul data-rarity="${rarity}"><li>${rarity.toTitleCase()} items (${count})</li></ul>`);
 						let $items = $(`<ul data-tier="${tier}"></ul>`);
 						itemCount[tier] = (itemCount[tier] || 0) + count;
 						const $toAppend = await Promise.all([...new Array(count)].map(async () => randomLootTables.p$GetRandomItemHtml(tier, rarity)));
@@ -743,7 +769,7 @@ const randomLootTables = {
 					}));
 					if (itemCount[tier]) $el.append($tier);
 				},
-				{depth: 1}
+				{depth: 1},
 			);
 			if (!Object.values(itemCount).reduce((a, b) => a + b, 0)) $el.append(`<i>No items.</i>`);
 			lootOutput.add($el, title);
@@ -752,19 +778,19 @@ const randomLootTables = {
 
 	getNumberOfItemsNeeded (charLevel, estimateBetweenLevels = false, accumulateTiers = true) {
 		const count = {
-			"Major": {
-				"Uncommon": 0,
-				"Rare": 0,
-				"Very Rare": 0,
-				"Legendary": 0
+			"major": {
+				"uncommon": 0,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
 			},
-			"Minor": {
-				"Common": 0,
-				"Uncommon": 0,
-				"Rare": 0,
-				"Very Rare": 0,
-				"Legendary": 0
-			}
+			"minor": {
+				"common": 0,
+				"uncommon": 0,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
+			},
 		};
 
 		if (!estimateBetweenLevels && !accumulateTiers) {
@@ -800,12 +826,12 @@ const randomLootTables = {
 				return {
 					item: `{@item ${item.name}|${item.source}}`,
 					choose: {
-						fromLoaded: item.variants
-					}
+						fromLoaded: item.variants,
+					},
 				}
 			} else {
 				return {
-					item: `{@item ${item.name}|${item.source}}`
+					item: `{@item ${item.name}|${item.source}}`,
 				};
 			}
 		})();
@@ -836,26 +862,43 @@ const randomLootTables = {
 	},
 
 	displayTable (itemsArray, tier, rarity) {
+		const $tblType = $("div#classtable");
+
 		if (itemsArray === "") {
-			$("div#classtable").hide();
-		} else {
-			let html = $(`
+			$tblType.hide();
+			return;
+		}
+
+		let dispItemType = "Magic";
+		let dispRarity = "";
+		switch (rarity) {
+			case "none": dispRarity = ""; dispItemType = "Mundane"; break;
+			case "varies": dispRarity = `of Varying rarity`; break;
+			case "unknown (magic)": dispRarity = `of Unknown rarity`; break;
+			case "unknown": dispRarity = `of Unknown rarity`; dispItemType = "Mundane"; break;
+			case "artifact": dispRarity = `that are Artifacts`; break;
+			default: dispRarity = `that are ${rarity.toTitleCase()}`
+		}
+		const tierLower = tier.toLowerCase();
+
+		const $html = $(`
 			<hr/>
-			<table id="stats">
-				<caption>Table for ${tier} Magic items that are ${rarity}</caption>
+			<table id="stats" class="w-100 stripe-odd-table">
+				<caption>Table for ${tierLower === "other" ? `${dispItemType} items with no defined tier` : `${tierLower}-tier ${dispItemType} items`} ${dispRarity}</caption>
 				<tbody>
 				<tr>
 					<th class="col-2 text-center"><span class="roller" onclick="randomLootTables.getRandomItem('${tier}', '${rarity}');">d${itemsArray.length}</span></th>
-					<th class="col-10">${tier} ${rarity} Magic Items</th>
+					<th class="col-10">Item</th>
 				</tr>
 				</tbody>
 			</table>`);
-			itemsArray.forEach((item, index) => {
-				html.find("tbody").append(`<tr><td class="text-center">${index + 1}</td><td>${Renderer.get().render(`{@item ${item.name}|${item.source}}`)}`);
-			});
-			$("div#classtable").html(html);
-		}
-	}
+
+		itemsArray.forEach((item, index) => {
+			$html.find("tbody").append(`<tr><td class="text-center">${index + 1}</td><td>${Renderer.get().render(`{@item ${item.name}|${item.source}}`)}`);
+		});
+
+		$tblType.html($html);
+	},
 };
 
 const lootOutput = (function lootOutput () {
@@ -889,7 +932,7 @@ const lootOutput = (function lootOutput () {
 	};
 	return {
 		add,
-		clear
+		clear,
 	};
 })();
 

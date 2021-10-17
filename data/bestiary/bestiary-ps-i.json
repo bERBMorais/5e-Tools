@@ -48,7 +48,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -99,6 +100,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"False Appearance"
 			],
@@ -114,6 +116,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"conditionInflict": [
+				"stunned"
 			]
 		},
 		{
@@ -235,7 +240,12 @@
 						}
 					}
 				}
-			}
+			},
+			"damageTags": [
+				"B",
+				"N",
+				"R"
+			]
 		},
 		{
 			"name": "Geist",
@@ -293,16 +303,13 @@
 				{
 					"name": "Ethereal Sight",
 					"entries": [
-						"The geist can see 60 feet into the Ethereal Plane when",
-						"it is on the Material Plane, and vice versa."
+						"The geist can see 60 feet into the Ethereal Plane when it is on the Material Plane, and vice versa."
 					]
 				},
 				{
 					"name": "Incorporeal Movement",
 					"entries": [
-						"The geist can move through other creatures",
-						"and objects as if they were difficult terrain. It takes 5 ({@dice 1d10}) force",
-						"damage if it ends its turn inside an object."
+						"The geist can move through other creatures and objects as if they were difficult terrain. It takes 5 ({@dice 1d10}) force damage if it ends its turn inside an object."
 					]
 				},
 				{
@@ -344,6 +351,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement"
 			],
@@ -358,6 +366,10 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"conditionInflict": [
+				"frightened",
+				"incapacitated"
 			]
 		},
 		{
@@ -446,6 +458,9 @@
 					},
 					"ability": "wis"
 				}
+			],
+			"spellcastingTags": [
+				"CD"
 			]
 		},
 		{
@@ -486,7 +501,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks that aren't adamantine"
+					"note": "from nonmagical attacks that aren't adamantine",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -590,6 +606,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Damage Absorption",
 				"Immutable Form",
@@ -663,7 +680,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks not made with living wood weapons"
+					"note": "from nonmagical attacks not made with living wood weapons",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -754,6 +772,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Regeneration"
 			],
@@ -811,7 +830,7 @@
 			"speed": {
 				"walk": {
 					"number": 30,
-					"condition": " (40 ft. in canid form)"
+					"condition": "(40 ft. in canid form)"
 				}
 			},
 			"str": 15,
@@ -832,7 +851,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks not made with silvered weapons"
+					"note": "from nonmagical attacks not made with silvered weapons",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -908,9 +928,13 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses",
 				"Shapechanger"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"C",

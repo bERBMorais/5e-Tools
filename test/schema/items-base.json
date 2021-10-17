@@ -1,6 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"version": "1.3.5",
+	"$id": "items-base.json",
+	"version": "1.4.4",
 	"definitions": {
 		"itemLookup": {
 			"type": "array",
@@ -58,15 +59,15 @@
 						"type": "string",
 						"description": "\"None\" is for mundane items. \"Unknown (Magic)\" is for miscellaneous magical items. \"Unknown\" is for miscellaneous mundane items.",
 						"enum": [
-							"Rare",
-							"None",
-							"Uncommon",
-							"Very Rare",
-							"Legendary",
-							"Artifact",
-							"Unknown",
-							"Common",
-							"Unknown (Magic)"
+							"rare",
+							"none",
+							"uncommon",
+							"very rare",
+							"legendary",
+							"artifact",
+							"unknown",
+							"common",
+							"unknown (magic)"
 						]
 					},
 					"source": {
@@ -128,10 +129,35 @@
 					"sword": {
 						"type": "boolean"
 					},
+					"mace": {
+						"type": "boolean"
+					},
+					"spear": {
+						"type": "boolean"
+					},
+					"hammer": {
+						"type": "boolean"
+					},
+					"bow": {
+						"type": "boolean"
+					},
+					"crossbow": {
+						"type": "boolean"
+					},
+					"club": {
+						"type": "boolean"
+					},
+					"dagger": {
+						"type": "boolean"
+					},
+					"net": {
+						"type": "boolean"
+					},
 					"firearm": {
 						"type": "boolean"
 					},
 					"staff": {
+						"description": "Adds the italicized \"Staff\" text to the item info line (below the name).",
 						"type": "boolean"
 					},
 					"value": {
@@ -165,7 +191,48 @@
 					},
 					"otherSources": {
 						"$ref": "util.json#/definitions/otherSources"
-					}
+					},
+					"ammoType": {
+						"type": "string"
+					},
+					"packContents": {
+						"type": "array",
+						"items": {
+							"oneOf": [
+								{
+									"type": "string"
+								},
+								{
+									"type": "object",
+									"properties": {
+										"special": {
+											"type": "string"
+										},
+										"quantity": {
+											"type": "integer"
+										}
+									},
+									"additionalProperties": false,
+									"required": ["special"]
+								},
+								{
+									"type": "object",
+									"properties": {
+										"item": {
+											"type": "string"
+										},
+										"quantity": {
+											"type": "integer"
+										}
+									},
+									"additionalProperties": false,
+									"required": ["item", "quantity"]
+								}
+							]
+						}
+					},
+					"hasFluff": {"type": "boolean"},
+					"hasFluffImages": {"type": "boolean"}
 				},
 				"required": [
 					"name",
@@ -182,6 +249,20 @@
 		},
 		"itemType": {
 			"$ref": "#/definitions/itemLookup"
+		},
+		"itemEntry": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {"type": "string"},
+					"source": {"type": "string"},
+					"entriesTemplate": {
+						"type": "array",
+						"items": {"$ref": "entry.json"}
+					}
+				}
+			}
 		},
 		"itemTypeAdditionalEntries": {
 			"type": "array",

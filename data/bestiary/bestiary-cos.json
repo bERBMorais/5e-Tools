@@ -22,7 +22,9 @@
 			"_copy": {
 				"name": "Stone Golem",
 				"source": "MM"
-			}
+			},
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Anastrasya Karelova",
@@ -40,7 +42,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Animated Halberd",
@@ -65,7 +68,8 @@
 						"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d10 + 1}) slashing damage."
 					]
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Arabelle",
@@ -93,6 +97,7 @@
 				"average": 2,
 				"formula": "1d8"
 			},
+			"hasToken": true,
 			"miscTags": []
 		},
 		{
@@ -115,7 +120,8 @@
 				"average": 84,
 				"formula": "7d10 + 14"
 			},
-			"cr": "3"
+			"cr": "3",
+			"hasToken": true
 		},
 		{
 			"name": "Arrigal",
@@ -143,10 +149,12 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Baba Lysaga",
+			"group": "Hags",
 			"isNpc": true,
 			"source": "CoS",
 			"page": 228,
@@ -314,6 +322,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Shapechanger"
 			],
@@ -335,7 +344,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Baba Lysaga's Creeping Hut",
@@ -433,6 +443,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Antimagic Susceptibility",
 				"Siege Monster"
@@ -450,7 +461,8 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Baron Vargas Vallakovich",
@@ -478,7 +490,8 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Barovian Commoner",
@@ -496,6 +509,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"P"
 			]
@@ -520,6 +534,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"miscTags": [
 				"MW",
 				"RW"
@@ -615,6 +630,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -632,7 +648,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Beucephalus",
@@ -654,7 +672,8 @@
 			"hp": {
 				"average": 104,
 				"formula": "8d10 + 24"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Bluto Krogarov",
@@ -674,7 +693,8 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Broom of Animated Attack",
@@ -774,6 +794,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Antimagic Susceptibility",
 				"False Appearance"
@@ -789,7 +810,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Clovin Belview",
@@ -821,7 +843,8 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Cyrus Belview",
@@ -850,6 +873,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			]
@@ -870,7 +894,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Distended Corpse",
@@ -894,7 +919,8 @@
 						"When a corpse is reduced to 0 hit points, it splits open, disgorging a {@creature swarm of poisonous snakes}. The snakes are hungry and fight until slain."
 					]
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Donavich",
@@ -922,7 +948,8 @@
 			"alignment": [
 				"L",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Doru",
@@ -940,7 +967,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Emil Toranescu",
@@ -962,7 +990,8 @@
 			"hp": {
 				"average": 72,
 				"formula": "9d8 + 18"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Escher",
@@ -980,7 +1009,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Exethanter",
@@ -1021,7 +1051,8 @@
 					},
 					"ability": "int"
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Ezmerelda d'Avenir",
@@ -1043,7 +1074,7 @@
 				{
 					"ac": 17,
 					"from": [
-						"{@item studded leather armor +1||+1 studded leather armor}"
+						"{@item +1 studded leather armor}"
 					]
 				}
 			],
@@ -1176,6 +1207,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1194,7 +1226,12 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflictSpell": [
+				"invisible"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gadof Blinsky",
@@ -1214,7 +1251,8 @@
 			"alignment": [
 				"C",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Gertruda",
@@ -1234,7 +1272,8 @@
 			"alignment": [
 				"N",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Guardian Portrait",
@@ -1327,6 +1366,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Antimagic Susceptibility",
 				"False Appearance"
@@ -1340,7 +1380,13 @@
 			],
 			"spellcastingTags": [
 				"I"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Helga Ruvak",
@@ -1358,7 +1404,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Henrik van der Voort",
@@ -1378,7 +1425,8 @@
 			"alignment": [
 				"L",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Ireena Kolyana",
@@ -1410,7 +1458,8 @@
 			"hp": {
 				"average": 14,
 				"formula": "2d8"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Ismark Kolyanovich",
@@ -1438,7 +1487,8 @@
 			"alignment": [
 				"L",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Izek Strazni",
@@ -1514,6 +1564,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Brute"
 			],
@@ -1529,7 +1580,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Kasimir Velikov",
@@ -1633,6 +1685,7 @@
 					"ability": "int"
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -1660,7 +1713,8 @@
 			"hp": {
 				"average": 90,
 				"formula": "9d8 + 18"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Knight of the Order",
@@ -1745,7 +1799,49 @@
 			],
 			"ac": [
 				10
-			]
+			],
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Fiona is a 5th-level spellcaster. Her spellcasting ability is Wisdom (spell save {@dc 13}, {@hit 5} to hit with spell attacks). Fiona has the following cleric spells prepared:"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell light}",
+								"{@spell mending}",
+								"{@spell thaumaturgy}"
+							]
+						},
+						"1": {
+							"slots": 4,
+							"spells": [
+								"{@spell command}",
+								"{@spell purify food and drink}",
+								"{@spell sanctuary}"
+							]
+						},
+						"2": {
+							"slots": 3,
+							"spells": [
+								"{@spell augury}",
+								"{@spell gentle repose}",
+								"{@spell hold person}"
+							]
+						},
+						"3": {
+							"slots": 2,
+							"spells": [
+								"{@spell animate dead}",
+								"{@spell create food and water}"
+							]
+						}
+					},
+					"ability": "wis"
+				}
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Lady Lydia Petrovna",
@@ -1765,7 +1861,8 @@
 			"alignment": [
 				"L",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Lief Lipsiege",
@@ -1785,7 +1882,8 @@
 			"alignment": [
 				"C",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Ludmilla Vilisevic",
@@ -1803,7 +1901,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Luvash",
@@ -1831,7 +1930,8 @@
 			"alignment": [
 				"C",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Mad Mary",
@@ -1851,7 +1951,8 @@
 			"alignment": [
 				"C",
 				"N"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Madam Eva",
@@ -2004,6 +2105,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -2018,7 +2120,15 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"deafened"
+			],
+			"conditionInflictSpell": [
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Majesto",
@@ -2036,7 +2146,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Marzena Belview",
@@ -2068,7 +2179,8 @@
 			"speed": {
 				"walk": 20,
 				"fly": 40
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Milivoj",
@@ -2096,7 +2208,8 @@
 						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d4 + 2}) bludgeoning damage."
 					]
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Mishka Belview",
@@ -2129,6 +2242,7 @@
 				"C",
 				"E"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Spider Climb"
 			]
@@ -2225,6 +2339,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2239,7 +2354,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Morgantha",
@@ -2257,7 +2373,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Nikolai Wachter",
@@ -2285,7 +2402,8 @@
 			"alignment": [
 				"L",
 				"N"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Otto Belview",
@@ -2313,7 +2431,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Parriwimple",
@@ -2350,7 +2469,8 @@
 					]
 				}
 			],
-			"int": 6
+			"int": 6,
+			"hasToken": true
 		},
 		{
 			"name": "Patrina Velikovna",
@@ -2378,7 +2498,8 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Phantom Warrior",
@@ -2420,7 +2541,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -2483,6 +2605,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement"
 			],
@@ -2500,7 +2623,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Piccolo",
@@ -2518,7 +2643,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Pidlwick II",
@@ -2590,6 +2716,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Ambusher"
 			],
@@ -2604,7 +2731,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Rahadin",
@@ -2722,6 +2850,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -2748,10 +2877,14 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Rictavio",
+			"alias": [
+				"Rudolph van Richten"
+			],
 			"isNpc": true,
 			"source": "CoS",
 			"page": 238,
@@ -2892,6 +3025,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2909,7 +3043,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Rosavalda \"Rose\" Durst",
@@ -2945,6 +3080,7 @@
 				"Common"
 			],
 			"cr": "3",
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			]
@@ -2966,6 +3102,10 @@
 					}
 				}
 			},
+			"alignment": [
+				"C",
+				"E"
+			],
 			"hp": {
 				"average": 33,
 				"formula": "3d10 + 3"
@@ -2978,10 +3118,12 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
-			"cr": "1"
+			"cr": "1",
+			"hasToken": true
 		},
 		{
 			"name": "Savid",
@@ -3008,7 +3150,8 @@
 			},
 			"alignment": [
 				"N"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Sir Godfrey Gwilym",
@@ -3032,7 +3175,7 @@
 				{
 					"name": "Spellcasting",
 					"headerEntries": [
-						"Sir Godfrey is a 16th-level spellcaster. His spellcasting ability is Charisma (spell save {@dc 15}, {@hit 7} to hit with spell attacks). He has the following paladin spells prepared:"
+						"Sir Godfrey is a 16th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 14}, {@hit 6} to hit with spell attacks). He has the following paladin spells prepared:"
 					],
 					"spells": {
 						"1": {
@@ -3064,9 +3207,10 @@
 							]
 						}
 					},
-					"ability": "cha"
+					"ability": "wis"
 				}
 			],
+			"hasToken": true,
 			"spellcastingTags": [
 				"CP"
 			]
@@ -3079,6 +3223,10 @@
 				"name": "Specter",
 				"source": "MM",
 				"_mod": {
+					"resist": {
+						"mode": "removeArr",
+						"items": "cold"
+					},
 					"action": {
 						"mode": "replaceArr",
 						"replace": "Life Drain",
@@ -3091,12 +3239,6 @@
 					}
 				}
 			},
-			"type": {
-				"type": "humanoid",
-				"tags": [
-					"dusk elf"
-				]
-			},
 			"alignment": [
 				"N"
 			],
@@ -3105,6 +3247,7 @@
 				"necrotic",
 				"poison"
 			],
+			"hasToken": true,
 			"damageTags": [
 				"C",
 				"O"
@@ -3192,7 +3335,8 @@
 					},
 					"ability": "int"
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Stella Wachter",
@@ -3212,7 +3356,8 @@
 			"alignment": [
 				"C",
 				"G"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Strahd von Zarovich",
@@ -3275,7 +3420,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -3397,13 +3543,13 @@
 					]
 				},
 				{
-					"name": "Unarmed Strike (Vampire Form Only)",
+					"name": "Unarmed Strike (Vampire or Wolf Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}8 ({@damage 1d8 + 4}) bludgeoning damage, plus 14 ({@damage 4d6}) necrotic damage. If the target is a creature, Strahd can grapple it (escape {@dc 18}) instead of dealing the bludgeoning damage."
+						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}8 ({@damage 1d8 + 4}) slashing damage, plus 14 ({@damage 4d6}) necrotic damage. If the target is a creature, Strahd can grapple it (escape {@dc 18}) instead of dealing the slashing damage."
 					]
 				},
 				{
-					"name": "Bite (Bat or Vampire Form Only)",
+					"name": "Bite",
 					"entries": [
 						"{@atk mw} {@hit 9} to hit, reach 5 ft., one willing creature, or a creature that is {@condition grappled} by Strahd, {@condition incapacitated}, or {@condition restrained}. {@h}7 ({@damage 1d6 + 4}) piercing damage plus 10 ({@damage 3d6}) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and Strahd regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0. A humanoid slain in this way and then buried in the ground rises the following night as a {@creature vampire spawn} under Strahd's control."
 					]
@@ -3446,6 +3592,7 @@
 				"name": "Strahd von Zarovich",
 				"source": "CoS"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Regeneration",
@@ -3454,6 +3601,9 @@
 			],
 			"senseTags": [
 				"SD"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"AB",
@@ -3464,16 +3614,24 @@
 				"I"
 			],
 			"damageTags": [
-				"B",
 				"N",
-				"P"
+				"P",
+				"S"
 			],
 			"spellcastingTags": [
 				"CW"
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed"
+			],
+			"conditionInflictSpell": [
+				"invisible",
+				"unconscious"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Strahd Zombie",
@@ -3553,6 +3711,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3569,10 +3728,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Strahd's Animated Armor",
+			"isNpc": true,
 			"source": "CoS",
 			"page": 227,
 			"size": "M",
@@ -3672,6 +3833,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Antimagic Susceptibility",
 				"False Appearance"
@@ -3692,7 +3854,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Szoldar Szoldarovich",
@@ -3719,7 +3883,8 @@
 			},
 			"alignment": [
 				"N"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "The Abbot",
@@ -3737,7 +3902,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "The Mad Mage of Mount Baratok",
@@ -3770,7 +3936,7 @@
 				{
 					"name": "Spellcasting",
 					"headerEntries": [
-						"The mad mage is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 17}, {@hit 9} to hit with spell attacks). He can cast disguise self and invisibility at will and has the following wizard spells prepared:"
+						"The mad mage is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 17}, {@hit 9} to hit with spell attacks). He can cast {@spell disguise self} and {@spell invisibility} at will and has the following wizard spells prepared:"
 					],
 					"spells": {
 						"0": {
@@ -3848,9 +4014,17 @@
 							]
 						}
 					},
+					"will": [
+						"{@spell disguise self}",
+						"{@spell invisibility}"
+					],
+					"hidden": [
+						"will"
+					],
 					"ability": "int"
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Thornboldt \"Thorn\" Durst",
@@ -3886,6 +4060,7 @@
 				"Common"
 			],
 			"cr": "3",
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			]
@@ -3973,6 +4148,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"False Appearance",
 				"Siege Monster"
@@ -3989,12 +4165,17 @@
 			],
 			"damageTags": [
 				"B",
-				"P"
+				"P",
+				"S"
 			],
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Vasilka",
@@ -4012,7 +4193,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Victor Vallakovich",
@@ -4040,7 +4222,8 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Vilnius",
@@ -4068,7 +4251,8 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Vladimir Horngaard",
@@ -4180,7 +4364,7 @@
 				{
 					"name": "Greatsword +2",
 					"entries": [
-						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}20 ({@damage 4d6 + 4}) slashing damage. Against Strahd, Vladimir deals an extra 14 ({@damage 4d6}) slashing damage with this weapon."
+						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}20 ({@damage 4d6 + 6}) slashing damage. Against Strahd, Vladimir deals an extra 14 ({@damage 4d6}) slashing damage with this weapon."
 					]
 				},
 				{
@@ -4190,6 +4374,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Regeneration",
 				"Rejuvenation",
@@ -4211,7 +4396,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Volenta Popofsky",
@@ -4229,13 +4415,51 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
+		},
+		{
+			"name": "Walking Corpse",
+			"source": "CoS",
+			"page": 165,
+			"_copy": {
+				"name": "Commoner",
+				"source": "MM",
+				"_mod": {
+					"trait": {
+						"mode": "appendArr",
+						"items": [
+							{
+								"name": "Violent Death",
+								"entries": [
+									"When a corpse is reduced to 0 hit points, it splits open, disgorging a {@creature swarm of poisonous snakes}. The snakes are hungry and fight until slain."
+								]
+							}
+						]
+					}
+				}
+			},
+			"speed": {
+				"walk": 20
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened"
+			]
 		},
 		{
 			"name": "Wereraven",
 			"group": "Lycanthropes",
 			"source": "CoS",
 			"page": 242,
+			"otherSources": [
+				{
+					"source": "CM"
+				},
+				{
+					"source": "VRGR"
+				}
+			],
 			"size": "M",
 			"type": {
 				"type": "humanoid",
@@ -4258,7 +4482,7 @@
 			"speed": {
 				"walk": {
 					"number": 30,
-					"condition": " (fly 50 ft. in raven and hybrid forms)"
+					"condition": "(fly 50 ft. in raven and hybrid forms)"
 				}
 			},
 			"str": 10,
@@ -4272,16 +4496,6 @@
 				"perception": "+6"
 			},
 			"passive": 16,
-			"immune": [
-				{
-					"immune": [
-						"bludgeoning",
-						"piercing",
-						"slashing"
-					],
-					"note": "from nonmagical attacks not made with silvered weapons"
-				}
-			],
 			"languages": [
 				"Common (can't speak in raven form)"
 			],
@@ -4297,6 +4511,12 @@
 					"name": "Mimicry",
 					"entries": [
 						"The wereraven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom (Insight) check."
+					]
+				},
+				{
+					"name": "Regeneration",
+					"entries": [
+						"The wereraven regains 10 hit points at the start of its turn. If the wereraven takes damage from a silvered weapon or a spell, this trait doesn't function at the start of the wereraven's next turn. The wereraven dies only if it starts its turn with 0 hit points and doesn't regenerate."
 					]
 				}
 			],
@@ -4326,8 +4546,13 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
+				"Regeneration",
 				"Shapechanger"
+			],
+			"actionTags": [
+				"Multiattack"
 			],
 			"languageTags": [
 				"C",
@@ -4340,7 +4565,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yevgeni Krushkin",
@@ -4367,7 +4594,8 @@
 			},
 			"alignment": [
 				"N"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Zuleika Toranescu",
@@ -4385,7 +4613,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Zygfrek Belview",
@@ -4417,6 +4646,7 @@
 			"senses": [
 				"darkvision 60 ft."
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			]
