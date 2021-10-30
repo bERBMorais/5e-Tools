@@ -124,11 +124,11 @@ class NavBar {
 		addLi(ulAdventures, "adventure.html", "Wildemount: Tide of Retribution", {isSide: true, aHash: "ToR", date: "2020"});
 		addLi(ulAdventures, "adventure.html", "Wildemount: Unwelcome Spirits", {isSide: true, aHash: "US", date: null});
 		addLi(ulAdventures, "adventure.html", "The Wild Beyond the Witchlight", {isSide: true, aHash: "WBTW", date: "2021"});
+		addLi(ulAdventures, "adventure.html", "Adventures in the Forgotten Realms: In Scarlet Flames", {isSide: true, aHash: "AITFR-ISF", date: null});
+		addLi(ulAdventures, "adventure.html", "Adventures in the Forgotten Realms: The Hidden Page", {isSide: true, aHash: "AITFR-THP", date: null});
 		addLi(ulAdventures, "adventure.html", "Adventures in the Forgotten Realms: A Verdant Tomb", {isSide: true, aHash: "AITFR-AVT", date: null});
 		addLi(ulAdventures, "adventure.html", "Adventures in the Forgotten Realms: Darkest Night", {isSide: true, aHash: "AITFR-DN", date: null});
 		addLi(ulAdventures, "adventure.html", "Adventures in the Forgotten Realms: From Cyan Depths", {isSide: true, aHash: "AITFR-FCD", date: null});
-		addLi(ulAdventures, "adventure.html", "Adventures in the Forgotten Realms: In Scarlet Flames", {isSide: true, aHash: "AITFR-ISF", date: null});
-		addLi(ulAdventures, "adventure.html", "Adventures in the Forgotten Realms: The Hidden Page", {isSide: true, aHash: "AITFR-THP", date: null});
 		addLi(ulDms, "cultsboons.html", "Cults & Supernatural Boons");
 		addLi(ulDms, "objects.html", "Objects");
 		addLi(ulDms, "trapshazards.html", "Traps & Hazards");

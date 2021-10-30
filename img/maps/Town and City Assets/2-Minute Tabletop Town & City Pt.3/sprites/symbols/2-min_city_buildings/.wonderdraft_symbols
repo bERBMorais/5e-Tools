@@ -1,0 +1,275 @@
+{
+    "Arena": {
+        "name": "Arena",
+        "radius": 369,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Bridge, stone": {
+        "name": "Bridge, Stone",
+        "radius": 175,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Bridge, wooden, small": {
+        "name": "Bridge, Wooden, Small",
+        "radius": 50,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Bridge, wooden": {
+        "name": "Bridge, Wooden",
+        "radius": 90,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, ampitheatre": {
+        "name": "Building, Ampitheatre",
+        "radius": 202,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, cathedral": {
+        "name": "Building, Cathedral",
+        "radius": 248,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, church": {
+        "name": "Building, Church",
+        "radius": 180,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, circle": {
+        "name": "Building, Circle",
+        "radius": 146,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, fishing wharf": {
+        "name": "Building, Fishing Wharf",
+        "radius": 317,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, foundry": {
+        "name": "Building, Foundry",
+        "radius": 244,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, guild hall": {
+        "name": "Building, Guild Hall",
+        "radius": 308,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, L-house": {
+        "name": "Building, L-house",
+        "radius": 209,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, library": {
+        "name": "Building, Library",
+        "radius": 247,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, lumber mill": {
+        "name": "Building, Lumber Mill",
+        "radius": 204,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, smith, exterior": {
+        "name": "Building, Smith, Exterior",
+        "radius": 152,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, smith": {
+        "name": "Building, Smith",
+        "radius": 213,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, straw 1": {
+        "name": "Building, Straw 1",
+        "radius": 146,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, straw 2": {
+        "name": "Building, Straw 2",
+        "radius": 158,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, straw 3": {
+        "name": "Building, Straw 3",
+        "radius": 175,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, straw 4": {
+        "name": "Building, Straw 4",
+        "radius": 143,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, straw 5": {
+        "name": "Building, Straw 5",
+        "radius": 189,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, tower, circle": {
+        "name": "Building, Tower, Circle",
+        "radius": 76,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, tower, square, small": {
+        "name": "Building, Tower, Square, Small",
+        "radius": 79,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, tower, square": {
+        "name": "Building, Tower, Square",
+        "radius": 149,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, water mill": {
+        "name": "Building, Water Mill",
+        "radius": 227,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Building, windmill": {
+        "name": "Building, Windmill",
+        "radius": 139,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Mine tracks, bend": {
+        "name": "Mine Tracks, Bend",
+        "radius": 57,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Mine tracks, straight": {
+        "name": "Mine Tracks, Straight",
+        "radius": 28,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Mine": {
+        "name": "Mine",
+        "radius": 134,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Palisade gate": {
+        "name": "Palisade Gate",
+        "radius": 88,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Palisade tower": {
+        "name": "Palisade Tower",
+        "radius": 114,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Palisade, long": {
+        "name": "Palisade, Long",
+        "radius": 60,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Palisade, short": {
+        "name": "Palisade, Short",
+        "radius": 64,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Quarry": {
+        "name": "Quarry",
+        "radius": 255,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Tents, large": {
+        "name": "Tents, Large",
+        "radius": 123,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Tents, market, small": {
+        "name": "Tents, Market, Small",
+        "radius": 108,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Tents, market": {
+        "name": "Tents, Market",
+        "radius": 201,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Tents": {
+        "name": "Tents",
+        "radius": 88,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Wagon": {
+        "name": "Wagon",
+        "radius": 77,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    }
+}

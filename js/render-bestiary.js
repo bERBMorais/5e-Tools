@@ -16,6 +16,7 @@ class RenderBestiary {
 			renderer.recursiveRender(toRender, renderStack, {depth: sectionLevel});
 		} else {
 			sectionEntries.forEach(e => {
+				// TODO: Inject here for attack rolls
 				if (e.rendered) renderStack.push(e.rendered);
 				else renderer.recursiveRender(e, renderStack, {depth: sectionLevel + 1});
 			});
