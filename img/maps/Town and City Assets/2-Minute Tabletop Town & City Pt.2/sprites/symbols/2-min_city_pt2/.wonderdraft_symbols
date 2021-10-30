@@ -1,0 +1,905 @@
+{
+    "1": {
+        "name": "1",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "2": {
+        "name": "2",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "3": {
+        "name": "3",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "4": {
+        "name": "4",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "5": {
+        "name": "5",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "6": {
+        "name": "6",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "7": {
+        "name": "7",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "8": {
+        "name": "8",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "9": {
+        "name": "9",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "10": {
+        "name": "10",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "11": {
+        "name": "11",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "12": {
+        "name": "12",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "13": {
+        "name": "13",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "14": {
+        "name": "14",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "15": {
+        "name": "15",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "16": {
+        "name": "16",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "17": {
+        "name": "17",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "18": {
+        "name": "18",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "19": {
+        "name": "19",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "20": {
+        "name": "20",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "21": {
+        "name": "21",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "22": {
+        "name": "22",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "23": {
+        "name": "23",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "24": {
+        "name": "24",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "25": {
+        "name": "25",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "26": {
+        "name": "26",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "27": {
+        "name": "27",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "28": {
+        "name": "28",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "29": {
+        "name": "29",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "30": {
+        "name": "30",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "31": {
+        "name": "31",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "32": {
+        "name": "32",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "33": {
+        "name": "33",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "34": {
+        "name": "34",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "35": {
+        "name": "35",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "36": {
+        "name": "36",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "37": {
+        "name": "37",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "38": {
+        "name": "38",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "39": {
+        "name": "39",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "40": {
+        "name": "40",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "41": {
+        "name": "41",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "42": {
+        "name": "42",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "43": {
+        "name": "43",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "44": {
+        "name": "44",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "45": {
+        "name": "45",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "46": {
+        "name": "46",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "47": {
+        "name": "47",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "48": {
+        "name": "48",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "49": {
+        "name": "49",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "50": {
+        "name": "50",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "51": {
+        "name": "51",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "52": {
+        "name": "52",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "53": {
+        "name": "53",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "54": {
+        "name": "54",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "55": {
+        "name": "55",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "56": {
+        "name": "56",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "57": {
+        "name": "57",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "58": {
+        "name": "58",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "59": {
+        "name": "59",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "60": {
+        "name": "60",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "61": {
+        "name": "61",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "62": {
+        "name": "62",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "63": {
+        "name": "63",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "64": {
+        "name": "64",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "65": {
+        "name": "65",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "66": {
+        "name": "66",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "67": {
+        "name": "67",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "68": {
+        "name": "68",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "69": {
+        "name": "69",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "70": {
+        "name": "70",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "71": {
+        "name": "71",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "72": {
+        "name": "72",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "73": {
+        "name": "73",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "74": {
+        "name": "74",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "75": {
+        "name": "75",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "76": {
+        "name": "76",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "77": {
+        "name": "77",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "78": {
+        "name": "78",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "79": {
+        "name": "79",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "80": {
+        "name": "80",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "81": {
+        "name": "81",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "82": {
+        "name": "82",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "83": {
+        "name": "83",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "84": {
+        "name": "84",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "85": {
+        "name": "85",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "86": {
+        "name": "86",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "87": {
+        "name": "87",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "88": {
+        "name": "88",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "89": {
+        "name": "89",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "90": {
+        "name": "90",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "91": {
+        "name": "91",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "92": {
+        "name": "92",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "93": {
+        "name": "93",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "94": {
+        "name": "94",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "95": {
+        "name": "95",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "96": {
+        "name": "96",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "97": {
+        "name": "97",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "98": {
+        "name": "98",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "99": {
+        "name": "99",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "100": {
+        "name": "100",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "101": {
+        "name": "101",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "102": {
+        "name": "102",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "103": {
+        "name": "103",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "104": {
+        "name": "104",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "105": {
+        "name": "105",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "106": {
+        "name": "106",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "107": {
+        "name": "107",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "108": {
+        "name": "108",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "109": {
+        "name": "109",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "110": {
+        "name": "110",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "111": {
+        "name": "111",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "112": {
+        "name": "112",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "113": {
+        "name": "113",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "114": {
+        "name": "114",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "115": {
+        "name": "115",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "116": {
+        "name": "116",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "117": {
+        "name": "117",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "118": {
+        "name": "118",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "119": {
+        "name": "119",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "120": {
+        "name": "120",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "121": {
+        "name": "121",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "122": {
+        "name": "122",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "123": {
+        "name": "123",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "124": {
+        "name": "124",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "125": {
+        "name": "125",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "126": {
+        "name": "126",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "27": {
+        "name": "27",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "128": {
+        "name": "128",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "129": {
+        "name": "129",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+}

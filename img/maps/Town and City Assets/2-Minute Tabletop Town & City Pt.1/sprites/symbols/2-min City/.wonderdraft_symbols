@@ -1,0 +1,1003 @@
+{
+    "Arena, murder tamborine, blue": {
+        "name": "Arena, Murder Tamborine, Blue",
+        "radius": 298,
+        "offset_x": 0,
+        "offset_y": -140,
+        "draw_mode": "normal"
+    },
+    "Arena, murder tamborine, red": {
+        "name": "Arena, Murder Tamborine, Red",
+        "radius": 298,
+        "offset_x": 0,
+        "offset_y": -140,
+        "draw_mode": "normal"
+    },
+    "Barrel, 1": {
+        "name": "Barrel, 1",
+        "radius": 36,
+        "offset_x": 0,
+        "offset_y": -17,
+        "draw_mode": "normal"
+    },
+    "Barrel, 2": {
+        "name": "Barrel, 2",
+        "radius": 38,
+        "offset_x": 0,
+        "offset_y": -13,
+        "draw_mode": "normal"
+    },
+    "Barrel, 3": {
+        "name": "Barrel, 3",
+        "radius": 50,
+        "offset_x": 0,
+        "offset_y": -22,
+        "draw_mode": "normal"
+    },
+    "Building 1, blue": {
+        "name": "Building 1, Blue",
+        "radius": 129,
+        "offset_x": 0,
+        "offset_y": -50,
+        "draw_mode": "normal"
+    },
+    "Building 1, red": {
+        "name": "Building 1, Red",
+        "radius": 129,
+        "offset_x": 0,
+        "offset_y": -50,
+        "draw_mode": "normal"
+    },
+    "Building 10, blue": {
+        "name": "Building 10, Blue",
+        "radius": 117,
+        "offset_x": 0,
+        "offset_y": -106,
+        "draw_mode": "normal"
+    },
+    "Building 10, red": {
+        "name": "Building 10, Red",
+        "radius": 117,
+        "offset_x": 0,
+        "offset_y": -106,
+        "draw_mode": "normal"
+    },
+    "Building 11, blue": {
+        "name": "Building 11, Blue",
+        "radius": 119,
+        "offset_x": 0,
+        "offset_y": -100,
+        "draw_mode": "normal"
+    },
+    "Building 11, red": {
+        "name": "Building 11, Red",
+        "radius": 119,
+        "offset_x": 0,
+        "offset_y": -100,
+        "draw_mode": "normal"
+    },
+    "Building 12, blue": {
+        "name": "Building 12, Blue",
+        "radius": 101,
+        "offset_x": 0,
+        "offset_y": -31,
+        "draw_mode": "normal"
+    },
+    "Building 12, red": {
+        "name": "Building 12, Red",
+        "radius": 101,
+        "offset_x": 0,
+        "offset_y": -31,
+        "draw_mode": "normal"
+    },
+    "Building 13, blue": {
+        "name": "Building 13, Blue",
+        "radius": 131,
+        "offset_x": 0,
+        "offset_y": -55,
+        "draw_mode": "normal"
+    },
+    "Building 13, red": {
+        "name": "Building 13, Red",
+        "radius": 131,
+        "offset_x": 0,
+        "offset_y": -55,
+        "draw_mode": "normal"
+    },
+    "Building 14, blue": {
+        "name": "Building 14, Blue",
+        "radius": 120,
+        "offset_x": 0,
+        "offset_y": -44,
+        "draw_mode": "normal"
+    },
+    "Building 14, red": {
+        "name": "Building 14, Red",
+        "radius": 120,
+        "offset_x": 0,
+        "offset_y": -44,
+        "draw_mode": "normal"
+    },
+    "Building 15, blue": {
+        "name": "Building 15, Blue",
+        "radius": 110,
+        "offset_x": 0,
+        "offset_y": -74,
+        "draw_mode": "normal"
+    },
+    "Building 15, red": {
+        "name": "Building 15, Red",
+        "radius": 110,
+        "offset_x": 0,
+        "offset_y": -74,
+        "draw_mode": "normal"
+    },
+    "Building 16, blue": {
+        "name": "Building 16, Blue",
+        "radius": 121,
+        "offset_x": 0,
+        "offset_y": -41,
+        "draw_mode": "normal"
+    },
+    "Building 16, red": {
+        "name": "Building 16, Red",
+        "radius": 121,
+        "offset_x": 0,
+        "offset_y": -41,
+        "draw_mode": "normal"
+    },
+    "Building 17, blue": {
+        "name": "Building 17, Blue",
+        "radius": 125,
+        "offset_x": 0,
+        "offset_y": -48,
+        "draw_mode": "normal"
+    },
+    "Building 17, red": {
+        "name": "Building 17, Red",
+        "radius": 125,
+        "offset_x": 0,
+        "offset_y": -48,
+        "draw_mode": "normal"
+    },
+    "Building 18, blue": {
+        "name": "Building 18, Blue",
+        "radius": 90,
+        "offset_x": 0,
+        "offset_y": -25,
+        "draw_mode": "normal"
+    },
+    "Building 18, red": {
+        "name": "Building 18, Red",
+        "radius": 90,
+        "offset_x": 0,
+        "offset_y": -25,
+        "draw_mode": "normal"
+    },
+    "Building 19, blue": {
+        "name": "Building 19, Blue",
+        "radius": 136,
+        "offset_x": 0,
+        "offset_y": -66,
+        "draw_mode": "normal"
+    },
+    "Building 19, red": {
+        "name": "Building 19, Red",
+        "radius": 136,
+        "offset_x": 0,
+        "offset_y": -66,
+        "draw_mode": "normal"
+    },
+    "Building 2, blue": {
+        "name": "Building 2, Blue",
+        "radius": 90,
+        "offset_x": 0,
+        "offset_y": -33,
+        "draw_mode": "normal"
+    },
+    "Building 2, red": {
+        "name": "Building 2, Red",
+        "radius": 90,
+        "offset_x": 0,
+        "offset_y": -33,
+        "draw_mode": "normal"
+    },
+    "Building 20, blue": {
+        "name": "Building 20, Blue",
+        "radius": 124,
+        "offset_x": 0,
+        "offset_y": -56,
+        "draw_mode": "normal"
+    },
+    "Building 20, red": {
+        "name": "Building 20, Red",
+        "radius": 124,
+        "offset_x": 0,
+        "offset_y": -56,
+        "draw_mode": "normal"
+    },
+    "Building 21, blue": {
+        "name": "Building 21, Blue",
+        "radius": 94,
+        "offset_x": 0,
+        "offset_y": -58,
+        "draw_mode": "normal"
+    },
+    "Building 21, red": {
+        "name": "Building 21, Red",
+        "radius": 94,
+        "offset_x": 0,
+        "offset_y": -58,
+        "draw_mode": "normal"
+    },
+    "Building 22, blue": {
+        "name": "Building 22, Blue",
+        "radius": 105,
+        "offset_x": 0,
+        "offset_y": -38,
+        "draw_mode": "normal"
+    },
+    "Building 22, red": {
+        "name": "Building 22, Red",
+        "radius": 105,
+        "offset_x": 0,
+        "offset_y": -38,
+        "draw_mode": "normal"
+    },
+    "Building 23, blue": {
+        "name": "Building 23, Blue",
+        "radius": 172,
+        "offset_x": 0,
+        "offset_y": -76,
+        "draw_mode": "normal"
+    },
+    "Building 23, red": {
+        "name": "Building 23, Red",
+        "radius": 172,
+        "offset_x": 0,
+        "offset_y": -76,
+        "draw_mode": "normal"
+    },
+    "Building 24, blue": {
+        "name": "Building 24, Blue",
+        "radius": 112,
+        "offset_x": 0,
+        "offset_y": -31,
+        "draw_mode": "normal"
+    },
+    "Building 24, red": {
+        "name": "Building 24, Red",
+        "radius": 112,
+        "offset_x": 0,
+        "offset_y": -31,
+        "draw_mode": "normal"
+    },
+    "Building 25, blue": {
+        "name": "Building 25, Blue",
+        "radius": 148,
+        "offset_x": 0,
+        "offset_y": -51,
+        "draw_mode": "normal"
+    },
+    "Building 25, red": {
+        "name": "Building 25, Red",
+        "radius": 148,
+        "offset_x": 0,
+        "offset_y": -51,
+        "draw_mode": "normal"
+    },
+    "Building 26, blue": {
+        "name": "Building 26, Blue",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -20,
+        "draw_mode": "normal"
+    },
+    "Building 26, red": {
+        "name": "Building 26, Red",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -20,
+        "draw_mode": "normal"
+    },
+    "Building 27, blue": {
+        "name": "Building 27, Blue",
+        "radius": 98,
+        "offset_x": 0,
+        "offset_y": -36,
+        "draw_mode": "normal"
+    },
+    "Building 27, red": {
+        "name": "Building 27, Red",
+        "radius": 98,
+        "offset_x": 0,
+        "offset_y": -36,
+        "draw_mode": "normal"
+    },
+    "Building 29, blue": {
+        "name": "Building 29, Blue",
+        "radius": 99,
+        "offset_x": 0,
+        "offset_y": -91,
+        "draw_mode": "normal"
+    },
+    "Building 29, red": {
+        "name": "Building 29, Red",
+        "radius": 99,
+        "offset_x": 0,
+        "offset_y": -91,
+        "draw_mode": "normal"
+    },
+    "Building 3, blue": {
+        "name": "Building 3, Blue",
+        "radius": 108,
+        "offset_x": 0,
+        "offset_y": -64,
+        "draw_mode": "normal"
+    },
+    "Building 3, red": {
+        "name": "Building 3, Red",
+        "radius": 108,
+        "offset_x": 0,
+        "offset_y": -64,
+        "draw_mode": "normal"
+    },
+    "Building 30, blue": {
+        "name": "Building 30, Blue",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -46,
+        "draw_mode": "normal"
+    },
+    "Building 30, red": {
+        "name": "Building 30, Red",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -46,
+        "draw_mode": "normal"
+    },
+    "Building 31, blue": {
+        "name": "Building 31, Blue",
+        "radius": 133,
+        "offset_x": 0,
+        "offset_y": -52,
+        "draw_mode": "normal"
+    },
+    "Building 31, red": {
+        "name": "Building 31, Red",
+        "radius": 133,
+        "offset_x": 0,
+        "offset_y": -52,
+        "draw_mode": "normal"
+    },
+    "Building 32, blue": {
+        "name": "Building 32, Blue",
+        "radius": 116,
+        "offset_x": 0,
+        "offset_y": -52,
+        "draw_mode": "normal"
+    },
+    "Building 32, red": {
+        "name": "Building 32, Red",
+        "radius": 116,
+        "offset_x": 0,
+        "offset_y": -52,
+        "draw_mode": "normal"
+    },
+    "Building 33, blue": {
+        "name": "Building 33, Blue",
+        "radius": 88,
+        "offset_x": 0,
+        "offset_y": -30,
+        "draw_mode": "normal"
+    },
+    "Building 33, red": {
+        "name": "Building 33, Red",
+        "radius": 88,
+        "offset_x": 0,
+        "offset_y": -30,
+        "draw_mode": "normal"
+    },
+    "Building 34, blue": {
+        "name": "Building 34, Blue",
+        "radius": 106,
+        "offset_x": 0,
+        "offset_y": -40,
+        "draw_mode": "normal"
+    },
+    "Building 34, red": {
+        "name": "Building 34, Red",
+        "radius": 106,
+        "offset_x": 0,
+        "offset_y": -40,
+        "draw_mode": "normal"
+    },
+    "Building 35, blue": {
+        "name": "Building 35, Blue",
+        "radius": 140,
+        "offset_x": 0,
+        "offset_y": -71,
+        "draw_mode": "normal"
+    },
+    "Building 35, red": {
+        "name": "Building 35, Red",
+        "radius": 140,
+        "offset_x": 0,
+        "offset_y": -71,
+        "draw_mode": "normal"
+    },
+    "Building 36, blue": {
+        "name": "Building 36, Blue",
+        "radius": 85,
+        "offset_x": 0,
+        "offset_y": -48,
+        "draw_mode": "normal"
+    },
+    "Building 36, red": {
+        "name": "Building 36, Red",
+        "radius": 85,
+        "offset_x": 0,
+        "offset_y": -48,
+        "draw_mode": "normal"
+    },
+    "Building 37, blue": {
+        "name": "Building 37, Blue",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -58,
+        "draw_mode": "normal"
+    },
+    "Building 37, red": {
+        "name": "Building 37, Red",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -58,
+        "draw_mode": "normal"
+    },
+    "Building 4, blue": {
+        "name": "Building 4, Blue",
+        "radius": 130,
+        "offset_x": 0,
+        "offset_y": -102,
+        "draw_mode": "normal"
+    },
+    "Building 5, blue": {
+        "name": "Building 5, Blue",
+        "radius": 131,
+        "offset_x": 0,
+        "offset_y": -51,
+        "draw_mode": "normal"
+    },
+    "Building 5, red": {
+        "name": "Building 5, Red",
+        "radius": 131,
+        "offset_x": 0,
+        "offset_y": -51,
+        "draw_mode": "normal"
+    },
+    "Building 6, blue": {
+        "name": "Building 6, Blue",
+        "radius": 91,
+        "offset_x": 0,
+        "offset_y": -28,
+        "draw_mode": "normal"
+    },
+    "Building 6, red": {
+        "name": "Building 6, Red",
+        "radius": 91,
+        "offset_x": 0,
+        "offset_y": -28,
+        "draw_mode": "normal"
+    },
+    "Building 7, blue": {
+        "name": "Building 7, Blue",
+        "radius": 136,
+        "offset_x": 0,
+        "offset_y": -37,
+        "draw_mode": "normal"
+    },
+    "Building 7, red": {
+        "name": "Building 7, Red",
+        "radius": 136,
+        "offset_x": 0,
+        "offset_y": -37,
+        "draw_mode": "normal"
+    },
+    "Building 8, blue": {
+        "name": "Building 8, Blue",
+        "radius": 87,
+        "offset_x": 0,
+        "offset_y": -38,
+        "draw_mode": "normal"
+    },
+    "Building 8, red": {
+        "name": "Building 8, Red",
+        "radius": 87,
+        "offset_x": 0,
+        "offset_y": -38,
+        "draw_mode": "normal"
+    },
+    "Building 9, blue": {
+        "name": "Building 9, Blue",
+        "radius": 151,
+        "offset_x": 0,
+        "offset_y": -57,
+        "draw_mode": "normal"
+    },
+    "Building 9, red": {
+        "name": "Building 9, Red",
+        "radius": 151,
+        "offset_x": 0,
+        "offset_y": -57,
+        "draw_mode": "normal"
+    },
+    "Building, construction site": {
+        "name": "Building, Construction Site",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -26,
+        "draw_mode": "normal"
+    },
+    "Campfire": {
+        "name": "Campfire",
+        "radius": 44,
+        "offset_x": 0,
+        "offset_y": -21,
+        "draw_mode": "normal"
+    },
+    "Crate, 1": {
+        "name": "Crate, 1",
+        "radius": 45,
+        "offset_x": 0,
+        "offset_y": -20,
+        "draw_mode": "normal"
+    },
+    "Crate, 2": {
+        "name": "Crate, 2",
+        "radius": 47,
+        "offset_x": 0,
+        "offset_y": -21,
+        "draw_mode": "normal"
+    },
+    "Crate, 3": {
+        "name": "Crate, 3",
+        "radius": 54,
+        "offset_x": 0,
+        "offset_y": -19,
+        "draw_mode": "normal"
+    },
+    "Crate, 4": {
+        "name": "Crate, 4",
+        "radius": 70,
+        "offset_x": 0,
+        "offset_y": -32,
+        "draw_mode": "normal"
+    },
+    "Fence, diagonal 1": {
+        "name": "Fence, Diagonal 1",
+        "radius": 130,
+        "offset_x": 0,
+        "offset_y": -78,
+        "draw_mode": "normal"
+    },
+    "Fence, diagonal 2": {
+        "name": "Fence, Diagonal 2",
+        "radius": 78,
+        "offset_x": 0,
+        "offset_y": -152,
+        "draw_mode": "normal"
+    },
+    "Fence, horizontal": {
+        "name": "Fence, Horizontal",
+        "radius": 38,
+        "offset_x": 0,
+        "offset_y": -4,
+        "draw_mode": "normal"
+    },
+    "Fence, stone": {
+        "name": "Fence, Stone",
+        "radius": 42,
+        "offset_x": 0,
+        "offset_y": -200,
+        "draw_mode": "normal"
+    },
+    "Fence, vertical": {
+        "name": "Fence, Vertical",
+        "radius": 33,
+        "offset_x": 0,
+        "offset_y": -272,
+        "draw_mode": "normal"
+    },
+    "Fountain": {
+        "name": "Fountain",
+        "radius": 92,
+        "offset_x": 0,
+        "offset_y": -47,
+        "draw_mode": "normal"
+    },
+    "Keep": {
+        "name": "Keep",
+        "radius": 325,
+        "offset_x": 0,
+        "offset_y": -150,
+        "draw_mode": "normal"
+    },
+    "Path, 1": {
+        "name": "Path, 1",
+        "radius": 73,
+        "offset_x": 0,
+        "offset_y": -146,
+        "draw_mode": "normal"
+    },
+    "Path, 2": {
+        "name": "Path, 2",
+        "radius": 73,
+        "offset_x": 0,
+        "offset_y": -146,
+        "draw_mode": "normal"
+    },
+    "Path, 3": {
+        "name": "Path, 3",
+        "radius": 73,
+        "offset_x": 0,
+        "offset_y": -146,
+        "draw_mode": "normal"
+    },
+    "Path, bend, gentle": {
+        "name": "Path, Bend, Gentle",
+        "radius": 117,
+        "offset_x": 0,
+        "offset_y": -240,
+        "draw_mode": "normal"
+    },
+    "Path, bend, sharp": {
+        "name": "Path, Bend, Sharp",
+        "radius": 126,
+        "offset_x": 0,
+        "offset_y": -67,
+        "draw_mode": "normal"
+    },
+    "Path, bridge, long": {
+        "name": "Path, Bridge, Long",
+        "radius": 89,
+        "offset_x": 0,
+        "offset_y": -172,
+        "draw_mode": "normal"
+    },
+    "Path, bridge, short": {
+        "name": "Path, Bridge, Short",
+        "radius": 85,
+        "offset_x": 0,
+        "offset_y": -79,
+        "draw_mode": "normal"
+    },
+    "Path, crossroad": {
+        "name": "Path, Crossroad",
+        "radius": 200,
+        "offset_x": 0,
+        "offset_y": -113,
+        "draw_mode": "normal"
+    },
+    "Path, jetty, long": {
+        "name": "Path, Jetty, Long",
+        "radius": 57,
+        "offset_x": 0,
+        "offset_y": -285,
+        "draw_mode": "normal"
+    },
+    "Path, jetty, short": {
+        "name": "Path, Jetty, Short",
+        "radius": 56,
+        "offset_x": 0,
+        "offset_y": -81,
+        "draw_mode": "normal"
+    },
+    "Path, t-junction": {
+        "name": "Path, T-junction",
+        "radius": 150,
+        "offset_x": 0,
+        "offset_y": -50,
+        "draw_mode": "normal"
+    },
+    "Shack 1, blue": {
+        "name": "Shack 1, Blue",
+        "radius": 65,
+        "offset_x": 0,
+        "offset_y": -30,
+        "draw_mode": "normal"
+    },
+    "Shack 1, red": {
+        "name": "Shack 1, Red",
+        "radius": 65,
+        "offset_x": 0,
+        "offset_y": -30,
+        "draw_mode": "normal"
+    },
+    "Shack 2, blue": {
+        "name": "Shack 2, Blue",
+        "radius": 55,
+        "offset_x": 0,
+        "offset_y": -25,
+        "draw_mode": "normal"
+    },
+    "Shack 2, red": {
+        "name": "Shack 2, Red",
+        "radius": 55,
+        "offset_x": 0,
+        "offset_y": -25,
+        "draw_mode": "normal"
+    },
+    "Shack 3, blue": {
+        "name": "Shack 3, Blue",
+        "radius": 75,
+        "offset_x": 0,
+        "offset_y": -47,
+        "draw_mode": "normal"
+    },
+    "Shack 3, red": {
+        "name": "Shack 3, Red",
+        "radius": 75,
+        "offset_x": 0,
+        "offset_y": -47,
+        "draw_mode": "normal"
+    },
+    "Shack 4, blue": {
+        "name": "Shack 4, Blue",
+        "radius": 61,
+        "offset_x": 0,
+        "offset_y": -32,
+        "draw_mode": "normal"
+    },
+    "Shack 4, red": {
+        "name": "Shack 4, Red",
+        "radius": 61,
+        "offset_x": 0,
+        "offset_y": -32,
+        "draw_mode": "normal"
+    },
+    "Shack 5, blue": {
+        "name": "Shack 5, Blue",
+        "radius": 53,
+        "offset_x": 0,
+        "offset_y": -26,
+        "draw_mode": "normal"
+    },
+    "Shack 5, red": {
+        "name": "Shack 5, Red",
+        "radius": 53,
+        "offset_x": 0,
+        "offset_y": -26,
+        "draw_mode": "normal"
+    },
+    "Shack 6, blue": {
+        "name": "Shack 6, Blue",
+        "radius": 72,
+        "offset_x": 0,
+        "offset_y": -34,
+        "draw_mode": "normal"
+    },
+    "Shack 6, red": {
+        "name": "Shack 6, Red",
+        "radius": 72,
+        "offset_x": 0,
+        "offset_y": -34,
+        "draw_mode": "normal"
+    },
+    "Ship, large": {
+        "name": "Ship, Large",
+        "radius": 113,
+        "offset_x": 0,
+        "offset_y": -178,
+        "draw_mode": "normal"
+    },
+    "Ship, rowboat": {
+        "name": "Ship, Rowboat",
+        "radius": 56,
+        "offset_x": 0,
+        "offset_y": -50,
+        "draw_mode": "normal"
+    },
+    "Shrine, blue": {
+        "name": "Shrine, Blue",
+        "radius": 108,
+        "offset_x": 0,
+        "offset_y": -87,
+        "draw_mode": "normal"
+    },
+    "Shrine, red": {
+        "name": "Shrine, Red",
+        "radius": 108,
+        "offset_x": 0,
+        "offset_y": -87,
+        "draw_mode": "normal"
+    },
+    "Tent 1": {
+        "name": "Tent 1",
+        "radius": 62,
+        "offset_x": 0,
+        "offset_y": -34,
+        "draw_mode": "normal"
+    },
+    "Tent 2": {
+        "name": "Tent 2",
+        "radius": 102,
+        "offset_x": 0,
+        "offset_y": -51,
+        "draw_mode": "normal"
+    },
+    "Tent 3": {
+        "name": "Tent 3",
+        "radius": 63,
+        "offset_x": 0,
+        "offset_y": -39,
+        "draw_mode": "normal"
+    },
+    "Tent 4": {
+        "name": "Tent 4",
+        "radius": 63,
+        "offset_x": 0,
+        "offset_y": -39,
+        "draw_mode": "normal"
+    },
+    "Tower 1, blue": {
+        "name": "Tower 1, Blue",
+        "radius": 87,
+        "offset_x": 0,
+        "offset_y": -41,
+        "draw_mode": "normal"
+    },
+    "Tower 1, red": {
+        "name": "Tower 1, Red",
+        "radius": 87,
+        "offset_x": 0,
+        "offset_y": -41,
+        "draw_mode": "normal"
+    },
+    "Tower 2, blue": {
+        "name": "Tower 2, Blue",
+        "radius": 116,
+        "offset_x": 0,
+        "offset_y": -56,
+        "draw_mode": "normal"
+    },
+    "Tower 2, red": {
+        "name": "Tower 2, Red",
+        "radius": 116,
+        "offset_x": 0,
+        "offset_y": -56,
+        "draw_mode": "normal"
+    },
+    "Trees, 1, 1": {
+        "name": "Trees, 1, 1",
+        "radius": 50,
+        "offset_x": 0,
+        "offset_y": -24,
+        "draw_mode": "normal"
+    },
+    "Trees, 1, 2": {
+        "name": "Trees, 1, 2",
+        "radius": 62,
+        "offset_x": 0,
+        "offset_y": -28,
+        "draw_mode": "normal"
+    },
+    "Trees, 1, 3": {
+        "name": "Trees, 1, 3",
+        "radius": 63,
+        "offset_x": 0,
+        "offset_y": -35,
+        "draw_mode": "normal"
+    },
+    "Trees, 1, 4": {
+        "name": "Trees, 1, 4",
+        "radius": 62,
+        "offset_x": 0,
+        "offset_y": -33,
+        "draw_mode": "normal"
+    },
+    "Trees, 1, 5": {
+        "name": "Trees, 1, 5",
+        "radius": 62,
+        "offset_x": 0,
+        "offset_y": -33,
+        "draw_mode": "normal"
+    },
+    "Trees, 2, 1": {
+        "name": "Trees, 2, 1",
+        "radius": 62,
+        "offset_x": 0,
+        "offset_y": -81,
+        "draw_mode": "normal"
+    },
+    "Trees, 2, 2": {
+        "name": "Trees, 2, 2",
+        "radius": 80,
+        "offset_x": 0,
+        "offset_y": -33,
+        "draw_mode": "normal"
+    },
+    "Trees, 3, 1": {
+        "name": "Trees, 3, 1",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": -34,
+        "draw_mode": "normal"
+    },
+    "Trees, 3, 2": {
+        "name": "Trees, 3, 2",
+        "radius": 99,
+        "offset_x": 0,
+        "offset_y": -45,
+        "draw_mode": "normal"
+    },
+    "Trees, 3, 3": {
+        "name": "Trees, 3, 3",
+        "radius": 108,
+        "offset_x": 0,
+        "offset_y": -50,
+        "draw_mode": "normal"
+    },
+    "Trees, 3, 4": {
+        "name": "Trees, 3, 4",
+        "radius": 98,
+        "offset_x": 0,
+        "offset_y": -44,
+        "draw_mode": "normal"
+    },
+    "Trees, 3, 5": {
+        "name": "Trees, 3, 5",
+        "radius": 100,
+        "offset_x": 0,
+        "offset_y": -46,
+        "draw_mode": "normal"
+    },
+    "Wagon 1, blue": {
+        "name": "Wagon 1, Blue",
+        "radius": 58,
+        "offset_x": 0,
+        "offset_y": -70,
+        "draw_mode": "normal"
+    },
+    "Wagon 1, red": {
+        "name": "Wagon 1, Red",
+        "radius": 58,
+        "offset_x": 0,
+        "offset_y": -70,
+        "draw_mode": "normal"
+    },
+    "Wagon 2, hand cart": {
+        "name": "Wagon 2, Hand Cart",
+        "radius": 36,
+        "offset_x": 0,
+        "offset_y": -35,
+        "draw_mode": "normal"
+    },
+    "Wall section, tower, round": {
+        "name": "Wall Section, Tower, Round",
+        "radius": 145,
+        "offset_x": 0,
+        "offset_y": -68,
+        "draw_mode": "normal"
+    },
+    "Wall section, tower, square": {
+        "name": "Wall Section, Tower, Square",
+        "radius": 127,
+        "offset_x": 0,
+        "offset_y": -61,
+        "draw_mode": "normal"
+    },
+    "Wall section": {
+        "name": "Wall Section",
+        "radius": 106,
+        "offset_x": 0,
+        "offset_y": -144,
+        "draw_mode": "normal"
+    },
+    "Well": {
+        "name": "Well",
+        "radius": 46,
+        "offset_x": 0,
+        "offset_y": -24,
+        "draw_mode": "normal"
+    }
+}

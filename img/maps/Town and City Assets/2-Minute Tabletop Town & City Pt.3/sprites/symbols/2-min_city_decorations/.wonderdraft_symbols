@@ -1,0 +1,170 @@
+{
+    "Banner 1": {
+        "name": "Banner 1",
+        "radius": 61,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Banner 2": {
+        "name": "Banner 2",
+        "radius": 42,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Banner 3": {
+        "name": "Banner 3",
+        "radius": 56,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Canal, bend": {
+        "name": "Canal, Bend",
+        "radius": 92,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Canal, corner": {
+        "name": "Canal, Corner",
+        "radius": 96,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Canal, intersection": {
+        "name": "Canal, Intersection",
+        "radius": 104,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Canal, junction": {
+        "name": "Canal, Junction",
+        "radius": 98,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Canal, straight": {
+        "name": "Canal, Straight",
+        "radius": 86,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Chimney 1": {
+        "name": "Chimney 1",
+        "radius": 146,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Chimney 2": {
+        "name": "Chimney 2",
+        "radius": 111,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Chimney 3": {
+        "name": "Chimney 3",
+        "radius": 143,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Monument": {
+        "name": "Monument",
+        "radius": 75,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Park, garden": {
+        "name": "Park, Garden",
+        "radius": 210,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Ship, large": {
+        "name": "Ship, Large",
+        "radius": 101,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Ship, small": {
+        "name": "Ship, Small",
+        "radius": 27,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Staircase, narrow": {
+        "name": "Staircase, Narrow",
+        "radius": 56,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Staircase, staggered": {
+        "name": "Staircase, Staggered",
+        "radius": 75,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Staircase, wide": {
+        "name": "Staircase, Wide",
+        "radius": 104,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Trees, grove": {
+        "name": "Trees, Grove",
+        "radius": 221,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Trees, scattered": {
+        "name": "Trees, Scattered",
+        "radius": 154,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Trees, single, large": {
+        "name": "Trees, Single, Large",
+        "radius": 51,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Trees, single, small": {
+        "name": "Trees, Single, Small",
+        "radius": 41,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Trees, trio 1": {
+        "name": "Trees, Trio 1",
+        "radius": 94,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Trees, trio 2": {
+        "name": "Trees, Trio 2",
+        "radius": 92,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    }
+}

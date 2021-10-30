@@ -1,0 +1,51 @@
+{
+    "Cliff, cave entrance": {
+        "name": "Cliff, Cave Entrance",
+        "radius": 100,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Cliff, short, bend, gentle": {
+        "name": "Cliff, Short, Bend, Gentle",
+        "radius": 96,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Cliff, short, bend": {
+        "name": "Cliff, Short, Bend",
+        "radius": 142,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Cliff, short, straight": {
+        "name": "Cliff, Short, Straight",
+        "radius": 105,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Cliff, tall, bend, gentle": {
+        "name": "Cliff, Tall, Bend, Gentle",
+        "radius": 161,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Cliff, tall, bend": {
+        "name": "Cliff, Tall, Bend",
+        "radius": 215,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    },
+    "Cliff, tall, straight": {
+        "name": "Cliff, Tall, Straight",
+        "radius": 136,
+        "offset_x": 0,
+        "offset_y": 0,
+        "draw_mode": "normal"
+    }
+}
