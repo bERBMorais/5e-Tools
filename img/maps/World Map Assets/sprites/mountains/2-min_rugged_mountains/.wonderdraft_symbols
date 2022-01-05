@@ -1,7 +1,0 @@
-{
-    "name": "2-Min Rugged Mountains",
-    "radius": 200,
-    "offset_x": 0,
-    "offset_y": 0,
-    "draw_mode": "sample_color"
-}
