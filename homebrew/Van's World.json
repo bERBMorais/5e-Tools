@@ -1863,7 +1863,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Thessalar.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Thessalar.png"
 		},
 		{
 			"name": "Bandit Archer",
@@ -1921,7 +1921,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bandit%20Archer.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Bandit%20Archer.png"
 		},
 		{
 			"name": "Abomination",
@@ -2006,7 +2006,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Abomination.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Abomination.png"
 		},
 		{
 			"name": "Bandit Caster",
@@ -2069,7 +2069,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bandit%20Caster.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Bandit%20Caster.png"
 		},
 		{
 			"name": "Bandit Thug",
@@ -2125,7 +2125,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bandit%20Thug.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Bandit%20Thug.png"
 		},
 		{
 			"name": "Goblin Beast-Master",
@@ -2231,7 +2231,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20BeastMaster.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Goblin%20BeastMaster.png"
 		},
 		{
 			"name": "Goblin Bomber",
@@ -2305,7 +2305,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Bomber.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Goblin%20Bomber.png"
 		},
 		{
 			"name": "Goblin Deadeye",
@@ -2385,7 +2385,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Deadeye.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Goblin%20Deadeye.png"
 		},
 		{
 			"name": "Goblin Viper",
@@ -2465,7 +2465,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20viper.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Goblin%20viper.png"
 		},
 		{
 			"name": "Goblin Shaman",
@@ -2562,7 +2562,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Shaman.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Goblin%20Shaman.png"
 		},
 		{
 			"name": "Goblin Witchdoctor",
@@ -2661,7 +2661,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Goblin%20Witchdoctor.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Goblin%20Witchdoctor.png"
 		},
 		{
 			"name": "Flame - Wolf",
@@ -2750,7 +2750,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Flame.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Flame.png"
 		},
 		{
 			"name": "Bolt - Wolf",
@@ -2839,7 +2839,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Bolt.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Bolt.png"
 		},
 		{
 			"name": "Blade Juggler",
@@ -2915,7 +2915,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Blade%20Juggler.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Blade%20Juggler.png"
 		},
 		{
 			"name": "Cult Guildmage",
@@ -3012,7 +3012,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Cult%20Guildmage.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Cult%20Guildmage.png"
 		},
 		{
 			"name": "Phineas Taylor",
@@ -3175,7 +3175,7 @@
 					]
 				}
 			],
-			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/homebrew/master/creatures/Phineas_Taylor.png"
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/img/master/creatures/Phineas_Taylor.png"
 		}
 	],
 	"item": [
