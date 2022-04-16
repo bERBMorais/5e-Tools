@@ -3176,6 +3176,260 @@
 				}
 			],
 			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/5e-Tools/master/img/homebrew/creatures/Phineas_Taylor.png"
+		},
+		{
+			"name": "Nyrdedgskyr, the Blood Drake",
+			"source": "VW",
+			"page": 1,
+			"otherSources": [],
+			"size": "L",
+			"type": {
+				"type": "dragon"
+			},
+			"alignment": [
+				"L",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 21,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 358,
+				"formula": "42d10+163"
+			},
+			"speed": {
+				"walk": 50,
+				"fly": 80,
+				"swim": 50
+			},
+			"str": 24,
+			"dex": 13,
+			"con": 28,
+			"int": 17,
+			"wis": 11,
+			"cha": 15,
+			"passive": 23,
+			"languages": [
+				"Abyssal",
+				"Common",
+				"Draconic",
+				"Infernal",
+				"Primordial"
+			],
+			"senses": [
+				"darkvision 120 ft.",
+				"blindsight 60 ft."
+			],
+			"immune": [
+				"necrotic",
+				"poison",
+				"charmed",
+				"frightened",
+				"grappled"
+			],
+			"resist": [
+				"acid",
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from nonmagical weapons",
+					"cond": true
+				}
+			],
+			"skill": {
+				"arcana": "+16",
+				"history": "+16",
+				"insight": "+16",
+				"perception": "+12"
+			},
+			"save": {
+				"str": "+13",
+				"dex": "+7",
+				"con": "+15",
+				"int": "+9",
+				"wis": "+6",
+				"cha": "+8"
+			},
+			"cr": "17",
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Nyrdedgskyr's spellcasting ability is Charisma (spell save {@dc 18}, {@hit 11}). He can cast the following spells, requiring no material components:"
+					],
+					"daily": {
+						"1e": [
+							"{@spell Melf's acid arrow}",
+							"{@spell animate dead}",
+							"{@spell blight}",
+							"{@spell cloudkill}",
+							"{@spell finger of death}",
+							"{@spell power word stun}",
+							"{@spell raise dead}"
+						]
+					},
+					"ability": "cha"
+				}
+			],
+			"trait": [
+				{
+					"name": "Amphibious",
+					"entries": [
+						"Nyrdedgskyr can breathe air and water."
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"If Nyrdedgskyr fails a saving throw, he can choose to succeed instead."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Nyrdedgskyr can use his Frightful Presence. He then makes three attacks: one with his bite and two with his claws."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13} to hit, reach 10 ft., one target. {@h}17 ({@damage 2d10 + 6}) piercing damage plus 4 ({@damage 1d8}) acid damage."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 13} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d6 + 6}) slashing damage."
+					]
+				},
+				{
+					"name": "Tail",
+					"entries": [
+						"{@atk mw} {@hit 13} to hit, reach 15 ft., one target. {@h}15 ({@damage 2d8 + 6}) bludgeoning damage."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Each creature of Nyrdedgskyr's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become Frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
+					]
+				},
+				{
+					"name": "Breath Weapons {@recharge 5}",
+					"entries": [
+						"The dragon uses one of the following breath weapons.",
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "Acid Breath {@recharge 5}",
+									"entry": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a {@dc 18} Dexterity saving throw, taking 54 ({@damage 12d8}) acid damage on a failed save, or half as much damage on a successful one."
+								},
+								{
+									"type": "item",
+									"name": "Necrotic Breath {@recharge 5}",
+									"entries": [
+										"The death barque exhales a shadowy fire in a 30-foot cone. Each creature in that area must make a {@dc 18} Constitution saving throw, taking 56 ({@damage 16d6}) necrotic damage on a failed save, or half as much damage on a successful one.A humanoid reduced to 0 hit points by this damage dies, and an undead shadow rises from the corpse and acts immediately after Nyrdedgskyr in the initiative count. The shadow is under Nyrdedgskyr's control."
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"legendaryActions": 3,
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"Nyrdedgskyr makes a Wisdom ({@skill Perception}) check."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Nyrdedgskyr makes a tail attack."
+					]
+				},
+				{
+					"name": "On your knees (Costs 3 Actions)",
+					"entries": [
+						"Nyrdedgskyr spreads his wings and commands enemies that can hear him to surrender. Creatures must make a {@dc 20} Wisdom saving throw for each of the following conditions:",
+						{
+							"type": "entries",
+							"name": "Failed Save conditions",
+							"id": "knees_failed_save",
+							"entries": [
+								"Roll a d4 for the result of a failed save",
+								{
+									"type": "table",
+									"caption": "Conditions",
+									"colLabels": [
+										"d4",
+										"Pecularity"
+									],
+									"colStyles": [
+										"col-2 text-center",
+										"col-10"
+									],
+									"rows": [
+										[
+											"1",
+											"{@condition frightened}"
+										],
+										[
+											"2",
+											"{@condition prone}"
+										],
+										[
+											"3",
+											"{@condition poisoned}"
+										],
+										[
+											"4",
+											"{@condition exhaustion} level 2"
+										]
+									]
+								},
+								"A condition lasts for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the condition on a success"
+							]
+						}
+					]
+				}
+			],
+			"tokenUrl": "https://raw.githubusercontent.com/bERBMorais/5e-Tools/master/img/homebrew/creatures/BloodDragonToken.jpg",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "external",
+						"path": "https://raw.githubusercontent.com/bERBMorais/5e-Tools/master/img/homebrew/creatures/BloodDragon.jpg"
+					}
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"path": "https://raw.githubusercontent.com/bERBMorais/5e-Tools/master/img/homebrew/creatures/BloodDragon.jpg"
+						}
+					}
+				]
+			}
 		}
 	],
 	"item": [
