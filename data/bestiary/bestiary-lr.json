@@ -210,6 +210,11 @@
 			"miscTags": [
 				"AOE",
 				"MW"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"paralyzed",
+				"restrained"
 			]
 		},
 		{
@@ -300,11 +305,15 @@
 			"damageTags": [
 				"P",
 				"T"
+			],
+			"miscTags": [
+				"MW"
 			]
 		},
 		{
 			"name": "Gar Shatterkeel",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "LR",
 			"page": 18,
 			"size": "M",
@@ -428,7 +437,6 @@
 						}
 					},
 					"footerEntries": [
-						"scrying*, tree stride",
 						"*Circle spells don't count against spells prepared."
 					],
 					"ability": "wis"
@@ -532,6 +540,18 @@
 				"AOE",
 				"MW",
 				"RW"
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"conditionInflictLegendary": [
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"paralyzed",
+				"prone",
+				"restrained"
 			]
 		},
 		{
@@ -573,10 +593,10 @@
 			"wis": 10,
 			"cha": 18,
 			"skill": {
-				"arcana": "+5",
-				"deception": "+7",
-				"insight": "+3",
-				"persuasion": "+7"
+				"arcana": "+6",
+				"deception": "+8",
+				"insight": "+4",
+				"persuasion": "+8"
 			},
 			"passive": 10,
 			"resist": [
@@ -763,6 +783,9 @@
 			"damageTags": [
 				"I",
 				"T"
+			],
+			"miscTags": [
+				"AOE"
 			]
 		},
 		{
@@ -821,7 +844,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -906,6 +930,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"blinded",
+				"grappled",
+				"prone",
+				"restrained"
 			]
 		}
 	]

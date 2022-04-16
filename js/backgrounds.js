@@ -13,24 +13,24 @@ class BackgroundPage extends ListPage {
 
 			sublistClass: "subbackgrounds",
 
-			dataProps: ["background"]
+			dataProps: ["background"],
 		});
 	}
 
 	getListItem (bg, bgI, isExcluded) {
 		this._pageFilter.mutateAndAddToFilters(bg, isExcluded);
 
-		const eleLi = document.createElement("li");
-		eleLi.className = `row ${isExcluded ? "row--blacklisted" : ""}`;
+		const eleLi = document.createElement("div");
+		eleLi.className = `lst__row flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
 
 		const name = bg.name.replace("Variant ", "");
 		const hash = UrlUtil.autoEncodeHash(bg);
 		const source = Parser.sourceJsonToAbv(bg.source);
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst--border">
+		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
 			<span class="bold col-4 pl-0">${name}</span>
 			<span class="col-6">${bg._skillDisplay}</span>
-			<span class="col-2 text-center ${Parser.sourceJsonToColor(bg.source)}" title="${Parser.sourceJsonToFull(bg.source)} pr-0" ${BrewUtil.sourceJsonToStyle(bg.source)}>${source}</span>
+			<span class="col-2 text-center ${Parser.sourceJsonToColor(bg.source)} pr-0" title="${Parser.sourceJsonToFull(bg.source)}" ${BrewUtil.sourceJsonToStyle(bg.source)}>${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(
@@ -40,12 +40,12 @@ class BackgroundPage extends ListPage {
 			{
 				hash,
 				source,
-				skills: bg._skillDisplay
+				skills: bg._skillDisplay,
 			},
 			{
 				uniqueId: bg.uniqueId || bgI,
-				isExcluded
-			}
+				isExcluded,
+			},
 		);
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
@@ -65,13 +65,14 @@ class BackgroundPage extends ListPage {
 		const hash = UrlUtil.autoEncodeHash(bg);
 		const skills = Renderer.background.getSkillSummary(bg.skillProficiencies || [], true);
 
-		const $ele = $$`<li class="row">
-			<a href="#${hash}" class="lst--border">
+		const $ele = $$`<div class="lst__row lst__row--sublist flex-col">
+			<a href="#${hash}" class="lst--border lst__row-inner">
 				<span class="bold col-4 pl-0">${name}</span>
 				<span class="col-8 pr-0">${skills}</span>
 			</a>
-		</li>`
-			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem));
+		</div>`
+			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem))
+			.click(evt => ListUtil.sublist.doSelect(listItem, evt));
 
 		const listItem = new ListItem(
 			pinId,
@@ -80,8 +81,8 @@ class BackgroundPage extends ListPage {
 			{
 				hash,
 				source: Parser.sourceJsonToAbv(bg.source),
-				skills
-			}
+				skills,
+			},
 		);
 		return listItem;
 	}
@@ -96,33 +97,36 @@ class BackgroundPage extends ListPage {
 		};
 
 		const buildFluffTab = (isImageTab) => {
-			return Renderer.utils.pBuildFluffTab(
+			return Renderer.utils.pBuildFluffTab({
 				isImageTab,
-				$pgContent,
-				bg,
-				(fluffJson) => bg.fluff || fluffJson.backgroundFluff.find(it => it.name === bg.name && it.source === bg.source),
-				this._dataSourcefluff,
-				() => true
-			);
+				$content: $pgContent,
+				pFnGetFluff: Renderer.background.pGetFluff,
+				entity: bg,
+			});
 		};
 
-		const traitTab = Renderer.utils.tabButton(
-			"Traits",
-			() => {},
-			buildStatsTab
-		);
+		const tabMetas = [
+			new Renderer.utils.TabButton({
+				label: "Traits",
+				fnPopulate: buildStatsTab,
+				isVisible: true,
+			}),
+			new Renderer.utils.TabButton({
+				label: "Info",
+				fnPopulate: buildFluffTab,
+				isVisible: Renderer.utils.hasFluffText(bg, "backgroundFluff"),
+			}),
+			new Renderer.utils.TabButton({
+				label: "Images",
+				fnPopulate: buildFluffTab.bind(null, true),
+				isVisible: Renderer.utils.hasFluffImages(bg, "backgroundFluff"),
+			}),
+		];
 
-		const infoTab = Renderer.utils.tabButton(
-			"Info",
-			() => {},
-			buildFluffTab
-		);
-		const picTab = Renderer.utils.tabButton(
-			"Images",
-			() => {},
-			buildFluffTab.bind(null, true)
-		);
-		Renderer.utils.bindTabButtons(traitTab, infoTab, picTab);
+		Renderer.utils.bindTabButtons({
+			tabButtons: tabMetas.filter(it => it.isVisible),
+			tabLabelReference: tabMetas.map(it => it.label),
+		});
 
 		ListUtil.updateSelected();
 	}

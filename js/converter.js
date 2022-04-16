@@ -1,6 +1,6 @@
 "use strict";
 
-window.onload = doPageInit;
+window.addEventListener("load", () => doPageInit());
 
 class ConverterUiUtil {
 	static renderSideMenuDivider ($menu, heavy) { $menu.append(`<hr class="sidemenu__row__divider ${heavy ? "sidemenu__row__divider--heavy" : ""}">`); }
@@ -14,12 +14,6 @@ class BaseConverter extends BaseComponent {
 			case "txt": return "Text";
 			default: throw new Error(`Unimplemented!`)
 		}
-	}
-
-	static _getValidOptions (options) {
-		options = options || {};
-		if (!options.cbWarning || !options.cbOutput) throw new Error(`Missing required callback options!`);
-		return options;
 	}
 
 	/**
@@ -147,7 +141,7 @@ class BaseConverter extends BaseComponent {
 				},
 				cbCancel: () => {
 					if (modalMeta) modalMeta.doClose();
-				}
+				},
 			});
 		};
 
@@ -190,9 +184,9 @@ class BaseConverter extends BaseComponent {
 				if (!curSource) return;
 				rebuildStageSource({mode: "edit", source: MiscUtil.copy(curSource)});
 				modalMeta = UiUtil.getShowModal({
-					fullHeight: true,
-					isLarge: true,
-					cbClose: () => $wrpSourceOverlay.detach()
+					isHeight100: true,
+					isUncappedHeight: true,
+					cbClose: () => $wrpSourceOverlay.detach(),
 				});
 				$wrpSourceOverlay.appendTo(modalMeta.$modalInner);
 			});
@@ -201,9 +195,9 @@ class BaseConverter extends BaseComponent {
 		const $btnSourceAdd = $(`<button class="btn btn-default btn-sm">Add New Source</button>`).click(() => {
 			rebuildStageSource({mode: "add"});
 			modalMeta = UiUtil.getShowModal({
-				fullHeight: true,
-				isLarge: true,
-				cbClose: () => $wrpSourceOverlay.detach()
+				isHeight100: true,
+				isUncappedHeight: true,
+				cbClose: () => $wrpSourceOverlay.detach(),
 			});
 			$wrpSourceOverlay.appendTo(modalMeta.$modalInner);
 		});
@@ -212,25 +206,412 @@ class BaseConverter extends BaseComponent {
 		ConverterUiUtil.renderSideMenuDivider($wrpSidebar);
 	}
 	// endregion
-
-	// region conversion
-	_getAsTitle (prop, line) {
-		return this._titleCaseFields && this._titleCaseFields.includes(prop) && this._state.isTitleCase
-			? line.toLowerCase().toTitleCase()
-			: line;
-	}
-
-	_getCleanInput (ipt) {
-		return ipt
-			.replace(/[−–‒]/g, "-") // convert minus signs to hyphens
-		;
-	}
-
-	static _hasEntryContent (trait) {
-		return trait && (trait.name || (trait.entries.length === 1 && trait.entries[0]) || trait.entries.length > 1);
-	}
-	// endregion
 }
+
+class CreatureConverter extends BaseConverter {
+	constructor (ui) {
+		super(
+			ui,
+			{
+				converterId: "Creature",
+				canSaveLocal: true,
+				modes: ["txt", "md"],
+				hasPageNumbers: true,
+				titleCaseFields: ["name"],
+				hasSource: true,
+				prop: "monster",
+			},
+		);
+	}
+
+	_renderSidebar (parent, $wrpSidebar) {
+		$wrpSidebar.empty();
+
+		$(`<div class="sidemenu__row split-v-center">
+			<small>This parser is <span class="help" title="Notably poor at handling text split across multiple lines, as Carriage Return is used to separate blocks of text.">very particular</span> about its input. Use at your own risk.</small>
+		</div>`).appendTo($wrpSidebar);
+
+		ConverterUiUtil.renderSideMenuDivider($wrpSidebar);
+	}
+
+	handleParse (input, cbOutput, cbWarning, isAppend) {
+		const opts = {
+			cbWarning,
+			cbOutput,
+			isAppend,
+			titleCaseFields: this._titleCaseFields,
+			isTitleCase: this._state.isTitleCase,
+			source: this._state.source,
+			page: this._state.page,
+		};
+
+		switch (this._state.mode) {
+			case "txt": return CreatureParser.doParseText(input, opts);
+			case "md": return CreatureParser.doParseMarkdown(input, opts);
+			default: throw new Error(`Unimplemented!`);
+		}
+	}
+
+	_getSample (format) {
+		switch (format) {
+			case "txt": return CreatureConverter.SAMPLE_TEXT;
+			case "md": return CreatureConverter.SAMPLE_MARKDOWN;
+			default: throw new Error(`Unknown format "${format}"`);
+		}
+	}
+}
+// region samples
+CreatureConverter.SAMPLE_TEXT =
+	`Mammon
+Huge fiend (devil), lawful evil
+Armor Class 20 (natural armor)
+Hit Points 378 (28d12 + 196)
+Speed 50 ft.
+STR DEX CON INT WIS CHA
+22 (+6) 13 (+1) 24 (+7) 23 (+6) 21 (+5) 26 (+8)
+Saving Throws Dex +9, Int +14, Wis +13, Cha +16
+Skills Deception +16, Insight +13, Perception +13, Persuasion +16
+Damage Resistances cold
+Damage Immunities fire, poison; bludgeoning, piercing, and slashing from weapons that aren't silvered
+Condition Immunities charmed, exhaustion, frightened, poisoned
+Senses truesight 120 ft., passive Perception 23
+Languages all, telepathy 120 ft.
+Challenge 25 (75,000 XP)
+Innate Spellcasting. Mammon's innate spellcasting ability is Charisma (spell save DC 24, +16 to hit with spell attacks). He can innately cast the following spells, requiring no material components:
+At will: charm person, detect magic, dispel magic, fabricate (Mammon can create valuable objects), heat metal, arcanist's magic aura
+3/day each: animate objects, counterspell, creation, instant summons, legend lore, teleport
+1/day: imprisonment (minimus containment only, inside gems), sunburst
+Spellcasting. Mammon is a 6th level spellcaster. His spellcasting ability is Intelligence (spell save DC 13; +5 to hit with spell attacks). He has the following wizard spells prepared:
+Cantrips (at will): fire bolt, light, mage hand, prestidigitation
+1st level (4 slots): mage armor, magic missile, shield
+2nd level (3 slots): misty step, suggestion
+3rd level (3 slots): fly, lightning bolt
+Legendary Resistance (3/day). If Mammon fails a saving throw, he can choose to succeed instead.
+Magic Resistance. Mammon has advantage on saving throws against spells and other magical effects.
+Magic Weapons. Mammon's weapon attacks are magical.
+ACTIONS
+Multiattack. Mammon makes three attacks.
+Purse. Melee Weapon Attack: +14 to hit, reach 10 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage plus 18 (4d8) radiant damage.
+Molten Coins. Ranged Weapon Attack: +14 to hit, range 40/120 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage plus 18 (4d8) fire damage.
+Your Weight In Gold (Recharge 5-6). Mammon can use this ability as a bonus action immediately after hitting a creature with his purse attack. The creature must make a DC 24 Constitution saving throw. If the saving throw fails by 5 or more, the creature is instantly petrified by being turned to solid gold. Otherwise, a creature that fails the saving throw is restrained. A restrained creature repeats the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the creature receives a greater restoration spell or comparable magic.
+LEGENDARY ACTIONS
+Mammon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Mammon regains spent legendary actions at the start of his turn.
+Attack. Mammon makes one purse or molten coins attack.
+Make It Rain! Mammon casts gold and jewels into a 5-foot radius within 60 feet. One creature within 60 feet of the treasure that can see it must make a DC 24 Wisdom saving throw. On a failure, the creature must use its reaction to move its speed toward the trinkets, which vanish at the end of the turn.
+Deep Pockets (3 actions). Mammon recharges his Your Weight In Gold ability.`;
+CreatureConverter.SAMPLE_MARKDOWN =
+	`___
+>## Lich
+>*Medium undead, any evil alignment*
+>___
+>- **Armor Class** 17
+>- **Hit Points** 135 (18d8 + 54)
+>- **Speed** 30 ft.
+>___
+>|STR|DEX|CON|INT|WIS|CHA|
+>|:---:|:---:|:---:|:---:|:---:|:---:|
+>|11 (+0)|16 (+3)|16 (+3)|20 (+5)|14 (+2)|16 (+3)|
+>___
+>- **Saving Throws** Con +10, Int +12, Wis +9
+>- **Skills** Arcana +19, History +12, Insight +9, Perception +9
+>- **Damage Resistances** cold, lightning, necrotic
+>- **Damage Immunities** poison; bludgeoning, piercing, and slashing from nonmagical attacks
+>- **Condition Immunities** charmed, exhaustion, frightened, paralyzed, poisoned
+>- **Senses** truesight 120 ft., passive Perception 19
+>- **Languages** Common plus up to five other languages
+>- **Challenge** 21 (33000 XP)
+>___
+>***Legendary Resistance (3/Day).*** If the lich fails a saving throw, it can choose to succeed instead.
+>
+>***Rejuvenation.*** If it has a phylactery, a destroyed lich gains a new body in 1d10 days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the phylactery.
+>
+>***Spellcasting.*** The lich is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 20, +12 to hit with spell attacks). The lich has the following wizard spells prepared:
+>
+>• Cantrips (at will): mage hand, prestidigitation, ray of frost
+>• 1st level (4 slots): detect magic, magic missile, shield, thunderwave
+>• 2nd level (3 slots): detect thoughts, invisibility, Melf's acid arrow, mirror image
+>• 3rd level (3 slots): animate dead, counterspell, dispel magic, fireball
+>• 4th level (3 slots): blight, dimension door
+>• 5th level (3 slots): cloudkill, scrying
+>• 6th level (1 slot): disintegrate, globe of invulnerability
+>• 7th level (1 slot): finger of death, plane shift
+>• 8th level (1 slot): dominate monster, power word stun
+>• 9th level (1 slot): power word kill
+>
+>***Turn Resistance.*** The lich has advantage on saving throws against any effect that turns undead.
+>
+>### Actions
+>***Paralyzing Touch.*** Melee Spell Attack: +12 to hit, reach 5 ft., one creature. *Hit*: 10 (3d6) cold damage. The target must succeed on a DC 18 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+>
+>### Legendary Actions
+>The lich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The lich regains spent legendary actions at the start of its turn.
+>
+>- **Cantrip.** The lich casts a cantrip.
+>- **Paralyzing Touch (Costs 2 Actions).** The lich uses its Paralyzing Touch.
+>- **Frightening Gaze (Costs 2 Actions).** The lich fixes its gaze on one creature it can see within 10 feet of it. The target must succeed on a DC 18 Wisdom saving throw against this magic or become frightened for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to the lich's gaze for the next 24 hours.
+>- **Disrupt Life (Costs 3 Actions).** Each non-undead creature within 20 feet of the lich must make a DC 18 Constitution saving throw against this magic, taking 21 (6d6) necrotic damage on a failed save, or half as much damage on a successful one.
+>
+>`;
+// endregion
+
+class SpellConverter extends BaseConverter {
+	constructor (ui) {
+		super(
+			ui,
+			{
+				converterId: "Spell",
+				canSaveLocal: true,
+				modes: ["txt"],
+				hasPageNumbers: true,
+				titleCaseFields: ["name"],
+				hasSource: true,
+				prop: "spell",
+			},
+		);
+	}
+
+	_renderSidebar (parent, $wrpSidebar) {
+		$wrpSidebar.empty();
+	}
+
+	handleParse (input, cbOutput, cbWarning, isAppend) {
+		const opts = {
+			cbWarning,
+			cbOutput,
+			isAppend,
+			titleCaseFields: this._titleCaseFields,
+			isTitleCase: this._state.isTitleCase,
+			source: this._state.source,
+			page: this._state.page,
+		};
+
+		switch (this._state.mode) {
+			case "txt": return SpellParser.doParseText(input, opts);
+			default: throw new Error(`Unimplemented!`);
+		}
+	}
+
+	_getSample (format) {
+		switch (format) {
+			case "txt": return SpellConverter.SAMPLE_TEXT;
+			default: throw new Error(`Unknown format "${format}"`);
+		}
+	}
+}
+// region sample
+SpellConverter.SAMPLE_TEXT = `Chromatic Orb
+1st-level evocation
+Casting Time: 1 action
+Range: 90 feet
+Components: V, S, M (a diamond worth at least 50 gp)
+Duration: Instantaneous
+You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
+At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.`;
+// endregion
+
+class ItemConverter extends BaseConverter {
+	constructor (ui) {
+		super(
+			ui,
+			{
+				converterId: "Item",
+				canSaveLocal: true,
+				modes: ["txt"],
+				hasPageNumbers: true,
+				titleCaseFields: ["name"],
+				hasSource: true,
+				prop: "item",
+			},
+		);
+	}
+
+	_renderSidebar (parent, $wrpSidebar) {
+		$wrpSidebar.empty();
+	}
+
+	handleParse (input, cbOutput, cbWarning, isAppend) {
+		const opts = {
+			cbWarning,
+			cbOutput,
+			isAppend,
+			titleCaseFields: this._titleCaseFields,
+			isTitleCase: this._state.isTitleCase,
+			source: this._state.source,
+			page: this._state.page,
+		};
+
+		switch (this._state.mode) {
+			case "txt": return ItemParser.doParseText(input, opts);
+			default: throw new Error(`Unimplemented!`);
+		}
+	}
+
+	_getSample (format) {
+		switch (format) {
+			case "txt": return ItemConverter.SAMPLE_TEXT;
+			default: throw new Error(`Unknown format "${format}"`);
+		}
+	}
+}
+// region sample
+ItemConverter.SAMPLE_TEXT = `Wreath of the Prism
+Wondrous Item, legendary (requires attunement)
+This loop of golden thorns is inset with dozens of gems representing the five colors of Tiamat.
+Dormant
+While wearing the wreath in its dormant state, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the wreath increases the range of your darkvision by 60 feet.
+When you hit a beast, dragon, or monstrosity of challenge rating 5 or lower with an attack, or when you grapple it, you can use the wreath to cast dominate monster on the creature (save DC 13). On a successful save, the target is immune to the power of the wreath for 24 hours. On a failure, a shimmering, golden image of the wreath appears as a collar around the target’s neck or as a crown on its head (your choice) until it is no longer charmed by the spell. If you use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by you.
+Awakened
+Once the Wreath of the Prism reaches an awakened state, it gains the following benefits:
+• You can affect creatures of challenge rating 10 or lower with the wreath.
+• The save DC of the wreath’s spell increases to 15.
+Exalted
+Once the Wreath of the Prism reaches an exalted state, it gains the following benefits:
+• You can affect creatures of challenge rating 15 or lower with the wreath.
+• The save DC of the wreath’s spell increases to 17.`;
+// endregion
+
+class FeatConverter extends BaseConverter {
+	constructor (ui) {
+		super(
+			ui,
+			{
+				converterId: "Feat",
+				canSaveLocal: true,
+				modes: ["txt"],
+				hasPageNumbers: true,
+				titleCaseFields: ["name"],
+				hasSource: true,
+				prop: "feat",
+			},
+		);
+	}
+
+	_renderSidebar (parent, $wrpSidebar) {
+		$wrpSidebar.empty();
+	}
+
+	handleParse (input, cbOutput, cbWarning, isAppend) {
+		const opts = {
+			cbWarning,
+			cbOutput,
+			isAppend,
+			titleCaseFields: this._titleCaseFields,
+			isTitleCase: this._state.isTitleCase,
+			source: this._state.source,
+			page: this._state.page,
+		};
+
+		switch (this._state.mode) {
+			case "txt": return FeatParser.doParseText(input, opts);
+			default: throw new Error(`Unimplemented!`);
+		}
+	}
+
+	_getSample (format) {
+		switch (format) {
+			case "txt": return FeatConverter.SAMPLE_TEXT;
+			default: throw new Error(`Unknown format "${format}"`);
+		}
+	}
+}
+// region sample
+FeatConverter.SAMPLE_TEXT = `Metamagic Adept
+Prerequisite: Spellcasting or Pact Magic feature
+You’ve learned how to exert your will on your spells to alter how they function. You gain the following benefits:
+• Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.
+• You learn two Metamagic options of your choice from the sorcerer class. You can use only one Metamagic option on a spell when you cast it, unless the option says otherwise. Whenever you gain a level, you can replace one of your Metamagic options with another one from the sorcerer class.
+• You gain 2 sorcery points to spend on Metamagic (these points are added to any sorcery points you have from another source but can be used only on Metamagic). You regain all spent sorcery points when you finish a long rest.
+`;
+// endregion
+
+class TableConverter extends BaseConverter {
+	constructor (ui) {
+		super(
+			ui,
+			{
+				converterId: "Table",
+				modes: ["html", "md"],
+				prop: "table",
+			},
+		);
+	}
+
+	_renderSidebar (parent, $wrpSidebar) {
+		$wrpSidebar.empty();
+	}
+
+	handleParse (input, cbOutput, cbWarning, isAppend) {
+		const opts = {
+			cbWarning,
+			cbOutput,
+			isAppend,
+			titleCaseFields: this._titleCaseFields,
+			isTitleCase: this._state.isTitleCase,
+			source: this._state.source,
+			page: this._state.page,
+		};
+
+		switch (this._state.mode) {
+			case "html": return TableParser.doParseHtml(input, opts);
+			case "md": return TableParser.doParseMarkdown(input, opts);
+			default: throw new Error(`Unimplemented!`);
+		}
+	}
+
+	_getSample (format) {
+		switch (format) {
+			case "html": return TableConverter.SAMPLE_HTML;
+			case "md": return TableConverter.SAMPLE_MARKDOWN;
+			default: throw new Error(`Unknown format "${format}"`)
+		}
+	}
+}
+// region samples
+TableConverter.SAMPLE_HTML =
+	`<table>
+  <thead>
+    <tr>
+      <td><p><strong>Character Level</strong></p></td>
+      <td><p><strong>Low Magic Campaign</strong></p></td>
+      <td><p><strong>Standard Campaign</strong></p></td>
+      <td><p><strong>High Magic Campaign</strong></p></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p>1st–4th</p></td>
+      <td><p>Normal starting equipment</p></td>
+      <td><p>Normal starting equipment</p></td>
+      <td><p>Normal starting equipment</p></td>
+    </tr>
+    <tr>
+      <td><p>5th–10th</p></td>
+      <td><p>500 gp plus 1d10 × 25 gp, normal starting equipment</p></td>
+      <td><p>500 gp plus 1d10 × 25 gp, normal starting equipment</p></td>
+      <td><p>500 gp plus 1d10 × 25 gp, one uncommon magic item, normal starting equipment</p></td>
+    </tr>
+    <tr>
+      <td><p>11th–16th</p></td>
+      <td><p>5,000 gp plus 1d10 × 250 gp, one uncommon magic item, normal starting equipment</p></td>
+      <td><p>5,000 gp plus 1d10 × 250 gp, two uncommon magic items, normal starting equipment</p></td>
+      <td><p>5,000 gp plus 1d10 × 250 gp, three uncommon magic items, one rare item, normal starting equipment</p></td>
+    </tr>
+    <tr>
+      <td><p>17th–20th</p></td>
+      <td><p>20,000 gp plus 1d10 × 250 gp, two uncommon magic items, normal starting equipment</p></td>
+      <td><p>20,000 gp plus 1d10 × 250 gp, two uncommon magic items, one rare item, normal starting equipment</p></td>
+      <td><p>20,000 gp plus 1d10 × 250 gp, three uncommon magic items, two rare items, one very rare item, normal starting equipment</p></td>
+    </tr>
+  </tbody>
+</table>`;
+TableConverter.SAMPLE_MARKDOWN =
+	`| Character Level | Low Magic Campaign                                                                | Standard Campaign                                                                                | High Magic Campaign                                                                                                     |
+|-----------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| 1st–4th         | Normal starting equipment                                                         | Normal starting equipment                                                                        | Normal starting equipment                                                                                               |
+| 5th–10th        | 500 gp plus 1d10 × 25 gp, normal starting equipment                               | 500 gp plus 1d10 × 25 gp, normal starting equipment                                              | 500 gp plus 1d10 × 25 gp, one uncommon magic item, normal starting equipment                                            |
+| 11th–16th       | 5,000 gp plus 1d10 × 250 gp, one uncommon magic item, normal starting equipment   | 5,000 gp plus 1d10 × 250 gp, two uncommon magic items, normal starting equipment                 | 5,000 gp plus 1d10 × 250 gp, three uncommon magic items, one rare item, normal starting equipment                       |
+| 17th–20th       | 20,000 gp plus 1d10 × 250 gp, two uncommon magic items, normal starting equipment | 20,000 gp plus 1d10 × 250 gp, two uncommon magic items, one rare item, normal starting equipment | 20,000 gp plus 1d10 × 250 gp, three uncommon magic items, two rare items, one very rare item, normal starting equipment |`;
+// endregion
 
 class ConverterUi extends BaseComponent {
 	constructor () {
@@ -253,7 +634,7 @@ class ConverterUi extends BaseComponent {
 	getBaseSaveableState () {
 		return {
 			...super.getBaseSaveableState(),
-			...Object.values(this._converters).mergeMap(it => ({[it.converterId]: it.getBaseSaveableState()}))
+			...Object.values(this._converters).mergeMap(it => ({[it.converterId]: it.getBaseSaveableState()})),
 		}
 	}
 
@@ -262,7 +643,9 @@ class ConverterUi extends BaseComponent {
 		const savedState = await StorageUtil.pGetForPage(ConverterUi.STORAGE_STATE);
 		if (savedState) {
 			this.setBaseSaveableStateFrom(savedState);
-			Object.values(this._converters).forEach(it => it.setBaseSaveableStateFrom(savedState[it.converterId]));
+			Object.values(this._converters)
+				.filter(it => savedState[it.converterId])
+				.forEach(it => it.setBaseSaveableStateFrom(savedState[it.converterId]));
 		}
 
 		// forcibly overwrite available sources with fresh data
@@ -276,7 +659,7 @@ class ConverterUi extends BaseComponent {
 		this._editorIn = ace.edit("converter_input");
 		this._editorIn.setOptions({
 			wrap: true,
-			showPrintMargin: false
+			showPrintMargin: false,
 		});
 		try {
 			const prevInput = await StorageUtil.pGetForPage(ConverterUi.STORAGE_INPUT);
@@ -288,7 +671,7 @@ class ConverterUi extends BaseComponent {
 		this._editorOut.setOptions({
 			wrap: true,
 			showPrintMargin: false,
-			readOnly: true
+			readOnly: true,
 		});
 
 		$(`#editable`).click(() => {
@@ -306,7 +689,7 @@ class ConverterUi extends BaseComponent {
 					if (invalidSources.length) {
 						JqueryUtil.doToast({
 							content: `One or more entries have missing or unknown sources: ${invalidSources.join(", ")}`,
-							type: "danger"
+							type: "danger",
 						});
 						return;
 					}
@@ -329,7 +712,7 @@ class ConverterUi extends BaseComponent {
 					if (dupes.length) {
 						JqueryUtil.doToast({
 							type: "warning",
-							content: `Ignored ${dupes.length} duplicate entr${dupes.length === 1 ? "y" : "ies"}`
+							content: `Ignored ${dupes.length} duplicate entr${dupes.length === 1 ? "y" : "ies"}`,
 						})
 					}
 
@@ -340,7 +723,7 @@ class ConverterUi extends BaseComponent {
 							return {
 								isOverwrite: true,
 								ix,
-								entry: it
+								entry: it,
 							}
 						} else return {entry: it, isOverwrite: false};
 					}).filter(Boolean);
@@ -359,21 +742,21 @@ class ConverterUi extends BaseComponent {
 
 					JqueryUtil.doToast({
 						type: "success",
-						content: `Saved!`
+						content: `Saved!`,
 					});
 
 					Omnisearch.pAddToIndex("monster", overwriteMeta.filter(meta => !meta.isOverwrite).map(meta => meta.entry));
 				} catch (e) {
 					JqueryUtil.doToast({
 						content: `Current output was not valid JSON!`,
-						type: "danger"
+						type: "danger",
 					});
 					setTimeout(() => { throw e });
 				}
 			} else {
 				JqueryUtil.doToast({
 					content: "Nothing to save!",
-					type: "danger"
+					type: "danger",
 				});
 			}
 		});
@@ -393,7 +776,7 @@ class ConverterUi extends BaseComponent {
 				} catch (e) {
 					JqueryUtil.doToast({
 						content: `Current output was not valid JSON. Downloading as <span class="code">.txt</span> instead.`,
-						type: "warning"
+						type: "warning",
 					});
 					DataUtil.userDownloadText(`converter-output.txt`, output);
 					setTimeout(() => { throw e; });
@@ -401,7 +784,7 @@ class ConverterUi extends BaseComponent {
 			} else {
 				JqueryUtil.doToast({
 					content: "Nothing to download!",
-					type: "danger"
+					type: "danger",
 				});
 			}
 		});
@@ -442,7 +825,7 @@ class ConverterUi extends BaseComponent {
 							chunk,
 							this.doCleanAndOutput.bind(this),
 							this.showWarning.bind(this),
-							isAppend || i !== 0 // always clear the output for the first non-append chunk, then append
+							isAppend || i !== 0, // always clear the output for the first non-append chunk, then append
 						);
 					});
 			});
@@ -465,11 +848,13 @@ class ConverterUi extends BaseComponent {
 			{
 				values: [
 					"Creature",
-					// "Spell", // TODO uncomment when the spell converter is in a usable state
-					"Table"
+					"Feat",
+					"Item",
+					"Spell",
+					"Table",
 				],
-				html: `<select class="form-control input-sm"/>`
-			}
+				html: `<select class="form-control input-sm"/>`,
+			},
 		);
 
 		$$`<div class="sidemenu__row split-v-center"><div class="sidemenu__row__label">Mode</div>${$selConverter}</div>`
@@ -511,10 +896,10 @@ class ConverterUi extends BaseComponent {
 	set _outReadOnly (val) { this._editorOut.setOptions({readOnly: val}); }
 
 	get _outText () { return this._editorOut.getValue(); }
-	set _outText (text) { return this._editorOut.setValue(text, -1); }
+	set _outText (text) { this._editorOut.setValue(text, -1); }
 
 	get inText () { return CleanUtil.getCleanString((this._editorIn.getValue() || "").trim(), false); }
-	set inText (text) { return this._editorIn.setValue(text, -1); }
+	set inText (text) { this._editorIn.setValue(text, -1); }
 
 	_getDefaultState () { return MiscUtil.copy(ConverterUi._DEFAULT_STATE); }
 }
@@ -524,29 +909,37 @@ ConverterUi._DEFAULT_STATE = {
 	hasAppended: false,
 	converter: "Creature",
 	sourceJson: "",
-	inputSeparator: "==="
+	inputSeparator: "===",
 };
 
 async function doPageInit () {
 	ExcludeUtil.pInitialise(); // don't await, as this is only used for search
-	const [spellData, itemData] = await Promise.all([
-		SpellcastingTraitConvert.pGetSpellData(),
+	const [spells, items, legendaryGroups, classes] = await Promise.all([
+		DataUtil.spell.pLoadAll(),
 		Renderer.item.pBuildList(),
-		BrewUtil.pAddBrewData() // init homebrew
+		DataUtil.legendaryGroup.pLoadAll(),
+		DataUtil.class.loadJSON(),
+		BrewUtil.pAddBrewData(), // init homebrew
 	]);
-	SpellcastingTraitConvert.init(spellData);
-	AcConvert.init(itemData);
+	SpellcastingTraitConvert.init(spells);
+	ItemParser.init(items, classes);
+	AcConvert.init(items);
+	TagCondition.init(legendaryGroups, spells);
 
 	const ui = new ConverterUi();
 
-	const statblockConverter = new SpellConverter(ui);
-	const spellConverter = new CreatureConverter(ui);
+	const statblockConverter = new CreatureConverter(ui)
+	const itemConverter = new ItemConverter(ui);
+	const featConverter = new FeatConverter(ui);
+	const spellConverter = new SpellConverter(ui);
 	const tableConverter = new TableConverter(ui);
 
 	ui.converters = {
 		[statblockConverter.converterId]: statblockConverter,
+		[itemConverter.converterId]: itemConverter,
+		[featConverter.converterId]: featConverter,
 		[spellConverter.converterId]: spellConverter,
-		[tableConverter.converterId]: tableConverter
+		[tableConverter.converterId]: tableConverter,
 	};
 
 	return ui.pInit();

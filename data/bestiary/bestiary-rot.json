@@ -58,6 +58,7 @@
 				"petrified",
 				"poisoned"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Rejuvenation"
 			]
@@ -94,6 +95,7 @@
 			"resist": [
 				"cold"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses",
 				"Regeneration",
@@ -118,7 +120,8 @@
 			"type": "plant",
 			"speed": {
 				"walk": 0
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Diderius",
@@ -176,11 +179,11 @@
 			"wis": 12,
 			"cha": 14,
 			"save": {
-				"wis": "+3"
+				"wis": "+4"
 			},
 			"skill": {
-				"deception": "+4",
-				"stealth": "+5"
+				"deception": "+5",
+				"stealth": "+6"
 			},
 			"passive": 11,
 			"resist": [
@@ -247,6 +250,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -373,6 +377,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -451,8 +456,8 @@
 					]
 				},
 				{
-					"ac": 15,
-					"condition": "with the Black Dragon Mask",
+					"ac": 17,
+					"condition": "with the Blue Dragon Mask",
 					"braces": true
 				}
 			],
@@ -462,6 +467,7 @@
 			"immune": [
 				"lightning"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Pack Tactics"
@@ -494,6 +500,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"senseTags": [
 				"B",
 				"D"
@@ -534,6 +541,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"senseTags": [
 				"B",
 				"D"
@@ -569,6 +577,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"senseTags": [
 				"B",
 				"D"
@@ -663,6 +672,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -677,7 +687,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Ice Troll",
@@ -689,7 +703,8 @@
 			},
 			"resist": [
 				"cold"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Iskander",
@@ -711,10 +726,17 @@
 					}
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Maccath the Crimson",
@@ -740,6 +762,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -761,7 +784,8 @@
 				"name": "Ice Toad",
 				"source": "RoT"
 			},
-			"int": 13
+			"int": 13,
+			"hasToken": true
 		},
 		{
 			"name": "Mend-nets",
@@ -771,7 +795,14 @@
 			"_copy": {
 				"name": "Tribal Warrior",
 				"source": "MM"
-			}
+			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Naergoth Bladelord",
@@ -807,7 +838,7 @@
 			"cha": 16,
 			"save": {
 				"dex": "+5",
-				"wis": "+4"
+				"wis": "+6"
 			},
 			"skill": {
 				"perception": "+6",
@@ -825,7 +856,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks that aren't silvered"
+					"note": "from nonmagical attacks that aren't silvered",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -874,6 +906,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -896,7 +929,8 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Neronvain",
@@ -997,6 +1031,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -1020,7 +1055,11 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Paper Whirlwind",
@@ -1036,7 +1075,8 @@
 			},
 			"vulnerable": [
 				"fire"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Red Wizard",
@@ -1045,7 +1085,8 @@
 			"_copy": {
 				"name": "Mage",
 				"source": "MM"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Severin",
@@ -1105,7 +1146,8 @@
 								"piercing",
 								"slashing"
 							],
-							"note": "from nonmagical attacks"
+							"note": "from nonmagical attacks",
+							"cond": true
 						}
 					],
 					"preNote": "While wearing the mask of the Dragon Queen:"
@@ -1206,6 +1248,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -1219,7 +1262,11 @@
 			],
 			"damageTags": [
 				"F"
-			]
+			],
+			"conditionInflict": [
+				"restrained"
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sled Dog",
@@ -1235,7 +1282,8 @@
 						"with": "dog"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Snake Horror",
@@ -1262,6 +1310,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"damageTags": [
 				"I",
 				"S"
@@ -1333,7 +1382,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -1428,13 +1478,12 @@
 					]
 				}
 			],
+			"legendaryHeader": [
+				"Tiamat can take 5 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. Tiamat regains spent legendary actions at the start of its turn.",
+				"Tiamat's legendary action options are associated with her five dragon heads (a bite and a breath weapon for each). Once Tiamat chooses a legendary action option for one of her heads, she can't choose another one associated with that head until the start of her next turn."
+			],
 			"legendaryActions": 5,
 			"legendary": [
-				{
-					"entries": [
-						"Tiamat's legendary action options are associated with her five dragon heads (a bite and a breath weapon for each). Once Tiamat chooses a legendary action option for one of her heads, she can't choose another one associated with that head until the start of her next turn."
-					]
-				},
 				{
 					"name": "Bite",
 					"entries": [
@@ -1472,6 +1521,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Weapons",
@@ -1506,7 +1556,16 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"deafened",
+				"stunned"
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Varram",
@@ -1538,6 +1597,7 @@
 					}
 				}
 			},
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],

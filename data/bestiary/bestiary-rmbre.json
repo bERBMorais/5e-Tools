@@ -15,6 +15,7 @@
 	"monster": [
 		{
 			"name": "Billy Beaver",
+			"isNpc": true,
 			"source": "RMBRE",
 			"page": 27,
 			"size": "L",
@@ -84,6 +85,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -98,10 +100,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Buster the Bear",
+			"isNpc": true,
 			"source": "RMBRE",
 			"page": 27,
 			"size": "M",
@@ -174,6 +178,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -185,7 +190,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Large Mimic",
@@ -214,10 +220,15 @@
 			"speed": {
 				"walk": 0
 			},
-			"cr": "3"
+			"cr": "3",
+			"hasToken": true,
+			"actionTags": [
+				"Multiattack"
+			]
 		},
 		{
 			"name": "Layla the Lizard",
+			"isNpc": true,
 			"source": "RMBRE",
 			"page": 28,
 			"size": "M",
@@ -278,6 +289,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -290,7 +302,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Lycanthropickle",
@@ -358,6 +371,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"False Appearance"
 			],
@@ -373,7 +387,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Meeseeks",
@@ -385,10 +401,12 @@
 			},
 			"hp": {
 				"special": "\u2014(immune to damage)"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Piggy Wiggle Butt",
+			"isNpc": true,
 			"source": "RMBRE",
 			"page": 28,
 			"size": "M",
@@ -459,6 +477,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Aggressive"
 			],
@@ -473,10 +492,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Thomas T. Toad",
+			"isNpc": true,
 			"source": "RMBRE",
 			"page": 28,
 			"size": "L",
@@ -536,6 +557,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -547,10 +569,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Tommy Two-Butts",
+			"isNpc": true,
 			"source": "RMBRE",
 			"page": 18,
 			"_copy": {
@@ -565,7 +589,8 @@
 					}
 				}
 			},
-			"int": 21
+			"int": 21,
+			"hasToken": true
 		}
 	]
 }

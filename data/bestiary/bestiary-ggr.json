@@ -74,6 +74,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Aggressive",
 				"Siege Monster"
@@ -87,7 +88,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Archon of the Triumvirate",
@@ -140,7 +143,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -220,6 +224,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -235,7 +240,16 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Arclight Phoenix",
@@ -279,7 +293,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -336,6 +351,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Flyby",
 				"Illumination"
@@ -350,7 +366,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Aurelia",
@@ -412,7 +430,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -503,6 +522,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -523,7 +543,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Battleforce Angel",
@@ -617,6 +642,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Flyby",
 				"Magic Resistance"
@@ -637,7 +663,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Biomancer",
@@ -791,6 +819,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -806,7 +835,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Blistercoil Weird",
@@ -848,7 +879,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -902,6 +934,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Illumination"
 			],
@@ -918,7 +951,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Blood Drinker Vampire",
@@ -978,7 +1013,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"languages": [
@@ -1019,6 +1055,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1036,7 +1073,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"charmed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Blood Witch",
@@ -1158,6 +1200,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Devil's Sight"
 			],
@@ -1181,7 +1224,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Bloodfray Giant",
@@ -1250,6 +1295,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"GI"
 			],
@@ -1260,7 +1306,13 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Borborygmos",
@@ -1393,6 +1445,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Siege Monster"
@@ -1415,7 +1468,13 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone",
+				"stunned"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Cackler",
@@ -1472,7 +1531,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -1531,6 +1591,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -1549,7 +1610,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Category 1 Krasis",
@@ -1611,6 +1674,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1623,7 +1687,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Category 2 Krasis",
@@ -1685,6 +1751,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1697,7 +1764,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Category 3 Krasis",
@@ -1765,6 +1834,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1779,7 +1849,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Conclave Dryad",
@@ -1904,6 +1979,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -1929,7 +2005,15 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Cosmotronic Blastseeker",
@@ -2022,6 +2106,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -2034,7 +2119,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Counterflux Blastseeker",
@@ -2122,6 +2208,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -2135,7 +2222,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Deathpact Angel",
@@ -2193,7 +2282,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -2268,6 +2358,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Flyby",
 				"Magic Resistance"
@@ -2291,7 +2382,16 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Devkarin Lich",
@@ -2300,7 +2400,7 @@
 			"size": "M",
 			"type": "undead",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -2346,7 +2446,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -2492,6 +2593,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Regeneration",
@@ -2511,7 +2613,17 @@
 			],
 			"spellcastingTags": [
 				"CW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"conditionInflictSpell": [
+				"frightened",
+				"poisoned",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Druid of the Old Ways",
@@ -2653,6 +2765,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Siege Monster"
 			],
@@ -2668,7 +2781,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Felidar",
@@ -2767,6 +2882,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses",
 				"Pounce"
@@ -2788,7 +2904,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Firefist",
@@ -2917,6 +3038,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2932,7 +3054,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Firemane Angel",
@@ -2988,7 +3112,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -3053,6 +3178,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Flyby",
 				"Magic Resistance"
@@ -3076,7 +3202,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Flux Blastseeker",
@@ -3165,6 +3293,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -3178,7 +3307,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Fluxcharger",
@@ -3224,7 +3354,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3273,6 +3404,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3291,7 +3423,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Flying Horror",
@@ -3300,7 +3434,7 @@
 			"size": "M",
 			"type": "aberration",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -3368,6 +3502,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -3380,7 +3515,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Frontline Medic",
@@ -3468,6 +3608,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -3482,7 +3623,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Galvanic Blastseeker",
@@ -3580,6 +3722,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"P",
@@ -3597,7 +3740,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Galvanice Weird",
@@ -3643,7 +3787,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3676,6 +3821,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Death Burst"
 			],
@@ -3688,7 +3834,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gloamwing",
@@ -3697,7 +3845,7 @@
 			"size": "L",
 			"type": "undead",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -3742,7 +3890,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3798,6 +3947,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Flyby",
 				"Sunlight Sensitivity"
@@ -3817,7 +3967,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Golgari Shaman",
@@ -3831,7 +3983,7 @@
 				]
 			},
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -3953,6 +4105,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -3973,7 +4126,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"poisoned",
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Guardian Giant",
@@ -4051,6 +4209,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4066,7 +4225,8 @@
 				"RCH",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Horncaller",
@@ -4157,6 +4317,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4173,7 +4334,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hybrid Brute",
@@ -4238,6 +4401,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -4253,7 +4417,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Hybrid Flier",
@@ -4315,6 +4480,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4330,7 +4496,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hybrid Poisoner",
@@ -4408,6 +4576,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -4421,7 +4590,11 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Hybrid Shocker",
@@ -4496,6 +4669,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Illumination"
 			],
@@ -4514,7 +4688,12 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hybrid Spy",
@@ -4588,6 +4767,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -4606,7 +4786,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Indentured Spirit",
@@ -4650,7 +4831,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -4689,6 +4871,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement"
 			],
@@ -4701,7 +4884,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Isperia",
@@ -4760,7 +4945,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -4930,6 +5116,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -4954,7 +5141,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Jarad Vod Savo",
@@ -4964,7 +5153,7 @@
 			"size": "M",
 			"type": "undead",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -5010,7 +5199,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -5181,6 +5371,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -5208,7 +5399,17 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"poisoned"
+			],
+			"conditionInflictSpell": [
+				"poisoned",
+				"restrained",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kraul Death Priest",
@@ -5222,7 +5423,7 @@
 				]
 			},
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -5330,6 +5531,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics",
 				"Spider Climb"
@@ -5351,7 +5553,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kraul Warrior",
@@ -5365,7 +5572,7 @@
 				]
 			},
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -5436,6 +5643,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics",
 				"Spider Climb"
@@ -5454,7 +5662,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lawmage",
@@ -5564,6 +5774,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -5576,7 +5787,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Lazav",
@@ -5591,7 +5803,7 @@
 				]
 			},
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -5734,6 +5946,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -5756,7 +5969,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"incapacitated"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Master of Cruelties",
@@ -5820,7 +6038,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -5893,6 +6112,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -5918,7 +6138,15 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"charmed"
+			],
+			"conditionInflictSpell": [
+				"charmed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mind Drinker Vampire",
@@ -5927,7 +6155,7 @@
 			"size": "M",
 			"type": "undead",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -6037,6 +6265,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -6061,7 +6290,14 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"paralyzed",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mind Mage",
@@ -6075,7 +6311,7 @@
 				]
 			},
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -6157,6 +6393,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -6172,7 +6409,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Nightveil Specter",
@@ -6181,7 +6419,7 @@
 			"size": "M",
 			"type": "undead",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -6226,7 +6464,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -6276,6 +6515,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"SD"
 			],
@@ -6294,7 +6534,12 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Niv-Mizzet",
@@ -6394,6 +6639,7 @@
 								"{@spell blur}",
 								"{@spell enlarge/reduce}",
 								"{@spell flaming sphere}",
+								"{@spell hold person}",
 								"{@spell scorching ray}"
 							]
 						},
@@ -6402,7 +6648,6 @@
 							"spells": [
 								"{@spell counterspell}",
 								"{@spell fireball}",
-								"{@spell hold person}",
 								"{@spell lightning bolt}",
 								"{@spell slow}"
 							]
@@ -6542,6 +6787,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance"
@@ -6570,7 +6816,20 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"deafened",
+				"paralyzed",
+				"petrified",
+				"restrained",
+				"stunned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Nivix Cyclops",
@@ -6657,6 +6916,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -6676,7 +6936,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Obzedat Ghost",
@@ -6739,7 +7001,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -6866,6 +7129,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement",
 				"Legendary Resistances"
@@ -6885,7 +7149,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Orzhov Giant",
@@ -6960,6 +7226,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -6978,7 +7245,9 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Precognitive Mage",
@@ -7072,6 +7341,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"U"
 			],
@@ -7088,7 +7358,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rakdos",
@@ -7151,7 +7423,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -7256,6 +7529,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -7281,7 +7555,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"charmed",
+				"poisoned"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rakdos Lampooner",
@@ -7372,6 +7652,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -7384,7 +7665,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rakdos Performer, Blade Juggler",
@@ -7453,6 +7736,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -7467,7 +7751,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rakdos Performer, Fire Eater",
@@ -7542,6 +7828,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -7557,7 +7844,9 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rakdos Performer, High-Wire Acrobat",
@@ -7626,6 +7915,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -7638,7 +7928,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Reckoner",
@@ -7751,6 +8043,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -7763,7 +8056,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rubblebelt Stalker",
@@ -7852,6 +8147,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Ambusher",
 				"Siege Monster"
@@ -7865,7 +8161,8 @@
 			],
 			"damageTags": [
 				"P"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Scorchbringer Guard",
@@ -7930,6 +8227,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"X"
@@ -7943,7 +8241,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Servitor Thrull",
@@ -8001,6 +8301,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -8013,7 +8314,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Shadow Horror",
@@ -8022,7 +8324,7 @@
 			"size": "L",
 			"type": "aberration",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -8108,6 +8410,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement",
 				"Sunlight Sensitivity"
@@ -8126,7 +8429,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Simic Merfolk",
@@ -8144,6 +8452,7 @@
 				"Common",
 				"Merfolk"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			]
@@ -8208,7 +8517,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -8278,6 +8588,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -8303,7 +8614,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Skittering Horror",
@@ -8312,7 +8625,7 @@
 			"size": "H",
 			"type": "aberration",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -8392,6 +8705,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Spider Climb",
 				"Sunlight Sensitivity"
@@ -8409,7 +8723,12 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"paralyzed"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Skyjek Roc",
@@ -8479,6 +8798,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -8491,7 +8811,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Skyswimmer",
@@ -8560,6 +8882,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -8575,12 +8898,23 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Soldier",
 			"source": "GGR",
 			"page": 226,
+			"otherSources": [
+				{
+					"source": "MOT"
+				}
+			],
 			"size": "M",
 			"type": {
 				"type": "humanoid",
@@ -8644,6 +8978,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -8656,7 +8991,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Sphinx of Judgment",
@@ -8720,7 +9056,8 @@
 					},
 					"ability": "int"
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Sunder Shaman",
@@ -8810,6 +9147,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Reckless",
 				"Siege Monster"
@@ -8830,7 +9168,12 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Thought Spy",
@@ -8844,7 +9187,7 @@
 				]
 			},
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -8933,6 +9276,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -8954,7 +9298,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Trostani",
@@ -9133,6 +9478,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -9161,7 +9507,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Undercity Medusa",
@@ -9170,7 +9518,7 @@
 			"size": "M",
 			"type": "monstrosity",
 			"alignment": [
-				"L",
+				"N",
 				"E"
 			],
 			"ac": [
@@ -9259,6 +9607,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -9280,7 +9629,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Winged Thrull",
@@ -9348,6 +9699,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -9362,7 +9714,9 @@
 			"miscTags": [
 				"MW",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Wurm",
@@ -9433,6 +9787,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Siege Monster"
 			],
@@ -9452,7 +9807,13 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Zegana",
@@ -9654,6 +10015,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances",
@@ -9679,7 +10041,18 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"petrified",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

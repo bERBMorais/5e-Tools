@@ -1,22 +1,45 @@
 // TODO implement remaining methods
 class RendererMarkdown {
+	static async pInit () {
+		const settings = await StorageUtil.pGet("bookViewSettingsMarkdown") || Object.entries(RendererMarkdown._CONFIG).mergeMap(([k, v]) => ({[k]: v.default}));
+		Object.assign(RendererMarkdown, settings);
+		RendererMarkdown._isInit = true;
+	}
+
+	static checkInit () {
+		if (!RendererMarkdown._isInit) throw new Error(`RendererMarkdown has not been initialised!`);
+	}
+
 	constructor () {
 		// FIXME this is awful
 		const renderer = new Renderer();
+		this.__super = {};
 		for (const k in renderer) {
 			if (this[k] === undefined) {
 				if (typeof renderer[k] === "function") this[k] = renderer[k].bind(this);
 				else this[k] = MiscUtil.copy(renderer[k]);
+			} else {
+				if (typeof renderer[k] === "function") this.__super[k] = renderer[k].bind(this);
+				else this.__super[k] = MiscUtil.copy(renderer[k]);
 			}
 		}
+
+		this._isSkipStylingItemLinks = false;
 	}
 
+	set isSkipStylingItemLinks (val) { this._isSkipStylingItemLinks = val; }
+
 	static get () {
+		RendererMarkdown.checkInit();
+
 		return new RendererMarkdown().setFnPostProcess(RendererMarkdown._fnPostProcess);
 	}
 
 	static _fnPostProcess (str) {
-		return str.replace(/\n\n+/g, "\n\n");
+		return str
+			.trim()
+			.replace(/\n\n+/g, "\n\n")
+			.replace(/(>\n>\n)+/g, ">\n");
 	}
 
 	static _getNextPrefix (options, prefix) {
@@ -51,8 +74,10 @@ class RendererMarkdown {
 			for (let i = 0; i < len; ++i) {
 				meta.depth = nextDepth;
 				const isFirstInline = i === 0 && entry.name && isInlineTitle;
-				this._recursiveRender(entry.entries[i], textStack, meta, {prefix: isFirstInline ? "" : RendererMarkdown._getNextPrefix(options), suffix: "\n\n"});
+				const suffix = meta.isDataCreature ? `  \n` : `\n\n`;
+				this._recursiveRender(entry.entries[i], textStack, meta, {prefix: isFirstInline ? "" : RendererMarkdown._getNextPrefix(options), suffix});
 			}
+			if (meta.isDataCreature) textStack[0] += "\n";
 			meta.depth = cacheDepth;
 		}
 	}
@@ -78,16 +103,27 @@ class RendererMarkdown {
 
 		if (entry.name) textStack[0] += `##### ${entry.name}`;
 		const indentSpaces = "  ".repeat(listDepth);
-
 		const len = entry.items.length;
-		for (let i = 0; i < len; ++i) {
-			const item = entry.items[i];
-			// Special case for child lists -- avoid double-hyphen-prefixing
-			textStack[0] += `${RendererMarkdown._getNextPrefix(options)}${indentSpaces}${item.type === "list" ? "" : `- `}`;
 
-			const cacheDepth = this._adjustDepth(meta, 1);
-			this._recursiveRender(entry.items[i], textStack, meta, {suffix: "\n"});
-			meta.depth = cacheDepth;
+		// Special formatting for spellcasting lists (data attrib added by main renderer spellcasting -> entries)
+		if (entry.data && entry.data.isSpellList) {
+			textStack[0] += `${RendererMarkdown._getNextPrefix(options)}\n`;
+			for (let i = 0; i < len; ++i) {
+				textStack[0] += `${RendererMarkdown._getNextPrefix(options)}${indentSpaces}`;
+				const cacheDepth = this._adjustDepth(meta, 1);
+				this._recursiveRender(entry.items[i], textStack, meta, {suffix: "\n"});
+				meta.depth = cacheDepth;
+			}
+		} else {
+			for (let i = 0; i < len; ++i) {
+				const item = entry.items[i];
+				// Special case for child lists -- avoid double-hyphen-prefixing
+				textStack[0] += `${RendererMarkdown._getNextPrefix(options)}${indentSpaces}${item.type === "list" ? "" : `- `}`;
+
+				const cacheDepth = this._adjustDepth(meta, 1);
+				this._recursiveRender(entry.items[i], textStack, meta, {suffix: "\n"});
+				meta.depth = cacheDepth;
+			}
 		}
 
 		textStack[0] += "\n";
@@ -339,6 +375,10 @@ class RendererMarkdown {
 	_renderAttack (entry, textStack, meta, options) {
 		// TODO
 	}
+
+	_renderIngredient (entry, textStack, meta, options) {
+		// (Use base implementation)
+	}
 	// endregion
 
 	*/
@@ -346,6 +386,7 @@ class RendererMarkdown {
 	_renderItem (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
 		textStack[0] += `**${this.render(entry.name)}** `;
+		let addedNewline = false;
 		if (entry.entry) this._recursiveRender(entry.entry, textStack, meta);
 		else if (entry.entries) {
 			const len = entry.entries.length;
@@ -353,8 +394,9 @@ class RendererMarkdown {
 				const nxtPrefix = RendererMarkdown._getNextPrefix(options, i > 0 ? "  " : "");
 				this._recursiveRender(entry.entries[i], textStack, meta, {prefix: nxtPrefix, suffix: "\n"});
 			}
+			addedNewline = true;
 		}
-		textStack[0] += "\n";
+		if (!addedNewline) textStack[0] += "\n";
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 
@@ -367,51 +409,86 @@ class RendererMarkdown {
 
 	_renderItemSpell (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		this._recursiveRender(entry.entry, textStack, meta, {prefix: RendererMarkdown._getNextPrefix(options, `${entry.name} `), suffix: "\n"});
+		this._recursiveRender(entry.entry, textStack, meta, {prefix: RendererMarkdown._getNextPrefix(options, `${entry.name} `), suffix: "  \n"});
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 	// endregion
 
 	// region data
 	_renderDataCreature (entry, textStack, meta, options) {
+		let addedDataCreature;
+		if (!meta.isDataCreature) {
+			meta.isDataCreature = true;
+			addedDataCreature = true;
+		}
+
 		const mon = entry.dataCreature;
 
 		const monTypes = Parser.monTypeToFullObj(mon.type);
+		this.isSkipStylingItemLinks = true;
+		const acPart = Parser.acToFull(mon.ac, this);
+		this.isSkipStylingItemLinks = false;
 		const savePart = mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
 		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
-		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.monImmResToFull(mon.vulnerable)}` : "";
-		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.monImmResToFull(mon.resist)}` : "";
-		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.monImmResToFull(mon.immune)}` : "";
-		const condImmPart = mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.monCondImmToFull(mon.conditionImmune, true)}` : "";
+		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable)}` : "";
+		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist)}` : "";
+		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune)}` : "";
+		const condImmPart = mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.getFullCondImm(mon.conditionImmune, true)}` : "";
 
-		const traitArray = RendererMarkdown.monster.getOrderedTraits(mon);
-		const traitsPart = traitArray && traitArray.length ? `\n${RendererMarkdown.monster._getRenderedSection(traitArray, 1)}` : "";
+		const fnGetSpellTraits = RendererMarkdown.monster.getSpellcastingRenderedTraits.bind(RendererMarkdown.monster, meta);
+		const traitArray = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
+		const actionArray = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
 
-		const actionsPart = mon.action ? `\n>### Actions\n${RendererMarkdown.monster._getRenderedSection(mon.action, 1)}` : "";
-		const reactionsPart = mon.reaction ? `\n>### Reactions\n${RendererMarkdown.monster._getRenderedSection(mon.reaction, 1)}` : "";
-		const legendaryActionsPart = mon.legendary ? `\n>### Legendary Actions\n>${Renderer.monster.getLegendaryActionIntro(mon, RendererMarkdown.get())}\n${RendererMarkdown.monster._getRenderedSection(mon.legendary, 1)}` : "";
+		const traitsPart = traitArray?.length ? `\n${RendererMarkdown.monster._getRenderedSection(traitArray, 1, meta)}` : "";
 
-		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSection(mon.footer, 0)}` : "";
+		const actionsPart = actionArray?.length ? `\n>### Actions\n${RendererMarkdown.monster._getRenderedSection(actionArray, 1, meta)}` : "";
+		const bonusActionsPart = mon.bonus ? `\n>### Bonus Actions\n${RendererMarkdown.monster._getRenderedSection(mon.bonus, 1, meta)}` : "";
+		const reactionsPart = mon.reaction ? `\n>### Reactions\n${RendererMarkdown.monster._getRenderedSection(mon.reaction, 1, meta)}` : "";
+		const legendaryActionsPart = mon.legendary ? `\n>### Legendary Actions\n>${Renderer.monster.getLegendaryActionIntro(mon, RendererMarkdown.get())}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.legendary, 1, meta)}` : "";
+		const mythicActionsPart = mon.mythic ? `\n>### Mythic Actions\n>${Renderer.monster.getMythicActionIntro(mon, RendererMarkdown.get())}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.mythic, 1, meta)}` : "";
 
-		const str = `---
+		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSection(mon.footer, 0, meta)}` : "";
+
+		const unbreakablePart = `___
 >## ${mon._displayName || mon.name}
->*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Parser.sizeAbvToFull(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${Parser.alignmentListToFull(mon.alignment).toLowerCase()}` : ""}*
+>*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Parser.sizeAbvToFull(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${Parser.alignmentListToFull(mon.alignment)}` : ""}*
 >___
->- **Armor Class** ${Parser.acToFull(mon.ac)}
+>- **Armor Class** ${acPart}
 >- **Hit Points** ${Renderer.monster.getRenderedHp(mon.hp, true)}
 >- **Speed** ${Parser.getSpeedString(mon)}
 >___
 >|${Parser.ABIL_ABVS.map(it => `${it.toUpperCase()}|`).join("")}
 >|:---:|:---:|:---:|:---:|:---:|:---:|
->|${Parser.ABIL_ABVS.map(ab => `${mon[ab]} (${Parser.getAbilityModifier(mon[ab])})|`)}
+>|${Parser.ABIL_ABVS.map(ab => `${mon[ab]} (${Parser.getAbilityModifier(mon[ab])})|`).join("")}
 >___${savePart}${skillPart}${damVulnPart}${damResPart}${damImmPart}${condImmPart}
 >- **Senses** ${mon.senses ? `${Renderer.monster.getRenderedSenses(mon.senses, true)}, ` : ""}passive Perception ${mon.passive || "\u2014"}
 >- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages)}
->- **Challenge** ${mon.cr ? Parser.monCrToFull(mon.cr) : "\u2014"}
->___${traitsPart}${actionsPart}${reactionsPart}${legendaryActionsPart}${footerPart}`;
+>- **Challenge** ${mon.cr ? Parser.monCrToFull(mon.cr, {isMythic: !!mon.mythic}) : "\u2014"}
+${mon.pbNote || Parser.crToNumber(mon.cr) < VeCt.CR_UNKNOWN ? `>- **Proficiency Bonus** ${mon.pbNote ?? UiUtil.intToBonus(Parser.crToPb(mon.cr))}` : ""}
+>___`;
+
+		let breakablePart = `${traitsPart}${actionsPart}${bonusActionsPart}${reactionsPart}${legendaryActionsPart}${mythicActionsPart}${footerPart}`;
+
+		if (RendererMarkdown._isAddColumnBreaks) {
+			let charAllowanceFirstCol = 2200 - unbreakablePart.length;
+
+			const breakableLines = breakablePart.split("\n");
+			for (let i = 0; i < breakableLines.length; ++i) {
+				const l = breakableLines[i];
+				if ((charAllowanceFirstCol -= l.length) < 0) {
+					breakableLines.splice(i, 0, ">", "> \\columnbreak", ">");
+					break;
+				}
+			}
+			breakablePart = breakableLines.join("\n");
+		}
+
+		const str = `${unbreakablePart}${breakablePart}`;
 
 		const monRender = str.trim().split("\n").map(it => it.trim() ? it : `>`).join("\n");
 		textStack[0] += `\n${monRender}\n\n`;
+
+		if (addedDataCreature) delete meta.isDataCreature;
 	}
 
 	_renderDataSpell (entry, textStack, meta, options) {
@@ -419,24 +496,24 @@ class RendererMarkdown {
 
 		const sp = entry.dataSpell;
 
-		subStack[0] += `>## ${sp._displayName || sp.name}
->*${Parser.spLevelSchoolMetaToFull(sp.level, sp.school, sp.meta, sp.subschools)}*
->
->###### **Casting Time** ${Parser.spTimeListToFull(sp.time)}
->###### **Range** ${Parser.spRangeToFull(sp.range)}
->###### **Components** ${Parser.spComponentsToFull(sp.components, sp.level)}
->###### **Duration** ${Parser.spDurationToFull(sp.duration)}
->---\n`;
+		subStack[0] += `#### ${sp._displayName || sp.name}
+*${Parser.spLevelSchoolMetaToFull(sp.level, sp.school, sp.meta, sp.subschools)}*
+___
+- **Casting Time:** ${Parser.spTimeListToFull(sp.time)}
+- **Range:** ${Parser.spRangeToFull(sp.range)}
+- **Components:** ${Parser.spComponentsToFull(sp.components, sp.level)}
+- **Duration:** ${Parser.spDurationToFull(sp.duration)}
+---\n`;
 
 		const cacheDepth = meta.depth;
 		meta.depth = 2;
-		this._recursiveRender({entries: sp.entries}, subStack, meta, {prefix: ">", suffix: "\n"});
+		this._recursiveRender({entries: sp.entries}, subStack, meta, {suffix: "\n"});
 		if (sp.entriesHigherLevel) {
-			this._recursiveRender({entries: sp.entriesHigherLevel}, subStack, meta, {prefix: ">", suffix: "\n"});
+			this._recursiveRender({entries: sp.entriesHigherLevel}, subStack, meta, {suffix: "\n"});
 		}
 		meta.depth = cacheDepth;
 
-		const spellRender = subStack.join("").trim().split("\n").map(it => it.trim() ? it : `>`).join("\n");
+		const spellRender = subStack.join("").trim();
 		textStack[0] += `\n${spellRender}\n\n`;
 	}
 
@@ -444,8 +521,31 @@ class RendererMarkdown {
 	_renderDataTrapHazard (entry, textStack, meta, options) {
 		// TODO
 	}
-	// endregion
+
+	_renderDataObject (entry, textStack, meta, options) {
+		// TODO
+	}
+
+	_renderDataItem (entry, textStack, meta, options) {
+		// TODO
+	}
 	*/
+
+	_renderDataLegendaryGroup (entry, textStack, meta, options) {
+		const lg = entry.dataLegendaryGroup;
+
+		const subEntry = Renderer.monster.getLegendaryGroupSummaryEntry(entry.dataLegendaryGroup);
+		if (!subEntry) return "";
+
+		const subStack = [""];
+
+		subStack[0] += `## ${lg._displayName || lg.name}`;
+		this._recursiveRender(subEntry, subStack, meta, {suffix: "\n"});
+
+		const lgRender = subStack.join("").trim();
+		textStack[0] += `\n${lgRender}\n\n`;
+	}
+	// endregion
 
 	// region images
 	_renderImage (entry, textStack, meta, options) {
@@ -529,15 +629,197 @@ class RendererMarkdown {
 	// endregion
 
 	// region primitives
-	_renderString (entry, textStack, meta, options) { textStack[0] += entry }
+	_renderString (entry, textStack, meta, options) {
+		switch (RendererMarkdown._tagRenderMode || 0) {
+			// render tags where possible
+			case 0: {
+				this._renderString_renderMode0(entry, textStack, meta, options);
+				break;
+			}
+			// leave tags as-is
+			case 1: {
+				textStack[0] += entry;
+				break;
+			}
+			// strip tags
+			case 2: {
+				textStack[0] += Renderer.stripTags(entry);
+				break;
+			}
+		}
+	}
+
+	_renderString_renderMode0 (entry, textStack, meta, options) {
+		const tagSplit = Renderer.splitByTags(entry);
+		const len = tagSplit.length;
+		for (let i = 0; i < len; ++i) {
+			const s = tagSplit[i];
+			if (!s) continue;
+			if (s.startsWith("{@")) {
+				const [tag, text] = Renderer.splitFirstSpace(s.slice(1, -1));
+				this._renderString_renderTag(textStack, meta, options, tag, text);
+			} else textStack[0] += s;
+		}
+	}
+
+	_renderString_renderTag (textStack, meta, options, tag, text) {
+		switch (tag) {
+			// BASIC STYLES/TEXT ///////////////////////////////////////////////////////////////////////////////
+			case "@b":
+			case "@bold":
+				textStack[0] += `**`;
+				this._recursiveRender(text, textStack, meta);
+				textStack[0] += `**`;
+				break;
+			case "@i":
+			case "@italic":
+				textStack[0] += `*`;
+				this._recursiveRender(text, textStack, meta);
+				textStack[0] += `*`;
+				break;
+			case "@s":
+			case "@strike":
+				textStack[0] += `~~`;
+				this._recursiveRender(text, textStack, meta);
+				textStack[0] += `~~`;
+				break;
+			case "@atk": textStack[0] += `*${Renderer.attackTagToFull(text)}*`; break;
+			case "@h": textStack[0] += `*Hit:* `; break;
+
+			// DCs /////////////////////////////////////////////////////////////////////////////////////////////
+			case "@dc": textStack[0] += `DC ${text}`; break;
+
+			// DICE ////////////////////////////////////////////////////////////////////////////////////////////
+			case "@dice":
+			case "@damage":
+			case "@hit":
+			case "@d20":
+			case "@chance":
+			case "@recharge":
+				textStack[0] += Renderer.stripTags(`{${tag} ${text}}`); break;
+
+			// SCALE DICE //////////////////////////////////////////////////////////////////////////////////////
+			case "@scaledice":
+			case "@scaledamage":
+				textStack[0] += Renderer.stripTags(`{${tag} ${text}}`); break;
+
+			// LINKS ///////////////////////////////////////////////////////////////////////////////////////////
+			case "@filter":
+				textStack[0] += Renderer.stripTags(`{${tag} ${text}}`); break;
+
+			case "@link":
+			case "@5etools":
+				this.__super._renderString_renderTag(textStack, meta, options, tag, text); break;
+
+			// OTHER HOVERABLES ////////////////////////////////////////////////////////////////////////////////
+			case "@footnote":
+			case "@homebrew":
+			case "@skill":
+			case "@sense":
+			case "@area":
+				textStack[0] += Renderer.stripTags(`{${tag} ${text}}`); break;
+
+			// HOMEBREW LOADING ////////////////////////////////////////////////////////////////////////////////
+			case "@loader": {
+				const {name, path} = this._renderString_getLoaderTagMeta(text);
+				textStack[0] += `[${name}](${path})`;
+				break;
+			}
+
+			// CONTENT TAGS ////////////////////////////////////////////////////////////////////////////////////
+			case "@book":
+			case "@adventure":
+				textStack[0] += `*${Renderer.stripTags(`{${tag} ${text}}`)}*`; break;
+
+			case "@deity":
+				textStack[0] += `**${Renderer.stripTags(`{${tag} ${text}}`)}**`; break;
+
+			default: {
+				switch (tag) {
+					case "@item": {
+						if (this._isSkipStylingItemLinks) textStack[0] += `${Renderer.stripTags(`{${tag} ${text}}`)}`;
+						else textStack[0] += `*${Renderer.stripTags(`{${tag} ${text}}`)}*`;
+						break;
+					}
+
+					case "@spell":
+					case "@psionic":
+						textStack[0] += `*${Renderer.stripTags(`{${tag} ${text}}`)}*`; break;
+					case "@creature":
+						textStack[0] += `**${Renderer.stripTags(`{${tag} ${text}}`)}**`; break;
+					default:
+						textStack[0] += Renderer.stripTags(`{${tag} ${text}}`); break;
+				}
+			}
+		}
+	}
+
 	_renderPrimitive (entry, textStack, meta, options) { textStack[0] += `${entry}` }
 	// endregion
+
+	// region Static options
+	static async pShowSettingsModal () {
+		RendererMarkdown.checkInit();
+
+		const {$modalInner} = UiUtil.getShowModal({
+			title: "Markdown Settings",
+			cbClose: () => RendererMarkdown.__$wrpSettings.detach(),
+		});
+		if (!RendererMarkdown.__$wrpSettings) {
+			const _compMarkdownSettings = BaseComponent.fromObject({
+				_tagRenderMode: RendererMarkdown._tagRenderMode,
+				_isAddColumnBreaks: RendererMarkdown._isAddColumnBreaks,
+			});
+			const compMarkdownSettings = _compMarkdownSettings.getPod();
+			const saveMarkdownSettingsDebounced = MiscUtil.debounce(() => StorageUtil.pSet("bookViewSettingsMarkdown", _compMarkdownSettings.toObject()), 100);
+			compMarkdownSettings.addHookAll(() => {
+				Object.assign(RendererMarkdown, compMarkdownSettings.getState());
+				saveMarkdownSettingsDebounced();
+			});
+
+			const $rows = Object.entries(RendererMarkdown._CONFIG)
+				.map(([k, v]) => {
+					let $ipt;
+					switch (v.type) {
+						case "boolean": {
+							$ipt = ComponentUiUtil.$getCbBool(_compMarkdownSettings, k).addClass("mr-1");
+							break;
+						}
+						case "enum": {
+							$ipt = ComponentUiUtil.$getSelEnum(_compMarkdownSettings, k, {values: v.values, fnDisplay: v.fnDisplay});
+							break;
+						}
+						default: throw new Error(`Unhandled input type!`);
+					}
+
+					return $$`<div class="m-1 stripe-even"><label class="split-v-center">
+						<div class="w-100 mr-2">${v.name}</div>
+						${$ipt.addClass("max-w-33")}
+					</label></div>`
+				});
+
+			RendererMarkdown.__$wrpSettings = $$`<div class="flex-v-col w-100 h-100">${$rows}</div>`;
+		}
+		RendererMarkdown.__$wrpSettings.appendTo($modalInner);
+	}
+	// endregion
 }
+RendererMarkdown._isInit = false;
+RendererMarkdown._PAGE_CHARS = 5500;
+RendererMarkdown.__$wrpSettings = null;
+RendererMarkdown._TAG_RENDER_MODES = ["Convert to Markdown", "Leave As-Is", "Convert to Text"];
+RendererMarkdown._CONFIG = {
+	_tagRenderMode: {default: 0, name: "Tag Handling (<code>@tag</code>)", fnDisplay: ix => RendererMarkdown._TAG_RENDER_MODES[ix], type: "enum", values: [0, 1, 2]},
+	_isAddColumnBreaks: {default: false, name: "Add GM Binder Column Breaks (<code>\\columnbreak</code>)", type: "boolean"},
+	_isAddPageBreaks: {default: false, name: "Add GM Binder Page Breaks (<code>\\pagebreak</code>)", type: "boolean"},
+};
+
+if (typeof window !== "undefined") window.addEventListener("load", () => RendererMarkdown.pInit());
 
 RendererMarkdown.utils = class {
 	static getPageText (it) {
 		const sourceSub = Renderer.utils.getSourceSubText(it);
-		const baseText = it.page > 0 ? `**Source:** *${Parser.sourceJsonToAbv(it.source)}${sourceSub}*, page ${it.page}` : "";
+		const baseText = Renderer.utils.isDisplayPage(it.page) ? `**Source:** *${Parser.sourceJsonToAbv(it.source)}${sourceSub}*, page ${it.page}` : "";
 		const addSourceText = this._getPageText_getAltSourceText(it, "additionalSources", "Additional information from");
 		const otherSourceText = this._getPageText_getAltSourceText(it, "otherSources", "Also found in");
 		const externalSourceText = this._getPageText_getAltSourceText(it, "externalSources", "External sources:");
@@ -550,7 +832,7 @@ RendererMarkdown.utils = class {
 
 		return `${introText} ${it[prop].map(as => {
 			if (as.entry) return Renderer.get().render(as.entry);
-			else return `*${Parser.sourceJsonToAbv(as.source)}*${as.page > 0 ? `, page ${as.page}` : ""}`;
+			else return `*${Parser.sourceJsonToAbv(as.source)}*${Renderer.utils.isDisplayPage(as.page) ? `, page ${as.page}` : ""}`;
 		}).join("; ")}`
 	}
 };
@@ -581,32 +863,102 @@ RendererMarkdown.monster = class {
 		} else return skills;
 	}
 
-	static _getRenderedSection (sectionEntries, sectionLevel) {
+	static _getRenderedSection (sectionEntries, sectionLevel, meta) {
 		const renderer = RendererMarkdown.get();
-		const renderStack = [];
+		const renderStack = [""];
 		sectionEntries.forEach(e => {
-			if (e.rendered) renderStack.push(e.rendered);
-			else renderer.recursiveRender(e, renderStack, {depth: sectionLevel + 1}, {prefix: ">"});
+			if (e.rendered) renderStack[0] += e.rendered;
+			else {
+				const cacheDepth = meta.depth;
+				meta.depth = sectionLevel + 1;
+				renderer._recursiveRender(e, renderStack, meta, {prefix: ">"});
+				meta.depth = cacheDepth;
+			}
 		});
 		return renderStack.join("");
 	}
 
-	static getOrderedTraits (mon) {
-		let traits = mon.trait ? MiscUtil.copy(mon.trait) : null;
-		if (mon.spellcasting) traits = (traits || []).concat(RendererMarkdown.monster.getSpellcastingRenderedTraits(mon));
-		if (traits) return traits.sort((a, b) => SortUtil.monTraitSort(a.name, b.name));
+	static _getRenderedLegendarySection (sectionEntries, sectionLevel, meta) {
+		const renderer = RendererMarkdown.get();
+		const renderStack = [""];
+
+		const cpy = MiscUtil.copy(sectionEntries).map(it => {
+			if (it.name && it.entries) {
+				it.name = `${it.name}.`;
+				it.type = it.type || "item";
+			}
+			return it;
+		});
+
+		const toRender = {type: "list", style: "list-hang-notitle", items: cpy};
+		const cacheDepth = meta.depth;
+		meta.depth = sectionLevel;
+		renderer._recursiveRender(toRender, renderStack, meta, {prefix: ">"});
+		meta.depth = cacheDepth;
+
+		return renderStack.join("");
 	}
 
-	static getSpellcastingRenderedTraits (mon) {
+	static getSpellcastingRenderedTraits (meta, mon, displayAsProp = "trait") {
+		const renderer = RendererMarkdown.get();
 		const out = [];
-		mon.spellcasting.forEach(entry => {
+		const cacheDepth = meta.depth;
+		meta.depth = 2;
+		(mon.spellcasting || []).filter(it => (it.displayAs || "trait") === displayAsProp).forEach(entry => {
 			entry.type = entry.type || "spellcasting";
-			const renderStack = [];
-			RendererMarkdown.get().recursiveRender(entry, renderStack, {depth: 2}, {prefix: ">"});
+			const renderStack = [""];
+			renderer._recursiveRender(entry, renderStack, meta, {prefix: ">"});
 			out.push({name: entry.name, rendered: renderStack.join("")});
 		});
+		meta.depth = cacheDepth;
 		return out;
 	}
+
+	// region Exporting
+	static async pGetMarkdownDoc (monsters) {
+		const asEntries = (await Promise.all(monsters
+			.map(async (mon, i) => {
+				const monEntry = ({type: "dataCreature", dataCreature: mon});
+
+				const fluff = await Renderer.monster.pGetFluff(mon);
+
+				const fluffEntries = (fluff || {}).entries || [];
+
+				RendererMarkdown.get().setFirstSection(true);
+				const fluffText = fluffEntries.map(ent => RendererMarkdown.get().render(ent)).join("\n\n");
+
+				const out = [monEntry];
+
+				if (fluffText) {
+					// Insert a page break before every fluff section
+					if (RendererMarkdown._isAddPageBreaks) out.push("", "\\pagebreak", "");
+
+					out.push(`## ${mon.name}`);
+
+					// Split into runs of <X characters, and join these with page breaks
+					let stack = [];
+					let charLimit = RendererMarkdown._PAGE_CHARS;
+					fluffText.split("\n").forEach(l => {
+						if ((charLimit -= l.length) < 0) {
+							out.push(stack.join("\n"));
+							if (RendererMarkdown._isAddPageBreaks) out.push("", "\\pagebreak", "");
+							stack = [];
+							charLimit = RendererMarkdown._PAGE_CHARS - l.length;
+						}
+						stack.push(l);
+					});
+					if (stack.length) out.push(stack.join("\n"));
+				}
+
+				// Insert a page break after every creature statblock or fluff section
+				if (i !== monsters.length - 1 && RendererMarkdown._isAddPageBreaks) out.push("", "\\pagebreak", "");
+				return out;
+			})))
+			.flat();
+
+		return RendererMarkdown.get().render({entries: asEntries});
+	}
+	// endregion
 };
 
 class MarkdownConverter {
@@ -687,7 +1039,7 @@ class MarkdownConverter {
 				buf[i] = {
 					type: "inset",
 					name: "(To convert creature statblocks, please use the Text Converter utility)",
-					entries: line.lines.slice(1).map(it => it.slice(1).trim())
+					entries: line.lines.slice(1).map(it => it.slice(1).trim()),
 				}
 			}
 		}
@@ -762,7 +1114,7 @@ class MarkdownConverter {
 					buf.splice(
 						lastCaptionIx,
 						j + (i - lastCaptionIx),
-						{mdType: "table", caption: lines[0].replace("##### ", ""), lines: lines.slice(1)}
+						{mdType: "table", caption: lines[0].replace("##### ", ""), lines: lines.slice(1)},
 					);
 				} else {
 					const lines = buf.slice(i, i + j);
@@ -969,7 +1321,7 @@ class MarkdownConverter {
 				const out = {
 					type: line.mdType,
 					name: line.name,
-					entries: line.lines
+					entries: line.lines,
 				};
 				if (!out.name || !out.name.trim()) delete out.name;
 				buf[i] = out;
@@ -1081,8 +1433,8 @@ class MarkdownConverter {
 			const nuRoot = {
 				type: "section",
 				entries: [
-					stack[0]
-				]
+					stack[0],
+				],
 			};
 			const ixRoot = buf.indexOf(stack[0]);
 			if (~ixRoot) throw new Error(`Could not find root in buffer!`);
@@ -1119,7 +1471,7 @@ class MarkdownConverter {
 
 	static _convertInlineStyling (buf) {
 		const handlers = {
-			object: (ident, obj) => {
+			object: (obj) => {
 				for (const meta of Renderer.ENTRIES_WITH_CHILDREN) {
 					if (obj.type !== meta.type) continue;
 					if (!obj[meta.key]) continue;
@@ -1150,25 +1502,25 @@ class MarkdownConverter {
 					});
 				}
 				return obj;
-			}
+			},
 		};
-		const nxtBuf = MiscUtil.getWalker().walk("convertInlineStyling", buf, handlers);
+		const nxtBuf = MiscUtil.getWalker().walk(buf, handlers);
 		while (buf.length) buf.pop();
 		buf.push(...nxtBuf);
 	}
 
 	static _cleanEmptyLines (buf) {
 		const handlersDoTrim = {
-			array: (ident, arr) => arr.map(it => typeof it === "string" ? it.trim() : it)
+			array: (arr) => arr.map(it => typeof it === "string" ? it.trim() : it),
 		};
-		const nxtBufTrim = MiscUtil.getWalker().walk("cleanEmptyLines", buf, handlersDoTrim);
+		const nxtBufTrim = MiscUtil.getWalker().walk(buf, handlersDoTrim);
 		while (buf.length) buf.pop();
 		buf.push(...nxtBufTrim);
 
 		const handlersRmEmpty = {
-			array: (ident, arr) => arr.filter(it => it && (typeof it !== "string" || it.trim()))
+			array: (arr) => arr.filter(it => it && (typeof it !== "string" || it.trim())),
 		};
-		const nxtBufRmEmpty = MiscUtil.getWalker().walk("cleanEmptyLines", buf, handlersRmEmpty);
+		const nxtBufRmEmpty = MiscUtil.getWalker().walk(buf, handlersRmEmpty);
 		while (buf.length) buf.pop();
 		buf.push(...nxtBufRmEmpty);
 	}
@@ -1202,7 +1554,7 @@ class MarkdownConverter {
 			caption,
 			colLabels: [],
 			colStyles: [],
-			rows: []
+			rows: [],
 		};
 
 		let seenHeaderBreak = false;
@@ -1248,6 +1600,8 @@ class MarkdownConverter {
 		opts.tableWidth = opts.tableWidth || 80;
 		opts.diceColWidth = opts.diceColWidth || 1;
 
+		tbl.colStyles = tbl.colStyles || [];
+
 		// Post-processing
 		(function normalizeCellCounts () {
 			// pad all rows to max width
@@ -1280,15 +1634,17 @@ class MarkdownConverter {
 
 				tbl.rows.forEach(r => {
 					r.forEach((cell, i) => {
-						if (cell.length > BASE_CHAR_CAP) isAllBelowCap = false;
-						outAvgWidths[i] += Math.min(BASE_CHAR_CAP, cell.length);
-						outMaxWidths[i] = Math.max(outMaxWidths[i], cell.length);
+						// This assumes the cells are always strings, which may be faulty
+						const cellStripped = Renderer.stripTags(cell);
+						if (cellStripped.length > BASE_CHAR_CAP) isAllBelowCap = false;
+						outAvgWidths[i] += Math.min(BASE_CHAR_CAP, cellStripped.length);
+						outMaxWidths[i] = Math.max(outMaxWidths[i], cellStripped.length);
 					});
 				});
 
 				return {
 					avgWidths: outAvgWidths.map(it => it / tbl.rows.length),
-					maxWidths: outMaxWidths
+					maxWidths: outMaxWidths,
 				};
 			})();
 
@@ -1332,6 +1688,7 @@ class MarkdownConverter {
 				twelfthWidths.forEach((it, i) => {
 					const widthPart = `col-${it}`;
 					const iOffset = isDiceCol0 ? i + 1 : i;
+
 					tbl.colStyles[iOffset] = tbl.colStyles[iOffset] ? `${tbl.colStyles[iOffset]} ${widthPart}` : widthPart;
 				});
 			};
@@ -1388,8 +1745,9 @@ class MarkdownConverter {
 				const counts = {short: 0, long: 0};
 
 				tbl.rows.forEach(r => {
-					if (typeof r[i] !== "string") return counts.long++;
-					const words = r[i].split(" ");
+					const cell = r[i];
+					if (typeof cell !== "string") return counts.long++;
+					const words = Renderer.stripTags(cell).split(" ");
 					counts[words.length <= 3 ? "short" : "long"]++
 				});
 
@@ -1410,6 +1768,14 @@ class MarkdownConverter {
 				tbl.colStyles = ["col-6 text-center", "col-6 text-center"]
 			}
 		})();
+
+		// Convert "--" cells to long-dashes
+		tbl.rows = tbl.rows.map(r => {
+			return r.map(cell => {
+				if (cell === "--") return "\u2014";
+				return cell;
+			});
+		})
 	}
 
 	static _doCleanTable (tbl) {
@@ -1423,6 +1789,6 @@ class MarkdownConverter {
 if (typeof module !== "undefined") {
 	module.exports = {
 		RendererMarkdown,
-		MarkdownConverter
+		MarkdownConverter,
 	}
 }

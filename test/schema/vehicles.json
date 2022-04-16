@@ -1,17 +1,63 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"version": "1.2.0",
+	"$id": "vehicles.json",
+	"version": "1.4.0",
 	"type": "object",
 
 	"definitions": {
+		"vehicleTerrain": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"enum": ["land", "sea", "air"]
+			}
+		},
+
 		"vehicle": {
 			"oneOf": [
 				{"$ref": "#/definitions/vehicleShip"},
-				{"$ref": "#/definitions/vehicleInfernalWarMachine"}
+				{"$ref": "#/definitions/vehicleInfernalWarMachine"},
+				{"$ref": "#/definitions/vehicleCreature"},
+				{"$ref": "#/definitions/vehicleObject"}
 			]
 		},
 
+		"vehicleUpgrade": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"entries": {
+					"type": "array",
+					"items": {
+						"$ref": "entry.json"
+					}
+				},
+				"source": {
+					"type": "string"
+				},
+				"page": {
+					"type": "integer"
+				},
+				"upgradeType": {
+					"type": "array",
+					"items": {"type": "string"}
+				},
+				"hasFluff": {"type": "boolean"},
+				"hasFluffImages": {"type": "boolean"}
+			},
+			"required": [
+				"name",
+				"entries",
+				"source",
+				"upgradeType"
+			],
+			"additionalProperties": false
+		},
+
 		"vehicleShip": {
+			"type": "object",
 			"properties": {
 				"name": {
 					"type": "string"
@@ -23,6 +69,7 @@
 					"type": "integer"
 				},
 				"vehicleType": {"const": "SHIP"},
+				"terrain": {"$ref": "#/definitions/vehicleTerrain"},
 				"size": {
 					"type": "string",
 					"enum": [
@@ -84,6 +131,14 @@
 					"type": "array",
 					"items": {
 						"$ref": "entry.json#/definitions/dataDamImmune"
+					}
+				},
+				"actionThresholds": {
+					"type": "object",
+					"patternProperties": {
+						"\\d+": {
+							"type": "integer"
+						}
 					}
 				},
 				"action": {
@@ -230,7 +285,7 @@
 								}
 							}
 						},
-						"required": ["ac", "hp", "entries"],
+						"required": ["name", "entries"],
 						"additionalProperties": false
 					}
 				},
@@ -252,13 +307,19 @@
 						"required": ["entries"],
 						"additionalProperties": false
 					}
-				}
+				},
+				"hasToken": {
+					"type": "boolean"
+				},
+				"hasFluff": {"type": "boolean"},
+				"hasFluffImages": {"type": "boolean"}
 			},
 			"required": ["name", "source"],
 			"additionalProperties": false
 		},
 
 		"vehicleInfernalWarMachine": {
+			"type": "object",
 			"properties": {
 				"name": {
 					"type": "string"
@@ -270,6 +331,7 @@
 					"type": "integer"
 				},
 				"vehicleType": {"const": "INFWAR"},
+				"terrain": {"$ref": "#/definitions/vehicleTerrain"},
 				"size": {
 					"type": "string",
 					"enum": [
@@ -393,10 +455,31 @@
 							}
 						}
 					}
-				}
+				},
+				"hasToken": {
+					"type": "boolean"
+				},
+				"hasFluff": {"type": "boolean"},
+				"hasFluffImages": {"type": "boolean"}
 			},
 			"required": ["name", "source"],
 			"additionalProperties": false
+		},
+
+		"vehicleCreature": {
+			"type": "object",
+			"properties": {
+				"vehicleType": {"const": "CREATURE"},
+				"terrain": {"$ref": "#/definitions/vehicleTerrain"}
+			}
+		},
+
+		"vehicleObject": {
+			"type": "object",
+			"properties": {
+				"vehicleType": {"const": "OBJECT"},
+				"terrain": {"$ref": "#/definitions/vehicleTerrain"}
+			}
 		}
 	},
 
@@ -405,6 +488,12 @@
 			"type": "array",
 			"items": {
 				"$ref": "#/definitions/vehicle"
+			}
+		},
+		"vehicleUpgrade": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/vehicleUpgrade"
 			}
 		}
 	},

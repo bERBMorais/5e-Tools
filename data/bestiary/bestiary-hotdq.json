@@ -80,6 +80,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -95,7 +96,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Azbara Jos",
@@ -225,6 +227,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"DR",
@@ -242,7 +245,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Blagothkus",
@@ -375,6 +379,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -396,7 +401,8 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Captain Othelstan",
@@ -487,6 +493,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -503,7 +510,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dragonclaw",
@@ -594,6 +602,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -718,6 +727,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -871,6 +881,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -899,7 +910,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Frulam Mondath",
@@ -1010,6 +1022,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1027,7 +1040,8 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Golden Stag",
@@ -1036,7 +1050,8 @@
 			"_copy": {
 				"name": "Elk",
 				"source": "MM"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Guard Drake",
@@ -1108,7 +1123,11 @@
 					]
 				}
 			],
-			"soundClip": "https://media-waterdeep.cursecdn.com/file-attachments/0/254/guard-drake.mp3",
+			"hasToken": true,
+			"soundClip": {
+				"type": "internal",
+				"path": "bestiary/guard-drake.mp3"
+			},
 			"senseTags": [
 				"D"
 			],
@@ -1242,6 +1261,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1262,7 +1282,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Langdedrosa Cyanwrath",
@@ -1363,6 +1384,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B",
 				"D"
@@ -1384,7 +1406,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Leosin Erlanthar",
@@ -1405,7 +1428,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Linan Swift",
@@ -1415,6 +1439,12 @@
 			"_copy": {
 				"name": "Commoner",
 				"source": "MM"
+			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
 			},
 			"hp": {
 				"average": 8,
@@ -1428,6 +1458,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"P"
 			],
@@ -1456,7 +1487,14 @@
 						}
 					}
 				}
-			}
+			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Pharblex Spattergoo",
@@ -1600,6 +1638,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1621,7 +1660,8 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Raggnar Redtooth",
@@ -1794,6 +1834,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"DR",
@@ -1809,7 +1850,8 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rezmir",
@@ -1940,16 +1982,19 @@
 					]
 				}
 			],
+			"legendaryHeader": [
+				"If she is wearing the Black Dragon Mask, Rezmir can take up to two legendary actions between each of her turns, taking the actions all at once or spreading them over the round. A legendary action can be taken only at the start or end of a turn."
+			],
+			"legendaryActions": 2,
 			"legendary": [
 				{
 					"name": "Darkness (Costs 2 Actions)",
 					"entries": [
-						"If she is wearing the Black Dragon Mask, Rezmir can take up to two legendary actions between each of her turns, taking the actions all at once or spreading them over the round. A legendary action can be taken only at the start or end of a turn.",
 						"A 15-foot radius of magical darkness extends from a point Rezmir can see within 60 feet of her and spreads around corners. The darkness lasts as long as Rezmir maintains concentration, up to 1 minute. A creature with darkvision can't see through this darkness, and no natural light can illuminate it. If any of the area overlaps with a area of light created by a spell of 2nd level or lower, the spell creating the light is dispelled."
 					]
 				},
 				{
-					"name": "Attack",
+					"name": "Melee Attack",
 					"entries": [
 						"Rezmir makes one melee attack."
 					]
@@ -1961,6 +2006,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -1984,7 +2030,8 @@
 			"miscTags": [
 				"AOE",
 				"MW"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sandesyl Morgia",
@@ -2002,7 +2049,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Talis the White",
@@ -2024,7 +2072,7 @@
 				{
 					"ac": 18,
 					"from": [
-						"{@item scale mail +1||+1 scale mail}",
+						"{@item +1 scale mail}",
 						"{@item shield|phb}"
 					]
 				}
@@ -2123,7 +2171,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Talis has {@item scale mail +1||+1 scale mail} and a {@item wand of winter|hotdq}."
+						"Talis has {@item +1 scale mail} and a {@item wand of winter|hotdq}."
 					]
 				},
 				{
@@ -2147,6 +2195,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -2170,7 +2219,13 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"deafened",
+				"prone"
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Trepsin",
@@ -2205,7 +2260,7 @@
 			"wis": 9,
 			"cha": 7,
 			"skill": {
-				"perception": "+1"
+				"perception": "+2"
 			},
 			"senses": [
 				"darkvision 60 ft."
@@ -2249,6 +2304,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses",
 				"Regeneration"
@@ -2268,7 +2324,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

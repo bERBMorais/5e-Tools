@@ -60,7 +60,7 @@
 				{
 					"name": "Dive Attack",
 					"entries": [
-						"If the aarakocra is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 3 ({@dice 1d6}) damage to the target."
+						"If the aarakocra is flying and dives at least 30 feet straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 3 ({@dice 1d6}) damage to the target."
 					]
 				},
 				{
@@ -90,6 +90,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"AU",
 				"OTH"
@@ -129,6 +130,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"GI"
 			]
@@ -186,7 +188,6 @@
 				"Common",
 				"Dwarvish"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Dwarven Resilience",
@@ -218,6 +219,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -233,7 +235,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Axe of Mirabar Soldier",
@@ -299,13 +303,17 @@
 				"formula": "9d8 + 27"
 			},
 			"con": 16,
+			"languages": [
+				"Common",
+				"Dwarvish"
+			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
 			"languageTags": [
 				"C",
-				"D",
-				"X"
+				"D"
 			],
 			"miscTags": [
 				"MW",
@@ -363,7 +371,6 @@
 				"Dwarvish",
 				"Halfling"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Roleplaying Information",
@@ -397,6 +404,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"D",
@@ -411,7 +419,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Braxow",
@@ -421,7 +431,8 @@
 			"_copy": {
 				"name": "Stone Giant",
 				"source": "MM"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Chief Guh",
@@ -491,6 +502,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -506,7 +518,9 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Chief Kartha-Kaya",
@@ -552,6 +566,7 @@
 				"formula": "8d10 + 16"
 			},
 			"cr": "4",
+			"hasToken": true,
 			"damageTags": [
 				"F",
 				"P",
@@ -589,6 +604,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"damageTags": [
 				"P"
 			],
@@ -682,6 +698,7 @@
 					"ability": "wis"
 				}
 			],
+			"hasToken": true,
 			"spellcastingTags": [
 				"CD",
 				"I"
@@ -718,7 +735,8 @@
 				"paralyzed",
 				"petrified",
 				"poisoned"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Cog",
@@ -736,7 +754,8 @@
 						"{@item scale mail|phb}"
 					]
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Count Thullen",
@@ -758,7 +777,7 @@
 						"items": {
 							"name": "Spellcasting",
 							"headerEntries": [
-								"Thullen is a 9th-level spellcaster. His spellcasting ability is Wisdom (spell save DC 15, {@hit 7} to hit with spell attacks). He has the following druid spells prepared:"
+								"Thullen is a 9th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 15}, {@hit 7} to hit with spell attacks). He has the following druid spells prepared:"
 							],
 							"spells": {
 								"0": {
@@ -806,7 +825,7 @@
 									]
 								}
 							},
-							"ability": "int"
+							"ability": "wis"
 						}
 					}
 				}
@@ -836,6 +855,7 @@
 				"Giant"
 			],
 			"cr": "10",
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"DR",
@@ -898,6 +918,30 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Sansuri's innate spellcasting ability is Charisma. She can innately cast the following spells, requiring no material components:"
+					],
+					"will": [
+						"{@spell detect magic}",
+						"{@spell fog cloud}",
+						"{@spell light}"
+					],
+					"daily": {
+						"3e": [
+							"{@spell feather fall}",
+							"{@spell fly}",
+							"{@spell misty step}",
+							"{@spell telekinesis}"
+						],
+						"1e": [
+							"{@spell control weather}",
+							"{@spell gaseous form}"
+						]
+					},
+					"ability": "cha"
+				},
+				{
+					"name": "Spellcasting",
 					"headerEntries": [
 						"Sansuri is a 13th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 15}; {@hit 7} to hit with spell attacks). She has the following wizard spells prepared:"
 					],
@@ -963,7 +1007,7 @@
 							]
 						}
 					},
-					"ability": "int"
+					"ability": "wis"
 				}
 			],
 			"trait": [
@@ -1006,6 +1050,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -1030,14 +1075,29 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"incapacitated",
+				"invisible"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Crag Cat",
 			"source": "SKT",
 			"page": 240,
+			"otherSources": [
+				{
+					"source": "IDRotF"
+				}
+			],
 			"size": "L",
-			"type": "beast",
+			"type": "monstrosity",
 			"alignment": [
 				"U"
 			],
@@ -1049,7 +1109,8 @@
 				"formula": "4d10 + 12"
 			},
 			"speed": {
-				"walk": 40
+				"walk": 40,
+				"climb": 30
 			},
 			"str": 16,
 			"dex": 17,
@@ -1100,6 +1161,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pounce"
 			],
@@ -1112,7 +1174,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Cressaro",
@@ -1134,17 +1201,20 @@
 						"{@item bracers of defense}"
 					]
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Cryovain",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 165,
 			"_copy": {
 				"name": "Adult White Dragon",
 				"source": "MM"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Darathra Shendrel",
@@ -1197,7 +1267,6 @@
 			"languages": [
 				"Common"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Brave",
@@ -1235,6 +1304,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1249,7 +1319,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Darz Helgar",
@@ -1294,7 +1366,6 @@
 			"languages": [
 				"Common"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Sneak Attack (1/Turn)",
@@ -1326,6 +1397,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -1339,7 +1411,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Deadstone Cleft Stone Giant",
@@ -1383,6 +1457,7 @@
 					"ability": "wis"
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D",
 				"T"
@@ -1435,6 +1510,7 @@
 				"Giant",
 				"Goblin"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"GI",
@@ -1535,6 +1611,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Siege Monster"
 			],
@@ -1553,7 +1630,12 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Duvessa Shane",
@@ -1592,8 +1674,8 @@
 			"cha": 16,
 			"skill": {
 				"deception": "+5",
-				"insight": "+3",
-				"persuasion": "+3"
+				"insight": "+4",
+				"persuasion": "+5"
 			},
 			"passive": 12,
 			"languages": [
@@ -1602,7 +1684,6 @@
 				"Giant",
 				"Orc"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Roleplaying Information",
@@ -1630,6 +1711,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Parry"
 			],
@@ -1646,7 +1728,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Eigeron's Ghost",
@@ -1698,6 +1782,7 @@
 				"Common",
 				"Giant"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Incorporeal Movement",
 				"Rejuvenation"
@@ -1764,6 +1849,7 @@
 					"ability": "wis"
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1788,6 +1874,7 @@
 				"L",
 				"G"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1800,6 +1887,7 @@
 		{
 			"name": "Felgolos",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 192,
 			"_copy": {
@@ -1813,7 +1901,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Ghelryn Foehammer",
@@ -1872,7 +1961,6 @@
 				"Common",
 				"Dwarvish"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Dwarven Resilience",
@@ -1910,6 +1998,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -1925,7 +2014,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Giant Raven",
@@ -1941,7 +2032,8 @@
 						"with": "raven"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Great Chief Halric Bonesnapper",
@@ -1959,6 +2051,12 @@
 						"flags": "i"
 					}
 				}
+			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
 			},
 			"alignment": [
 				"C",
@@ -1980,6 +2078,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"OTH"
@@ -2000,7 +2099,7 @@
 				{
 					"ac": 21,
 					"from": [
-						"{@item plate armor +3||+3 plate armor}"
+						"{@item +3 plate armor}"
 					]
 				}
 			],
@@ -2018,13 +2117,13 @@
 			"wis": 10,
 			"cha": 12,
 			"save": {
-				"con": "+8",
-				"wis": "+3",
-				"cha": "+4"
+				"con": "+9",
+				"wis": "+4",
+				"cha": "+5"
 			},
 			"skill": {
-				"athletics": "+9",
-				"perception": "+3"
+				"athletics": "+10",
+				"perception": "+4"
 			},
 			"passive": 13,
 			"immune": [
@@ -2069,6 +2168,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -2088,7 +2188,11 @@
 				"RCH",
 				"RW",
 				"THW"
-			]
+			],
+			"conditionInflict": [
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Hellenhild",
@@ -2098,7 +2202,8 @@
 			"_copy": {
 				"name": "Frost Giant",
 				"source": "MM"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Huge Stone Golem",
@@ -2108,11 +2213,12 @@
 				"name": "Stone Golem",
 				"source": "MM"
 			},
-			"size": "L",
+			"size": "H",
 			"hp": {
 				"average": 195,
 				"formula": "17d12 + 85"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Hulking Crab",
@@ -2181,6 +2287,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -2196,7 +2303,11 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Hydia Moonmusk",
@@ -2215,6 +2326,12 @@
 					}
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"alignment": [
 				"C",
 				"E"
@@ -2223,6 +2340,7 @@
 				"Bothii",
 				"Common"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"OTH"
@@ -2251,6 +2369,7 @@
 			"resist": [
 				"cold"
 			],
+			"hasToken": true,
 			"damageTags": [
 				"C",
 				"I",
@@ -2294,6 +2413,7 @@
 				"cold"
 			],
 			"cr": "2",
+			"hasToken": true,
 			"damageTags": [
 				"C",
 				"I",
@@ -2343,6 +2463,7 @@
 				"average": 272,
 				"formula": "20d12 + 100"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L",
@@ -2358,12 +2479,14 @@
 		{
 			"name": "Isendraug",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 164,
 			"_copy": {
 				"name": "Adult White Dragon",
 				"source": "MM"
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Iymrith",
@@ -2512,7 +2635,7 @@
 				{
 					"name": "Wing Attack (Costs 2 Actions)",
 					"entries": [
-						"Iymrith beats her wings. Each creature within 15 ft. of Iymrith must succeed on a {@dc 24} Dexterity saving throw or take 16 ({@damage 2d6 + 9}) bludgeoning damage and be knocked {@condition prone}. Iymrith can then fly up to half her flying speed."
+						"Iymrith beats her wings. Each creature within 15 feet of Iymrith must succeed on a {@dc 24} Dexterity saving throw or take 16 ({@damage 2d6 + 9}) bludgeoning damage and be knocked {@condition prone}. Iymrith can then fly up to half her flying speed."
 					]
 				}
 			],
@@ -2521,6 +2644,7 @@
 				"source": "MM"
 			},
 			"dragonCastingColor": "U",
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -2551,7 +2675,13 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflictLegendary": [
+				"blinded",
+				"prone",
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Jarl Storvald",
@@ -2587,10 +2717,12 @@
 			"cha": 16,
 			"save": {
 				"con": "+8",
-				"cha": "+4"
+				"wis": "+6",
+				"cha": "+6"
 			},
 			"skill": {
-				"athletics": "+9"
+				"athletics": "+9",
+				"perception": "+6"
 			},
 			"passive": 13,
 			"immune": [
@@ -2660,6 +2792,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2680,7 +2813,9 @@
 				"RCH",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Jasper Dimmerchasm",
@@ -2735,6 +2870,7 @@
 					]
 				}
 			},
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -2775,6 +2911,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"GI"
 			]
@@ -2805,7 +2942,8 @@
 			"alignment": [
 				"N",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Khaspere Drylund",
@@ -2842,6 +2980,7 @@
 				"Dwarvish",
 				"Elvish"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"E"
@@ -2966,6 +3105,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -2989,7 +3129,8 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Klauth",
@@ -3027,14 +3168,14 @@
 			"wis": 15,
 			"cha": 23,
 			"save": {
-				"dex": "+7",
-				"con": "+16",
-				"wis": "+9",
-				"cha": "+13"
+				"dex": "+8",
+				"con": "+17",
+				"wis": "+10",
+				"cha": "+14"
 			},
 			"skill": {
 				"perception": "+16",
-				"stealth": "+7"
+				"stealth": "+8"
 			},
 			"senses": [
 				"blindsight 60 ft.",
@@ -3213,7 +3354,7 @@
 				{
 					"name": "Wing Attack (Costs 2 Actions)",
 					"entries": [
-						"Klauth beats his wings. Each creature within 15 ft. of Klauth must succeed on a {@dc 25} Dexterity saving throw or take 17 ({@damage 2d6 + 10}) bludgeoning damage and be knocked {@condition prone}. Klauth can then fly up to half his flying speed."
+						"Klauth beats his wings. Each creature within 15 feet of Klauth must succeed on a {@dc 25} Dexterity saving throw or take 17 ({@damage 2d6 + 10}) bludgeoning damage and be knocked {@condition prone}. Klauth can then fly up to half his flying speed."
 					]
 				}
 			],
@@ -3221,6 +3362,7 @@
 				"name": "Red Dragon",
 				"source": "MM"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -3250,7 +3392,25 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone"
+			],
+			"conditionInflictLegendary": [
+				"incapacitated",
+				"poisoned",
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"incapacitated",
+				"invisible",
+				"petrified",
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Knight of the Mithral Shield",
@@ -3300,6 +3460,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3355,7 +3516,6 @@
 			"languages": [
 				"Common"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "False Appearance",
@@ -3387,6 +3547,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"False Appearance"
 			],
@@ -3402,7 +3563,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Maegera the Dawn Titan",
@@ -3448,7 +3611,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"immune": [
@@ -3547,6 +3711,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Illumination",
 				"Magic Resistance"
@@ -3571,7 +3736,8 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Markham Southwell",
@@ -3621,7 +3787,6 @@
 			"languages": [
 				"Common"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Roleplaying Information",
@@ -3653,6 +3818,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3667,7 +3833,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Miros Xelbrin",
@@ -3712,7 +3880,6 @@
 			"languages": [
 				"Common"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Roleplaying Information",
@@ -3744,6 +3911,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			],
@@ -3755,7 +3923,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Mirran",
@@ -3789,6 +3959,7 @@
 				"perception": "+9",
 				"performance": "+9"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L",
@@ -3812,6 +3983,7 @@
 				"L",
 				"G"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3855,6 +4027,7 @@
 			"alignment": [
 				"N"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -3910,7 +4083,6 @@
 				"Common",
 				"Dwarvish"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Cunning Action",
@@ -3942,6 +4114,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"D"
@@ -3953,7 +4126,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Naxene Drathkala",
@@ -4006,7 +4181,6 @@
 				"Dwarvish",
 				"Elvish"
 			],
-			"cr": "0",
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
@@ -4067,6 +4241,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"D",
@@ -4081,7 +4256,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Nimir",
@@ -4118,9 +4295,10 @@
 			],
 			"skill": {
 				"athletics": "+14",
-				"insight": "+8",
+				"insight": "+9",
 				"perception": "+9"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L",
@@ -4144,6 +4322,12 @@
 					}
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"alignment": [
 				"C",
 				"E"
@@ -4156,6 +4340,7 @@
 				"Bothii",
 				"Common"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"OTH"
@@ -4193,6 +4378,7 @@
 				"perception": "+9",
 				"performance": "+9"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L",
@@ -4217,7 +4403,8 @@
 						}
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Oren Yogilvy",
@@ -4264,7 +4451,6 @@
 				"Common",
 				"Halfling"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Halfling Nimbleness",
@@ -4302,6 +4488,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"H"
@@ -4313,7 +4500,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Orlekto",
@@ -4353,6 +4542,7 @@
 				"deception": "+14",
 				"perception": "+9"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L",
@@ -4380,6 +4570,12 @@
 					}
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human"
+				]
+			},
 			"alignment": [
 				"C",
 				"N"
@@ -4389,6 +4585,7 @@
 				"Bothii",
 				"Common"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -4447,7 +4644,6 @@
 				"Common",
 				"Elvish"
 			],
-			"cr": "0",
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
@@ -4502,6 +4698,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Parry"
 			],
@@ -4517,7 +4714,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Pig",
@@ -4537,6 +4736,7 @@
 			"cr": "0",
 			"trait": null,
 			"action": null,
+			"hasToken": true,
 			"traitTags": [],
 			"miscTags": []
 		},
@@ -4637,6 +4837,7 @@
 					"ability": "int"
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"D",
@@ -4701,6 +4902,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"B",
 				"T"
@@ -4716,7 +4918,12 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"restrained"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Rool",
@@ -4743,6 +4950,7 @@
 				"N",
 				"E"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -4794,6 +5002,7 @@
 				"Common",
 				"Elvish"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Fey Ancestry"
@@ -4857,6 +5066,7 @@
 				"average": 200,
 				"formula": "20d12 + 100"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L"
@@ -4900,6 +5110,7 @@
 				"athletics": "+14",
 				"perception": "+9"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L",
@@ -4958,7 +5169,6 @@
 				"Common",
 				"Elvish"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Sneak Attack (1/Turn)",
@@ -4990,6 +5200,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -5005,7 +5216,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sharda",
@@ -5036,6 +5249,15 @@
 					]
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					{
+						"tag": "human",
+						"prefix": "Illuskan"
+					}
+				]
+			},
 			"alignment": [
 				"N",
 				"E"
@@ -5052,6 +5274,7 @@
 				"Common",
 				"Terran"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"T"
@@ -5092,6 +5315,7 @@
 				"walk": 30
 			},
 			"action": null,
+			"hasToken": true,
 			"traitTags": [],
 			"miscTags": []
 		},
@@ -5119,6 +5343,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -5139,7 +5364,7 @@
 			"source": "SKT",
 			"page": 78,
 			"_copy": {
-				"name": "Guard",
+				"name": "Noble",
 				"source": "MM",
 				"_trait": {
 					"name": "Mountain Dwarf",
@@ -5158,6 +5383,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -5223,7 +5449,6 @@
 			"languages": [
 				"Common"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Brave",
@@ -5255,6 +5480,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C"
 			],
@@ -5266,7 +5492,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sirac of Suzail",
@@ -5318,7 +5546,6 @@
 				"Common",
 				"Orc"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Roleplaying Information",
@@ -5352,6 +5579,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Parry"
 			],
@@ -5366,7 +5594,9 @@
 				"MW",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Slarkrethel",
@@ -5408,11 +5638,11 @@
 			"wis": 18,
 			"cha": 20,
 			"save": {
-				"str": "+17",
-				"dex": "+7",
-				"con": "+14",
-				"int": "+13",
-				"wis": "+11"
+				"str": "+18",
+				"dex": "+8",
+				"con": "+15",
+				"int": "+14",
+				"wis": "+12"
 			},
 			"senses": [
 				"truesight 120 ft."
@@ -5426,7 +5656,8 @@
 						"piercing",
 						"slashing"
 					],
-					"note": "from nonmagical attacks"
+					"note": "from nonmagical attacks",
+					"cond": true
 				}
 			],
 			"conditionImmune": [
@@ -5605,6 +5836,7 @@
 				"name": "Kraken",
 				"source": "MM"
 			},
+			"hasToken": true,
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances",
@@ -5640,7 +5872,24 @@
 				"AOE",
 				"MW",
 				"RCH"
-			]
+			],
+			"conditionInflict": [
+				"blinded",
+				"grappled",
+				"prone",
+				"restrained"
+			],
+			"conditionInflictSpell": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"invisible",
+				"petrified",
+				"restrained",
+				"unconscious"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Stone Giant Statue",
@@ -5665,6 +5914,7 @@
 			"languages": null,
 			"cr": "0",
 			"action": null,
+			"hasToken": true,
 			"actionTags": [],
 			"languageTags": [],
 			"miscTags": []
@@ -5685,7 +5935,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Tau",
@@ -5716,6 +5967,15 @@
 					]
 				}
 			},
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					{
+						"tag": "human",
+						"prefix": "Shou"
+					}
+				]
+			},
 			"alignment": [
 				"N",
 				"E"
@@ -5732,6 +5992,7 @@
 				"Common",
 				"Terran"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"T"
@@ -5848,6 +6109,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -5865,7 +6127,12 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "The Weevil",
@@ -5917,6 +6184,7 @@
 				"N",
 				"E"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -5956,7 +6224,8 @@
 			"alignment": [
 				"C",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Thunderbeast Skeleton",
@@ -5988,9 +6257,6 @@
 			"int": 2,
 			"wis": 12,
 			"cha": 5,
-			"save": {
-				"str": "+7"
-			},
 			"senses": [
 				"darkvision 60 ft."
 			],
@@ -6020,6 +6286,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -6030,6 +6297,9 @@
 			"miscTags": [
 				"MW",
 				"RCH"
+			],
+			"conditionInflict": [
+				"prone"
 			]
 		},
 		{
@@ -6082,7 +6352,7 @@
 				{
 					"name": "Detect Invisibility",
 					"entries": [
-						"Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight"
+						"Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight."
 					]
 				},
 				{
@@ -6113,6 +6383,7 @@
 				}
 			],
 			"familiar": true,
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -6128,7 +6399,9 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tug",
@@ -6146,7 +6419,8 @@
 						"{@item scale mail|phb}"
 					]
 				}
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Turlang",
@@ -6172,7 +6446,7 @@
 				{
 					"name": "Spellcasting",
 					"headerEntries": [
-						"Turlang is a 9th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 15}, {@hit 7} to hit with spell attacks). Turlang has the following wizard spells prepared:"
+						"Turlang is a 9th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 15}, {@hit 7} to hit with spell attacks). Turlang has the following druid spells prepared:"
 					],
 					"spells": {
 						"0": {
@@ -6223,8 +6497,9 @@
 					"ability": "wis"
 				}
 			],
+			"hasToken": true,
 			"spellcastingTags": [
-				"CW"
+				"CD"
 			]
 		},
 		{
@@ -6276,7 +6551,6 @@
 				"Common",
 				"Giant"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Giant Slayer",
@@ -6314,6 +6588,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -6328,7 +6603,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Uthgardt Barbarian Leader",
@@ -6378,6 +6655,7 @@
 				"Common",
 				"Elvish"
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"E",
@@ -6408,7 +6686,12 @@
 				"E"
 			],
 			"ac": [
-				13
+				{
+					"ac": 13,
+					"from": [
+						"{@item hide armor|phb}"
+					]
+				}
 			],
 			"hp": {
 				"average": 38,
@@ -6476,6 +6759,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"OTH"
@@ -6491,7 +6775,9 @@
 				"RNG",
 				"RW",
 				"THW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Vaal",
@@ -6509,7 +6795,8 @@
 						"flags": "i"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Vaasha",
@@ -6547,8 +6834,9 @@
 			"skill": {
 				"athletics": "+14",
 				"perception": "+9",
-				"survival": "+8"
+				"survival": "+9"
 			},
+			"hasToken": true,
 			"damageTags": [
 				"B",
 				"L",
@@ -6572,6 +6860,7 @@
 				"C",
 				"G"
 			],
+			"hasToken": true,
 			"senseTags": [
 				"D"
 			],
@@ -6608,6 +6897,7 @@
 				"Common",
 				"Elvish"
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Keen Senses"
@@ -6646,7 +6936,8 @@
 			"alignment": [
 				"L",
 				"E"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Yak",
@@ -6662,7 +6953,8 @@
 						"with": "yak"
 					}
 				}
-			}
+			},
+			"hasToken": true
 		},
 		{
 			"name": "Yakfolk Priest",
@@ -6785,6 +7077,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -6800,7 +7093,16 @@
 			],
 			"miscTags": [
 				"MW"
-			]
+			],
+			"conditionInflict": [
+				"incapacitated"
+			],
+			"conditionInflictSpell": [
+				"incapacitated",
+				"paralyzed",
+				"prone"
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Yakfolk Warrior",
@@ -6872,6 +7174,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -6887,7 +7190,12 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"incapacitated"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Young Cloud Giant",
@@ -6943,6 +7251,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -7009,6 +7318,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"languageTags": [
 				"C",
 				"GI"
@@ -7056,13 +7366,13 @@
 			"wis": 16,
 			"cha": 16,
 			"save": {
-				"con": "+10",
-				"wis": "+7",
-				"cha": "+7"
+				"con": "+11",
+				"wis": "+8",
+				"cha": "+8"
 			},
 			"skill": {
-				"insight": "+7",
-				"perception": "+7"
+				"insight": "+8",
+				"perception": "+8"
 			},
 			"passive": 17,
 			"languages": [
@@ -7096,7 +7406,7 @@
 					"ability": "cha"
 				},
 				{
-					"name": "Innate Spellcasting",
+					"name": "Spellcasting",
 					"headerEntries": [
 						"Zephyros is a 12th-level spellcaster. his spellcasting ability is Intelligence (spell save {@dc 17}; {@hit 11} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -7200,6 +7510,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -7222,7 +7533,17 @@
 				"MW",
 				"RCH",
 				"RW"
-			]
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"invisible",
+				"restrained"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Zi Liang",
@@ -7271,7 +7592,6 @@
 				"Elvish",
 				"Goblin"
 			],
-			"cr": "0",
 			"trait": [
 				{
 					"name": "Unarmored Defense",
@@ -7309,6 +7629,7 @@
 					]
 				}
 			],
+			"hasToken": true,
 			"actionTags": [
 				"Multiattack"
 			],
@@ -7324,7 +7645,9 @@
 				"MW",
 				"RNG",
 				"RW"
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

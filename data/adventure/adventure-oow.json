@@ -926,7 +926,7 @@
 											"name": "Treasure",
 											"id": "052",
 											"entries": [
-												"The bones and gear to the northeast are the remains of a group of adventurers who fell victim to the carrion crawler months ago. A backpack and a belt pouch hold 47 gp and a large polished red garnet worth 50 gp. Sticking out of the pile of bones is a {@item Longsword +1||+1 longsword}. The hilt of the sword is fashioned like a skeletal hand, and a skull-and-bones motif is prominent in the design of the weapon."
+												"The bones and gear to the northeast are the remains of a group of adventurers who fell victim to the carrion crawler months ago. A backpack and a belt pouch hold 47 gp and a large polished red garnet worth 50 gp. Sticking out of the pile of bones is a {@item +1 longsword}. The hilt of the sword is fashioned like a skeletal hand, and a skull-and-bones motif is prominent in the design of the weapon."
 											]
 										},
 										{
@@ -2703,13 +2703,13 @@
 											"entries": [
 												"The runes covering the walls keep the portal active. During combat, the characters notice these sigils continuing to pulse in sync with the portal and the gibbering mouther's blinking.",
 												"As an action, a character can attempt a DC 15 Intelligence ({@skill Arcana}) check to deactivate the runes or a DC 15 Dexterity ({@skill Sleight of Hand}) check to sabotage them. Any number of characters can attempt these checks, which can be made each round. All characters have advantage on these checks if someone succeeded on the check in area 7 or the characters examined the failed ritual there.",
-												"In each round that one or more characters succeed on the check, the gibbering mouther and the portal weaken, as follows:",
+												"In each round that one or more characters succeed on the check, the {@creature gibbering mouther} and the portal weaken, as follows:",
 												{
 													"type": "list",
 													"items": [
-														"{@b First Success}: The gibbering mouther deals half as much damage with its attacks.",
-														"{@b Second Success}: The gibbering mouther loses its Gibbering feature.",
-														"{@b Third Success}: The portal closes and the gibbering mouther dies."
+														"{@b First Success}: The {@creature gibbering mouther} deals half as much damage with its attacks.",
+														"{@b Second Success}: The {@creature gibbering mouther} loses its Gibbering feature.",
+														"{@b Third Success}: The portal closes and the {@creature gibbering mouther} dies."
 													]
 												}
 											]
@@ -2719,7 +2719,7 @@
 											"name": "Development",
 											"id": "105",
 											"entries": [
-												"If the portal isn't closed after 1 minute, a second gibbering mouther comes through. It suffers any consequences already in place for alterations to the runes."
+												"If the portal isn't closed after 1 minute, a second {@creature gibbering mouther} comes through. It suffers any consequences already in place for alterations to the runes."
 											]
 										}
 									]
@@ -3115,7 +3115,7 @@
 											"id": "12d",
 											"entries": [
 												"Moguhl and her bandits carry a total of 23 gp. The wererat also has a {@item spell scroll} of {@spell distort value|AI} (a new spell from chapter 3).",
-												"Moguhl's weapon {@item Piercer|AI} is a rare magic item that requires attunement. The sword is a {@item Shortsword +1||+1 shortsword}, and a character attuned to the sword regains the maximum possible number of hit points from expended Hit Dice. However, the attuned character must eat twice as much food each day (a minimum of 2 pounds) to avoid {@condition exhaustion} (see \"{@book The Environment|PHB|8|The Environment}\" in chapter 8 of the {@book Player's Handbook|PHB}.)"
+												"Moguhl's weapon {@item Piercer|AI} is a rare magic item that requires attunement. The sword is a {@item +1 shortsword}, and a character attuned to the sword regains the maximum possible number of hit points from expended Hit Dice. However, the attuned character must eat twice as much food each day (a minimum of 2 pounds) to avoid {@condition exhaustion} (see \"{@book The Environment|PHB|8|The Environment}\" in chapter 8 of the {@book Player's Handbook|PHB}.)"
 											]
 										}
 									]
@@ -3557,7 +3557,7 @@
 											"name": "Treasure",
 											"id": "158",
 											"entries": [
-												"In one of the chests that a ghoul emerged from, the characters find eleven pieces of black jasper worth 10 gp each. In the pockets of a cloak hanging in one of the wardrobes are a {@item potion of frost giant strength} and ten {@item Sling Bullet +2||+2 sling bullets}."
+												"In one of the chests that a ghoul emerged from, the characters find eleven pieces of black jasper worth 10 gp each. In the pockets of a cloak hanging in one of the wardrobes are a {@item potion of frost giant strength} and ten {@item +2 Sling Bullet||+2 sling bullets}."
 											]
 										}
 									]
@@ -5156,7 +5156,7 @@
 											"name": "Treasure",
 											"id": "1ee",
 											"entries": [
-												"In thanks, Torwyn and her crew offer the party a {@item wand of magic missiles}, a {@item Vicious Rapier +1|AI|+1 vicious rapier}, and a {@item rope of entanglement}. The rope is seemingly made of seaweed."
+												"In thanks, Torwyn and her crew offer the party a {@item wand of magic missiles}, a {@item Vicious +1 Rapier|AI|+1 vicious rapier}, and a {@item rope of entanglement}. The rope is seemingly made of seaweed."
 											]
 										}
 									]
@@ -5363,7 +5363,7 @@
 									"name": "Treasure",
 									"id": "1f8",
 									"entries": [
-										"In addition to the book, the study holds 30 pp, 150 gp, two pieces of pink coral (100 gp each), a small gold bracelet (50 gp), five {@item Arrow +2||+2 arrows} decorated with green flames, a {@item dagger of venom}, an {@item immovable rod}, and two {@item Potion of Greater Healing||potions of greater healing}. Bracus gifts all this to the characters if they save him, or they can loot it if things go the other way."
+										"In addition to the book, the study holds 30 pp, 150 gp, two pieces of pink coral (100 gp each), a small gold bracelet (50 gp), five {@item +2 Arrow||+2 arrows} decorated with green flames, a {@item dagger of venom}, an {@item immovable rod}, and two {@item Potion of Greater Healing||potions of greater healing}. Bracus gifts all this to the characters if they save him, or they can loot it if things go the other way."
 									]
 								},
 								{
@@ -5596,7 +5596,7 @@
 									"id": "210",
 									"entries": [
 										"The caravan is made up of three horse-drawn carriages and bears sixteen dwarves to Horn Enclave for a wedding that will unite the Dhargun and Thunderwind clans. Both dwarven families are quite different, with the Dharguns favoring commerce and the Thunderwinds dedicated to warfare. But the unlikely love between Gwendolyn Dhargun and Tannus Thunderwind has brought them together.",
-										"The reason for holding the wedding at Horn Enclave is that the caravan also bears valuable gifts provided by both families, which will be placed in a vault until Gwendolyn and Tannus complete their honeymoon and decide where they'll spend their lives as a couple. (The pressure from both families to choose one clan over the other is huge.) Gifts include furniture, art pieces, and other large items, along with adamantine bars worth 5,000 gp, a suit of {@item Mithral Half Plate Armor +1|AI|+1 mithral half plate} inscribed with the insignia of Dhargun Ironworks, and a {@item belt of dwarvenkind} bearing the insignia of the Thunderwind Clan."
+										"The reason for holding the wedding at Horn Enclave is that the caravan also bears valuable gifts provided by both families, which will be placed in a vault until Gwendolyn and Tannus complete their honeymoon and decide where they'll spend their lives as a couple. (The pressure from both families to choose one clan over the other is huge.) Gifts include furniture, art pieces, and other large items, along with adamantine bars worth 5,000 gp, a suit of {@item Mithral +1 Half Plate Armor|AI|+1 mithral half plate} inscribed with the insignia of Dhargun Ironworks, and a {@item belt of dwarvenkind} bearing the insignia of the Thunderwind Clan."
 									]
 								},
 								{
@@ -6615,7 +6615,7 @@
 											"name": "Questionable River",
 											"id": "279",
 											"entries": [
-												"The water of the river is thick and slow moving, glows a phosphorescent green, and smells awful. A successful DC 10 Wisdom ({@skill Medicine}) check indicates that the water has been contaminated by magic and has unusual side effects. Anyone drinking the water gains the {@condition poisoned} condition for 1 hour and has a 50 percent chance to spontaneously grow an extra head. The extra head can speak, see, and hear, but provides no mechanical benefits. It shrinks away to nothing after 1 hour."
+												"The water of the river is thick and slow moving, glows a phosphorescent green, and smells awful. A successful DC 10 Wisdom ({@skill Medicine}) check indicates that the water has been contaminated by magic and has unusual side effects. Anyone drinking the water gains the {@condition poisoned} condition for 1 hour and has a {@chance 50|50 percent} chance to spontaneously grow an extra head. The extra head can speak, see, and hear, but provides no mechanical benefits. It shrinks away to nothing after 1 hour."
 											]
 										}
 									]
@@ -7661,7 +7661,7 @@
 											"name": "Treasure",
 											"id": "2e2",
 											"entries": [
-												"In this reality, a small chest by the bed in the chuul room contains a {@item Rod of the Pact Keeper, +2||rod of the pact keeper +2}."
+												"In this reality, a small chest by the bed in the chuul room contains a {@item +2 Rod of the Pact Keeper||rod of the pact keeper +2}."
 											]
 										}
 									]
@@ -8393,11 +8393,11 @@
 											"rows": [
 												[
 													"1",
-													"Each goblin has advantage or disadvantage (50 percent chance) on attack rolls until the end of its next turn."
+													"Each goblin has advantage or disadvantage ({@chance 50|50 percent} chance) on attack rolls until the end of its next turn."
 												],
 												[
 													"2",
-													"Each character has advantage or disadvantage (50 percent chance) on attack rolls until the end of their next turn."
+													"Each character has advantage or disadvantage ({@chance 50|50 percent} chance) on attack rolls until the end of their next turn."
 												],
 												[
 													"3",

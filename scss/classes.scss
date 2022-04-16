@@ -1,4 +1,4 @@
-@import 'vars';
+@import "includes/vars";
 
 // region class
 .cls__ {
@@ -10,12 +10,13 @@
 		overflow: hidden;
 		max-height: 32px;
 		display: block;
+		word-spacing: 100vw;
 	}
 
 	&btn-toggle-sidebar {
 		cursor: pointer;
 		font-size: initial;
-		color: black;
+		color: $rgb-off-black;
 	}
 
 	// region buttons
@@ -121,6 +122,15 @@
 		}
 	}
 	// endregion
+
+	&variant-feature:not(.subclass-feature):not(.subclass-feature--sub) {
+		.rd__h--0,
+		.rd__h--1,
+		.rd__h--2 {
+			color: $rgb-class-variant;
+			border-bottom-color: $rgb-class-variant;
+		}
+	}
 }
 
 .night-mode .cls__ {
@@ -231,68 +241,20 @@
 		}
 	}
 	// endregion
+
+	&variant-feature:not(.subclass-feature):not(.subclass-feature--sub) {
+		.rd__h--0,
+		.rd__h--1,
+		.rd__h--2 {
+			color: $rgb-class-variant--night;
+			border-bottom-color: $rgb-class-variant--night;
+		}
+	}
 }
 // endregion
 
 // region class table
-.cls-tbl {
-	font-size: 0.8em;
-	background: #fdf1dc;
-
-	> tbody > tr > th {
-		color: black;
-		padding: 1px 0.2em;
-	}
-
-	&__ {
-		&disp-name {
-			font-size: 1.8em;
-			font-family: 'Andada', serif;
-			font-variant: small-caps;
-			font-weight: 500;
-			padding-left: 0.2em;
-			color: black;
-		}
-
-		&col-group {
-			text-align: center;
-
-			&::after {
-				position: relative;
-				bottom: 0;
-				left: 0;
-				margin: 0 auto;
-				padding: 0;
-				display: block;
-				content: '';
-				height: 1px;
-				width: 96%;
-				border-bottom: 1px solid black;
-			}
-		}
-
-		&col-level {
-			text-align: center;
-			width: 1.5em;
-		}
-
-		&col-prof-bonus {
-			text-align: center;
-			width: 1.5em;
-			padding: 1px 0.5em;
-		}
-
-		&col-generic-center {
-			text-align: center;
-			min-width: 1em;
-			max-width: 3.2em;
-		}
-
-		&stripe-odd:nth-child(odd) {
-			background: lightgrey;
-		}
-	}
-}
+@import "includes/classes-table";
 
 .night-mode {
 	.cls-tbl {
@@ -323,17 +285,16 @@
 .cls-side__ {
 	&name {
 		font-size: 1.8em;
-		font-family: 'Andada', serif;
+		font-family: "Andada", serif;
 		font-variant: small-caps;
 		font-weight: 500;
-		color: $rgb-name-red;
 	}
 
 	&btn-toggle {
 		cursor: pointer;
 		font-size: initial;
 		font-weight: initial;
-		color: black;
+		color: $rgb-off-black;
 	}
 
 	&section {
@@ -348,18 +309,10 @@
 		margin-top: 4px;
 		margin-bottom: 0;
 	}
-
-	&mc-prof-intro--requirements {
-		margin-top: 1.7em;
-	}
 }
 
 .night-mode {
 	.cls-side__ {
-		&name {
-			color: $rgb-name-red--night;
-		}
-
 		&btn-toggle {
 			color: $rgb-font--night;
 		}
@@ -437,7 +390,7 @@
 	&msg-no-content {
 		height: 40px;
 		color: $rgb-name-red;
-		font-family: 'Andada', serif;
+		font-family: "Andada", serif;
 		font-variant: small-caps;
 		font-weight: 500;
 		line-height: 2.3em;
@@ -509,6 +462,7 @@
 // region comparison view
 .cls-comp__wrp-features {
 	width: 400px;
+	max-width: calc(100vw - #{2 * $spacer});
 }
 // endregion
 
@@ -531,6 +485,35 @@
 		border-top-right-radius: 4px;
 		border-top-left-radius: 4px;
 	}
+
+	// region TODO are these used?
+	&btn-tab.active {
+		background: $rgb-active-blue;
+		color: white;
+	}
+
+	&btn-tab.active {
+		border-color: darken($rgb-active-blue, $pct-darken-border);
+	}
+
+	&btn-tab.active.spicy-sauce {
+		background: $rgb-subclass-ua;
+		color: white;
+	}
+
+	&btn-tab.active.spicy-sauce {
+		border-color: darken($rgb-subclass-ua, $pct-darken-border);
+	}
+
+	&btn-tab.active.refreshing-brew {
+		background: $rgb-class-brew;
+		color: white;
+	}
+
+	&btn-tab.active.refreshing-brew {
+		border-color: darken($rgb-class-brew, $pct-darken-border);
+	}
+	// endregion
 }
 
 .night-mode .cls-bkmv__ {
@@ -555,7 +538,7 @@
 	max-height: calc(100vh - 30px);
 	padding-right: 9px;
 	padding-left: 9px;
-	font-family: 'Andada', serif;
+	font-family: "Andada", serif;
 	font-variant: small-caps;
 	font-weight: 500;
 
@@ -576,12 +559,12 @@
 
 		&disp-toggle {
 			&::after {
-				content: ' [+]';
+				content: " [+]";
 				font-weight: initial;
 			}
 
 			&--active::after {
-				content: '[\2012]';
+				content: "[\2012]";
 				font-weight: initial;
 			}
 		}
@@ -596,12 +579,11 @@
 		}
 
 		&item {
+			@include overflow-dots();
+
 			cursor: pointer;
 			user-select: none;
 			max-height: 20px;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
 			color: $rgb-name-red;
 
 			&:hover {
@@ -610,10 +592,6 @@
 
 			&:active {
 				color: #e0e0e0;
-			}
-
-			&--spicy {
-				color: $rgb-class-ua;
 			}
 
 			&--sc-fresh {
@@ -636,6 +614,20 @@
 				color: $rgb-class-brew;
 			}
 
+			// region
+			// This takes precedence over others. Ideally, there should be a colour for "subclass variant feature," but
+			//   since those are so rare (e.g. Ranger's "Primal Companion"), this shall suffice. Additionally, this
+			//   matches the CSS rules of the renderer the closest. If we adjust this, we would have to then adjust
+			//   those.
+			&--spicy {
+				color: $rgb-class-ua;
+			}
+
+			&--variant-feature {
+				color: $rgb-class-variant;
+			}
+			// endregion
+
 			// Section name
 			&--depth-0 {
 				font-weight: bold;
@@ -646,7 +638,7 @@
 				padding-left: 10px;
 
 				&::before {
-					content: '\2022  ';
+					content: "\2022  ";
 				}
 			}
 		}
@@ -674,10 +666,6 @@
 			color: white;
 		}
 
-		&--spicy {
-			color: $rgb-class-ua--night;
-		}
-
 		&--sc-fresh {
 			color: $rgb-subclass--night;
 		}
@@ -697,6 +685,16 @@
 		&--sc-brew {
 			color: $rgb-class-brew--night;
 		}
+
+		// region (See day mode comments above)
+		&--spicy {
+			color: $rgb-class-ua--night;
+		}
+
+		&--variant-feature {
+			color: $rgb-class-variant--night;
+		}
+		// endregion
 	}
 }
 // endregion
